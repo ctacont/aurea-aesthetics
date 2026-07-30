@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="bg-[#0A0A0A] text-white">
       <div className="grid gap-14 px-6 py-20 lg:grid-cols-4 lg:px-12 lg:py-28">
         <div className="lg:col-span-1">
-          <img src={LOGO} alt="Aurea Aesthetics AG" className="h-8 w-auto brightness-0 invert" />
+          <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png" alt="Aurea Aesthetics AG" className="h-8 w-auto brightness-0 invert" />
           <p className="mt-7 max-w-xs text-sm leading-relaxed text-white/50">
             Praxis für ästhetische Medizin in {settings.district}. Individuell, präzise und natürlich.
           </p>
@@ -20,11 +20,11 @@ export default function Footer() {
         <div>
           <p className="eyebrow mb-6 text-[#C9AF80]">Behandlungen</p>
           <ul className="space-y-3 text-sm text-white/60">
-            {treatments.slice(0, 6).map((t) => (
-              <li key={t.id}>
+            {treatments.slice(0, 6).map((t) =>
+            <li key={t.id}>
                 <Link to={`/behandlungen/${t.slug}`} className="link-underline">{t.title_de}</Link>
               </li>
-            ))}
+            )}
           </ul>
         </div>
 
@@ -51,21 +51,21 @@ export default function Footer() {
             <div>
               <dt className="eyebrow text-white/35">Telefon</dt>
               <dd className="mt-1">
-                {settings.phone ? (
-                  <a href={`tel:${settings.phone.replace(/\s/g, '')}`} className="link-underline">{settings.phone}</a>
-                ) : (
-                  <span className="text-white/35">Auf Anfrage</span>
-                )}
+                {settings.phone ?
+                <a href={`tel:${settings.phone.replace(/\s/g, '')}`} className="link-underline">{settings.phone}</a> :
+
+                <span className="text-white/35">Auf Anfrage</span>
+                }
               </dd>
             </div>
             <div>
               <dt className="eyebrow text-white/35">E-Mail</dt>
               <dd className="mt-1">
-                {settings.email ? (
-                  <a href={`mailto:${settings.email}`} className="link-underline">{settings.email}</a>
-                ) : (
-                  <Link to="/kontakt-termin" className="link-underline">Kontaktformular</Link>
-                )}
+                {settings.email ?
+                <a href={`mailto:${settings.email}`} className="link-underline">{settings.email}</a> :
+
+                <Link to="/kontakt-termin" className="link-underline">Kontaktformular</Link>
+                }
               </dd>
             </div>
             <div>
@@ -92,6 +92,6 @@ export default function Footer() {
           <Link to="/datenschutz" className="link-underline">Datenschutz</Link>
         </nav>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
