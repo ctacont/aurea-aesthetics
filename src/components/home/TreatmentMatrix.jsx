@@ -24,7 +24,6 @@ export default function TreatmentMatrix({ treatments }) {
     const rail = railRef.current;
     if (!rail) return;
     drag.current = { down: true, moved: false, startX: e.clientX, scrollLeft: rail.scrollLeft, pointerId: e.pointerId };
-    rail.setPointerCapture?.(e.pointerId);
   };
 
   const onPointerMove = (e) => {
@@ -35,6 +34,7 @@ export default function TreatmentMatrix({ treatments }) {
     const dx = e.clientX - d.startX;
     if (!d.moved && Math.abs(dx) > 4) {
       d.moved = true;
+      rail.setPointerCapture?.(e.pointerId);
     }
     if (d.moved) {
       rail.scrollLeft = d.scrollLeft - dx;
