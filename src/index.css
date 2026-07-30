@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=DM+Sans:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -57,115 +57,130 @@
   }
 }
 
-/* ══ Prestige-Theme: Couture-Editorial, kühl, luftig ══
-   Eigene Typografie (Marcellus / Jost), Elfenbein-Weiß,
-   Salbei-Akzent statt Gold, Kapitälchen-Headlines.        */
+/* ══ Prestige-Theme: warme Sand-Editorial-Ästhetik (Eunoea) ══
+   Playfair Display / Inter, Sand- & Taupetöne, sanfte Radien,
+   gemischte Groß-/Kleinschreibung, warm-getonte Bilder.      */
 [data-theme='prestige'] {
-  --background: 40 20% 99%;
-  --card: 0 0% 100%;
-  --secondary: 40 14% 97%;
-  --muted: 40 14% 97%;
-  --border: 40 10% 90%;
-  --input: 40 10% 88%;
-  --accent: 120 6% 58%;
-  --ring: 120 6% 58%;
-  --radius: 0rem;
-  --font-heading: 'Marcellus', ui-serif, Georgia, serif;
-  --font-display: 'Marcellus', ui-serif, Georgia, serif;
-  --font-body: 'Jost', ui-sans-serif, system-ui, sans-serif;
+  --background: 36 27% 95%;
+  --foreground: 30 12% 14%;
+  --card: 36 30% 97%;
+  --card-foreground: 30 12% 14%;
+  --secondary: 34 24% 92%;
+  --muted: 34 24% 92%;
+  --muted-foreground: 30 8% 40%;
+  --primary: 28 14% 22%;
+  --primary-foreground: 36 30% 97%;
+  --border: 33 18% 86%;
+  --input: 33 18% 84%;
+  --accent: 30 22% 56%;
+  --ring: 30 22% 56%;
+  --radius: 0.75rem;
+  --font-heading: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-display: 'Playfair Display', ui-serif, Georgia, serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 [data-theme='prestige'] body {
   font-size: 1.0625rem;
-  line-height: 1.9;
+  line-height: 1.85;
   font-weight: 300;
-  letter-spacing: 0.015em;
+  letter-spacing: 0;
+  color: #2A2521;
 }
 
 [data-theme='prestige'] h1,
 [data-theme='prestige'] h2,
 [data-theme='prestige'] h3 {
   font-weight: 400;
-  letter-spacing: 0.06em;
-  line-height: 1.15;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.14;
+  text-transform: none;
 }
 
-[data-theme='prestige'] h1 { font-size: 1.05em; }
-[data-theme='prestige'] h4,
-[data-theme='prestige'] h5 { letter-spacing: 0.05em; }
+[data-theme='prestige'] h1 { font-size: 1.12em; }
+[data-theme='prestige'] h2 { font-size: 1.08em; }
 
 [data-theme='prestige'] .eyebrow {
-  letter-spacing: 0.42em;
-  font-weight: 300;
-  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  font-weight: 400;
+  font-size: 0.6875rem;
+  color: #8A7A66;
 }
 
-/* Akzentlinie der Eyebrows: Salbei, feiner */
+/* Eyebrow-Strich: warmes Taupe */
 [data-theme='prestige'] .eyebrow span:first-child {
-  background: #8C9A8E;
-  width: 2.5rem;
+  background: #B39C7D;
+  width: 1.75rem;
 }
 
-/* Creme-Flächen → Elfenbein / Papierweiß */
-[data-theme='prestige'] .bg-\[\#F8F6F3\] { background-color: #FCFCFA; }
-[data-theme='prestige'] .bg-\[\#F4F1EE\] { background-color: #FFFFFF; }
+/* Creme-Flächen → warmes Sand / Leinen */
+[data-theme='prestige'] .bg-\[\#F8F6F3\] { background-color: #F2ECE3; }
+[data-theme='prestige'] .bg-\[\#F4F1EE\] { background-color: #EDE5DA; }
 
-/* Raster feiner und kühler */
-[data-theme='prestige'] .border-\[\#E8E2D9\] { border-color: #ECEAE4; }
+/* Raster: warmes, weiches Sandbraun */
+[data-theme='prestige'] .border-\[\#E8E2D9\] { border-color: #DFD5C7; }
 
-/* Sehr großzügige Sektionsabstände */
+/* Großzügige Sektionsabstände */
 [data-theme='prestige'] section {
-  padding-top: 8.5rem;
-  padding-bottom: 8.5rem;
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
 }
 
 @media (min-width: 1024px) {
   [data-theme='prestige'] section {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 10.5rem;
+    padding-bottom: 10.5rem;
   }
 }
 
-/* Buttons: reine Haarlinien-Outlines, Kapitälchen, kein Fill */
+/* Buttons: weiche Pillen, dunkles Espresso-Fill */
 [data-theme='prestige'] .bg-\[\#C9AF80\] {
-  background-color: transparent !important;
-  color: #3A3F39 !important;
-  border: 1px solid #8C9A8E;
-  letter-spacing: 0.3em;
-  transition: background-color 0.6s, color 0.6s;
+  background-color: #2E2823 !important;
+  color: #F7F2EA !important;
+  border-radius: 9999px;
+  letter-spacing: 0.1em;
+  transition: background-color 0.5s, color 0.5s;
 }
 
 [data-theme='prestige'] .bg-\[\#C9AF80\]:hover {
-  background-color: #3A3F39 !important;
-  color: #FFFFFF !important;
-  border-color: #3A3F39;
+  background-color: #4E4338 !important;
 }
 
-/* Gold-Akzenttexte → Salbei */
+/* Sekundäre Outline-Buttons ebenfalls als Pille */
+[data-theme='prestige'] .border-white\/35,
+[data-theme='prestige'] .border-white\/45 {
+  border-radius: 9999px;
+}
+
+/* Gold-Akzenttexte → warmes Taupe */
 [data-theme='prestige'] .text-\[\#C9AF80\],
-[data-theme='prestige'] .text-\[\#E7D3AA\] { color: #7E8D80 !important; }
+[data-theme='prestige'] .text-\[\#E7D3AA\] { color: #B39C7D !important; }
 
 [data-theme='prestige'] .bg-\[\#C9AF80\]\/30,
-[data-theme='prestige'] .bg-\[\#C9AF80\]\/40 { background-color: rgba(140, 154, 142, 0.4) !important; }
+[data-theme='prestige'] .bg-\[\#C9AF80\]\/40 { background-color: rgba(179, 156, 125, 0.4) !important; }
 
-/* Navbar: papierweiß mit haarfeiner Salbei-Unterlinie */
+/* Navbar: warmes Leinen, weiche Kante */
 [data-theme='prestige'] header.bg-black\/50 {
-  background-color: rgba(255, 255, 255, 0.94) !important;
-  border-bottom-color: #C8D0C7 !important;
+  background-color: rgba(242, 236, 227, 0.92) !important;
+  border-bottom-color: #DFD5C7 !important;
   box-shadow: none !important;
 }
 
 [data-theme='prestige'] header.bg-black\/50 nav a,
 [data-theme='prestige'] header.bg-black\/50 .text-white {
-  color: #24261F;
+  color: #2A2521;
 }
 
 [data-theme='prestige'] header.bg-black\/50 img { filter: none; }
 
-/* Bilder: leichter Entsättigungs-Editorial-Look */
+/* Bilder: weiche Radien und warmer Sepia-Ton */
 [data-theme='prestige'] section img {
-  filter: saturate(0.88) contrast(1.03);
+  filter: sepia(0.12) saturate(0.94) contrast(1.02);
+}
+
+[data-theme='prestige'] section .relative > img,
+[data-theme='prestige'] section span > img {
+  border-radius: 1rem;
 }
 
 @layer base {
