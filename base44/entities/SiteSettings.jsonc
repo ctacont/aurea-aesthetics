@@ -1,0 +1,53 @@
+{
+  "name": "SiteSettings",
+  "type": "object",
+  "properties": {
+    "coming_soon_mode": {
+      "type": "boolean",
+      "default": false,
+      "description": "Coming-Soon-Modus aktivieren"
+    },
+    "practice_name": {
+      "type": "string",
+      "default": "Aurea Aesthetics AG"
+    },
+    "street": {
+      "type": "string",
+      "default": "T\u00f6distrasse 1"
+    },
+    "postal_code": {
+      "type": "string",
+      "default": "8002"
+    },
+    "city": {
+      "type": "string",
+      "default": "Z\u00fcrich"
+    },
+    "district": {
+      "type": "string",
+      "default": "Z\u00fcrich Enge"
+    },
+    "phone": {
+      "type": "string",
+      "description": "PLATZHALTER \u2014 noch nicht best\u00e4tigt"
+    },
+    "email": {
+      "type": "string",
+      "description": "PLATZHALTER \u2014 noch nicht best\u00e4tigt"
+    },
+    "opening_hours": {
+      "type": "string",
+      "description": "PLATZHALTER \u2014 noch nicht best\u00e4tigt"
+    },
+    "booking_url": {
+      "type": "string",
+      "default": ""
+    },
+    "instagram_url": {
+      "type": "string"
+    },
+    "linkedin_url": {
+      "type": "string"
+    }
+  }
+}

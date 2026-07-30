@@ -1,0 +1,107 @@
+import React, { useEffect, useState } from 'react';
+import { base44 } from '@/api/base44Client';
+import { useQueryClient } from '@tanstack/react-query';
+import { useSettings } from '@/lib/useSite';
+import { Switch } from '@/components/ui/switch';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+import Seo from '@/components/Seo';
+
+const FIELDS = [
+  { key: 'phone', label: 'Telefon', hint: 'Platzhalter — noch nicht bestätigt' },
+  { key: 'email', label: 'E-Mail', hint: 'Platzhalter — noch nicht bestätigt' },
+  { key: 'booking_url', label: 'Buchungs-URL (meta-esthetics.net)', hint: 'Optional' },
+];
+
+export default function Admin() {
+  const { raw, settings } = useSettings();
+  const qc = useQueryClient();
+  const [form, setForm] = useState(settings);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  useEffect(() => setForm(settings), [raw]);
+
+  const set = (k, v) => { setForm((f) => ({ ...f, [k]: v })); setSaved(false); };
+
+  const save = async () => {
+    setSaving(true);
+    const payload = {
+      coming_soon_mode: !!form.coming_soon_mode,
+      practice_name: form.practice_name || '',
+      street: form.street || '',
+      postal_code: form.postal_code || '',
+      city: form.city || '',
+      district: form.district || '',
+      phone: form.phone || '',
+      email: form.email || '',
+      opening_hours: form.opening_hours || '',
+      booking_url: form.booking_url || '',
+    };
+    if (raw?.id) await base44.entities.SiteSettings.update(raw.id, payload);
+    else await base44.entities.SiteSettings.create(payload);
+    await qc.invalidateQueries({ queryKey: ['site-settings'] });
+    setSaving(false);
+    setSaved(true);
+  };
+
+  return (
+    <>
+      <Seo title="Einstellungen | Aurea Aesthetics" noindex path="/admin" />
+      <div className="mx-auto max-w-3xl px-6 pt-40 pb-28 lg:px-12">
+        <p className="eyebrow text-[#8A7550]">Verwaltung</p>
+        <h1 className="mt-6 font-heading text-4xl font-light">Website-Einstellungen</h1>
+
+        <div className="mt-14 flex items-start justify-between gap-8 border-y border-neutral-300 py-8">
+          <div>
+            <p className="font-heading text-2xl font-light">Coming-Soon-Modus</p>
+            <p className="mt-2 max-w-md text-sm text-neutral-500">
+              Wenn aktiv, sehen Besucher ausschliesslich die Vorankündigungsseite. Mit
+              <code className="mx-1 text-[#8A7550]">?preview=1</code> bleibt die vollständige Website für Sie sichtbar.
+            </p>
+          </div>
+          <Switch
+            checked={!!form.coming_soon_mode}
+            onCheckedChange={(v) => set('coming_soon_mode', v)}
+            aria-label="Coming-Soon-Modus"
+          />
+        </div>
+
+        <div className="mt-12 grid gap-8 sm:grid-cols-2">
+          {['practice_name', 'street', 'postal_code', 'city', 'district'].map((k) => (
+            <div key={k}>
+              <Label className="eyebrow text-neutral-400">{k}</Label>
+              <Input className="mt-2" value={form[k] || ''} onChange={(e) => set(k, e.target.value)} />
+            </div>
+          ))}
+          {FIELDS.map((f) => (
+            <div key={f.key}>
+              <Label className="eyebrow text-neutral-400">{f.label}</Label>
+              <Input className="mt-2" value={form[f.key] || ''} onChange={(e) => set(f.key, e.target.value)} />
+              <p className="mt-2 text-xs text-neutral-400">{f.hint}</p>
+            </div>
+          ))}
+          <div className="sm:col-span-2">
+            <Label className="eyebrow text-neutral-400">Öffnungszeiten / Erreichbarkeit</Label>
+            <Textarea
+              className="mt-2"
+              rows={3}
+              value={form.opening_hours || ''}
+              onChange={(e) => set('opening_hours', e.target.value)}
+            />
+            <p className="mt-2 text-xs text-neutral-400">Platzhalter — noch nicht bestätigt</p>
+          </div>
+        </div>
+
+        <div className="mt-12 flex items-center gap-6">
+          <Button onClick={save} disabled={saving} className="rounded-none px-10 py-6">
+            {saving ? 'Wird gespeichert' : 'Speichern'}
+          </Button>
+          {saved && <span className="eyebrow text-[#8A7550]">Gespeichert</span>}
+        </div>
+      </div>
+    </>
+  );
+}

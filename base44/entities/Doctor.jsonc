@@ -1,0 +1,42 @@
+{
+  "name": "Doctor",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "description": "z.B. Dr. med."
+    },
+    "specialty": {
+      "type": "string"
+    },
+    "bio_de": {
+      "type": "string"
+    },
+    "bio_en": {
+      "type": "string"
+    },
+    "qualifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "photo_url": {
+      "type": "string"
+    },
+    "is_placeholder": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

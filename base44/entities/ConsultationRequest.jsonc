@@ -1,0 +1,50 @@
+{
+  "name": "ConsultationRequest",
+  "type": "object",
+  "properties": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "preferred_language": {
+      "type": "string",
+      "enum": [
+        "de",
+        "en"
+      ],
+      "default": "de"
+    },
+    "treatment_interest": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "consent": {
+      "type": "boolean",
+      "default": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "neu",
+        "kontaktiert",
+        "abgeschlossen"
+      ],
+      "default": "neu"
+    }
+  },
+  "required": [
+    "first_name",
+    "last_name",
+    "email"
+  ]
+}

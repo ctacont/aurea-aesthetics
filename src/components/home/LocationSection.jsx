@@ -1,0 +1,73 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Image } from '@/components/ui/image';
+import Eyebrow from '@/components/Eyebrow';
+import Reveal from '@/components/Reveal';
+import { IMAGES, GEO_AREAS } from '@/lib/site';
+
+export default function LocationSection({ settings }) {
+  return (
+    <section className="grid lg:grid-cols-2">
+      <Reveal className="order-2 lg:order-1">
+        <div className="relative h-[46svh] w-full lg:h-full lg:min-h-[42rem]">
+          <Image
+            src={IMAGES.zurich}
+            alt="Zürich Enge und Zürichsee im Morgenlicht"
+            className="h-full w-full"
+            fittingType="fill"
+          />
+        </div>
+      </Reveal>
+
+      <div className="order-1 flex flex-col justify-center bg-[#F4F1EE] px-6 py-24 lg:order-2 lg:px-16 lg:py-32">
+        <Reveal><Eyebrow>Standort</Eyebrow></Reveal>
+        <Reveal delay={80}>
+          <h2 className="mt-7 max-w-lg font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
+            {settings.street},
+            <span className="italic text-[#8A7550]"> {settings.district}.</span>
+          </h2>
+        </Reveal>
+        <Reveal delay={140}>
+          <p className="mt-8 max-w-lg text-[0.98rem] leading-relaxed text-neutral-600">
+            Unsere Praxis liegt an der {settings.street} in {settings.postal_code} {settings.city} —
+            im Quartier Enge, wenige Minuten vom Bahnhof Enge und vom Zürichsee entfernt.
+            Ein ruhiger, zentraler Standort mit exzellenter Anbindung an Tram, S-Bahn und Seestrasse.
+          </p>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2">
+            <div>
+              <p className="eyebrow text-[#8A7550]">Anfahrt</p>
+              <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                Bahnhof Zürich Enge in Gehdistanz. Tramhaltestellen an der Seestrasse.
+                Parkmöglichkeiten in der Umgebung.
+              </p>
+            </div>
+            <div>
+              <p className="eyebrow text-[#8A7550]">Termine</p>
+              <p className="mt-3 text-sm leading-relaxed text-neutral-600">
+                {settings.opening_hours || 'Ausschliesslich nach persönlicher Vereinbarung.'}
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={260}>
+          <div className="mt-12 border-t border-neutral-300 pt-8">
+            <p className="eyebrow text-neutral-400">Einzugsgebiet</p>
+            <p className="mt-4 max-w-lg text-xs leading-relaxed text-neutral-500">
+              {GEO_AREAS.join(' · ')}
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={320}>
+          <Link to="/standort-zuerich-enge" className="mt-10 inline-block eyebrow link-underline">
+            Standort und Anfahrt
+          </Link>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

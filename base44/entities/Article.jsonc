@@ -1,0 +1,36 @@
+{
+  "name": "Article",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "title_de": {
+      "type": "string"
+    },
+    "excerpt_de": {
+      "type": "string"
+    },
+    "body_de": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "medical_reviewer": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean",
+      "default": false
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "slug",
+    "title_de"
+  ]
+}

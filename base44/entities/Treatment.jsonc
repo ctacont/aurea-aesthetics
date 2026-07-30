@@ -1,0 +1,116 @@
+{
+  "name": "Treatment",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "title_de": {
+      "type": "string"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "injektion",
+        "haut",
+        "biostimulation",
+        "beratung"
+      ],
+      "default": "injektion"
+    },
+    "meta_title_de": {
+      "type": "string"
+    },
+    "meta_description_de": {
+      "type": "string"
+    },
+    "lead_de": {
+      "type": "string",
+      "description": "Einleitender Absatz"
+    },
+    "lead_en": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "detail_image_url": {
+      "type": "string"
+    },
+    "indications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mechanism_de": {
+      "type": "string",
+      "description": "Wirkweise"
+    },
+    "procedure_de": {
+      "type": "string",
+      "description": "Ablauf der Behandlung"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "downtime": {
+      "type": "string"
+    },
+    "results_onset": {
+      "type": "string"
+    },
+    "results_duration": {
+      "type": "string"
+    },
+    "aftercare_de": {
+      "type": "string"
+    },
+    "risks_de": {
+      "type": "string"
+    },
+    "contraindications_de": {
+      "type": "string"
+    },
+    "price_from": {
+      "type": "string",
+      "description": "PLATZHALTER"
+    },
+    "faqs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "medical_reviewer": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean",
+      "default": true
+    },
+    "priority": {
+      "type": "number",
+      "default": 1
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "slug",
+    "title_de"
+  ]
+}
