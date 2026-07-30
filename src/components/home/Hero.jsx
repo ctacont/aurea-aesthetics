@@ -15,7 +15,7 @@ export default function Hero({ settings }) {
           <Image
             src={settings.hero_image_url || IMAGES.hero}
             alt="Ruhiger Moment — ästhetische Medizin in Zürich Enge"
-            className="h-full w-full"
+            className="h-full w-full object-cover"
             fittingType="fill"
             focalPointX={0.88}
             focalPointY={0.42} />
