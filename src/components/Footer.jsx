@@ -36,6 +36,8 @@ export default function Footer() {
             <li><Link to="/standort-zuerich-enge" className="link-underline">Standort Zürich Enge</Link></li>
             <li><Link to="/faq" className="link-underline">Häufige Fragen</Link></li>
             <li><Link to="/kontakt-termin" className="link-underline">Kontakt & Termin</Link></li>
+            <li><Link to="/impressum" className="link-underline">Impressum</Link></li>
+            <li><Link to="/datenschutz" className="link-underline">Datenschutz</Link></li>
           </ul>
         </div>
 
@@ -87,10 +89,10 @@ export default function Footer() {
 
       <div className="flex flex-col gap-4 border-t border-white/10 px-6 py-7 text-xs text-white/35 lg:flex-row lg:items-center lg:justify-between lg:px-12">
         <p>© {new Date().getFullYear()} {settings.practice_name}. Alle Rechte vorbehalten.</p>
-        <nav className="flex gap-6" aria-label="Rechtliches">
-          <Link to="/impressum" className="link-underline">Impressum</Link>
-          <Link to="/datenschutz" className="link-underline">Datenschutz</Link>
-        </nav>
+        <p>
+          Design und Entwicklung von{' '}
+          <a href="https://brandtiger.de/" target="_blank" rel="noopener noreferrer" className="link-underline text-white/60">Brandtiger.de</a>
+        </p>
       </div>
     </footer>);
 
