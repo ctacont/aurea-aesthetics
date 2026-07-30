@@ -29,7 +29,7 @@ export default function ComingSoon({ settings }) {
         </Eyebrow>
         <h1 className="mt-8 max-w-2xl font-heading text-4xl font-light leading-[1.15] md:text-6xl">
           Ästhetische Medizin in Zürich.
-          <span className="block italic text-[#C9AF80]">In Vorbereitung.</span>
+          <span className="block text-[#C9AF80]">In Vorbereitung.</span>
         </h1>
         <p className="mt-8 max-w-lg text-sm leading-relaxed text-white/55">
           Wir eröffnen eine Praxis für ästhetische Medizin an der {settings.street} in {settings.district} —

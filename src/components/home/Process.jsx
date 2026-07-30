@@ -15,7 +15,7 @@ export default function Process() {
         <Reveal delay={80}>
           <h2 className="mt-7 max-w-2xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             Vier Schritte —
-            <span className="italic text-[#8A7550]"> ohne Zeitdruck.</span>
+            <span className="text-[#8A7550]"> ohne Zeitdruck.</span>
           </h2>
         </Reveal>
 

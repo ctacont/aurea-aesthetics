@@ -67,7 +67,7 @@ export default function TreatmentMatrix({ treatments }) {
             <Reveal delay={80}>
               <h2 className="mt-7 max-w-2xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
                 Individuell geplant.
-                <span className="italic text-[#8A7550]"> Natürlich verfeinert.</span>
+                <span className="text-[#8A7550]"> Natürlich verfeinert.</span>
               </h2>
             </Reveal>
           </div>

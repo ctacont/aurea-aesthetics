@@ -24,7 +24,7 @@ export default function LocationSection({ settings }) {
         <Reveal delay={80}>
           <h2 className="mt-7 max-w-lg font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {settings.street},
-            <span className="italic text-[#8A7550]"> {settings.district}.</span>
+            <span className="text-[#8A7550]"> {settings.district}.</span>
           </h2>
         </Reveal>
         <Reveal delay={140}>
