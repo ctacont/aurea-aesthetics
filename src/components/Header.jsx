@@ -51,7 +51,7 @@ export default function Header() {
                 <Link
                 to={n.path}
                 className={`eyebrow link-underline transition-colors ${
-                pathname.startsWith(n.path) ? 'text-[#E7D3AA]' : 'text-white hover:text-[#E7D3AA]'}`
+                pathname.startsWith(n.path) ? 'is-active text-[#E7D3AA]' : 'text-white hover:text-[#E7D3AA]'}`
                 }>
                 
                   {n.label}

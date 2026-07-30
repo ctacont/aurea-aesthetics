@@ -132,7 +132,8 @@
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .link-underline:hover::after {
+  .link-underline:hover::after,
+  .link-underline.is-active::after {
     transform: scaleX(1);
   }
 
