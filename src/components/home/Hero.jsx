@@ -10,16 +10,16 @@ export default function Hero({ settings }) {
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="absolute left-[-250px] top-0 h-full w-[calc(100%+250px)]"
-          style={{ transform: 'translateX(250px)' }}
-        >
+          style={{ transform: 'translateX(250px)' }}>
+          
           <Image
             src={IMAGES.hero}
             alt="Ruhiger Moment — ästhetische Medizin in Zürich Enge"
             className="h-full w-full"
             fittingType="fill"
             focalPointX={0.88}
-            focalPointY={0.42}
-          />
+            focalPointY={0.42} />
+          
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/45 via-[#0A0A0A]/15 to-transparent" />
       </div>
@@ -27,9 +27,9 @@ export default function Hero({ settings }) {
       <div className="relative flex w-full items-end px-6 pb-20 pt-44 lg:px-16 lg:pb-28 lg:pt-52">
         
         {/*  
-             <div className="border border-white/15 bg-white/[0.08] text-left text-white shadow-[0_32px_80px_rgba(0,0,0,0.35)] backdrop-blur-lg backdrop-saturate-150 px-8 py-6 lg:px-14 lg:py-9 max-w-xl">
-             */}
-        <div className="border border-white/10 bg-white/[0.06] px-10 py-7 text-left text-white rounded-3xl shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-200 max-w-[974px] lg:-translate-x-[50px] bg-white/[0.06] py-6 px-6 lg:py-6 lg:px-6">
+              <div className="border border-white/15 bg-white/[0.08] text-left text-white shadow-[0_32px_80px_rgba(0,0,0,0.35)] backdrop-blur-lg backdrop-saturate-150 px-8 py-6 lg:px-14 lg:py-9 max-w-xl">
+              */}
+        <div className="border border-white/10 bg-white/[0.06] px-10 py-7 text-left text-white rounded-3xl shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-200 max-w-[974px] bg-white/[0.06] py-6 px-6 lg:py-6 lg:px-6 lg:-translate-x-[20px]">
           <Eyebrow tone="light">
             {settings.practice_name} · {settings.district}
           </Eyebrow>
