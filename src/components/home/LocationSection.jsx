@@ -54,7 +54,7 @@ export default function LocationSection({ settings }) {
         </Reveal>
 
         <Reveal delay={260}>
-          <div className="mt-12 border-t border-neutral-300 pt-8">
+          <div className="mt-12 border-t border-[#E8E2D9] pt-8">
             <p className="eyebrow text-neutral-400">Einzugsgebiet</p>
             <p className="mt-4 max-w-lg text-xs leading-relaxed text-neutral-500">
               {GEO_AREAS.join(' · ')}

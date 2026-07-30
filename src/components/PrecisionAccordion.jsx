@@ -6,13 +6,13 @@ export default function PrecisionAccordion({ items, reviewer, tone = 'dark' }) {
   const light = tone === 'light';
 
   return (
-    <div className={light ? 'border-t border-white/10' : 'border-t border-neutral-300'}>
+    <div className={light ? 'border-t border-white/10' : 'border-t border-[#E8E2D9]'}>
       {items.map((item, i) => {
         const q = item.q || item.question;
         const a = item.a || item.answer;
         const isOpen = open === i;
         return (
-          <div key={q} className={light ? 'border-b border-white/10' : 'border-b border-neutral-300'}>
+          <div key={q} className={light ? 'border-b border-white/10' : 'border-b border-[#E8E2D9]'}>
             <h3>
               <button
                 onClick={() => setOpen(isOpen ? null : i)}

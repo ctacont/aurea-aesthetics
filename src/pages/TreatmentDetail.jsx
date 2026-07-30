@@ -23,18 +23,18 @@ export default function TreatmentDetail() {
 
   if (isLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0A0A0A]">
-        <div className="h-6 w-6 animate-spin rounded-full border border-white/20 border-t-[#C9AF80]" />
+      <div className="flex min-h-screen items-center justify-center bg-background">
+        <div className="h-6 w-6 animate-spin rounded-full border border-[#E8E2D9] border-t-[#C9AF80]" />
       </div>
     );
   }
 
   if (!t) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center bg-[#0A0A0A] px-6 text-center text-white">
+      <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
         <Seo title="Behandlung nicht gefunden" noindex path={`/behandlungen/${slug}`} />
         <h1 className="font-heading text-4xl font-light">Behandlung nicht gefunden</h1>
-        <Link to="/behandlungen" className="mt-8 eyebrow text-[#C9AF80] link-underline">
+        <Link to="/behandlungen" className="mt-8 eyebrow text-[#8A7550] link-underline">
           Zur Behandlungsübersicht
         </Link>
       </div>
@@ -80,7 +80,7 @@ export default function TreatmentDetail() {
             <Reveal delay={100} className="lg:col-span-8">
               <ul className="grid gap-5 sm:grid-cols-2">
                 {t.indications.map((ind) => (
-                  <li key={ind} className="flex gap-4 border-b border-neutral-300 pb-5 text-[0.98rem] leading-relaxed text-neutral-700">
+                  <li key={ind} className="flex gap-4 border-b border-[#E8E2D9] pb-5 text-[0.98rem] leading-relaxed text-neutral-700">
                     <span className="mt-3 h-px w-5 shrink-0 bg-[#C9AF80]" aria-hidden="true" />
                     {ind}
                   </li>
@@ -132,7 +132,7 @@ export default function TreatmentDetail() {
             )}
             <div className="lg:col-span-2">
               <Reveal delay={160}>
-                <p className="border-t border-neutral-300 pt-8 text-xs leading-relaxed text-neutral-500">
+                <p className="border-t border-[#E8E2D9] pt-8 text-xs leading-relaxed text-neutral-500">
                   Diese Informationen dienen der allgemeinen Aufklärung und ersetzen kein persönliches
                   Arztgespräch. Ob eine Behandlung für Sie geeignet ist, wird ausschliesslich im Rahmen
                   einer individuellen medizinischen Beratung festgestellt.
@@ -179,7 +179,7 @@ export default function TreatmentDetail() {
 
       <CtaBand
         settings={settings}
-        title={<>Beratung zu <span className="italic text-[#C9AF80]">{t.title_de}</span></>}
+        title={<>Beratung zu <span className="italic text-[#8A7550]">{t.title_de}</span></>}
         text="Ob und in welchem Umfang diese Behandlung für Sie geeignet ist, klären wir in einem persönlichen Gespräch in Zürich Enge."
       />
     </>

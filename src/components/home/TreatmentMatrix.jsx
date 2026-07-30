@@ -37,14 +37,14 @@ export default function TreatmentMatrix({ treatments }) {
               <button
                 onClick={() => scrollBy(-1)}
                 aria-label="Vorherige Behandlungen"
-                className="flex h-11 w-11 items-center justify-center border border-neutral-300 transition-colors hover:border-[#C9AF80] hover:bg-[#C9AF80]"
+                className="flex h-11 w-11 items-center justify-center border border-[#E8E2D9] transition-colors hover:border-[#C9AF80] hover:bg-[#C9AF80]"
               >
                 <ArrowLeft className="h-4 w-4" strokeWidth={1} />
               </button>
               <button
                 onClick={() => scrollBy(1)}
                 aria-label="Weitere Behandlungen"
-                className="flex h-11 w-11 items-center justify-center border border-neutral-300 transition-colors hover:border-[#C9AF80] hover:bg-[#C9AF80]"
+                className="flex h-11 w-11 items-center justify-center border border-[#E8E2D9] transition-colors hover:border-[#C9AF80] hover:bg-[#C9AF80]"
               >
                 <ArrowRight className="h-4 w-4" strokeWidth={1} />
               </button>

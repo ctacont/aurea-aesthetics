@@ -18,8 +18,8 @@ export default function Process() {
         <ol className="mt-20 space-y-px">
           {PROCESS.map((s, i) => (
             <Reveal key={s.n} delay={i * 90}>
-              <li className="group grid gap-4 border-t border-neutral-300 py-10 md:grid-cols-12 md:gap-8 md:py-12">
-                <span className="font-heading text-3xl font-light text-[#C9AF80] md:col-span-2">
+              <li className="group grid gap-4 border-t border-[#E8E2D9] py-10 md:grid-cols-12 md:gap-8 md:py-12">
+                <span className="font-heading text-3xl font-light text-[#8A7550] md:col-span-2">
                   {s.n}
                 </span>
                 <h3 className="font-heading text-2xl font-light md:col-span-4 md:text-3xl">
@@ -32,7 +32,7 @@ export default function Process() {
             </Reveal>
           ))}
         </ol>
-        <div className="border-t border-neutral-300" />
+        <div className="border-t border-[#E8E2D9]" />
       </div>
     </section>
   );

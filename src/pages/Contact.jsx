@@ -54,7 +54,7 @@ export default function Contact() {
                   Schweiz
                 </address>
 
-                <dl className="mt-10 space-y-7 border-t border-neutral-300 pt-8">
+                <dl className="mt-10 space-y-7 border-t border-[#E8E2D9] pt-8">
                   <div>
                     <dt className="eyebrow text-neutral-400">Telefon</dt>
                     <dd className="mt-2 text-[0.98rem]">
@@ -94,7 +94,7 @@ export default function Contact() {
                   </a>
                 )}
 
-                <p className="mt-10 border-t border-neutral-300 pt-6 text-xs leading-relaxed text-neutral-500">
+                <p className="mt-10 border-t border-[#E8E2D9] pt-6 text-xs leading-relaxed text-neutral-500">
                   Ihre Angaben werden vertraulich und nach schweizerischem Datenschutzrecht
                   verarbeitet. Bitte senden Sie keine medizinischen Befunde über dieses Formular.
                 </p>

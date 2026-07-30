@@ -48,7 +48,7 @@ export default function Treatments() {
             return (
               <section key={g.key}>
                 <Reveal>
-                  <div className="border-t border-neutral-300 pt-8">
+                  <div className="border-t border-[#E8E2D9] pt-8">
                     <p className="eyebrow text-[#8A7550]">{g.label}</p>
                     <p className="mt-4 max-w-xl text-[0.95rem] leading-relaxed text-neutral-600">
                       {g.text}
