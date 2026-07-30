@@ -2,15 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const base =
-  'group relative inline-flex items-center justify-center overflow-hidden border px-8 py-4 eyebrow transition-colors duration-500';
+  'group relative inline-flex items-center justify-center px-8 py-4 eyebrow transition-colors duration-500';
 
 const tones = {
-  light: 'border-white/30 text-white hover:text-[#0A0A0A]',
-  dark: 'border-[#0A0A0A]/25 text-[#0A0A0A] hover:text-[#0A0A0A]',
+  primary: 'bg-[#C9AF80] text-[#0A0A0A] hover:bg-[#D4BC93]',
+  outline: 'border border-white/50 text-white/85 hover:border-white hover:text-white',
+  // Legacy aliases — keep fill animation for backward compatibility
+  light: 'border border-white/30 text-white hover:text-[#0A0A0A] overflow-hidden',
+  dark: 'border border-[#0A0A0A]/25 text-[#0A0A0A] hover:text-[#0A0A0A] overflow-hidden',
 };
 
-export default function GoldButton({ to, href, children, tone = 'dark', className = '', ...rest }) {
-  const inner = (
+export default function GoldButton({ to, href, children, tone = 'primary', className = '', ...rest }) {
+  const isLegacy = tone === 'light' || tone === 'dark';
+
+  const inner = isLegacy ? (
     <>
       <span
         aria-hidden="true"
@@ -18,6 +23,8 @@ export default function GoldButton({ to, href, children, tone = 'dark', classNam
       />
       <span className="relative z-10">{children}</span>
     </>
+  ) : (
+    <>{children}</>
   );
 
   const cls = `${base} ${tones[tone]} ${className}`;

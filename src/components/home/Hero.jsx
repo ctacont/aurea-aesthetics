@@ -1,8 +1,7 @@
 import React from 'react';
 import { Image } from '@/components/ui/image';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import Eyebrow from '@/components/Eyebrow';
+import GoldButton from '@/components/GoldButton';
 import { IMAGES } from '@/lib/site';
 
 export default function Hero({ settings }) {
@@ -37,23 +36,12 @@ export default function Hero({ settings }) {
           </p>
 
           <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <Link
-              to="/kontakt-termin"
-              className="group relative inline-flex items-center justify-center overflow-hidden border border-white/30 px-8 py-4 eyebrow text-white transition-colors duration-500 hover:text-[#0A0A0A]"
-            >
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 origin-left scale-x-0 bg-[#C9AF80] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
-              />
-              <span className="relative z-10">Beratung anfragen</span>
-            </Link>
-            <Link
-              to="/behandlungen"
-              className="group inline-flex items-center gap-3 eyebrow text-white/70 transition-colors hover:text-[#C9AF80]"
-            >
+            <GoldButton to="/kontakt-termin" tone="primary">
+              Beratung anfragen
+            </GoldButton>
+            <GoldButton to="/behandlungen" tone="outline">
               Behandlungen entdecken
-              <ArrowRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1" strokeWidth={1} />
-            </Link>
+            </GoldButton>
           </div>
 
           <address className="mt-12 not-italic eyebrow text-white/45">

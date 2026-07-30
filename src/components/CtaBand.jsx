@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
+import GoldButton from '@/components/GoldButton';
 
 export default function CtaBand({ settings, title, text }) {
   return (
@@ -25,16 +26,9 @@ export default function CtaBand({ settings, title, text }) {
           </p>
         </Reveal>
         <Reveal delay={200}>
-          <Link
-            to="/kontakt-termin"
-            className="group relative mt-14 inline-flex items-center justify-center overflow-hidden border border-[#0A0A0A]/20 px-10 py-4 eyebrow text-[#0A0A0A] transition-colors duration-500"
-          >
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 origin-left scale-x-0 bg-[#C9AF80] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
-            />
-            <span className="relative z-10">Beratung anfragen</span>
-          </Link>
+          <GoldButton to="/kontakt-termin" tone="primary" className="mt-14 px-10">
+            Beratung anfragen
+          </GoldButton>
         </Reveal>
       </div>
     </section>
