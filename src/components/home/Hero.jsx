@@ -23,12 +23,12 @@ export default function Hero({ settings }) {
       <div className="relative flex flex-col justify-center bg-[#0A0A0A] px-6 py-20 text-white lg:px-16 lg:py-32">
         <span className="pointer-events-none absolute left-0 top-1/4 hidden h-1/2 rule-v lg:block" aria-hidden="true" />
 
-        
-        // <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png"
+        /*
+        <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png"
         
         alt="Aurea Aesthetics AG"
         className="mb-14 h-9 w-auto self-start brightness-0 invert lg:h-11" />
-        
+        */
 
         <Eyebrow tone="light">
           {settings.practice_name} · {settings.district}
