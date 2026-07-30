@@ -16,10 +16,10 @@ export default function FactGrid({ treatment }) {
     <section className="bg-background px-6 py-20 lg:px-12 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <p className="eyebrow text-[#8A7550]">Auf einen Blick</p>
-        <dl className="mt-10 grid gap-px border-t border-[#E8E2D9] sm:grid-cols-2 lg:grid-cols-5">
+        <dl className="mt-10 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2 lg:grid-cols-5">
           {facts.map((f, i) => (
             <Reveal key={f.label} delay={i * 70}>
-              <div className="border-b border-[#E8E2D9] py-8 sm:border-r sm:pr-6">
+              <div className="flex min-h-[140px] flex-col justify-center border-b border-r border-[#E8E2D9] px-6 py-8">
                 <dt className="eyebrow text-neutral-400">{f.label}</dt>
                 <dd className="mt-4 font-heading text-2xl font-light">{f.value}</dd>
               </div>
