@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="bg-[#0A0A0A] text-white">
       <div className="grid gap-14 px-6 py-20 lg:grid-cols-4 lg:px-12 lg:py-28">
         <div className="lg:col-span-1">
-          <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png" alt="Aurea Aesthetics AG" className="w-auto brightness-0 invert h-12" />
+          <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png" alt="Aurea Aesthetics AG" className="h-12 w-auto brightness-0 invert" />
           <p className="mt-7 max-w-xs text-sm leading-relaxed text-white/50">
             Praxis für ästhetische Medizin in {settings.district}. Individuell, präzise und natürlich.
           </p>
