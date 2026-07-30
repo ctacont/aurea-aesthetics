@@ -6,9 +6,10 @@ import { PILLARS, IMAGES } from '@/lib/site';
 
 export default function Pillars() {
   return (
-    <section className="relative overflow-hidden bg-[#F8F6F3] px-6 py-24 lg:px-12 lg:py-40">
-      <div className="pointer-events-none absolute -right-24 top-0 hidden h-full w-1/3 opacity-[0.12] lg:block" aria-hidden="true">
-        <Image src={IMAGES.texture} alt="" className="h-full w-full" fittingType="fill" />
+    <section className="relative overflow-hidden px-6 py-24 lg:px-12 lg:py-40">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <Image src={IMAGES.texture} alt="" className="h-full w-full scale-110 object-cover blur-[6px]" fittingType="fill" />
+        <div className="absolute inset-0 bg-[#F8F6F3]/85" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
