@@ -82,7 +82,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10 px-6 py-8 lg:px-12">
         <p className="eyebrow mb-4 text-white/25">Einzugsgebiet</p>
-        <p className="max-w-4xl text-xs leading-relaxed text-white/35">
+        <p className="text-xs leading-relaxed text-white/35 max-w-12xl">
           {GEO_AREAS.join(' · ')}
         </p>
       </div>
