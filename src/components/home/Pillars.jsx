@@ -24,8 +24,8 @@ export default function Pillars() {
 
         <div className="mt-20 grid gap-px border-t border-[#E8E2D9] sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 90}>
-              <div className="border-b border-[#E8E2D9] py-10 sm:border-r sm:pr-8 lg:py-12">
+            <Reveal key={p.title} delay={i * 90} className="h-full">
+              <div className="flex h-full flex-col items-center justify-center border-b border-[#E8E2D9] py-10 text-center sm:border-r sm:px-6 lg:py-12">
                 <span className="eyebrow text-[#8A7550]">0{i + 1}</span>
                 <h3 className="mt-5 font-heading text-2xl font-light">{p.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-neutral-600">{p.text}</p>
