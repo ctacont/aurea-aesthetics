@@ -30,7 +30,7 @@ export default function Hero({ settings }) {
             <span className="mt-2 block text-[#C9AF80]">Individuell, präzise und natürlich.</span>
           </h1>
 
-          <p className="max-w-none">
+          <p className="mt-10 max-w-md leading-relaxed text-white/75 text-[0.rem]">
             Eine private Praxis an der {settings.street} — geprägt von medizinischer Sorgfalt,
             Diskretion und Ergebnissen, die Ihre eigenen Züge bewahren.
           </p>
