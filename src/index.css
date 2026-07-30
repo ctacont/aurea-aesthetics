@@ -56,6 +56,73 @@
   }
 }
 
+/* ── Prestige-Theme: klinisch, weiß, großzügiger ── */
+[data-theme='prestige'] {
+  --background: 0 0% 100%;
+  --card: 0 0% 100%;
+  --secondary: 0 0% 98%;
+  --muted: 0 0% 98%;
+  --border: 0 0% 91%;
+  --input: 0 0% 89%;
+  --radius: 0rem;
+}
+
+[data-theme='prestige'] body {
+  font-size: 1.1875rem;
+  line-height: 1.8;
+}
+
+[data-theme='prestige'] h1 { font-size: 1.2em; }
+[data-theme='prestige'] h2,
+[data-theme='prestige'] h3 { font-size: 1.15em; }
+
+/* Creme-Flächen → klinisches Weiß / kühles Grau */
+[data-theme='prestige'] .bg-\[\#F8F6F3\],
+[data-theme='prestige'] .bg-\[\#F4F1EE\] {
+  background-color: #FFFFFF;
+}
+
+/* Border-Raster kühler */
+[data-theme='prestige'] .border-\[\#E8E2D9\] {
+  border-color: #E5E5E5;
+}
+
+/* Größere Sektionsabstände */
+[data-theme='prestige'] section {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+@media (min-width: 1024px) {
+  [data-theme='prestige'] section {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+}
+
+/* Buttons: nur Gold-Outline, kein Fill */
+[data-theme='prestige'] .bg-\[\#C9AF80\] {
+  background-color: transparent !important;
+  color: #8A7550 !important;
+  border: 1px solid #C9AF80;
+}
+
+/* Navbar scrollt zu Weiß mit Gold-Unterlinie */
+[data-theme='prestige'] header.bg-black\/50 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: #C9AF80 !important;
+  box-shadow: none !important;
+}
+
+[data-theme='prestige'] header.bg-black\/50 nav a,
+[data-theme='prestige'] header.bg-black\/50 .text-white {
+  color: #0A0A0A;
+}
+
+[data-theme='prestige'] header.bg-black\/50 img {
+  filter: none;
+}
+
 @layer base {
   * {
     @apply border-border;
