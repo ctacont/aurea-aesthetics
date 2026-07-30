@@ -75,7 +75,7 @@ function buildSrcSet(parsed, options) {
 const ImageWrapper = React.forwardRef(({ aspectRatio, className, style, children }, ref) =>
 <span
   ref={ref}
-  className={cn("inline-block relative blur-[4px]", className)}
+  className={cn("inline-block relative blur-[px]", className)}
   style={{ aspectRatio, ...style }}>
   
     {children}
