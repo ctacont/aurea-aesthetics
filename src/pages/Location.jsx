@@ -40,10 +40,10 @@ export default function Location() {
       <section className="px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal><Eyebrow>Anfahrt</Eyebrow></Reveal>
-          <div className="mt-14 grid gap-px border-t border-[#E8E2D9] sm:grid-cols-2">
+          <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
             {ARRIVAL.map((a, i) => (
-              <Reveal key={a.label} delay={i * 80}>
-                <div className="border-b border-[#E8E2D9] py-10 sm:border-r sm:pr-10">
+              <Reveal key={a.label} delay={i * 80} className="h-full">
+                <div className="flex h-full min-h-[180px] flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 sm:px-10">
                   <h2 className="font-heading text-2xl font-light">{a.label}</h2>
                   <p className="mt-4 text-sm leading-relaxed text-neutral-600">{a.text}</p>
                 </div>
