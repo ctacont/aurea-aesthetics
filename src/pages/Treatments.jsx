@@ -55,7 +55,7 @@ export default function Treatments() {
                     </p>
                   </div>
                 </Reveal>
-                <div className="mt-12 grid gap-x-12 gap-y-16 md:grid-cols-2">
+                <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
                   {items.map((t, i) =>
                   <Reveal key={t.id} delay={i * 70}>
                       <TreatmentCard treatment={t} />
