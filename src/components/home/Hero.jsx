@@ -13,7 +13,7 @@ export default function Hero({ settings }) {
           style={{ transform: 'translateX(250px)' }}>
           
           <Image
-            src={IMAGES.hero}
+            src={settings.hero_image_url || IMAGES.hero}
             alt="Ruhiger Moment — ästhetische Medizin in Zürich Enge"
             className="h-full w-full"
             fittingType="fill"

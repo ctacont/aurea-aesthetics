@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import Seo from '@/components/Seo';
+import HeroImageUpload from '@/components/admin/HeroImageUpload';
 
 const FIELDS = [
   { key: 'phone', label: 'Telefon', hint: 'Platzhalter — noch nicht bestätigt' },
@@ -94,6 +95,8 @@ export default function Admin() {
             <p className="mt-2 text-xs text-neutral-400">Platzhalter — noch nicht bestätigt</p>
           </div>
         </div>
+
+        <HeroImageUpload raw={raw} />
 
         <div className="mt-12 flex items-center gap-6">
           <Button onClick={save} disabled={saving} className="rounded-none px-10 py-6">
