@@ -44,7 +44,7 @@ export default function Experience() {
             <Reveal delay={140}>
               <h2 className="mt-7 font-heading text-[2rem] font-light leading-[1.18] md:text-4xl">
                 Kein Wartezimmer.
-                <span className="italic text-[#8A7550]"> Ein Empfangsraum.</span>
+                <span className="text-[#8A7550]"> Ein Empfangsraum.</span>
               </h2>
             </Reveal>
             <Reveal delay={200}>

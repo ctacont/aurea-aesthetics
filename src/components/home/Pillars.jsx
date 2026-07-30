@@ -16,7 +16,7 @@ export default function Pillars() {
         <Reveal delay={80}>
           <h2 className="mt-7 max-w-2xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             Eine Praxis für Menschen, die Zeit
-            <span className="italic text-[#8A7550]"> und Diskretion schätzen.</span>
+            <span className="text-[#8A7550]"> und Diskretion schätzen.</span>
           </h2>
         </Reveal>
         <Reveal delay={140}>

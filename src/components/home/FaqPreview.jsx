@@ -18,7 +18,7 @@ export default function FaqPreview() {
           <Reveal delay={80}>
             <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-4xl">
               Was Sie
-              <span className="italic text-[#8A7550]"> wissen sollten.</span>
+              <span className="text-[#8A7550]"> wissen sollten.</span>
             </h2>
           </Reveal>
           <Reveal delay={140}>

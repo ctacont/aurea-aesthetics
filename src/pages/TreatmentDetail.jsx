@@ -179,7 +179,7 @@ export default function TreatmentDetail() {
 
       <CtaBand
         settings={settings}
-        title={<>Beratung zu <span className="italic text-[#8A7550]">{t.title_de}</span></>}
+        title={<>Beratung zu <span className="text-[#8A7550]">{t.title_de}</span></>}
         text="Ob und in welchem Umfang diese Behandlung für Sie geeignet ist, klären wir in einem persönlichen Gespräch in Zürich Enge."
       />
     </>

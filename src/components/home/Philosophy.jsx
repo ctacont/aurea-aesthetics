@@ -15,7 +15,7 @@ export default function Philosophy() {
         <Reveal delay={80}>
           <h2 className="mt-8 max-w-3xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             Ästhetische Medizin bedeutet nicht Veränderung,
-            <span className="italic text-[#8A7550]"> sondern Ausgleich.</span>
+            <span className="text-[#8A7550]"> sondern Ausgleich.</span>
           </h2>
         </Reveal>
 
@@ -42,7 +42,7 @@ export default function Philosophy() {
 
             <Reveal delay={260}>
               <div className="mt-12 border-l border-[#C9AF80] pl-8">
-                <p className="font-heading text-2xl font-light italic leading-snug text-neutral-800 md:text-3xl">
+                <p className="font-heading text-2xl font-light leading-snug text-neutral-800 md:text-3xl">
                   Wir behandeln ästhetische Medizin als Medizin — mit Anamnese, Aufklärung,
                   Indikationsstellung und Nachkontrolle.
                 </p>

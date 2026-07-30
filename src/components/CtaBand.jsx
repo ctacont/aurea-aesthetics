@@ -13,7 +13,7 @@ export default function CtaBand({ settings, title, text }) {
             {title || (
               <>
                 Persönliche Beratung in
-                <span className="italic text-[#8A7550]"> {settings?.district || 'Zürich Enge'}.</span>
+                <span className="text-[#8A7550]"> {settings?.district || 'Zürich Enge'}.</span>
               </>
             )}
           </h2>

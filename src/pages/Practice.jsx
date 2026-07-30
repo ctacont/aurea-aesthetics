@@ -47,7 +47,7 @@ export default function Practice() {
             <Reveal delay={80}>
               <h2 className="mt-7 font-heading text-[2rem] font-light leading-[1.18] md:text-4xl">
                 Wir verstehen ästhetische Medizin als medizinisches Fachgebiet — nicht als
-                <span className="italic text-[#8A7550]"> kosmetische Dienstleistung.</span>
+                <span className="text-[#8A7550]"> kosmetische Dienstleistung.</span>
               </h2>
             </Reveal>
             <Reveal delay={140}>

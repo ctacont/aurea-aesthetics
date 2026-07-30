@@ -61,7 +61,7 @@ export default function Location() {
           <Reveal delay={80}>
             <h2 className="mt-7 max-w-2xl font-heading text-[2rem] font-light leading-[1.18] md:text-4xl">
               Für Patientinnen und Patienten aus Zürich
-              <span className="italic text-[#8A7550]"> und der Region.</span>
+              <span className="text-[#8A7550]"> und der Region.</span>
             </h2>
           </Reveal>
           <Reveal delay={140}>
