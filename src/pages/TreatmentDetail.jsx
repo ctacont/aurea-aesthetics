@@ -12,13 +12,15 @@ import CtaBand from '@/components/CtaBand';
 import TreatmentCard from '@/components/TreatmentCard';
 import { useSettings, useTreatments } from '@/lib/useSite';
 import { treatmentSchema, breadcrumbSchema } from '@/lib/schema';
+import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function TreatmentDetail() {
   const { slug } = useParams();
   const { settings } = useSettings();
   const { data: treatments = [], isLoading } = useTreatments();
+  const { t, lang, langPath, neutralPath } = useLanguage();
 
-  const t = treatments.find((x) => x.slug === slug);
+  const tr = treatments.find((x) => x.slug === slug);
   const related = treatments.filter((x) => x.slug !== slug).slice(0, 3);
 
   if (isLoading) {
@@ -29,57 +31,68 @@ export default function TreatmentDetail() {
     );
   }
 
-  if (!t) {
+  const title = loc(tr, 'title', lang) || tr?.title_de;
+  const lead = loc(tr, 'lead', lang) || tr?.lead_de;
+  const metaTitle = lang === 'en' ? (tr?.meta_title_en || tr?.meta_title_de || title) : (tr?.meta_title_de || title);
+  const metaDesc = lang === 'en' ? (tr?.meta_description_en || tr?.meta_description_de || lead) : (tr?.meta_description_de || lead);
+  const mechanism = loc(tr, 'mechanism', lang) || tr?.mechanism_de;
+  const procedure = loc(tr, 'procedure', lang) || tr?.procedure_de;
+  const aftercare = loc(tr, 'aftercare', lang) || tr?.aftercare_de;
+  const risks = loc(tr, 'risks', lang) || tr?.risks_de;
+  const contraindications = loc(tr, 'contraindications', lang) || tr?.contraindications_de;
+
+  if (!tr) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 text-center">
-        <Seo title="Behandlung nicht gefunden" noindex path={`/behandlungen/${slug}`} />
-        <h1 className="font-heading text-4xl font-light">Behandlung nicht gefunden</h1>
-        <Link to="/behandlungen" className="mt-8 eyebrow text-[#8A7550] link-underline">
-          Zur Behandlungsübersicht
+        <Seo title={t('treatmentDetail.notFoundTitle')} noindex path={neutralPath(window.location.pathname)} lang={lang} />
+        <h1 className="font-heading text-4xl font-light">{t('treatmentDetail.notFoundTitle')}</h1>
+        <Link to={langPath('/behandlungen')} className="mt-8 eyebrow text-[#8A7550] link-underline">
+          {t('treatmentDetail.notFoundLink')}
         </Link>
       </div>
     );
   }
 
   const crumbs = [
-    { name: 'Startseite', path: '/' },
-    { name: 'Behandlungen', path: '/behandlungen' },
-    { name: t.title_de, path: `/behandlungen/${t.slug}` },
+    { name: t('treatmentDetail.crumbHome'), path: '/' },
+    { name: t('treatmentDetail.crumbTreatments'), path: '/behandlungen' },
+    { name: title, path: `/behandlungen/${tr.slug}` },
   ];
 
   return (
     <>
       <Seo
-        title={t.meta_title_de || `${t.title_de} Zürich | Aurea Aesthetics`}
-        description={t.meta_description_de || t.lead_de}
-        path={`/behandlungen/${t.slug}`}
-        jsonLd={[treatmentSchema(t), breadcrumbSchema(crumbs)]}
+        title={metaTitle}
+        description={metaDesc}
+        path={neutralPath(window.location.pathname)}
+        lang={lang}
+        jsonLd={[treatmentSchema(tr), breadcrumbSchema(crumbs)]}
       />
 
       <PageHero
-        eyebrow={`Behandlung · ${settings.district}`}
-        title={t.title_de}
-        lead={t.lead_de}
-        image={t.image_url}
+        eyebrow={t('treatmentDetail.eyebrowPrefix', { district: settings.district })}
+        title={title}
+        lead={lead}
+        image={tr.image_url}
         breadcrumbs={crumbs}
       />
 
-      <FactGrid treatment={t} />
+      <FactGrid treatment={tr} />
 
-      {t.indications?.length > 0 && (
+      {tr.indications?.length > 0 && (
         <section className="bg-[#F4F1EE] px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <Reveal>
-                <Eyebrow>Anwendungsbereiche</Eyebrow>
+                <Eyebrow>{t('treatmentDetail.indicationsEyebrow')}</Eyebrow>
                 <h2 className="mt-6 font-heading text-[1.8rem] font-light leading-tight md:text-4xl">
-                  Wofür diese Behandlung geeignet ist
+                  {t('treatmentDetail.indicationsTitle')}
                 </h2>
               </Reveal>
             </div>
             <Reveal delay={100} className="lg:col-span-8">
               <ul className="grid gap-5 sm:grid-cols-2">
-                {t.indications.map((ind) => (
+                {tr.indications.map((ind) => (
                   <li key={ind} className="flex gap-4 border-b border-[#E8E2D9] pb-5 text-[0.98rem] leading-relaxed text-neutral-700">
                     <span className="mt-3 h-px w-5 shrink-0 bg-[#C9AF80]" aria-hidden="true" />
                     {ind}
@@ -91,52 +104,50 @@ export default function TreatmentDetail() {
         </section>
       )}
 
-      {t.mechanism_de && (
-        <TextBlock eyebrow="Wirkweise" title="Wie die Behandlung wirkt" body={t.mechanism_de} tone="dark" />
+      {mechanism && (
+        <TextBlock eyebrow={t('treatmentDetail.mechanismEyebrow')} title={t('treatmentDetail.mechanismTitle')} body={mechanism} tone="dark" />
       )}
 
-      {t.detail_image_url && (
+      {tr.detail_image_url && (
         <Reveal>
           <div className="relative h-[50svh] w-full lg:h-[75svh]">
-            <Image src={t.detail_image_url} alt={t.title_de} className="h-full w-full" fittingType="fill" />
+            <Image src={tr.detail_image_url} alt={title} className="h-full w-full" fittingType="fill" />
           </div>
         </Reveal>
       )}
 
-      {t.procedure_de && (
-        <TextBlock eyebrow="Ablauf" title="Der Behandlungsablauf" body={t.procedure_de} />
+      {procedure && (
+        <TextBlock eyebrow={t('treatmentDetail.procedureEyebrow')} title={t('treatmentDetail.procedureTitle')} body={procedure} />
       )}
 
-      {t.aftercare_de && (
-        <TextBlock eyebrow="Nachsorge" title="Nach der Behandlung" body={t.aftercare_de} tone="dark" />
+      {aftercare && (
+        <TextBlock eyebrow={t('treatmentDetail.aftercareEyebrow')} title={t('treatmentDetail.aftercareTitle')} body={aftercare} tone="dark" />
       )}
 
-      {(t.risks_de || t.contraindications_de) && (
+      {(risks || contraindications) && (
         <section className="bg-[#F4F1EE] px-6 py-20 lg:px-12 lg:py-28">
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:gap-16">
-            {t.risks_de && (
+            {risks && (
               <Reveal>
-                <p className="eyebrow text-[#8A7550]">Risiken und Nebenwirkungen</p>
+                <p className="eyebrow text-[#8A7550]">{t('treatmentDetail.risks')}</p>
                 <p className="mt-6 whitespace-pre-line text-[0.98rem] leading-[1.75] text-neutral-700">
-                  {t.risks_de}
+                  {risks}
                 </p>
               </Reveal>
             )}
-            {t.contraindications_de && (
+            {contraindications && (
               <Reveal delay={100}>
-                <p className="eyebrow text-[#8A7550]">Gegenanzeigen</p>
+                <p className="eyebrow text-[#8A7550]">{t('treatmentDetail.contraindications')}</p>
                 <p className="mt-6 whitespace-pre-line text-[0.98rem] leading-[1.75] text-neutral-700">
-                  {t.contraindications_de}
+                  {contraindications}
                 </p>
               </Reveal>
             )}
             <div className="lg:col-span-2">
               <Reveal delay={160}>
                 <p className="border-t border-[#E8E2D9] pt-8 text-xs leading-relaxed text-neutral-500">
-                  Diese Informationen dienen der allgemeinen Aufklärung und ersetzen kein persönliches
-                  Arztgespräch. Ob eine Behandlung für Sie geeignet ist, wird ausschliesslich im Rahmen
-                  einer individuellen medizinischen Beratung festgestellt.
-                  {t.medical_reviewer && ` Medizinisch geprüft durch ${t.medical_reviewer}.`}
+                  {t('treatmentDetail.disclaimer')}
+                  {tr.medical_reviewer && t('treatmentDetail.medicalReviewerSuffix', { reviewer: tr.medical_reviewer })}
                 </p>
               </Reveal>
             </div>
@@ -144,19 +155,19 @@ export default function TreatmentDetail() {
         </section>
       )}
 
-      {t.faqs?.length > 0 && (
+      {tr.faqs?.length > 0 && (
         <section className="bg-background px-6 py-24 lg:px-12 lg:py-32">
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">
               <Reveal>
-                <Eyebrow>Fragen zur Behandlung</Eyebrow>
+                <Eyebrow>{t('treatmentDetail.faqsEyebrow')}</Eyebrow>
                 <h2 className="mt-6 font-heading text-[1.8rem] font-light leading-tight md:text-4xl">
-                  Häufige Fragen
+                  {t('treatmentDetail.faqsTitle')}
                 </h2>
               </Reveal>
             </div>
             <Reveal delay={100} className="lg:col-span-8">
-              <PrecisionAccordion items={t.faqs} reviewer={t.medical_reviewer} />
+              <PrecisionAccordion items={tr.faqs} reviewer={tr.medical_reviewer} />
             </Reveal>
           </div>
         </section>
@@ -165,7 +176,7 @@ export default function TreatmentDetail() {
       {related.length > 0 && (
         <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32">
           <div className="mx-auto max-w-6xl">
-            <Reveal><Eyebrow>Weitere Behandlungen</Eyebrow></Reveal>
+            <Reveal><Eyebrow>{t('treatmentDetail.relatedEyebrow')}</Eyebrow></Reveal>
             <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((r, i) => (
                 <Reveal key={r.id} delay={i * 70}>
@@ -179,8 +190,8 @@ export default function TreatmentDetail() {
 
       <CtaBand
         settings={settings}
-        title={<>Beratung zu <span className="text-[#8A7550]">{t.title_de}</span></>}
-        text="Ob und in welchem Umfang diese Behandlung für Sie geeignet ist, klären wir in einem persönlichen Gespräch in Zürich Enge."
+        title={<>{t('treatmentDetail.ctaTitlePrefix')} <span className="text-[#8A7550]">{title}</span></>}
+        text={t('treatmentDetail.ctaText')}
       />
     </>
   );

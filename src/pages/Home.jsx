@@ -11,18 +11,21 @@ import FaqPreview from '@/components/home/FaqPreview';
 import CtaBand from '@/components/CtaBand';
 import { useSettings, useTreatments, useDoctors } from '@/lib/useSite';
 import { medicalBusinessSchema } from '@/lib/schema';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Home() {
   const { settings } = useSettings();
   const { data: treatments = [] } = useTreatments();
   const { data: doctors = [] } = useDoctors();
+  const { t, lang, neutralPath } = useLanguage();
 
   return (
     <>
       <Seo
-        title="Ästhetische Medizin Zürich | Aurea Aesthetics AG · Zürich Enge"
-        description="Praxis für ästhetische Medizin in Zürich Enge. Behandlung mimischer Falten, Hyaluron Filler, Biostimulatoren und Skinbooster — individuell geplant, präzise durchgeführt, natürlich im Ergebnis."
-        path="/"
+        title={t('homeSeo.title')}
+        description={t('homeSeo.description')}
+        path={neutralPath(window.location.pathname)}
+        lang={lang}
         jsonLd={medicalBusinessSchema(settings)}
       />
       <Hero settings={settings} />

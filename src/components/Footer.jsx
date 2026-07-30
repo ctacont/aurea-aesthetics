@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSettings, useTreatments } from '@/lib/useSite';
 import { LOGO, GEO_AREAS } from '@/lib/site';
+import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function Footer() {
   const { settings } = useSettings();
   const { data: treatments = [] } = useTreatments();
+  const { t, lang, langPath } = useLanguage();
 
   return (
     <footer className="bg-[#0A0A0A] text-white">
@@ -13,67 +15,67 @@ export default function Footer() {
         <div className="lg:col-span-1">
           <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png" alt="Aurea Aesthetics AG" className="h-12 w-auto brightness-0 invert" />
           <p className="mt-7 max-w-xs text-sm leading-relaxed text-white/50">
-            Praxis für ästhetische Medizin in {settings.district}. Individuell, präzise und natürlich.
+            {t('footer.tagline', { district: settings.district })}
           </p>
         </div>
 
         <div>
-          <p className="eyebrow mb-6 text-[#C9AF80]">Behandlungen</p>
+          <p className="eyebrow mb-6 text-[#C9AF80]">{t('footer.treatments')}</p>
           <ul className="space-y-3 text-sm text-white/60">
-            {treatments.slice(0, 6).map((t) =>
-            <li key={t.id}>
-                <Link to={`/behandlungen/${t.slug}`} className="link-underline">{t.title_de}</Link>
+            {treatments.slice(0, 6).map((tr) =>
+            <li key={tr.id}>
+                <Link to={langPath(`/behandlungen/${tr.slug}`)} className="link-underline">{loc(tr, 'title', lang) || tr.title_de}</Link>
               </li>
             )}
           </ul>
         </div>
 
         <div>
-          <p className="eyebrow mb-6 text-[#C9AF80]">Praxis</p>
+          <p className="eyebrow mb-6 text-[#C9AF80]">{t('footer.praxis')}</p>
           <ul className="space-y-3 text-sm text-white/60">
-            <li><Link to="/praxis" className="link-underline">Über Aurea</Link></li>
-            <li><Link to="/experience" className="link-underline">Aurea Experience</Link></li>
-            <li><Link to="/standort-zuerich-enge" className="link-underline">Standort Zürich Enge</Link></li>
-            <li><Link to="/faq" className="link-underline">Häufige Fragen</Link></li>
-            <li><Link to="/kontakt-termin" className="link-underline">Kontakt & Termin</Link></li>
-            <li><Link to="/impressum" className="link-underline">Impressum</Link></li>
-            <li><Link to="/datenschutz" className="link-underline">Datenschutz</Link></li>
+            <li><Link to={langPath('/praxis')} className="link-underline">{t('footer.aboutAurea')}</Link></li>
+            <li><Link to={langPath('/experience')} className="link-underline">{t('footer.experience')}</Link></li>
+            <li><Link to={langPath('/standort-zuerich-enge')} className="link-underline">{t('footer.location')}</Link></li>
+            <li><Link to={langPath('/faq')} className="link-underline">{t('footer.faq')}</Link></li>
+            <li><Link to={langPath('/kontakt-termin')} className="link-underline">{t('footer.contact')}</Link></li>
+            <li><Link to={langPath('/impressum')} className="link-underline">{t('footer.impressum')}</Link></li>
+            <li><Link to={langPath('/datenschutz')} className="link-underline">{t('footer.datenschutz')}</Link></li>
           </ul>
         </div>
 
         <div>
-          <p className="eyebrow mb-6 text-[#C9AF80]">Kontakt</p>
+          <p className="eyebrow mb-6 text-[#C9AF80]">{t('footer.contactHead')}</p>
           <address className="not-italic text-sm leading-relaxed text-white/60">
             {settings.practice_name}<br />
             {settings.street}<br />
             {settings.postal_code} {settings.city}<br />
-            Schweiz
+            {t('footer.switzerland')}
           </address>
           <dl className="mt-6 space-y-3 text-sm text-white/60">
             <div>
-              <dt className="eyebrow text-white/35">Telefon</dt>
+              <dt className="eyebrow text-white/35">{t('footer.phone')}</dt>
               <dd className="mt-1">
                 {settings.phone ?
                 <a href={`tel:${settings.phone.replace(/\s/g, '')}`} className="link-underline">{settings.phone}</a> :
 
-                <span className="text-white/35">Auf Anfrage</span>
+                <span className="text-white/35">{t('footer.phonePlaceholder')}</span>
                 }
               </dd>
             </div>
             <div>
-              <dt className="eyebrow text-white/35">E-Mail</dt>
+              <dt className="eyebrow text-white/35">{t('footer.email')}</dt>
               <dd className="mt-1">
                 {settings.email ?
                 <a href={`mailto:${settings.email}`} className="link-underline">{settings.email}</a> :
 
-                <Link to="/kontakt-termin" className="link-underline">Kontaktformular</Link>
+                <Link to={langPath('/kontakt-termin')} className="link-underline">{t('footer.emailPlaceholder')}</Link>
                 }
               </dd>
             </div>
             <div>
-              <dt className="eyebrow text-white/35">Erreichbarkeit</dt>
+              <dt className="eyebrow text-white/35">{t('footer.availability')}</dt>
               <dd className="mt-1 whitespace-pre-line">
-                {settings.opening_hours || 'Termine ausschliesslich nach Vereinbarung'}
+                {settings.opening_hours || t('footer.availabilityFallback')}
               </dd>
             </div>
           </dl>
@@ -81,16 +83,16 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10 px-6 py-8 lg:px-12">
-        <p className="eyebrow mb-4 text-white/25">Einzugsgebiet</p>
+        <p className="eyebrow mb-4 text-white/25">{t('footer.geoArea')}</p>
         <p className="text-xs leading-relaxed text-white/35 max-w-12xl">
           {GEO_AREAS.join(' · ')}
         </p>
       </div>
 
       <div className="flex flex-col gap-4 border-t border-white/10 px-6 py-7 text-xs text-white/35 lg:flex-row lg:items-center lg:justify-between lg:px-12">
-        <p>© {new Date().getFullYear()} {settings.practice_name}. Alle Rechte vorbehalten.</p>
+        <p>{t('footer.copyright', { year: new Date().getFullYear(), name: settings.practice_name })}</p>
         <p>
-          Design und Entwicklung von{' '}
+          {t('footer.designBy')}{' '}
           <a href="https://brandtiger.de/" target="_blank" rel="noopener noreferrer" className="link-underline text-white/60">Brandtiger.de</a>
         </p>
       </div>

@@ -1,7 +1,8 @@
+// Language-neutral nav definitions. Labels are resolved via useLanguage().t().
 export const NAV = [
-  { label: 'Praxis', path: '/praxis' },
-  { label: 'Behandlungen', path: '/behandlungen', mega: true },
-  { label: 'Aurea Experience', path: '/experience' },
-  { label: 'Standort', path: '/standort-zuerich-enge' },
-  { label: 'Kontakt', path: '/kontakt-termin' },
+  { labelKey: 'nav.praxis', path: '/praxis' },
+  { labelKey: 'nav.behandlungen', path: '/behandlungen', mega: true },
+  { labelKey: 'nav.experience', path: '/experience' },
+  { labelKey: 'nav.standort', path: '/standort-zuerich-enge' },
+  { labelKey: 'nav.kontakt', path: '/kontakt-termin' },
 ];

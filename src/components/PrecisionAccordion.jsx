@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Plus } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function PrecisionAccordion({ items, reviewer, tone = 'dark' }) {
   const [open, setOpen] = useState(null);
   const light = tone === 'light';
+  const { t } = useLanguage();
 
   return (
     <div className={light ? 'border-t border-white/10' : 'border-t border-[#EDE7DE]'}>
@@ -46,7 +48,7 @@ export default function PrecisionAccordion({ items, reviewer, tone = 'dark' }) {
                   </p>
                   {reviewer && (
                     <p className={`mt-6 eyebrow ${light ? 'text-white/30' : 'text-neutral-400'}`}>
-                      Medizinisch geprüft · {reviewer}
+                      {t('accordion.medicalReviewer', { reviewer })}
                     </p>
                   )}
                 </div>

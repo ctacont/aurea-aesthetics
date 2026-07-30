@@ -4,6 +4,7 @@ import { queryClientInstance } from '@/lib/query-client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
+import { LanguageProvider } from '@/lib/LanguageContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import Layout from '@/components/Layout';
@@ -40,24 +41,37 @@ const AuthenticatedApp = () => {
   }
 
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/behandlungen" element={<Treatments />} />
-        <Route path="/behandlungen/:slug" element={<TreatmentDetail />} />
-        <Route path="/praxis" element={<Practice />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/standort-zuerich-enge" element={<Location />} />
-        <Route path="/faq" element={<Faq />} />
-        <Route path="/kontakt-termin" element={<Contact />} />
-        <Route path="/impressum" element={<Impressum />} />
-        <Route path="/datenschutz" element={<Datenschutz />} />
-      </Route>
-      <Route element={<AdminRoute />}>
-        <Route path="/admin" element={<Admin />} />
-      </Route>
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+    <LanguageProvider>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/behandlungen" element={<Treatments />} />
+          <Route path="/behandlungen/:slug" element={<TreatmentDetail />} />
+          <Route path="/praxis" element={<Practice />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/standort-zuerich-enge" element={<Location />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/kontakt-termin" element={<Contact />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
+          {/* English mirrors */}
+          <Route path="/en" element={<Home />} />
+          <Route path="/en/behandlungen" element={<Treatments />} />
+          <Route path="/en/behandlungen/:slug" element={<TreatmentDetail />} />
+          <Route path="/en/praxis" element={<Practice />} />
+          <Route path="/en/experience" element={<Experience />} />
+          <Route path="/en/standort-zuerich-enge" element={<Location />} />
+          <Route path="/en/faq" element={<Faq />} />
+          <Route path="/en/kontakt-termin" element={<Contact />} />
+          <Route path="/en/impressum" element={<Impressum />} />
+          <Route path="/en/datenschutz" element={<Datenschutz />} />
+        </Route>
+        <Route element={<AdminRoute />}>
+          <Route path="/admin" element={<Admin />} />
+        </Route>
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </LanguageProvider>
   );
 };
 

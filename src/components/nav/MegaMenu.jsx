@@ -1,32 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTreatments } from '@/lib/useSite';
-
-const GROUPS = [
-  { key: 'injektion', label: 'Injektionsbehandlungen' },
-  { key: 'biostimulation', label: 'Biostimulation' },
-  { key: 'haut', label: 'Hautqualität' },
-];
+import { TREATMENT_GROUPS } from '@/lib/site';
+import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function MegaMenu({ onNavigate }) {
   const { data: treatments = [] } = useTreatments();
+  const { t, lang } = useLanguage();
+  const groups = TREATMENT_GROUPS[lang];
 
   return (
     <div className="grid gap-10 border-t border-white/15 bg-black/25 px-8 py-12 text-white backdrop-blur-2xl backdrop-saturate-150 md:grid-cols-4 md:px-16">
-      {GROUPS.map((g) => (
+      {groups.map((g) => (
         <div key={g.key}>
           <p className="eyebrow mb-5 text-[#E7D3AA]">{g.label}</p>
           <ul className="space-y-3">
             {treatments
-              .filter((t) => t.category === g.key)
-              .map((t) => (
-                <li key={t.id}>
+              .filter((tr) => tr.category === g.key)
+              .map((tr) => (
+                <li key={tr.id}>
                   <Link
-                    to={`/behandlungen/${t.slug}`}
+                    to={lang === 'en' ? `/en/behandlungen/${tr.slug}` : `/behandlungen/${tr.slug}`}
                     onClick={onNavigate}
                     className="font-heading text-xl text-white/85 transition-colors hover:text-[#E7D3AA]"
                   >
-                    {t.title_de}
+                    {loc(tr, 'title', lang) || tr.title_de}
                   </Link>
                 </li>
               ))}
@@ -34,16 +32,16 @@ export default function MegaMenu({ onNavigate }) {
         </div>
       ))}
       <div className="border-t border-white/15 pt-8 md:border-l md:border-t-0 md:pl-10 md:pt-0">
-        <p className="eyebrow mb-5 text-[#E7D3AA]">Übersicht</p>
+        <p className="eyebrow mb-5 text-[#E7D3AA]">{t('megaMenu.overview')}</p>
         <Link
-          to="/behandlungen"
+          to={lang === 'en' ? '/en/behandlungen' : '/behandlungen'}
           onClick={onNavigate}
           className="font-heading text-2xl leading-snug text-white link-underline"
         >
-          Alle Behandlungen ansehen
+          {t('megaMenu.allTreatments')}
         </Link>
         <p className="mt-5 text-sm leading-relaxed text-white/60">
-          Jede Behandlung wird individuell geplant und medizinisch aufgeklärt.
+          {t('megaMenu.overviewText')}
         </p>
       </div>
     </div>

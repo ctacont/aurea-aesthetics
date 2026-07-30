@@ -10,24 +10,30 @@ import { Image } from '@/components/ui/image';
 import { useSettings } from '@/lib/useSite';
 import { breadcrumbSchema } from '@/lib/schema';
 import { IMAGES } from '@/lib/site';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Experience() {
   const { settings } = useSettings();
-  const crumbs = [{ name: 'Startseite', path: '/' }, { name: 'Aurea Experience', path: '/experience' }];
+  const { t, lang, neutralPath } = useLanguage();
+  const crumbs = [
+    { name: t('experience.crumbHome'), path: '/' },
+    { name: t('experience.crumbExperience'), path: '/experience' },
+  ];
 
   return (
     <>
       <Seo
-        title="Aurea Experience | Diskrete ästhetische Medizin Zürich Enge"
-        description="Ruhige Räume, begrenzte Terminanzahl, persönliche Kontinuität: Wie eine Behandlung bei Aurea Aesthetics in Zürich Enge abläuft."
-        path="/experience"
+        title={t('experience.seoTitle')}
+        description={t('experience.seoDesc')}
+        path={neutralPath(window.location.pathname)}
+        lang={lang}
         jsonLd={breadcrumbSchema(crumbs)}
       />
       <PageHero
-        eyebrow="Aurea Experience"
-        title="Ruhe ist Teil"
-        accent="der Behandlung."
-        lead="Räume, Abläufe und Terminplanung sind darauf ausgelegt, Ihnen Zeit und Diskretion zu geben."
+        eyebrow={t('experience.eyebrow')}
+        title={t('experience.title')}
+        accent={t('experience.accent')}
+        lead={t('experience.lead')}
         image={IMAGES.experience}
         breadcrumbs={crumbs}
       />
@@ -36,32 +42,22 @@ export default function Experience() {
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
             <div className="relative aspect-[3/4] w-full">
-              <Image src={IMAGES.bio} alt="Materialität und Licht in den Praxisräumen" className="h-full w-full" fittingType="fill" />
+              <Image src={IMAGES.bio} alt={t('experience.envAlt')} className="h-full w-full" fittingType="fill" />
             </div>
           </Reveal>
           <div className="lg:col-span-7 lg:pt-8">
-            <Reveal delay={80}><Eyebrow>Die Umgebung</Eyebrow></Reveal>
+            <Reveal delay={80}><Eyebrow>{t('experience.envEyebrow')}</Eyebrow></Reveal>
             <Reveal delay={140}>
               <h2 className="mt-7 font-heading text-[2rem] font-light leading-[1.18] md:text-4xl">
-                Kein Wartezimmer.
-                <span className="text-[#8A7550]"> Ein Empfangsraum.</span>
+                {t('experience.envTitle')}
+                <span className="text-[#8A7550]">{t('experience.envAccent')}</span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
               <div className="mt-10 space-y-6 text-lg leading-[1.75] text-neutral-700">
-                <p>
-                  Wir arbeiten ausschliesslich mit Terminvereinbarung und planen bewusst Puffer ein.
-                  Sie treffen keine anderen Patientinnen und Patienten, wenn Sie es nicht möchten.
-                </p>
-                <p>
-                  Licht, Materialien und Raumaufteilung wurden zurückhaltend gewählt — warmes Holz,
-                  gedämpftes Tageslicht, ruhige Flächen. Nichts erinnert an eine klinische Umgebung,
-                  ohne die medizinische Ausstattung zu kompromittieren.
-                </p>
-                <p>
-                  Alle Unterlagen, Aufnahmen und Behandlungsdaten werden vertraulich und nach
-                  schweizerischem Datenschutzrecht verarbeitet.
-                </p>
+                <p>{t('experience.envP1')}</p>
+                <p>{t('experience.envP2')}</p>
+                <p>{t('experience.envP3')}</p>
               </div>
             </Reveal>
           </div>

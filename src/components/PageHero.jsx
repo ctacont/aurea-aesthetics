@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function PageHero({ eyebrow, title, accent, lead, image, breadcrumbs = [] }) {
+  const { t, langPath } = useLanguage();
+
   return (
     <section className="relative flex min-h-[70svh] flex-col justify-end bg-[#0A0A0A] pt-36 pb-20 text-white lg:min-h-[78svh] lg:pt-48 lg:pb-28">
       {image && (
@@ -15,14 +18,14 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-12">
         {breadcrumbs.length > 0 && (
-          <nav aria-label="Brotkrumen" className="mb-10 eyebrow text-white/60 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
+          <nav aria-label={t('breadcrumb')} className="mb-10 eyebrow text-white/60 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
             {breadcrumbs.map((b, i) => (
               <span key={b.path}>
                 {i > 0 && <span className="mx-2 text-[#C9AF80]">·</span>}
                 {i === breadcrumbs.length - 1 ? (
                   <span className="text-white/85">{b.name}</span>
                 ) : (
-                  <Link to={b.path} className="link-underline">{b.name}</Link>
+                  <Link to={langPath(b.path)} className="link-underline">{b.name}</Link>
                 )}
               </span>
             ))}
