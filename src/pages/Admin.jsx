@@ -20,6 +20,8 @@ export default function Admin() {
   const { raw, settings } = useSettings();
   const qc = useQueryClient();
   const [form, setForm] = useState(settings);
+  const [newPw, setNewPw] = useState('');
+  const [showPw, setShowPw] = useState(false);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
 
@@ -40,10 +42,13 @@ export default function Admin() {
       email: form.email || '',
       opening_hours: form.opening_hours || '',
       booking_url: form.booking_url || '',
+      admin_username: form.admin_username || '',
+      admin_password: newPw || form.admin_password || '',
     };
     if (raw?.id) await base44.entities.SiteSettings.update(raw.id, payload);
     else await base44.entities.SiteSettings.create(payload);
     await qc.invalidateQueries({ queryKey: ['site-settings'] });
+    setNewPw('');
     setSaving(false);
     setSaved(true);
   };
@@ -93,6 +98,44 @@ export default function Admin() {
               onChange={(e) => set('opening_hours', e.target.value)}
             />
             <p className="mt-2 text-xs text-neutral-400">Platzhalter — noch nicht bestätigt</p>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-neutral-300 pt-12">
+          <p className="eyebrow text-[#8A7550]">Zugangsdaten</p>
+          <h2 className="mt-4 font-heading text-2xl font-light">Admin-Zugang</h2>
+          <p className="mt-2 max-w-md text-sm text-neutral-500">
+            Benutzername und Passwort für das /admin-Passwort-Gate.
+          </p>
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            <div>
+              <Label className="eyebrow text-neutral-400">Benutzername</Label>
+              <Input
+                className="mt-2"
+                value={form.admin_username || ''}
+                onChange={(e) => set('admin_username', e.target.value)}
+              />
+            </div>
+            <div>
+              <Label className="eyebrow text-neutral-400">Passwort</Label>
+              <div className="relative mt-2">
+                <Input
+                  type={showPw ? 'text' : 'password'}
+                  className="rounded-none pr-16"
+                  placeholder="••••••••"
+                  value={newPw}
+                  onChange={(e) => { setNewPw(e.target.value); setSaved(false); }}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPw((s) => !s)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-neutral-400 hover:text-neutral-700"
+                >
+                  {showPw ? 'Verbergen' : 'Anzeigen'}
+                </button>
+              </div>
+              <p className="mt-2 text-xs text-neutral-400">Leer lassen, um das aktuelle Passwort beizubehalten.</p>
+            </div>
           </div>
         </div>
 

@@ -17,17 +17,21 @@ export function hasAdminSession() {
 
 export default function AdminPasswordGate({ onSuccess }) {
   const { settings, isLoading } = useSettings();
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const expected = settings?.admin_password;
-    if (expected && password === expected) {
+    const expectedUser = settings?.admin_username;
+    const expectedPw = settings?.admin_password;
+    const userOk = !expectedUser || username === expectedUser;
+    const pwOk = expectedPw && password === expectedPw;
+    if (userOk && pwOk) {
       try { sessionStorage.setItem(SESSION_KEY, 'true'); } catch {}
       onSuccess?.();
     } else {
-      setError('Falsches Passwort');
+      setError('Falsche Zugangsdaten');
     }
   };
 
@@ -40,13 +44,22 @@ export default function AdminPasswordGate({ onSuccess }) {
           <h1 className="mt-10 font-heading text-4xl font-light">Admin-Zugang</h1>
           <form onSubmit={handleSubmit} className="mt-8 space-y-4 text-left">
             <Input
+              type="text"
+              value={username}
+              onChange={(e) => { setUsername(e.target.value); setError(''); }}
+              placeholder="Benutzername"
+              autoComplete="username"
+              className="h-12 rounded-none border-border bg-white"
+              autoFocus
+              disabled={isLoading}
+            />
+            <Input
               type="password"
               value={password}
               onChange={(e) => { setPassword(e.target.value); setError(''); }}
               placeholder="Passwort"
               autoComplete="current-password"
               className="h-12 rounded-none border-border bg-white"
-              autoFocus
               disabled={isLoading}
             />
             {error && <p className="text-sm text-destructive">{error}</p>}
