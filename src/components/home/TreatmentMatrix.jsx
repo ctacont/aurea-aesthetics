@@ -7,6 +7,7 @@ import TreatmentCard from '@/components/TreatmentCard';
 
 export default function TreatmentMatrix({ treatments }) {
   const railRef = useRef(null);
+  const drag = useRef({ down: false, moved: false, startX: 0, scrollLeft: 0 });
 
   const scrollBy = (dir) => {
     const rail = railRef.current;
@@ -17,6 +18,40 @@ export default function TreatmentMatrix({ treatments }) {
   const onKeyDown = (e) => {
     if (e.key === 'ArrowRight') { e.preventDefault(); scrollBy(1); }
     if (e.key === 'ArrowLeft') { e.preventDefault(); scrollBy(-1); }
+  };
+
+  const onPointerDown = (e) => {
+    const rail = railRef.current;
+    if (!rail) return;
+    drag.current = { down: true, moved: false, startX: e.clientX, scrollLeft: rail.scrollLeft };
+  };
+
+  const onPointerMove = (e) => {
+    const d = drag.current;
+    if (!d.down) return;
+    const dx = e.clientX - d.startX;
+    if (!d.moved && Math.abs(dx) > 6) {
+      d.moved = true;
+      const rail = railRef.current;
+      if (rail) rail.setPointerCapture?.(e.pointerId);
+    }
+    if (d.moved) {
+      e.preventDefault();
+      const rail = railRef.current;
+      if (rail) rail.scrollLeft = d.scrollLeft - dx;
+    }
+  };
+
+  const endDrag = () => {
+    drag.current.down = false;
+  };
+
+  const onClickCapture = (e) => {
+    if (drag.current.moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      drag.current.moved = false;
+    }
   };
 
   return (
@@ -56,10 +91,15 @@ export default function TreatmentMatrix({ treatments }) {
       <div
         ref={railRef}
         onKeyDown={onKeyDown}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerLeave={endDrag}
+        onClickCapture={onClickCapture}
         tabIndex={0}
         role="region"
         aria-label="Behandlungsübersicht — mit Pfeiltasten navigierbar"
-        className="no-scrollbar mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 lg:px-12"
+        className="no-scrollbar mt-14 flex cursor-grab gap-6 overflow-x-auto px-6 pb-4 select-none lg:px-12 active:cursor-grabbing"
       >
         {treatments.map((t, i) => (
           <div
