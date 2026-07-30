@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@200;300;400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -56,71 +57,115 @@
   }
 }
 
-/* ── Prestige-Theme: klinisch, weiß, großzügiger ── */
+/* ══ Prestige-Theme: Couture-Editorial, kühl, luftig ══
+   Eigene Typografie (Marcellus / Jost), Elfenbein-Weiß,
+   Salbei-Akzent statt Gold, Kapitälchen-Headlines.        */
 [data-theme='prestige'] {
-  --background: 0 0% 100%;
+  --background: 40 20% 99%;
   --card: 0 0% 100%;
-  --secondary: 0 0% 98%;
-  --muted: 0 0% 98%;
-  --border: 0 0% 91%;
-  --input: 0 0% 89%;
+  --secondary: 40 14% 97%;
+  --muted: 40 14% 97%;
+  --border: 40 10% 90%;
+  --input: 40 10% 88%;
+  --accent: 120 6% 58%;
+  --ring: 120 6% 58%;
   --radius: 0rem;
+  --font-heading: 'Marcellus', ui-serif, Georgia, serif;
+  --font-display: 'Marcellus', ui-serif, Georgia, serif;
+  --font-body: 'Jost', ui-sans-serif, system-ui, sans-serif;
 }
 
 [data-theme='prestige'] body {
-  font-size: 1.1875rem;
-  line-height: 1.8;
+  font-size: 1.0625rem;
+  line-height: 1.9;
+  font-weight: 300;
+  letter-spacing: 0.015em;
 }
 
-[data-theme='prestige'] h1 { font-size: 1.2em; }
+[data-theme='prestige'] h1,
 [data-theme='prestige'] h2,
-[data-theme='prestige'] h3 { font-size: 1.15em; }
-
-/* Creme-Flächen → klinisches Weiß / kühles Grau */
-[data-theme='prestige'] .bg-\[\#F8F6F3\],
-[data-theme='prestige'] .bg-\[\#F4F1EE\] {
-  background-color: #FFFFFF;
+[data-theme='prestige'] h3 {
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  text-transform: uppercase;
 }
 
-/* Border-Raster kühler */
-[data-theme='prestige'] .border-\[\#E8E2D9\] {
-  border-color: #E5E5E5;
+[data-theme='prestige'] h1 { font-size: 1.05em; }
+[data-theme='prestige'] h4,
+[data-theme='prestige'] h5 { letter-spacing: 0.05em; }
+
+[data-theme='prestige'] .eyebrow {
+  letter-spacing: 0.42em;
+  font-weight: 300;
+  font-size: 0.625rem;
 }
 
-/* Größere Sektionsabstände */
+/* Akzentlinie der Eyebrows: Salbei, feiner */
+[data-theme='prestige'] .eyebrow span:first-child {
+  background: #8C9A8E;
+  width: 2.5rem;
+}
+
+/* Creme-Flächen → Elfenbein / Papierweiß */
+[data-theme='prestige'] .bg-\[\#F8F6F3\] { background-color: #FCFCFA; }
+[data-theme='prestige'] .bg-\[\#F4F1EE\] { background-color: #FFFFFF; }
+
+/* Raster feiner und kühler */
+[data-theme='prestige'] .border-\[\#E8E2D9\] { border-color: #ECEAE4; }
+
+/* Sehr großzügige Sektionsabstände */
 [data-theme='prestige'] section {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 8.5rem;
+  padding-bottom: 8.5rem;
 }
 
 @media (min-width: 1024px) {
   [data-theme='prestige'] section {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
   }
 }
 
-/* Buttons: nur Gold-Outline, kein Fill */
+/* Buttons: reine Haarlinien-Outlines, Kapitälchen, kein Fill */
 [data-theme='prestige'] .bg-\[\#C9AF80\] {
   background-color: transparent !important;
-  color: #8A7550 !important;
-  border: 1px solid #C9AF80;
+  color: #3A3F39 !important;
+  border: 1px solid #8C9A8E;
+  letter-spacing: 0.3em;
+  transition: background-color 0.6s, color 0.6s;
 }
 
-/* Navbar scrollt zu Weiß mit Gold-Unterlinie */
+[data-theme='prestige'] .bg-\[\#C9AF80\]:hover {
+  background-color: #3A3F39 !important;
+  color: #FFFFFF !important;
+  border-color: #3A3F39;
+}
+
+/* Gold-Akzenttexte → Salbei */
+[data-theme='prestige'] .text-\[\#C9AF80\],
+[data-theme='prestige'] .text-\[\#E7D3AA\] { color: #7E8D80 !important; }
+
+[data-theme='prestige'] .bg-\[\#C9AF80\]\/30,
+[data-theme='prestige'] .bg-\[\#C9AF80\]\/40 { background-color: rgba(140, 154, 142, 0.4) !important; }
+
+/* Navbar: papierweiß mit haarfeiner Salbei-Unterlinie */
 [data-theme='prestige'] header.bg-black\/50 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
-  border-bottom-color: #C9AF80 !important;
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border-bottom-color: #C8D0C7 !important;
   box-shadow: none !important;
 }
 
 [data-theme='prestige'] header.bg-black\/50 nav a,
 [data-theme='prestige'] header.bg-black\/50 .text-white {
-  color: #0A0A0A;
+  color: #24261F;
 }
 
-[data-theme='prestige'] header.bg-black\/50 img {
-  filter: none;
+[data-theme='prestige'] header.bg-black\/50 img { filter: none; }
+
+/* Bilder: leichter Entsättigungs-Editorial-Look */
+[data-theme='prestige'] section img {
+  filter: saturate(0.88) contrast(1.03);
 }
 
 @layer base {

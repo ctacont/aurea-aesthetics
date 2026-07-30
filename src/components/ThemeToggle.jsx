@@ -15,7 +15,7 @@ export default function ThemeToggle() {
       className="ml-4 shrink-0 transition-opacity duration-300 hover:opacity-70"
     >
       <Icon
-        className={`h-5 w-5 ${isPrestige ? 'text-[#C9AF80]' : 'text-neutral-400'}`}
+        className={`h-5 w-5 ${isPrestige ? 'text-[#8C9A8E]' : 'text-neutral-400'}`}
         strokeWidth={1}
       />
     </button>
