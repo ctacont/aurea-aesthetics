@@ -10,11 +10,11 @@ import { medicalBusinessSchema, breadcrumbSchema } from '@/lib/schema';
 import { IMAGES, GEO_AREAS } from '@/lib/site';
 
 const ARRIVAL = [
-  { label: 'S-Bahn', text: 'Bahnhof Zürich Enge — wenige Gehminuten zur Praxis. Anbindung an alle S-Bahn-Linien des Zürcher Verkehrsverbunds.' },
-  { label: 'Tram & Bus', text: 'Haltestellen an der Seestrasse und am Bahnhof Enge. Direkte Verbindungen aus der Innenstadt und vom linken Seeufer.' },
-  { label: 'Auto', text: 'Zufahrt über die Seestrasse oder die General-Wille-Strasse. Öffentliche Parkhäuser in unmittelbarer Umgebung.' },
-  { label: 'Vom Flughafen', text: 'Ab Zürich Flughafen rund 25 Minuten mit der S-Bahn über den Hauptbahnhof.' },
-];
+{ label: 'S-Bahn', text: 'Bahnhof Zürich Enge — wenige Gehminuten zur Praxis. Anbindung an alle S-Bahn-Linien des Zürcher Verkehrsverbunds.' },
+{ label: 'Tram & Bus', text: 'Haltestellen an der Seestrasse und am Bahnhof Enge. Direkte Verbindungen aus der Innenstadt und vom linken Seeufer.' },
+{ label: 'Auto', text: 'Zufahrt über die Seestrasse oder die General-Wille-Strasse. Öffentliche Parkhäuser in unmittelbarer Umgebung.' },
+{ label: 'Vom Flughafen', text: 'Ab Zürich Flughafen rund 25 Minuten mit der S-Bahn über den Hauptbahnhof.' }];
+
 
 export default function Location() {
   const { settings } = useSettings();
@@ -26,29 +26,29 @@ export default function Location() {
         title="Standort Zürich Enge | Tödistrasse 1 | Aurea Aesthetics AG"
         description="Aurea Aesthetics AG, Tödistrasse 1, 8002 Zürich Enge. Anfahrt mit S-Bahn, Tram und Auto. Einzugsgebiet Zürich, Kilchberg, Rüschlikon, Thalwil, Zollikon, Küsnacht."
         path="/standort-zuerich-enge"
-        jsonLd={[medicalBusinessSchema(settings), breadcrumbSchema(crumbs)]}
-      />
+        jsonLd={[medicalBusinessSchema(settings), breadcrumbSchema(crumbs)]} />
+      
       <PageHero
         eyebrow="Standort"
         title={`${settings.street}`}
         accent={`${settings.postal_code} ${settings.city}`}
         lead={`Unsere Praxis liegt im Quartier ${settings.district} — zentral, ruhig und hervorragend erschlossen.`}
         image={IMAGES.zurich}
-        breadcrumbs={crumbs}
-      />
+        breadcrumbs={crumbs} />
+      
 
       <section className="px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal><Eyebrow>Anfahrt</Eyebrow></Reveal>
           <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
-            {ARRIVAL.map((a, i) => (
-              <Reveal key={a.label} delay={i * 80} className="h-full">
-                <div className="flex h-full min-h-[180px] flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 sm:px-10">
+            {ARRIVAL.map((a, i) =>
+            <Reveal key={a.label} delay={i * 80} className="h-full">
+                <div className="flex h-full min-h-[180px] flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 sm:px-10 text-center">
                   <h2 className="font-heading text-2xl font-light">{a.label}</h2>
                   <p className="mt-4 text-sm leading-relaxed text-neutral-600">{a.text}</p>
                 </div>
               </Reveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -66,15 +66,15 @@ export default function Location() {
           </Reveal>
           <Reveal delay={140}>
             <div className="mt-14 flex flex-wrap gap-x-8 gap-y-4 border-t border-[#E8E2D9] pt-10">
-              {GEO_AREAS.map((a) => (
-                <span key={a} className="eyebrow text-neutral-500">{a}</span>
-              ))}
+              {GEO_AREAS.map((a) =>
+              <span key={a} className="eyebrow text-neutral-500">{a}</span>
+              )}
             </div>
           </Reveal>
         </div>
       </section>
 
       <CtaBand settings={settings} />
-    </>
-  );
+    </>);
+
 }
