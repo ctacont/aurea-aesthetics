@@ -4,7 +4,6 @@ import { Menu } from 'lucide-react';
 import { NAV } from '@/components/nav/NavLinks';
 import MegaMenu from '@/components/nav/MegaMenu';
 import MobileMenu from '@/components/nav/MobileMenu';
-import ThemeToggle from '@/components/ThemeToggle';
 import { LOGO } from '@/lib/site';
 
 export default function Header() {
@@ -75,7 +74,6 @@ export default function Header() {
               
               <Menu className="h-6 w-6" strokeWidth={1} />
             </button>
-            <ThemeToggle />
           </div>
         </div>
 
