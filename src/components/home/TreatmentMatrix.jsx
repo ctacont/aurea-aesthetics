@@ -100,6 +100,7 @@ export default function TreatmentMatrix({ treatments }) {
         onPointerUp={endDrag}
         onPointerLeave={endDrag}
         onClickCapture={onClickCapture}
+        onDragStart={(e) => e.preventDefault()}
         tabIndex={0}
         role="region"
         aria-label="Behandlungsübersicht — mit Pfeiltasten navigierbar"
