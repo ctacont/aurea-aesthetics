@@ -20,7 +20,7 @@ export default function Hero({ settings }) {
       </div>
 
       <div className="relative flex w-full items-end px-6 pb-20 pt-44 lg:px-16 lg:pb-28 lg:pt-52">
-        <div className="border border-white/15 bg-white/[0.08] text-left text-white shadow-[0_32px_80px_rgba(0,0,0,0.35)] backdrop-blur-lg backdrop-saturate-150 px-8 py-6 lg:px-14 lg:py-9 max-w-xl">
+        <div className="border text-left text-white max-w-5xl -ml-[100px] border-white/10 bg-white/[0.06] px-10 py-7 rounded-3xl shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl lg:px-16 lg:py-10 backdrop-saturate-200">
           <Eyebrow tone="light">
             {settings.practice_name} · {settings.district}
           </Eyebrow>
