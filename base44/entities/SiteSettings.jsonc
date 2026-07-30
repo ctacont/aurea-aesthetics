@@ -52,6 +52,11 @@
     },
     "linkedin_url": {
       "type": "string"
+    },
+    "admin_password": {
+      "type": "string",
+      "description": "Passwort f\u00fcr den /admin-Zugang"
     }
-  }
+  },
+  "required": []
 }
