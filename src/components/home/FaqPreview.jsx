@@ -3,16 +3,12 @@ import { Link } from 'react-router-dom';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
 import PrecisionAccordion from '@/components/PrecisionAccordion';
-import { Image } from '@/components/ui/image';
-import { GENERAL_FAQS, IMAGES } from '@/lib/site';
+import { GENERAL_FAQS } from '@/lib/site';
 
 export default function FaqPreview() {
   return (
-    <section className="relative overflow-hidden bg-[#F8F6F3] px-6 py-24 lg:px-12 lg:py-40">
-      <div className="pointer-events-none absolute -right-20 bottom-0 hidden h-2/3 w-1/4 opacity-[0.12] lg:block" aria-hidden="true">
-        <Image src={IMAGES.texture} alt="" className="h-full w-full" fittingType="fill" />
-      </div>
-      <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:gap-20">
+    <section className="bg-[#F8F6F3] px-6 py-24 lg:px-12 lg:py-40">
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12 lg:gap-20">
         <div className="lg:col-span-4">
           <Reveal><Eyebrow>Häufige Fragen</Eyebrow></Reveal>
           <Reveal delay={80}>

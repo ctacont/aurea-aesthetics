@@ -81,10 +81,10 @@ export default function Practice() {
       <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal><Eyebrow>Werte</Eyebrow></Reveal>
-          <div className="mt-14 grid gap-px border-t border-[#E8E2D9] sm:grid-cols-2">
+          <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
             {VALUES.map((v, i) => (
               <Reveal key={v.title} delay={i * 80}>
-                <div className="border-b border-[#E8E2D9] py-10 sm:border-r sm:pr-10">
+                <div className="flex min-h-[220px] flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 sm:px-10">
                   <h3 className="font-heading text-2xl font-light">{v.title}</h3>
                   <p className="mt-4 text-sm leading-relaxed text-neutral-600">{v.text}</p>
                 </div>
