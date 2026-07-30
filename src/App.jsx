@@ -16,6 +16,7 @@ import Location from '@/pages/Location';
 import Faq from '@/pages/Faq';
 import Contact from '@/pages/Contact';
 import Admin from '@/pages/Admin';
+import AdminRoute from '@/components/AdminRoute';
 import { Impressum, Datenschutz } from '@/pages/Legal';
 
 const AuthenticatedApp = () => {
@@ -52,7 +53,9 @@ const AuthenticatedApp = () => {
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Datenschutz />} />
       </Route>
-      <Route path="/admin" element={<Admin />} />
+      <Route element={<AdminRoute />}>
+        <Route path="/admin" element={<Admin />} />
+      </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
