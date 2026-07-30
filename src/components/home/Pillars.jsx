@@ -9,7 +9,7 @@ export default function Pillars() {
     <section className="relative overflow-hidden px-6 py-24 lg:px-12 lg:py-40">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <Image src={IMAGES.texture} alt="" className="h-full w-full scale-110 object-cover blur-[6px]" fittingType="fill" />
-        <div className="absolute inset-0 bg-[#F8F6F3]/85" />
+        <div className="absolute inset-0 bg-[#0]/75" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
@@ -29,8 +29,8 @@ export default function Pillars() {
         </Reveal>
 
         <ol className="mt-20">
-          {PILLARS.map((p, i) => (
-            <Reveal key={p.title} delay={Math.min(i * 80, 320)}>
+          {PILLARS.map((p, i) =>
+          <Reveal key={p.title} delay={Math.min(i * 80, 320)}>
               <li className="grid items-baseline gap-4 border-t border-[#E8E2D9] py-10 md:grid-cols-12 md:gap-10 md:py-14">
                 <span className="font-heading text-4xl font-light leading-none text-[#C9AF80] md:col-span-2 md:text-5xl">
                   0{i + 1}
@@ -43,10 +43,10 @@ export default function Pillars() {
                 </p>
               </li>
             </Reveal>
-          ))}
+          )}
         </ol>
         <div className="border-t border-[#E8E2D9]" />
       </div>
-    </section>
-  );
+    </section>);
+
 }
