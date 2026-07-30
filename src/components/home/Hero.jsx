@@ -20,7 +20,7 @@ export default function Hero({ settings }) {
       </div>
 
       <div className="relative flex w-full items-end px-6 pb-20 pt-44 lg:px-16 lg:pb-28 lg:pt-52">
-        <div className="max-w-5xl border border-white/10 bg-white/[0.06] px-10 py-7 text-left text-white rounded-3xl shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-200 lg:px-16 lg:py-10 lg:-translate-x-[50px]">
+        <div className="border border-white/10 bg-white/[0.06] px-10 py-7 text-left text-white rounded-3xl shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-200 lg:px-16 lg:py-10 lg:-translate-x-[50px] max-w-3xl">
           <Eyebrow tone="light">
             {settings.practice_name} · {settings.district}
           </Eyebrow>
@@ -30,7 +30,7 @@ export default function Hero({ settings }) {
             <span className="mt-2 block text-[#C9AF80]">Individuell, präzise und natürlich.</span>
           </h1>
 
-          <p className="mt-10 max-w-md leading-relaxed text-white/75 text-[0.rem]">
+          <p className="mt-10 max-w-md leading-relaxed text-white/75 text-[0.95rem]">
             Eine private Praxis an der {settings.street} — geprägt von medizinischer Sorgfalt,
             Diskretion und Ergebnissen, die Ihre eigenen Züge bewahren.
           </p>
