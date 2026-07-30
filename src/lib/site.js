@@ -7,6 +7,9 @@ export const IMAGES = {
   filler: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/aa2efde7c_generated_image.png',
   bio: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/95843c29a_generated_image.png',
   skinbooster: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/178c12a52_generated_image.png',
+  practice: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/a7a817d18_generated_image.png',
+  experience: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/c271a0b69_generated_image.png',
+  contact: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9db4a66c8_generated_image.png',
 };
 
 export const LOGO = '/aurea_logo_transparent_2.png';

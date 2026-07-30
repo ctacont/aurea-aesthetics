@@ -28,7 +28,7 @@ export default function Experience() {
         title="Ruhe ist Teil"
         accent="der Behandlung."
         lead="Räume, Abläufe und Terminplanung sind darauf ausgelegt, Ihnen Zeit und Diskretion zu geben."
-        image={IMAGES.interior}
+        image={IMAGES.experience}
         breadcrumbs={crumbs}
       />
 

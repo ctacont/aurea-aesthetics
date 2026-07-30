@@ -36,7 +36,7 @@ export default function Practice() {
         title="Eine private Praxis"
         accent="für ästhetische Medizin."
         lead={`An der ${settings.street} in ${settings.district} führen wir eine Praxis, die medizinische Sorgfalt und ruhige Atmosphäre verbindet.`}
-        image={IMAGES.interior}
+        image={IMAGES.practice}
         breadcrumbs={crumbs}
       />
 

@@ -25,7 +25,7 @@ export default function Contact() {
         title="Persönliche Beratung"
         accent="in Zürich Enge."
         lead="Wir nehmen bewusst eine begrenzte Anzahl neuer Patientinnen und Patienten auf. Senden Sie Ihre Anfrage — wir melden uns diskret zurück."
-        image={IMAGES.interior}
+        image={IMAGES.contact}
         breadcrumbs={crumbs}
       />
 
