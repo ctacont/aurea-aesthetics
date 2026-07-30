@@ -18,12 +18,12 @@ export default function FactGrid({ treatment }) {
         <p className="eyebrow text-[#8A7550]">Auf einen Blick</p>
         <dl className="mt-10 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2 lg:grid-cols-5">
           {facts.map((f, i) =>
-          <Reveal key={f.label} delay={i * 70}>
-              <div className="flex min-h-[140px] flex-col justify-center border-b border-r border-[#E8E2D9] px-6 py-8 text-center">
-                <dt className="eyebrow text-neutral-400">{f.label}</dt>
-                <dd className="mt-4 font-heading text-2xl font-light">{f.value}</dd>
-              </div>
-            </Reveal>
+          <Reveal key={f.label} delay={i * 70} className="h-full">
+            <div className="flex h-full min-h-[140px] flex-col justify-center border-b border-r border-[#E8E2D9] px-6 py-8 text-center">
+              <dt className="eyebrow text-neutral-400">{f.label}</dt>
+              <dd className="mt-4 font-heading text-2xl font-light">{f.value}</dd>
+            </div>
+          </Reveal>
           )}
         </dl>
       </div>
