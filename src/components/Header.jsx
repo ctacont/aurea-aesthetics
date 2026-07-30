@@ -39,7 +39,7 @@ export default function Header() {
             <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png"
 
             alt="Aurea Aesthetics AG"
-            className="h-7 w-auto brightness-0 invert lg:h-8" />
+            className="w-auto brightness-0 invert lg:h-10 h-" />
             
           </Link>
 
