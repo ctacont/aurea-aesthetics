@@ -7,15 +7,20 @@ import { IMAGES } from '@/lib/site';
 export default function Hero({ settings }) {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src={IMAGES.hero}
-          alt="Ruhiger Moment — ästhetische Medizin in Zürich Enge"
-          className="h-full w-full"
-          fittingType="fill"
-          focalPointX={0.88}
-          focalPointY={0.42} />
-        
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute left-[-250px] top-0 h-full w-[calc(100%+250px)]"
+          style={{ transform: 'translateX(250px)' }}
+        >
+          <Image
+            src={IMAGES.hero}
+            alt="Ruhiger Moment — ästhetische Medizin in Zürich Enge"
+            className="h-full w-full"
+            fittingType="fill"
+            focalPointX={0.88}
+            focalPointY={0.42}
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/45 via-[#0A0A0A]/15 to-transparent" />
       </div>
 
