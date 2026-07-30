@@ -7,7 +7,7 @@ import TreatmentCard from '@/components/TreatmentCard';
 
 export default function TreatmentMatrix({ treatments }) {
   const railRef = useRef(null);
-  const drag = useRef({ down: false, moved: false, startX: 0, scrollLeft: 0 });
+  const drag = useRef({ down: false, moved: false, startX: 0, scrollLeft: 0, pointerId: null });
 
   const scrollBy = (dir) => {
     const rail = railRef.current;
@@ -23,35 +23,39 @@ export default function TreatmentMatrix({ treatments }) {
   const onPointerDown = (e) => {
     const rail = railRef.current;
     if (!rail) return;
-    drag.current = { down: true, moved: false, startX: e.clientX, scrollLeft: rail.scrollLeft };
+    drag.current = { down: true, moved: false, startX: e.clientX, scrollLeft: rail.scrollLeft, pointerId: e.pointerId };
+    rail.setPointerCapture?.(e.pointerId);
   };
 
   const onPointerMove = (e) => {
     const d = drag.current;
     if (!d.down) return;
+    const rail = railRef.current;
+    if (!rail) return;
     const dx = e.clientX - d.startX;
-    if (!d.moved && Math.abs(dx) > 6) {
+    if (!d.moved && Math.abs(dx) > 4) {
       d.moved = true;
-      const rail = railRef.current;
-      if (rail) rail.setPointerCapture?.(e.pointerId);
     }
     if (d.moved) {
-      e.preventDefault();
-      const rail = railRef.current;
-      if (rail) rail.scrollLeft = d.scrollLeft - dx;
+      rail.scrollLeft = d.scrollLeft - dx;
     }
   };
 
   const endDrag = () => {
+    const rail = railRef.current;
+    if (rail && drag.current.pointerId != null) {
+      rail.releasePointerCapture?.(drag.current.pointerId);
+    }
     drag.current.down = false;
+    drag.current.pointerId = null;
   };
 
   const onClickCapture = (e) => {
     if (drag.current.moved) {
       e.preventDefault();
       e.stopPropagation();
-      drag.current.moved = false;
     }
+    drag.current.moved = false;
   };
 
   return (
@@ -99,12 +103,12 @@ export default function TreatmentMatrix({ treatments }) {
         tabIndex={0}
         role="region"
         aria-label="Behandlungsübersicht — mit Pfeiltasten navigierbar"
-        className="no-scrollbar mt-14 flex cursor-grab gap-6 overflow-x-auto px-6 pb-4 select-none lg:px-12 active:cursor-grabbing"
+        className="no-scrollbar touch-pan-y mt-14 flex cursor-grab gap-6 overflow-x-auto px-6 pb-4 select-none lg:px-12 active:cursor-grabbing"
       >
         {treatments.map((t, i) => (
           <div
             key={t.id}
-            className="w-[74vw] shrink-0 snap-start sm:w-[42vw] lg:w-[25vw] xl:w-[22vw]"
+            className="w-[74vw] shrink-0 sm:w-[42vw] lg:w-[25vw] xl:w-[22vw]"
           >
             <Reveal delay={i * 60}>
               <TreatmentCard treatment={t} />
