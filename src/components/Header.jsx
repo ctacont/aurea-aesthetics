@@ -31,7 +31,9 @@ export default function Header() {
       <header
         onMouseLeave={() => setMega(false)}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        solid ? 'bg-[#FAF9F7] border-b border-[#E8E2D9]' : 'bg-transparent'}`
+        solid ?
+        'bg-white/10 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/15 shadow-[0_8px_40px_rgba(0,0,0,0.18)]' :
+        'bg-transparent'}`
         }>
         
         <div className="flex items-center justify-between px-6 py-5 lg:px-12">
@@ -39,7 +41,7 @@ export default function Header() {
             <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png"
 
             alt="Aurea Aesthetics AG"
-            className={`h-12 w-auto transition-all duration-500 ${solid ? 'brightness-0' : 'brightness-0 invert'}`} />
+            className="h-12 w-auto brightness-0 invert" />
             
           </Link>
 
@@ -49,9 +51,7 @@ export default function Header() {
                 <Link
                 to={n.path}
                 className={`eyebrow link-underline transition-colors ${
-                pathname.startsWith(n.path) ?
-                'text-[#8A7550]' :
-                solid ? 'text-neutral-600 hover:text-neutral-900' : 'text-white/75 hover:text-white'}`
+                pathname.startsWith(n.path) ? 'text-[#E7D3AA]' : 'text-white hover:text-[#E7D3AA]'}`
                 }>
                 
                   {n.label}
@@ -63,16 +63,14 @@ export default function Header() {
           <div className="flex items-center gap-5">
             <Link
               to="/kontakt-termin"
-              className={`hidden px-6 py-3 eyebrow transition-colors duration-500 hover:border-[#C9AF80] hover:bg-[#C9AF80] hover:text-[#0A0A0A] lg:inline-block ${
-              solid ? 'border border-[#0A0A0A]/20 text-[#0A0A0A]' : 'border border-white/25 text-white'}`
-              }>
+              className="hidden border border-white/35 px-6 py-3 eyebrow text-white transition-colors duration-500 hover:border-[#C9AF80] hover:bg-[#C9AF80] hover:text-[#0A0A0A] lg:inline-block">
               
               Beratung anfragen
             </Link>
             <button
               onClick={() => setMobile(true)}
               aria-label="Menü öffnen"
-              className={`p-1 lg:hidden ${solid ? 'text-[#0A0A0A]' : 'text-white'}`}>
+              className="p-1 text-white lg:hidden">
               
               <Menu className="h-6 w-6" strokeWidth={1} />
             </button>
