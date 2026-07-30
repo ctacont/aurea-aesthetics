@@ -10,8 +10,8 @@ export default function DoctorSection({ doctors = [] }) {
 
   return (
     <section className="bg-background px-6 py-24 lg:px-12 lg:py-40">
-      <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-16">
-        <Reveal className="lg:col-span-5">
+      <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-24">
+        <Reveal className="lg:col-span-6 lg:-ml-12">
           <div className="relative aspect-[4/5] w-full bg-neutral-200">
             <Image
               src={doc?.photo_url || IMAGES.interior}
@@ -22,7 +22,7 @@ export default function DoctorSection({ doctors = [] }) {
           </div>
         </Reveal>
 
-        <div className="lg:col-span-7 lg:pt-8">
+        <div className="lg:col-span-6 lg:pt-16">
           <Reveal delay={80}><Eyebrow>Medizinische Leitung</Eyebrow></Reveal>
 
           <Reveal delay={140}>

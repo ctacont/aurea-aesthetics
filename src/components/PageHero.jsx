@@ -5,7 +5,7 @@ import Eyebrow from '@/components/Eyebrow';
 
 export default function PageHero({ eyebrow, title, accent, lead, image, breadcrumbs = [] }) {
   return (
-    <section className="relative bg-[#0A0A0A] pt-36 pb-20 text-white lg:pt-48 lg:pb-28">
+    <section className="relative flex min-h-[70svh] flex-col justify-end bg-[#0A0A0A] pt-36 pb-20 text-white lg:min-h-[78svh] lg:pt-48 lg:pb-28">
       {image && (
         <div className="absolute inset-0">
           <Image src={image} alt="" className="h-full w-full" fittingType="fill" />

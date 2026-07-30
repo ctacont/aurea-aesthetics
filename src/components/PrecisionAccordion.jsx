@@ -6,18 +6,18 @@ export default function PrecisionAccordion({ items, reviewer, tone = 'dark' }) {
   const light = tone === 'light';
 
   return (
-    <div className={light ? 'border-t border-white/10' : 'border-t border-[#E8E2D9]'}>
+    <div className={light ? 'border-t border-white/10' : 'border-t border-[#EDE7DE]'}>
       {items.map((item, i) => {
         const q = item.q || item.question;
         const a = item.a || item.answer;
         const isOpen = open === i;
         return (
-          <div key={q} className={light ? 'border-b border-white/10' : 'border-b border-[#E8E2D9]'}>
+          <div key={q} className={light ? 'border-b border-white/10' : 'border-b border-[#EDE7DE]'}>
             <h3>
               <button
                 onClick={() => setOpen(isOpen ? null : i)}
                 aria-expanded={isOpen}
-                className="flex w-full items-start justify-between gap-6 py-7 text-left"
+                className="flex w-full items-start justify-between gap-6 py-9 text-left"
               >
                 <span
                   className={`font-heading text-xl font-light leading-snug md:text-2xl ${
@@ -41,7 +41,7 @@ export default function PrecisionAccordion({ items, reviewer, tone = 'dark' }) {
             >
               <div className="overflow-hidden">
                 <div className="max-w-2xl pb-8 pr-10">
-                  <p className={`leading-[1.75] ${light ? 'text-white/60' : 'text-neutral-600'}`}>
+                  <p className={`leading-[1.85] ${light ? 'text-white/60' : 'text-neutral-600'}`}>
                     {a}
                   </p>
                   {reviewer && (

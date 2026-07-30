@@ -1,12 +1,16 @@
 import React from 'react';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
-import { PROCESS } from '@/lib/site';
+import { Image } from '@/components/ui/image';
+import { PROCESS, IMAGES } from '@/lib/site';
 
 export default function Process() {
   return (
-    <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-40">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden bg-white px-6 py-24 lg:px-12 lg:py-40">
+      <div className="pointer-events-none absolute -left-24 top-1/4 hidden h-1/2 w-1/4 opacity-[0.12] lg:block" aria-hidden="true">
+        <Image src={IMAGES.texture} alt="" className="h-full w-full" fittingType="fill" />
+      </div>
+      <div className="relative mx-auto max-w-6xl">
         <Reveal><Eyebrow>Ihr Weg zu uns</Eyebrow></Reveal>
         <Reveal delay={80}>
           <h2 className="mt-7 max-w-2xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">

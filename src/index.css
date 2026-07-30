@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -26,9 +26,9 @@
     --input: 35 24% 86%;
     --ring: 36 38% 65%;
     --radius: 0.125rem;
-    --font-heading: 'Cormorant Garamond', ui-serif, Georgia, serif;
-    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+    --font-heading: 'Fraunces', ui-serif, Georgia, serif;
+    --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Fraunces', ui-serif, Georgia, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
     --obsidian: 10 10 10;
     --champagne: 201 175 128;
@@ -69,14 +69,18 @@
   body {
     @apply bg-background text-foreground font-body;
     font-size: 1.0625rem;
-    line-height: 1.65;
+    line-height: 1.7;
     font-weight: 300;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
     font-weight: 300;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    letter-spacing: -0.03em;
   }
 
   ::selection {
@@ -95,7 +99,7 @@
     font-family: var(--font-body);
     font-size: 0.6875rem;
     font-weight: 400;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
   }
 
