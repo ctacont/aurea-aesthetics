@@ -32,7 +32,7 @@ export default function Header() {
         onMouseLeave={() => setMega(false)}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         solid ?
-        'bg-white/10 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/15 shadow-[0_8px_40px_rgba(0,0,0,0.18)]' :
+        'bg-black/50 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/15 shadow-[0_8px_40px_rgba(0,0,0,0.25)]' :
         'bg-transparent'}`
         }>
         
