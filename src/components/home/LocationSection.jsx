@@ -12,7 +12,7 @@ export default function LocationSection({ settings }) {
   return (
     <section className="grid lg:grid-cols-2">
       <Reveal className="order-2 lg:order-1">
-        <div className="h-[46svh] w-full lg:h-full lg:min-h-[42rem] absolute">
+        <div className="h-[46svh] w-full lg:h-full absolute lg:min-h-[42rem]">
           <Image
             src={IMAGES.zurich}
             alt={t('locationSection.alt')}
