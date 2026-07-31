@@ -32,7 +32,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
           </nav>
         }
 
-        <div className="max-w-[974px] border border-white/10 bg-white/[0.06] text-left text-white shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-2xl backdrop-saturate-200 py-6 px-6 lg:-translate-x-[-10%] min-[1980px]:max-w-[33vw]">
+        <div className="max-w-[974px] border lg:-translate-x-[-10%] border-white/15 bg-black/25 p-8 backdrop-blur-xl backdrop-saturate-150 lg:p-12">
           {eyebrow && <Eyebrow tone="light">{eyebrow}</Eyebrow>}
 
           <h1 className="mt-7 font-heading text-[2.4rem] font-light leading-[1.1] md:text-6xl">
