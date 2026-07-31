@@ -13,7 +13,8 @@ export default function Hero({ settings }) {
   const { t, langPath } = useLanguage();
 
   const slides = [
-  { src: settings.hero_image_url || IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 },
+  //{ src: settings.hero_image_url || IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 },
+  { src: IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 },
   { src: IMAGES.interior, focalPointX: 0.5, focalPointY: 0.5 },
   { src: IMAGES.zurich, focalPointX: 0.5, focalPointY: 0.5 }];
 
