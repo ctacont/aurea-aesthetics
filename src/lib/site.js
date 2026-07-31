@@ -1,7 +1,7 @@
 export const IMAGES = {
   hero: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/fc24878da_generated_image.png',
   texture: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/8c5458ab5_generated_image.png',
-  zurich: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/2623bef74_hero_bild_02.jpg',
+  zurich: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/3b7d2bd8c_hero_bild_02_darker.jpg',
   interior: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/8ccbab271_hero_bild_03_darker.jpg',
   mimic: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9147ba321_generated_image.png',
   filler: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/aa2efde7c_generated_image.png',
