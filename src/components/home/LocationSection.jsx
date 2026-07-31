@@ -22,7 +22,7 @@ export default function LocationSection({ settings }) {
         </div>
       </Reveal>
 
-      <div className="relative z-10 order-1 flex flex-col justify-center bg-[#F4F1EE] px-6 py-24 lg:order-2 lg:-ml-14 lg:my-14 lg:px-16 lg:py-32 lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+      <div className="relative z-10 order-1 flex flex-col justify-center bg-[#F4F1EE] px-6 py-24 lg:order-2 lg:-ml-14 lg:my-14 lg:px-16 lg:py-32 lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)] border max-w-[974px] text-left text-white shadow-[0_40px_120px_rgba(0,0,0,0.45)] py-6 lg:-translate-x-[-10%] min-[1980px]:max-w-[33vw] border-white/15 bg-black/25 backdrop-blur-xl backdrop-saturate-150 lg:w-fit">
         <Reveal><Eyebrow>{t('locationSection.eyebrow')}</Eyebrow></Reveal>
         <Reveal delay={80}>
           <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
