@@ -7,6 +7,7 @@ import { IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const SLIDE_INTERVAL = 3000;
+const FADE_DURATION = 1500;
 
 export default function Hero({ settings }) {
   const { t, langPath } = useLanguage();
@@ -56,10 +57,11 @@ export default function Hero({ settings }) {
           {slides.map((slide, i) => (
             <div
               key={i}
-              className="absolute left-[250px] top-0 h-full w-[calc(100%-250px)] transition-opacity duration-[1500ms] ease-in-out"
+              className="absolute left-[250px] top-0 h-full w-[calc(100%-250px)] transition-opacity ease-in-out"
               style={{
                 opacity: i === currentIndex ? 1 : 0,
                 zIndex: i,
+                transitionDuration: `${FADE_DURATION}ms`,
               }}
             >
               <Image
@@ -79,20 +81,20 @@ export default function Hero({ settings }) {
       <button
         onClick={() => handleManual('prev')}
         aria-label="Previous"
-        className="hidden md:flex absolute left-6 top-1/2 z-20 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+        className="hidden md:flex absolute left-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
       >
         <ChevronLeft className="h-5 w-5" strokeWidth={1} />
       </button>
       <button
         onClick={() => handleManual('next')}
         aria-label="Next"
-        className="hidden md:flex absolute right-6 top-1/2 z-20 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+        className="hidden md:flex absolute right-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
       >
         <ChevronRight className="h-5 w-5" strokeWidth={1} />
       </button>
 
       <div className="relative flex w-full items-end px-6 pb-20 pt-44 lg:px-16 lg:pb-28 lg:pt-52">
-        <div className="border max-w-[974px] text-left text-white shadow-[0_40px_120px_rgba(0,0,0,0.45)] py-6 px-6 lg:-translate-x-[-10%] min-[1980px]:max-w-[33vw] border-white/15 bg-black/25 backdrop-blur-xl backdrop-saturate-150 lg:w-fit">
+        <div className="relative z-30 border max-w-[974px] text-left text-white shadow-[0_40px_120px_rgba(0,0,0,0.45)] py-6 px-6 lg:-translate-x-[-10%] min-[1980px]:max-w-[33vw] border-white/15 bg-black/25 backdrop-blur-xl backdrop-saturate-150 lg:w-fit">
           <Eyebrow tone="light">
             {settings.practice_name} · {settings.district}
           </Eyebrow>
