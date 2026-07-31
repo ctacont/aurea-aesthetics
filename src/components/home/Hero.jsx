@@ -1,34 +1,97 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
 import GoldButton from '@/components/GoldButton';
 import { IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
+const SLIDE_INTERVAL = 3000;
+
 export default function Hero({ settings }) {
   const { t, langPath } = useLanguage();
 
+  const slides = [
+    { src: settings.hero_image_url || IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 },
+    { src: IMAGES.interior, focalPointX: 0.5, focalPointY: 0.5 },
+    { src: IMAGES.zurich, focalPointX: 0.5, focalPointY: 0.5 },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef(null);
+
+  const goNext = () => setCurrentIndex((i) => (i + 1) % slides.length);
+  const goPrev = () => setCurrentIndex((i) => (i - 1 + slides.length) % slides.length);
+
+  const startAuto = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(goNext, SLIDE_INTERVAL);
+  };
+  const stopAuto = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = null;
+  };
+
+  useEffect(() => {
+    startAuto();
+    return () => stopAuto();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleManual = (dir) => {
+    stopAuto();
+    if (dir === 'next') goNext();
+    else goPrev();
+    startAuto();
+  };
+
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section
+      className="relative flex min-h-[100svh] items-center overflow-hidden"
+      onMouseEnter={stopAuto}
+      onMouseLeave={startAuto}
+    >
       <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute left-[-250px] top-0 h-full w-[calc(100%+250px)]"
-          style={{ transform: 'translateX(250px)' }}>
-          
-          <Image
-            src={settings.hero_image_url || IMAGES.hero}
-            alt={t('hero.alt')}
-            className="h-full w-full object-cover"
-            fittingType="fill"
-            focalPointX={0.88}
-            focalPointY={0.42} />
-          
+        <div className="absolute left-[-250px] top-0 h-full w-[calc(100%+250px)]">
+          {slides.map((slide, i) => (
+            <div
+              key={i}
+              className="absolute left-[250px] top-0 h-full w-[calc(100%-250px)] transition-opacity duration-[1500ms] ease-in-out"
+              style={{
+                opacity: i === currentIndex ? 1 : 0,
+                zIndex: i,
+              }}
+            >
+              <Image
+                src={slide.src}
+                alt={t('hero.alt')}
+                className="h-full w-full object-cover"
+                fittingType="fill"
+                focalPointX={slide.focalPointX}
+                focalPointY={slide.focalPointY}
+              />
+            </div>
+          ))}
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/45 via-[#0A0A0A]/15 to-transparent" />
       </div>
 
+      <button
+        onClick={() => handleManual('prev')}
+        aria-label="Previous"
+        className="hidden md:flex absolute left-6 top-1/2 z-20 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+      >
+        <ChevronLeft className="h-5 w-5" strokeWidth={1} />
+      </button>
+      <button
+        onClick={() => handleManual('next')}
+        aria-label="Next"
+        className="hidden md:flex absolute right-6 top-1/2 z-20 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+      >
+        <ChevronRight className="h-5 w-5" strokeWidth={1} />
+      </button>
+
       <div className="relative flex w-full items-end px-6 pb-20 pt-44 lg:px-16 lg:pb-28 lg:pt-52">
-        
         <div className="border max-w-[974px] text-left text-white shadow-[0_40px_120px_rgba(0,0,0,0.45)] py-6 px-6 lg:-translate-x-[-10%] min-[1980px]:max-w-[33vw] border-white/15 bg-black/25 backdrop-blur-xl backdrop-saturate-150 lg:w-fit">
           <Eyebrow tone="light">
             {settings.practice_name} · {settings.district}
@@ -44,12 +107,8 @@ export default function Hero({ settings }) {
           </p>
 
           <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <GoldButton to={langPath('/kontakt-termin')} tone="primary" className="flex-1">{t('hero.beratungAnfragen')}
-
-            </GoldButton>
-            <GoldButton to={langPath('/behandlungen')} tone="outline" className="border flex-1 border-[#C9AF80] text-[#F5F3EE] hover:bg-[#C9AF80] hover:text-[#0A0A0A]">{t('hero.behandlungenEntdecken')}
-
-            </GoldButton>
+            <GoldButton to={langPath('/kontakt-termin')} tone="primary" className="flex-1">{t('hero.beratungAnfragen')}</GoldButton>
+            <GoldButton to={langPath('/behandlungen')} tone="outline" className="border flex-1 border-[#C9AF80] text-[#F5F3EE] hover:bg-[#C9AF80] hover:text-[#0A0A0A]">{t('hero.behandlungenEntdecken')}</GoldButton>
           </div>
 
           <address className="mt-12 not-italic eyebrow text-white/70">
@@ -57,6 +116,6 @@ export default function Hero({ settings }) {
           </address>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }
