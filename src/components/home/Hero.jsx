@@ -81,14 +81,14 @@ export default function Hero({ settings }) {
       <button
         onClick={() => handleManual('prev')}
         aria-label="Previous"
-        className="hidden md:flex absolute left-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 border/0">
+        className="hidden md:flex absolute left-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 text-white backdrop-blur-sm transition-colors border/0 bg-white/0 hover:bg-white/0">
         
         <ChevronLeft className="h-5 w-5" strokeWidth={1} />
       </button>
       <button
         onClick={() => handleManual('next')}
         aria-label="Next"
-        className="hidden md:flex absolute right-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 border/0">
+        className="hidden md:flex absolute right-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 text-white backdrop-blur-sm transition-colors border/0 hover:bg-white/0 bg-white/0">
         
         <ChevronRight className="h-5 w-5" strokeWidth={1} />
       </button>
