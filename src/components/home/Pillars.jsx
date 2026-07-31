@@ -13,7 +13,7 @@ export default function Pillars() {
       <div className="mx-auto max-w-6xl">
         <Reveal><Eyebrow>{t('pillars.eyebrow')}</Eyebrow></Reveal>
         <Reveal delay={80}>
-          <h2 className="mt-7 max-w-2xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
+          <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl max-w-2xl">
             {t('pillars.title')}
             <span className="text-[#8A7550]">{t('pillars.accent')}</span>
           </h2>
