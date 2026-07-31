@@ -14,7 +14,7 @@ export default function LocationSection({ settings }) {
       style={{ backgroundImage: `url(${IMAGES.zurich})` }}>
       
       <div className="relative z-10 px-6 lg:px-12 ml-auto lg:py-24 py-18 max-w-5xl">
-        <div className="flex flex-col justify-center px-6 py-6 lg:w-fit lg:px-6 lg:py-6 border border-[#E8E2D9] lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)] backdrop-blur-xl backdrop-saturate-150 bg-[#FFFFFF]/0">
+        <div className="flex flex-col justify-center px-6 py-6 lg:w-fit lg:px-6 lg:py-6 border border-[#E8E2D9] lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)] backdrop-blur-xl bg-[#FFFFFF]/80">
           <Reveal><Eyebrow>{t('locationSection.eyebrow')}</Eyebrow></Reveal>
           <Reveal delay={80}>
             <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
