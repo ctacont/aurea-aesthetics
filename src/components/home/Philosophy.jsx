@@ -16,7 +16,7 @@ export default function Philosophy() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="mt-8 max-w-3xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
+          <h2 className="mt-8 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {t('philosophy.title')}
             <span className="text-[#8A7550]">{t('philosophy.accent')}</span>
           </h2>
@@ -29,8 +29,8 @@ export default function Philosophy() {
                 src={IMAGES.texture}
                 alt={t('philosophy.alt')}
                 className="h-full w-full"
-                fittingType="fill"
-              />
+                fittingType="fill" />
+              
             </div>
           </Reveal>
 
@@ -68,6 +68,6 @@ export default function Philosophy() {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
