@@ -7,7 +7,7 @@ import { IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const SLIDE_INTERVAL = 4000;
-const FADE_DURATION = 2500;
+const FADE_DURATION = 4000;
 
 export default function Hero({ settings }) {
   const { t, langPath } = useLanguage();
