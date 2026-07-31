@@ -16,7 +16,7 @@ export default function LocationSection({ settings }) {
           <Image
             src={IMAGES.zurich}
             alt={t('locationSection.alt')}
-            className="h-full w-full"
+
             fittingType="fill" />
           
         </div>
