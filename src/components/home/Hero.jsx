@@ -29,6 +29,7 @@ export default function Hero({ settings }) {
 
 
   const hasVideo = !!settings.hero_video_url;
+  const showArrows = !hasVideo && slides.length >= 2;
   const mobileFallback = settings.hero_video_mobile_image_url || slides[0].src;
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -114,20 +115,24 @@ export default function Hero({ settings }) {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/45 via-[#0A0A0A]/15 to-transparent" />
       </div>
 
-      <button
-        onClick={() => handleManual('prev')}
-        aria-label="Previous"
-        className="hidden md:flex absolute left-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 text-white backdrop-blur-sm transition-colors border/0 bg-white/0 hover:bg-white/0">
-        
-        <ChevronLeft className="h-5 w-5" strokeWidth={1} />
-      </button>
-      <button
-        onClick={() => handleManual('next')}
-        aria-label="Next"
-        className="hidden md:flex absolute right-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 text-white backdrop-blur-sm transition-colors border/0 hover:bg-white/0 bg-white/0">
-        
-        <ChevronRight className="h-5 w-5" strokeWidth={1} />
-      </button>
+      {showArrows && (
+        <button
+          onClick={() => handleManual('prev')}
+          aria-label="Previous"
+          className="hidden md:flex absolute left-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 text-white backdrop-blur-sm transition-colors border/0 bg-white/0 hover:bg-white/0">
+          
+          <ChevronLeft className="h-5 w-5" strokeWidth={1} />
+        </button>
+      )}
+      {showArrows && (
+        <button
+          onClick={() => handleManual('next')}
+          aria-label="Next"
+          className="hidden md:flex absolute right-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 text-white backdrop-blur-sm transition-colors border/0 hover:bg-white/0 bg-white/0">
+          
+          <ChevronRight className="h-5 w-5" strokeWidth={1} />
+        </button>
+      )}
 
       <div className="relative flex w-full items-end px-6 pb-20 pt-44 lg:px-16 lg:pb-28 lg:pt-52">
         <div className="relative z-30 border max-w-[974px] text-left text-white shadow-[0_40px_120px_rgba(0,0,0,0.45)] py-6 px-6 lg:-translate-x-[-10%] min-[1980px]:max-w-[33vw] border-white/15 bg-black/25 backdrop-blur-xl backdrop-saturate-150 lg:w-fit">
