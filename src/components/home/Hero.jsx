@@ -150,7 +150,7 @@ export default function Hero({ settings }) {
           </p>
 
           <div className="mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <GoldButton to={langPath('/kontakt-termin')} tone="primary" className="flex-1 w-full">{t('hero.beratungAnfragen')}</GoldButton>
+            <GoldButton to={langPath('/kontakt-termin')} tone="primary" className="flex-1 w-full sm:w-auto">{t('hero.beratungAnfragen')}</GoldButton>
             <GoldButton to={langPath('/behandlungen')} tone="outline" className="border flex-1 border-[#C9AF80] text-[#F5F3EE] hover:bg-[#C9AF80] hover:text-[#0A0A0A]">{t('hero.behandlungenEntdecken')}</GoldButton>
           </div>
 
