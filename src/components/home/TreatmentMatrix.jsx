@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
 import TreatmentCard from '@/components/TreatmentCard';
+import ConsultationCta from '@/components/home/ConsultationCta';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function TreatmentMatrix({ treatments }) {
@@ -30,6 +31,11 @@ export default function TreatmentMatrix({ treatments }) {
               <TreatmentCard treatment={tr} />
             </Reveal>
           )}
+          {treatments.length === 5 &&
+          <Reveal delay={treatments.length * 60}>
+              <ConsultationCta />
+            </Reveal>
+          }
         </div>
       </div>
 
