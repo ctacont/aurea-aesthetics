@@ -13,7 +13,7 @@ export default function LocationSection({ settings }) {
       className="relative w-full overflow-hidden bg-cover bg-center"
       style={{ backgroundImage: `url(${IMAGES.zurich})` }}>
       
-      <div className="relative z-10 max-w-6xl px-6 lg:px-12 ml-auto py-12 lg:py-1">
+      <div className="relative z-10 max-w-6xl px-6 lg:px-12 ml-auto py-12 lg:py-21">
         <div className="flex flex-col justify-center px-6 py-6 lg:w-fit lg:px-6 lg:py-6 bg-[#FFFFFF] border border-[#E8E2D9] lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
           <Reveal><Eyebrow>{t('locationSection.eyebrow')}</Eyebrow></Reveal>
           <Reveal delay={80}>
