@@ -6,8 +6,8 @@ import GoldButton from '@/components/GoldButton';
 import { IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
-const SLIDE_INTERVAL = 6000;
-const FADE_DURATION = 6000;
+const SLIDE_INTERVAL = 5000;
+const FADE_DURATION = 5000;
 
 export default function Hero({ settings }) {
   const { t, langPath } = useLanguage();
