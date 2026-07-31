@@ -15,7 +15,7 @@ export default function TreatmentMatrix({ treatments }) {
         <div className="mx-auto max-w-6xl">
           <Reveal><Eyebrow>{t('treatmentMatrix.eyebrow')}</Eyebrow></Reveal>
           <Reveal delay={80}>
-            <h2 className="mt-7 max-w-2xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
+            <h2 className="font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl mt-7 max-w-xl">
               {t('treatmentMatrix.title')}
               <span className="text-[#8A7550]">{t('treatmentMatrix.accent')}</span>
             </h2>
@@ -25,11 +25,11 @@ export default function TreatmentMatrix({ treatments }) {
 
       <div className="mt-14 px-6 lg:px-12">
         <div className="mx-auto max-w-6xl grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {treatments.map((tr, i) => (
-            <Reveal key={tr.id} delay={i * 60}>
+          {treatments.map((tr, i) =>
+          <Reveal key={tr.id} delay={i * 60}>
               <TreatmentCard treatment={tr} />
             </Reveal>
-          ))}
+          )}
         </div>
       </div>
 
@@ -41,6 +41,6 @@ export default function TreatmentMatrix({ treatments }) {
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
