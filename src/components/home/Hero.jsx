@@ -12,11 +12,20 @@ const FADE_DURATION = 5000;
 export default function Hero({ settings }) {
   const { t, langPath } = useLanguage();
 
-  const slides = [
-  //{ src: settings.hero_image_url || IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 },
-  { src: IMAGES.zurich, focalPointX: 0.5, focalPointY: 0.5 },
-  { src: IMAGES.interior, focalPointX: 0.5, focalPointY: 0.5 },
-  { src: IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 }];
+  const customSlides = Array.isArray(settings.hero_slides)
+    ? settings.hero_slides
+        .filter((s) => s && s.active && s.src)
+        .sort((a, b) => (a.order || 0) - (b.order || 0))
+        .map((s) => ({ src: s.src, focalPointX: 0.5, focalPointY: 0.5 }))
+    : [];
+
+  const slides = customSlides.length > 0
+    ? customSlides
+    : [
+        { src: IMAGES.zurich, focalPointX: 0.5, focalPointY: 0.5 },
+        { src: IMAGES.interior, focalPointX: 0.5, focalPointY: 0.5 },
+        { src: IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 },
+      ];
 
 
   const hasVideo = !!settings.hero_video_url;

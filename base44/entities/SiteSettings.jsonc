@@ -55,6 +55,26 @@
       "type": "string",
       "description": "Fallback-Bild f\u00fcr Mobile wenn Video aktiv"
     },
+    "hero_slides": {
+      "type": "array",
+      "description": "Konfigurierbare Hero-Slider-Bilder",
+      "items": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean",
+            "default": true
+          },
+          "order": {
+            "type": "number",
+            "default": 0
+          }
+        }
+      }
+    },
     "instagram_url": {
       "type": "string"
     },

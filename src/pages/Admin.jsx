@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import Seo from '@/components/Seo';
 import HeroImageUpload from '@/components/admin/HeroImageUpload';
 import HeroVideoUpload from '@/components/admin/HeroVideoUpload';
+import HeroSliderAdmin from '@/components/admin/HeroSliderAdmin';
 
 const FIELDS = [
   { key: 'phone', label: 'Telefon', hint: 'Platzhalter — noch nicht bestätigt' },
@@ -143,6 +144,8 @@ export default function Admin() {
         <HeroImageUpload raw={raw} />
 
         <HeroVideoUpload raw={raw} />
+
+        <HeroSliderAdmin raw={raw} />
 
         <div className="mt-12 flex items-center gap-6">
           <Button onClick={save} disabled={saving} className="rounded-none px-10 py-6">
