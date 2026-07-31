@@ -23,10 +23,10 @@ export default function Reveal({ children, delay = 0, className = '' }) {
   return (
     <div
       ref={ref}
-      className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
+      className={` reveal is-visible order-2 lg:order-1 ${visible ? "" : ''} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}>
+      
       {children}
-    </div>
-  );
+    </div>);
+
 }
