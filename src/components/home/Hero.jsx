@@ -13,10 +13,10 @@ export default function Hero({ settings }) {
   const { t, langPath } = useLanguage();
 
   const slides = [
-    { src: settings.hero_image_url || IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 },
-    { src: IMAGES.interior, focalPointX: 0.5, focalPointY: 0.5 },
-    { src: IMAGES.zurich, focalPointX: 0.5, focalPointY: 0.5 },
-  ];
+  { src: settings.hero_image_url || IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 },
+  { src: IMAGES.interior, focalPointX: 0.5, focalPointY: 0.5 },
+  { src: IMAGES.zurich, focalPointX: 0.5, focalPointY: 0.5 }];
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
@@ -41,8 +41,8 @@ export default function Hero({ settings }) {
 
   const handleManual = (dir) => {
     stopAuto();
-    if (dir === 'next') goNext();
-    else goPrev();
+    if (dir === 'next') goNext();else
+    goPrev();
     startAuto();
   };
 
@@ -50,30 +50,30 @@ export default function Hero({ settings }) {
     <section
       className="relative flex min-h-[100svh] items-center overflow-hidden"
       onMouseEnter={stopAuto}
-      onMouseLeave={startAuto}
-    >
+      onMouseLeave={startAuto}>
+      
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute left-[-250px] top-0 h-full w-[calc(100%+250px)]">
-          {slides.map((slide, i) => (
-            <div
-              key={i}
-              className="absolute left-[250px] top-0 h-full w-[calc(100%-250px)] transition-opacity ease-in-out"
-              style={{
-                opacity: i === currentIndex ? 1 : 0,
-                zIndex: i,
-                transitionDuration: `${FADE_DURATION}ms`,
-              }}
-            >
+          {slides.map((slide, i) =>
+          <div
+            key={i}
+            className="absolute left-[250px] top-0 h-full w-[calc(100%-250px)] transition-opacity ease-in-out"
+            style={{
+              opacity: i === currentIndex ? 1 : 0,
+              zIndex: i,
+              transitionDuration: `${FADE_DURATION}ms`
+            }}>
+            
               <Image
-                src={slide.src}
-                alt={t('hero.alt')}
-                className="h-full w-full object-cover"
-                fittingType="fill"
-                focalPointX={slide.focalPointX}
-                focalPointY={slide.focalPointY}
-              />
+              src={slide.src}
+              alt={t('hero.alt')}
+              className="h-full w-full object-cover"
+              fittingType="fill"
+              focalPointX={slide.focalPointX}
+              focalPointY={slide.focalPointY} />
+            
             </div>
-          ))}
+          )}
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/45 via-[#0A0A0A]/15 to-transparent" />
       </div>
@@ -81,15 +81,15 @@ export default function Hero({ settings }) {
       <button
         onClick={() => handleManual('prev')}
         aria-label="Previous"
-        className="hidden md:flex absolute left-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-      >
+        className="hidden md:flex absolute left-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20">
+        
         <ChevronLeft className="h-5 w-5" strokeWidth={1} />
       </button>
       <button
         onClick={() => handleManual('next')}
         aria-label="Next"
-        className="hidden md:flex absolute right-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-      >
+        className="hidden md:flex absolute right-6 top-1/2 z-40 h-11 w-11 -translate-y-1/2 items-center justify-center border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20 border/0">
+        
         <ChevronRight className="h-5 w-5" strokeWidth={1} />
       </button>
 
@@ -118,6 +118,6 @@ export default function Hero({ settings }) {
           </address>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
