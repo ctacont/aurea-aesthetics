@@ -38,29 +38,24 @@ export default function Experience() {
         breadcrumbs={crumbs}
       />
 
-      <section className="px-6 py-24 lg:px-12 lg:py-32">
-        <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-16">
-          <Reveal className="lg:col-span-5">
-            <div className="relative aspect-[3/4] w-full">
-              <Image src={IMAGES.bio} alt={t('experience.envAlt')} className="h-full w-full" fittingType="fill" />
+      <section className="relative w-full min-h-[55svh] lg:min-h-[70svh]">
+        <Image src={IMAGES.bio} alt={t('experience.envAlt')} className="h-full w-full" fittingType="fill" />
+
+        <div className="absolute z-20 left-6 md:left-12 lg:left-16 xl:left-24 bottom-0 w-full p-6 md:top-1/2 md:-translate-y-1/2 md:w-auto md:max-w-lg md:bg-black/25 md:border md:border-white/15 md:backdrop-blur-xl md:backdrop-saturate-150 md:p-12 bg-black/35 border-t border-white/15 backdrop-blur-xl">
+          <Reveal delay={80}><Eyebrow tone="light">{t('experience.envEyebrow')}</Eyebrow></Reveal>
+          <Reveal delay={140}>
+            <h2 className="mt-7 font-heading text-[2rem] font-light leading-[1.18] text-white md:text-4xl">
+              {t('experience.envTitle')}
+              <span className="text-[#C9AF80]">{t('experience.envAccent')}</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="mt-10 space-y-6 text-lg leading-[1.75] text-white/75">
+              <p>{t('experience.envP1')}</p>
+              <p>{t('experience.envP2')}</p>
+              <p>{t('experience.envP3')}</p>
             </div>
           </Reveal>
-          <div className="lg:col-span-7 lg:pt-8">
-            <Reveal delay={80}><Eyebrow>{t('experience.envEyebrow')}</Eyebrow></Reveal>
-            <Reveal delay={140}>
-              <h2 className="mt-7 font-heading text-[2rem] font-light leading-[1.18] md:text-4xl">
-                {t('experience.envTitle')}
-                <span className="text-[#8A7550]">{t('experience.envAccent')}</span>
-              </h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <div className="mt-10 space-y-6 text-lg leading-[1.75] text-neutral-700">
-                <p>{t('experience.envP1')}</p>
-                <p>{t('experience.envP2')}</p>
-                <p>{t('experience.envP3')}</p>
-              </div>
-            </Reveal>
-          </div>
         </div>
       </section>
 
