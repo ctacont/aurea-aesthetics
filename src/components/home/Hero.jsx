@@ -19,6 +19,9 @@ export default function Hero({ settings }) {
   { src: IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 }];
 
 
+  const hasVideo = !!settings.hero_video_url;
+  const mobileFallback = settings.hero_video_mobile_image_url || slides[0].src;
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
 
@@ -26,6 +29,7 @@ export default function Hero({ settings }) {
   const goPrev = () => setCurrentIndex((i) => (i - 1 + slides.length) % slides.length);
 
   const startAuto = () => {
+    if (hasVideo) return;
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(goNext, SLIDE_INTERVAL);
   };
@@ -35,10 +39,11 @@ export default function Hero({ settings }) {
   };
 
   useEffect(() => {
+    if (hasVideo) return;
     startAuto();
     return () => stopAuto();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [hasVideo]);
 
   const handleManual = (dir) => {
     stopAuto();
@@ -54,16 +59,36 @@ export default function Hero({ settings }) {
       onMouseLeave={startAuto}>
       
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute left-[-250px] top-0 h-full w-[calc(100%+250px)]">
-          {slides.map((slide, i) =>
-          <div
-            key={i}
-            className="absolute left-[250px] top-0 h-full w-[calc(100%-250px)] transition-opacity ease-in-out"
-            style={{
-              opacity: i === currentIndex ? 1 : 0,
-              zIndex: i,
-              transitionDuration: `${FADE_DURATION}ms`
-            }}>
+        {hasVideo ? (
+          <>
+            <video
+              src={settings.hero_video_url}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 hidden h-full w-full object-cover md:block"
+            />
+            <div className="absolute inset-0 block md:hidden">
+              <Image
+                src={mobileFallback}
+                alt={t('hero.alt')}
+                className="h-full w-full object-cover"
+                fittingType="fill"
+              />
+            </div>
+          </>
+        ) : (
+          <div className="absolute left-[-250px] top-0 h-full w-[calc(100%+250px)]">
+            {slides.map((slide, i) =>
+            <div
+              key={i}
+              className="absolute left-[250px] top-0 h-full w-[calc(100%-250px)] transition-opacity ease-in-out"
+              style={{
+                opacity: i === currentIndex ? 1 : 0,
+                zIndex: i,
+                transitionDuration: `${FADE_DURATION}ms`
+              }}>
             
               <Image
               src={slide.src}
@@ -75,7 +100,8 @@ export default function Hero({ settings }) {
             
             </div>
           )}
-        </div>
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/45 via-[#0A0A0A]/15 to-transparent" />
       </div>
 

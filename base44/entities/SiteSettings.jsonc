@@ -47,6 +47,14 @@
       "type": "string",
       "description": "Startseiten-Hero-Bild (\u00fcberschreibt Standardbild)"
     },
+    "hero_video_url": {
+      "type": "string",
+      "description": "Hero-Video MP4 f\u00fcr Desktop/Tablet"
+    },
+    "hero_video_mobile_image_url": {
+      "type": "string",
+      "description": "Fallback-Bild f\u00fcr Mobile wenn Video aktiv"
+    },
     "instagram_url": {
       "type": "string"
     },
