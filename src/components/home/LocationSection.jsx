@@ -25,7 +25,7 @@ export default function LocationSection({ settings }) {
       <div className="relative z-10 order-1 flex flex-col justify-center bg-[#F4F1EE] px-6 py-24 lg:order-2 lg:-ml-14 lg:my-14 lg:px-16 lg:py-32 lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
         <Reveal><Eyebrow>{t('locationSection.eyebrow')}</Eyebrow></Reveal>
         <Reveal delay={80}>
-          <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl max-w-2l">
+          <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {settings.street},
             <span className="text-[#8A7550]"> {settings.district}.</span>
           </h2>
