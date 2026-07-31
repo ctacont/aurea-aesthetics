@@ -12,17 +12,17 @@ export default function LocationSection({ settings }) {
   return (
     <section className="grid lg:grid-cols-2">
       <Reveal className="order-2 lg:order-1">
-        <div className="w-full lg:h-full realtive">
+        <div className="w-full lg:h-full absolute lg:min-h-[35rem] h-[35svh]">
           <Image
             src={IMAGES.zurich}
             alt={t('locationSection.alt')}
 
-            fittingType="fill" className="w-full inset-0 object-cover absolute h-full lg:min-h-[35rem] h-[35svh]" />
+            fittingType="fill" className="w-full inset-0 absolute object-cover h-full" />
           
         </div>
       </Reveal>
 
-      <div className="relative z-10 order-1 flex flex-col justify-center px-6 py-6 lg:order-2 lg:-ml-14 lg:my-14 lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)] border border-[#E8E2D9] lg:w-fit lg:px-6 lg:py-6 bg-[#FFFFFF]/80 backdrop-blur-xl backdrop-saturate-150">
+      <div className="relative z-10 order-1 flex flex-col justify-center px-6 py-6 lg:order-2 lg:-ml-14 lg:my-14 lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)] bg-[#FFFFFF] border border-[#E8E2D9] lg:w-fit lg:px-6 lg:py-6">
         <Reveal><Eyebrow>{t('locationSection.eyebrow')}</Eyebrow></Reveal>
         <Reveal delay={80}>
           <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
