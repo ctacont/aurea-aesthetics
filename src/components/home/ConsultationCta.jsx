@@ -35,10 +35,10 @@ export default function ConsultationCta() {
       </div>
 
       <div className="mt-5 flex flex-col items-start">
-        <p className="eyebrow text-[#8A7550]">{copy.eyebrow}</p>
-        <h3 className="mt-3 font-heading text-xl font-light leading-snug md:text-2xl">
+        <h3 className="font-heading text-xl font-light leading-snug md:text-2xl">
           {copy.title}
         </h3>
+        <p className="mt-2 eyebrow text-[#8A7550]">{copy.eyebrow}</p>
         <span className="mt-3 eyebrow inline-flex items-center gap-3 link-underline">
           {copy.link}
           <ArrowRight className="h-4 w-4 text-[#C9AF80]" strokeWidth={1} />
