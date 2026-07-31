@@ -17,7 +17,7 @@ export default function LocationSection({ settings }) {
             src={IMAGES.zurich}
             alt={t('locationSection.alt')}
 
-            fittingType="fill" />
+            fittingType="fill" className="w-full h-full inset-0 absolute object-cover" />
           
         </div>
       </Reveal>
