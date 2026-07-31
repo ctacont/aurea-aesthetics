@@ -15,7 +15,7 @@ export default function TreatmentMatrix({ treatments }) {
         <div className="mx-auto max-w-6xl">
           <Reveal><Eyebrow>{t('treatmentMatrix.eyebrow')}</Eyebrow></Reveal>
           <Reveal delay={80}>
-            <h2 className="font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl mt-7">
+            <h2 className="font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl mt-7 max-w-6xl">
               {t('treatmentMatrix.title')}
               <span className="text-[#8A7550]">{t('treatmentMatrix.accent')}</span>
             </h2>
