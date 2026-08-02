@@ -19,6 +19,7 @@ import Contact from '@/pages/Contact';
 import Admin from '@/pages/Admin';
 import AdminRoute from '@/components/AdminRoute';
 import { Impressum, Datenschutz } from '@/pages/Legal';
+import SeoReport from '@/pages/SeoReport';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -66,6 +67,7 @@ const AuthenticatedApp = () => {
           <Route path="/en/impressum" element={<Impressum />} />
           <Route path="/en/datenschutz" element={<Datenschutz />} />
         </Route>
+        <Route path="/seo-bericht" element={<SeoReport />} />
         <Route element={<AdminRoute />}>
           <Route path="/admin" element={<Admin />} />
         </Route>
