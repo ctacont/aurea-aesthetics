@@ -1,10 +1,15 @@
-import { GEO_AREAS } from '@/lib/site';
+import { GEO_AREAS, LOGO_ABSOLUTE } from '@/lib/site';
+
+export const BUSINESS_ID = 'https://aurea-aesthetics.ch/#business';
 
 export function medicalBusinessSchema(s) {
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://aurea-aesthetics.ch';
   return {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
+    '@id': BUSINESS_ID,
     name: s.practice_name,
+    image: LOGO_ABSOLUTE,
     description:
       'Praxis für ästhetische Medizin in Zürich Enge. Individuelle Beratung, präzise Behandlung, natürliche Ergebnisse.',
     address: {
@@ -15,15 +20,25 @@ export function medicalBusinessSchema(s) {
       addressRegion: 'ZH',
       addressCountry: 'CH',
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 47.3625,
+      longitude: 8.5309,
+    },
     ...(s.phone ? { telephone: s.phone } : {}),
     ...(s.email ? { email: s.email } : {}),
+    priceRange: '$$$',
     medicalSpecialty: 'PlasticSurgery',
     areaServed: GEO_AREAS.map((a) => ({ '@type': 'Place', name: a })),
-    url: typeof window !== 'undefined' ? window.location.origin : undefined,
+    ...(s.instagram_url || s.linkedin_url
+      ? { sameAs: [s.instagram_url, s.linkedin_url].filter(Boolean) }
+      : {}),
+    url: origin,
   };
 }
 
 export function treatmentSchema(t) {
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://aurea-aesthetics.ch';
   return {
     '@context': 'https://schema.org',
     '@type': 'MedicalProcedure',
@@ -33,6 +48,10 @@ export function treatmentSchema(t) {
     howPerformed: t.procedure_de,
     followup: t.aftercare_de,
     procedureType: 'https://schema.org/NoninvasiveProcedure',
+    ...(t.image_url ? { image: t.image_url } : {}),
+    provider: { '@id': BUSINESS_ID },
+    areaServed: { '@type': 'City', name: 'Zürich' },
+    url: `${origin}/behandlungen/${t.slug}`,
   };
 }
 

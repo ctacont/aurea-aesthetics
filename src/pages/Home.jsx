@@ -11,6 +11,7 @@ import FaqPreview from '@/components/home/FaqPreview';
 import CtaBand from '@/components/CtaBand';
 import { useSettings, useTreatments, useDoctors } from '@/lib/useSite';
 import { medicalBusinessSchema } from '@/lib/schema';
+import { IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
         description={t('homeSeo.description')}
         path={neutralPath(window.location.pathname)}
         lang={lang}
+        ogImage={IMAGES.hero}
         jsonLd={medicalBusinessSchema(settings)}
       />
       <Hero settings={settings} />

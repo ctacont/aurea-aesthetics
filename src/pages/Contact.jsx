@@ -24,6 +24,7 @@ export default function Contact() {
         description={t('contact.seoDesc')}
         path={neutralPath(window.location.pathname)}
         lang={lang}
+        ogImage={IMAGES.contact}
         jsonLd={[medicalBusinessSchema(settings), breadcrumbSchema(crumbs)]}
       />
       <PageHero

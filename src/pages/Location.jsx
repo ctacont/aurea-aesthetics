@@ -26,6 +26,7 @@ export default function Location() {
         description={t('location.seoDesc')}
         path={neutralPath(window.location.pathname)}
         lang={lang}
+        ogImage={IMAGES.zurich}
         jsonLd={[medicalBusinessSchema(settings), breadcrumbSchema(crumbs)]}
       />
       

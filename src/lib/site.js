@@ -15,6 +15,7 @@ export const IMAGES = {
 };
 
 export const LOGO = '/aurea_logo_transparent_2.png';
+export const LOGO_ABSOLUTE = 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png';
 
 export const DEFAULTS = {
   practice_name: 'Aurea Aesthetics AG',

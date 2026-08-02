@@ -7,7 +7,7 @@ import DoctorSection from '@/components/home/DoctorSection';
 import CtaBand from '@/components/CtaBand';
 import { Image } from '@/components/ui/image';
 import { useSettings, useDoctors } from '@/lib/useSite';
-import { breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema, medicalBusinessSchema } from '@/lib/schema';
 import { IMAGES, VALUES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -29,7 +29,8 @@ export default function Practice() {
         description={t('practice.seoDesc')}
         path={neutralPath(window.location.pathname)}
         lang={lang}
-        jsonLd={breadcrumbSchema(crumbs)}
+        ogImage={IMAGES.practice}
+        jsonLd={[medicalBusinessSchema(settings), breadcrumbSchema(crumbs)]}
       />
       
       <PageHero

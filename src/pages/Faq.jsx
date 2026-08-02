@@ -5,7 +5,7 @@ import PrecisionAccordion from '@/components/PrecisionAccordion';
 import CtaBand from '@/components/CtaBand';
 import Reveal from '@/components/Reveal';
 import { useSettings } from '@/lib/useSite';
-import { faqSchema, breadcrumbSchema } from '@/lib/schema';
+import { faqSchema, breadcrumbSchema, medicalBusinessSchema } from '@/lib/schema';
 import { GENERAL_FAQS, IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -25,7 +25,8 @@ export default function Faq() {
         description={t('faq.seoDesc')}
         path={neutralPath(window.location.pathname)}
         lang={lang}
-        jsonLd={[faqSchema(faqs), breadcrumbSchema(crumbs)]}
+        ogImage={IMAGES.texture}
+        jsonLd={[faqSchema(faqs), breadcrumbSchema(crumbs), medicalBusinessSchema(settings)]}
       />
       <PageHero
         eyebrow={t('faq.eyebrow')}

@@ -21,7 +21,7 @@ function removeTag(selector) {
  * SEO component. `path` is the language-neutral path (no /en prefix).
  * Emits canonical + hreflang alternate links for both languages.
  */
-export default function Seo({ title, description, path = '/', jsonLd, noindex = false, lang = 'de' }) {
+export default function Seo({ title, description, path = '/', jsonLd, noindex = false, lang = 'de', ogImage }) {
   useEffect(() => {
     const full = title ? `${title}` : 'Aurea Aesthetics AG';
     document.title = full;
@@ -33,12 +33,20 @@ export default function Seo({ title, description, path = '/', jsonLd, noindex = 
     setTag('meta[property="og:description"]', { tag: 'meta', property: 'og:description', content: description || '' });
     setTag('meta[property="og:type"]', { tag: 'meta', property: 'og:type', content: 'website' });
     setTag('meta[property="og:locale"]', { tag: 'meta', property: 'og:locale', content: lang === 'en' ? 'en' : 'de_CH' });
+    setTag('meta[property="og:site_name"]', { tag: 'meta', property: 'og:site_name', content: 'Aurea Aesthetics AG' });
     setTag('meta[name="twitter:card"]', { tag: 'meta', name: 'twitter:card', content: 'summary_large_image' });
+    setTag('meta[name="twitter:title"]', { tag: 'meta', name: 'twitter:title', content: full });
+    setTag('meta[name="twitter:description"]', { tag: 'meta', name: 'twitter:description', content: description || '' });
+    if (ogImage) {
+      setTag('meta[property="og:image"]', { tag: 'meta', property: 'og:image', content: ogImage });
+      setTag('meta[name="twitter:image"]', { tag: 'meta', name: 'twitter:image', content: ogImage });
+    }
 
     const origin = window.location.origin;
     const dePath = path;
     const enPath = path === '/' ? '/en' : `/en${path}`;
 
+    setTag('meta[property="og:url"]', { tag: 'meta', property: 'og:url', content: origin + (lang === 'en' ? enPath : dePath) });
     setTag('link[rel="canonical"]', { tag: 'link', rel: 'canonical', href: origin + (lang === 'en' ? enPath : dePath) });
     setTag('link[rel="alternate"][hreflang="de-CH"]', { tag: 'link', rel: 'alternate', hreflang: 'de-CH', href: origin + dePath });
     setTag('link[rel="alternate"][hreflang="en"]', { tag: 'link', rel: 'alternate', hreflang: 'en', href: origin + enPath });

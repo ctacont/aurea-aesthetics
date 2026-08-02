@@ -11,7 +11,7 @@ import PrecisionAccordion from '@/components/PrecisionAccordion';
 import CtaBand from '@/components/CtaBand';
 import TreatmentCard from '@/components/TreatmentCard';
 import { useSettings, useTreatments } from '@/lib/useSite';
-import { treatmentSchema, breadcrumbSchema } from '@/lib/schema';
+import { treatmentSchema, breadcrumbSchema, medicalBusinessSchema } from '@/lib/schema';
 import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function TreatmentDetail() {
@@ -66,7 +66,8 @@ export default function TreatmentDetail() {
         description={metaDesc}
         path={neutralPath(window.location.pathname)}
         lang={lang}
-        jsonLd={[treatmentSchema(tr), breadcrumbSchema(crumbs)]}
+        ogImage={tr.image_url}
+        jsonLd={[treatmentSchema(tr), breadcrumbSchema(crumbs), medicalBusinessSchema(settings)]}
       />
 
       <PageHero

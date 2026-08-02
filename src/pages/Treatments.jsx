@@ -5,7 +5,7 @@ import Reveal from '@/components/Reveal';
 import TreatmentCard from '@/components/TreatmentCard';
 import CtaBand from '@/components/CtaBand';
 import { useSettings, useTreatments } from '@/lib/useSite';
-import { breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema, medicalBusinessSchema } from '@/lib/schema';
 import { IMAGES, TREATMENT_GROUPS } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -27,7 +27,8 @@ export default function Treatments() {
         description={t('treatmentsPage.seoDesc')}
         path={neutralPath(window.location.pathname)}
         lang={lang}
-        jsonLd={breadcrumbSchema(crumbs)}
+        ogImage={IMAGES.texture}
+        jsonLd={[medicalBusinessSchema(settings), breadcrumbSchema(crumbs)]}
       />
       
       <PageHero
