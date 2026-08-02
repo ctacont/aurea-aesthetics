@@ -11,7 +11,7 @@ export default function LocationSection({ settings }) {
   return (
     <section
       className="relative w-full overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: `url(${IMAGES.zurich2})` }}>
+      style={{ backgroundImage: `url(${IMAGES.zurich})` }}>
       
       <div className="relative z-10 px-6 lg:px-12 lg:py-24 py-18 max-w-5xl ml-l">
         <div className="flex flex-col justify-center px-6 py-6 lg:w-fit lg:px-6 lg:py-6 border border-[#E8E2D9] lg:shadow-[0_24px_70px_rgba(0,0,0,0.08)] backdrop-blur-xl bg-[#FFFFFF]/80 border-white/25">
