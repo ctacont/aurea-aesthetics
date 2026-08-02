@@ -62,7 +62,7 @@ export default function Practice() {
 
           <Reveal delay={200} className="lg:col-span-5">
             <div className="relative aspect-[4/5] w-full">
-              <Image src={IMAGES.hero2} alt={t('practice.selfAlt')} className="h-full w-full" fittingType="fill" />
+              <Image src={IMAGES.hero} alt={t('practice.selfAlt')} className="h-full w-full" fittingType="fill" />
             </div>
           </Reveal>
         </div>
