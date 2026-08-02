@@ -18,7 +18,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
 
       <div className="relative w-full px-6 lg:px-16">
         {breadcrumbs.length > 0 &&
-        <nav aria-label={t('breadcrumb')} className="inline-flex w-fit max-w-full eyebrow text-white/60 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] mb-6 translate-x-2">
+        <nav aria-label={t('breadcrumb')} className="inline-flex w-fit max-w-full eyebrow text-white/60 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] mb-6 translate-x-24">
             {breadcrumbs.map((b, i) =>
           <span key={b.path}>
                 {i > 0 && <span className="mx-2 text-[#C9AF80]">·</span>}
