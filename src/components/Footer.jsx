@@ -17,6 +17,22 @@ export default function Footer() {
           <p className="mt-7 max-w-xs text-sm leading-relaxed text-white/50">
             {t('footer.tagline', { district: settings.district })}
           </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=T%C3%B6distrasse+1,+8002+Z%C3%BCrich,+Switzerland"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 block"
+            aria-label="Google Maps – Aurea Aesthetics, Tödistrasse 1, 8002 Zürich"
+          >
+            <iframe
+              src="https://www.google.com/maps?q=T%C3%B6distrasse%201,%208002%20Z%C3%BCrich%2C%20Switzerland&z=15&output=embed"
+              title="Aurea Aesthetics – Tödistrasse 1, 8002 Zürich"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowFullScreen
+              className="h-[200px] w-full rounded-[2px] border border-white/10 grayscale invert-[0.92] contrast-[0.92] opacity-90"
+            />
+          </a>
         </div>
 
         <div>
