@@ -35,12 +35,26 @@ export default function LocationSection({ settings }) {
                 <p className="mt-3 text-sm leading-relaxed text-neutral-600">
                   {t('locationSection.arrivalText')}
                 </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=T%C3%B6distrasse+1,+8002+Z%C3%BCrich,+Switzerland"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-sm text-[#8A7550] link-underline"
+                >
+                  {t('locationSection.arrivalLink')}
+                </a>
               </div>
               <div>
                 <p className="eyebrow text-[#8A7550]">{t('locationSection.appointments')}</p>
                 <p className="mt-3 text-sm leading-relaxed text-neutral-600">
                   {settings.opening_hours || t('locationSection.appointmentsFallback')}
                 </p>
+                <Link
+                  to={langPath('/kontakt-termin')}
+                  className="mt-3 inline-block text-sm text-[#8A7550] link-underline"
+                >
+                  {t('locationSection.appointmentsLink')}
+                </Link>
               </div>
             </div>
           </Reveal>
