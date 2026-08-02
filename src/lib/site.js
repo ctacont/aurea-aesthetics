@@ -1,6 +1,7 @@
 export const IMAGES = {
-  hero: '/public/6a6b131f6cc49b3ee60e929e/9554c0ea5_startseite_hero_bild_v2_comp.jpg',
+  hero: 'https://media.base44.com/public/6a6b131f6cc49b3ee60e929e/9554c0ea5_startseite_hero_bild_v2_comp.jpg',
   texture: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/8c5458ab5_generated_image.png',
+  praxis2: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/f1e1c6999_9554c0ea5_startseite_hero_bild_v2_comp.webp',
   zurich: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/1644d560f_hero-aurea-standort_comp.jpg',
   zurich2: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/80f0c09b2_hero_bild_02_darker.jpg',
   interior: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/8ccbab271_hero_bild_03_darker.jpg',
