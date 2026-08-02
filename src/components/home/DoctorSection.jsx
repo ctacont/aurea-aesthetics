@@ -12,15 +12,15 @@ export default function DoctorSection({ doctors = [] }) {
 
   return (
     <section className="bg-background px-6 py-24 lg:px-12 lg:py-40">
-      <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-24">
+      <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-20">
         <Reveal className="lg:col-span-6 lg:-ml-12">
           <div className="relative aspect-[4/5] w-full bg-neutral-200">
             <Image
               src={doc?.photo_url || IMAGES.interior}
               alt={doc ? `${doc.title || ''} ${doc.name}`.trim() : t('doctor.altConsult')}
               className="h-full w-full"
-              fittingType="fill"
-            />
+              fittingType="fill" />
+            
           </div>
         </Reveal>
 
@@ -33,37 +33,37 @@ export default function DoctorSection({ doctors = [] }) {
             </h2>
           </Reveal>
 
-          {doc?.specialty && (
-            <Reveal delay={180}>
+          {doc?.specialty &&
+          <Reveal delay={180}>
               <p className="mt-4 eyebrow text-[#8A7550]">{doc.specialty}</p>
             </Reveal>
-          )}
+          }
 
           <Reveal delay={220}>
-            {doc?.bio_de ? (
-              <p className="mt-8 max-w-xl text-lg leading-[1.75] text-neutral-700">{loc(doc, 'bio', lang) || doc.bio_de}</p>
-            ) : (
-              <div className="mt-8 max-w-xl border-l border-[#C9AF80] pl-7">
+            {doc?.bio_de ?
+            <p className="mt-8 max-w-xl text-lg leading-[1.75] text-neutral-700">{loc(doc, 'bio', lang) || doc.bio_de}</p> :
+
+            <div className="mt-8 max-w-xl border-l border-[#C9AF80] pl-7">
                 <p className="text-lg leading-[1.75] text-neutral-700">
                   {t('doctor.placeholder')}
                 </p>
                 <p className="mt-5 eyebrow text-neutral-400">{t('doctor.placeholderLabel')}</p>
               </div>
-            )}
+            }
           </Reveal>
 
-          {doc?.qualifications?.length > 0 && (
-            <Reveal delay={280}>
+          {doc?.qualifications?.length > 0 &&
+          <Reveal delay={280}>
               <ul className="mt-10 grid gap-3 sm:grid-cols-2">
-                {doc.qualifications.map((q) => (
-                  <li key={q} className="flex gap-3 text-sm leading-relaxed text-neutral-600">
+                {doc.qualifications.map((q) =>
+              <li key={q} className="flex gap-3 text-sm leading-relaxed text-neutral-600">
                     <span className="mt-2 h-px w-4 shrink-0 bg-[#C9AF80]" aria-hidden="true" />
                     {q}
                   </li>
-                ))}
+              )}
               </ul>
             </Reveal>
-          )}
+          }
 
           <Reveal delay={320}>
             <Link to={langPath('/praxis')} className="mt-12 inline-block eyebrow link-underline">
@@ -72,6 +72,6 @@ export default function DoctorSection({ doctors = [] }) {
           </Reveal>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
