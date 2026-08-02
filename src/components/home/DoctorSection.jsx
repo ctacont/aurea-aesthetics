@@ -14,7 +14,7 @@ export default function DoctorSection({ doctors = [] }) {
     <section className="bg-background px-6 py-24 lg:px-12 lg:py-40">
       <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-20">
         <Reveal className="lg:col-span-6 lg:-ml-12">
-          <div className="relative aspect-[4/5] w-full bg-neutral-200">
+          <div className="relative aspect-[4/5] w-full bg-neutral-0">
             <Image
               src={doc?.photo_url || IMAGES.interior}
               alt={doc ? `${doc.title || ''} ${doc.name}`.trim() : t('doctor.altConsult')}
