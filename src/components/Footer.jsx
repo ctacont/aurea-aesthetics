@@ -30,7 +30,7 @@ export default function Footer() {
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               allowFullScreen
-              className="h-[200px] w-full rounded-[2px] border border-white/10 grayscale opacity-90 contrast-[.92]" />
+              className="h-[200px] w-full rounded-[2px] border border-white/10 grayscale opacity-90 contrast-[0.]" />
             
           </a>
         </div>
