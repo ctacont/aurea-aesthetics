@@ -129,6 +129,13 @@
     transform: none;
   }
 
+  @media (max-width: 767px) {
+    .reveal {
+      transform: translateY(14px);
+      transition-duration: 0.5s;
+    }
+  }
+
   .link-underline {
     position: relative;
   }
