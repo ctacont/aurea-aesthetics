@@ -55,6 +55,34 @@ export function treatmentSchema(t) {
   };
 }
 
+export function categoryProcedureSchema({ name, description, path }) {
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://aurea-aesthetics.ch';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalProcedure',
+    name,
+    description,
+    bodyLocation: 'Gesicht',
+    procedureType: 'https://schema.org/NoninvasiveProcedure',
+    provider: { '@id': BUSINESS_ID },
+    areaServed: { '@type': 'City', name: 'Zürich' },
+    url: `${origin}${path}`,
+  };
+}
+
+export function physicianSchema(doc) {
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://aurea-aesthetics.ch';
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Physician',
+    name: `${doc.title || ''} ${doc.name}`.trim(),
+    medicalSpecialty: doc.specialty,
+    ...(doc.photo_url ? { image: doc.photo_url } : {}),
+    worksFor: { '@id': BUSINESS_ID },
+    url: `${origin}/aerztinnen`,
+  };
+}
+
 export function faqSchema(faqs) {
   return {
     '@context': 'https://schema.org',

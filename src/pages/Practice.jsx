@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
 import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
 import Eyebrow from '@/components/Eyebrow';
-import DoctorSection from '@/components/home/DoctorSection';
 import CtaBand from '@/components/CtaBand';
 import { Image } from '@/components/ui/image';
 import { useSettings, useDoctors } from '@/lib/useSite';
@@ -14,7 +14,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 export default function Practice() {
   const { settings } = useSettings();
   const { data: doctors = [] } = useDoctors();
-  const { t, lang, neutralPath } = useLanguage();
+  const { t, lang, langPath, neutralPath } = useLanguage();
   const values = VALUES[lang];
 
   const crumbs = [
@@ -85,7 +85,22 @@ export default function Practice() {
         </div>
       </section>
 
-      <DoctorSection doctors={doctors} />
+      <section className="bg-[#F4F1EE] px-6 py-20 lg:px-12 lg:py-28">
+        <div className="mx-auto max-w-6xl text-center">
+          <Reveal>
+            <Eyebrow className="justify-center">{t('doctor.eyebrow')}</Eyebrow>
+            <h2 className="mt-6 font-heading text-[2rem] font-light leading-tight md:text-4xl">
+              {t('doctor.sectionTitle')}
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <Link to={langPath('/aerztinnen')} className="mt-8 inline-block eyebrow text-[#8A7550] link-underline">
+              {t('doctor.moreLink')}
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       <CtaBand settings={settings} />
     </>);
 }

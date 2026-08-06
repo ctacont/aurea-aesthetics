@@ -72,7 +72,7 @@ export default function DoctorSection({ doctors = [] }) {
         }
 
         <Reveal delay={340}>
-          <Link to={langPath('/praxis')} className="mt-14 inline-block eyebrow link-underline">
+          <Link to={langPath('/aerztinnen')} className="mt-14 inline-block eyebrow link-underline">
             {t('doctor.moreLink')}
           </Link>
         </Reveal>

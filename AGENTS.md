@@ -32,3 +32,7 @@ npx skills add base44/skills
 - Prefer the existing Base44 CLI workflow over adding new npm scripts for Base44-specific tasks.
 - Reuse the existing SDK client and Vite plugin patterns before adding new Base44 integration paths.
 - Run the relevant checks from `package.json` before finishing code changes.
+
+## Content Approval Status
+
+⚠ FREIGABE ERFORDERLICH: Alle Facharztbezeichnungen, Qualifikationen und Fortbildungen der Ärztinnen (Kundenangabe) müssen vor Livegang redaktionell geprüft werden. Gleiches gilt für Behandlungsdauern, Preise und medizinische Detailtexte auf den neuen Kategorie- und Einzelbehandlungsseiten (/aerztinnen, /behandlungen/botulinumtoxin, /behandlungen/hyaluron-konturierung, /behandlungen/hautqualitaet-regeneration und die zugehörigen Unterseiten) — diese Inhalte sind medizinisch plausibel abgeleitet, aber bis zur finalen Freigabe als vorläufig zu behandeln.
