@@ -27,16 +27,19 @@ export default function Pillars() {
         <ol className="mt-20">
           {items.map((p, i) =>
           <Reveal key={p.title} delay={Math.min(i * 80, 320)}>
-              <li className="grid items-baseline gap-4 border-t border-[#E8E2D9] py-10 md:grid-cols-12 md:gap-10 md:py-14">
-                <span className="font-heading text-4xl font-light leading-none text-[#C9AF80] md:col-span-2 md:text-5xl">
-                  0{i + 1}
-                </span>
-                <h3 className="font-heading text-2xl font-light md:col-span-4 md:text-3xl">
-                  {p.title}
-                </h3>
-                <p className="max-w-lg text-[0.95rem] leading-relaxed text-neutral-600 md:col-span-6">
-                  {p.text}
-                </p>
+              <li className="relative py-10 md:py-14">
+                <div className="border-grow absolute left-0 top-0 w-full border-t border-[#E8E2D9]" aria-hidden="true" />
+                <div className="grid items-baseline gap-4 md:grid-cols-12 md:gap-10">
+                  <span className="font-heading text-4xl font-light leading-none text-[#C9AF80] md:col-span-2 md:text-5xl">
+                    0{i + 1}
+                  </span>
+                  <h3 className="font-heading text-2xl font-light md:col-span-4 md:text-3xl">
+                    {p.title}
+                  </h3>
+                  <p className="max-w-lg text-[0.95rem] leading-relaxed text-neutral-600 md:col-span-6">
+                    {p.text}
+                  </p>
+                </div>
               </li>
             </Reveal>
           )}

@@ -153,6 +153,23 @@
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  @keyframes kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.06); }
+  }
+  .animate-kenburns {
+    animation: kenburns 8s ease-out forwards;
+  }
+
+  .border-grow {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-visible .border-grow {
+    transform: scaleX(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -161,6 +178,7 @@
     transform: none !important;
     transition: opacity 0.3s linear !important;
   }
+  .animate-kenburns { animation: none !important; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

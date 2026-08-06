@@ -2,11 +2,13 @@ import React from 'react';
 import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
+import useParallax from '@/hooks/useParallax';
 import { IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Philosophy() {
   const { t } = useLanguage();
+  const { ref: parallaxRef, offset } = useParallax(0.12);
 
   return (
     <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-40">
@@ -24,13 +26,14 @@ export default function Philosophy() {
 
         <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-16">
           <Reveal delay={140} className="lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full">
-              <Image
-                src={IMAGES.texture}
-                alt={t('philosophy.alt')}
-                className="h-full w-full"
-                fittingType="fill" />
-              
+            <div ref={parallaxRef} className="group relative aspect-[4/5] w-full overflow-hidden">
+              <div style={{ transform: `translateY(${offset}px) scale(1.15)` }} className="h-full w-full">
+                <Image
+                  src={IMAGES.texture}
+                  alt={t('philosophy.alt')}
+                  className="h-full w-full transition-transform duration-700 group-hover:scale-[1.03]"
+                  fittingType="fill" />
+              </div>
             </div>
           </Reveal>
 

@@ -36,7 +36,7 @@ export default function Header() {
         onMouseLeave={() => setMega(false)}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         solid ?
-        'bg-black/50 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/15 shadow-[0_8px_40px_rgba(0,0,0,0.25)]' :
+        'bg-white border-b border-neutral-100 shadow-sm' :
         'bg-transparent'}`
         }>
         
@@ -45,7 +45,7 @@ export default function Header() {
             <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png"
 
             alt="Aurea Aesthetics AG"
-            className="h-12 w-auto brightness-0 invert" />
+            className={`h-12 w-auto transition-all duration-500 ${solid ? 'brightness-0' : 'brightness-0 invert'}`} />
             
           </Link>
 
@@ -54,8 +54,10 @@ export default function Header() {
             <div key={n.path} onMouseEnter={() => setMega(!!n.mega)}>
                 <Link
                 to={langPath(n.path)}
-                className={`eyebrow link-underline transition-colors ${
-                isActive(n.path) ? 'is-active text-[#E7D3AA]' : 'text-white hover:text-[#E7D3AA]'}`
+                className={`eyebrow link-underline transition-colors duration-500 ${
+                isActive(n.path) ?
+                (solid ? 'is-active text-[#8A7550]' : 'is-active text-[#E7D3AA]') :
+                (solid ? 'text-neutral-800 hover:text-[#8A7550]' : 'text-white hover:text-[#E7D3AA]')}`
                 }>
                 
                   {t(n.labelKey)}
@@ -68,14 +70,18 @@ export default function Header() {
             <LanguageSwitcher />
             <Link
               to={langPath('/kontakt-termin')}
-              className="hidden border border-white/35 px-6 py-3 eyebrow text-white transition-colors duration-500 hover:border-[#C9AF80] hover:bg-[#C9AF80] hover:text-[#0A0A0A] lg:inline-block">
+              className={`hidden px-6 py-3 eyebrow border transition-colors duration-500 lg:inline-block ${
+              solid ?
+              'border-neutral-300 text-neutral-800 hover:border-[#C9AF80] hover:bg-[#C9AF80] hover:text-white' :
+              'border-white/35 text-white hover:border-[#C9AF80] hover:bg-[#C9AF80] hover:text-[#0A0A0A]'}`
+              }>
               
               {t('nav.beratungAnfragen')}
             </Link>
             <button
               onClick={() => setMobile(true)}
               aria-label={t('nav.menuOpen')}
-              className="p-1 text-white lg:hidden">
+              className={`p-1 transition-colors duration-500 lg:hidden ${solid ? 'text-neutral-800' : 'text-white'}`}>
               
               <Menu className="h-6 w-6" strokeWidth={1} />
             </button>
