@@ -16,7 +16,7 @@ export default function CtaBand({ settings, title, text }) {
             {title || (
               <>
                 {t('ctaBand.defaultTitle')}
-                <span className="text-[#8A7550]"> {settings?.district || 'Zürich Enge'}.</span>
+                <span className="text-[#8A7550]"> Zürich.</span>
               </>
             )}
           </h2>

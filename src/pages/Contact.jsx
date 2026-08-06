@@ -63,7 +63,7 @@ export default function Contact() {
 
                 <dl className="mt-10 space-y-7 border-t border-[#E8E2D9] pt-8">
                   <div>
-                    <dt className="eyebrow text-neutral-400">{t('contact.phone')}</dt>
+                    <dt className="eyebrow text-neutral-600">{t('contact.phone')}</dt>
                     <dd className="mt-2 text-[0.98rem]">
                       {settings.phone ? (
                         <a href={`tel:${settings.phone.replace(/\s/g, '')}`} className="link-underline">{settings.phone}</a>
@@ -73,7 +73,7 @@ export default function Contact() {
                     </dd>
                   </div>
                   <div>
-                    <dt className="eyebrow text-neutral-400">{t('contact.email')}</dt>
+                    <dt className="eyebrow text-neutral-600">{t('contact.email')}</dt>
                     <dd className="mt-2 text-[0.98rem]">
                       {settings.email ? (
                         <a href={`mailto:${settings.email}`} className="link-underline">{settings.email}</a>
@@ -83,7 +83,7 @@ export default function Contact() {
                     </dd>
                   </div>
                   <div>
-                    <dt className="eyebrow text-neutral-400">{t('contact.availability')}</dt>
+                    <dt className="eyebrow text-neutral-600">{t('contact.availability')}</dt>
                     <dd className="mt-2 whitespace-pre-line text-[0.98rem] text-neutral-600">
                       {settings.opening_hours || t('contact.availabilityFallback')}
                     </dd>

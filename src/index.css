@@ -154,6 +154,22 @@
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+  .treatment-category-label {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgb(64 64 64);
+  }
+
+  @media (max-width: 767px) {
+    .py-24 { padding-top: 4rem; padding-bottom: 4rem; }
+    .py-32 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    .py-36 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    .py-40 { padding-top: 5rem; padding-bottom: 5rem; }
+  }
+
   @keyframes kenburns {
     from { transform: scale(1); }
     to { transform: scale(1.06); }

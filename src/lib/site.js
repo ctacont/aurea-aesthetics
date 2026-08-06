@@ -48,13 +48,13 @@ export const PROCESS = {
 
 export const PILLARS = {
   de: [
-    { title: 'Diskretion', text: 'Ruhige Räume in Zürich Enge. Keine Wartezimmer-Atmosphäre, keine Anonymität.' },
+    { title: 'Diskretion', text: 'Ruhige Räume in Zürich. Eine Umgebung, in der Ruhe und persönliche Betreuung den Takt vorgeben.' },
     { title: 'Individuelle Planung', text: 'Jedes Gesicht ist einmalig. Wir arbeiten nicht mit Standardprotokollen.' },
     { title: 'Begrenzte Terminanzahl', text: 'Wir nehmen bewusst wenige Patientinnen und Patienten auf, um Zeit zu haben.' },
     { title: 'Persönliche Kontinuität', text: 'Dieselbe Ärztin, derselbe Arzt — von der Beratung bis zur Nachkontrolle.' },
   ],
   en: [
-    { title: 'Discretion', text: 'Calm rooms in Zurich Enge. No waiting-room atmosphere, no anonymity.' },
+    { title: 'Discretion', text: 'Calm rooms in Zurich. An environment where calm and personal care set the pace.' },
     { title: 'Individual planning', text: 'Every face is unique. We do not work with standard protocols.' },
     { title: 'Limited appointments', text: 'We deliberately accept few patients to have time.' },
     { title: 'Personal continuity', text: 'The same physician — from consultation to follow-up.' },

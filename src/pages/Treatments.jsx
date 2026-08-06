@@ -42,7 +42,7 @@ export default function Treatments() {
 
       <div className="px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-6xl space-y-28">
-          {isLoading && <p className="eyebrow text-neutral-400">{t('treatmentsPage.loading')}</p>}
+          {isLoading && <p className="eyebrow text-neutral-600">{t('treatmentsPage.loading')}</p>}
 
           {groups.map((g) => {
             const items = treatments.filter((tr) => tr.category === g.key);
@@ -51,7 +51,7 @@ export default function Treatments() {
               <section key={g.key}>
                 <Reveal>
                   <div className="border-t border-[#E8E2D9] pt-8">
-                    <p className="eyebrow text-[#8A7550]">{g.label}</p>
+                    <p className="treatment-category-label">{g.label}</p>
                     <p className="mt-4 text-[0.95rem] leading-relaxed text-neutral-600">
                       {g.text}
                     </p>
