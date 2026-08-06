@@ -6,6 +6,7 @@ import MegaMenu from '@/components/nav/MegaMenu';
 import MobileMenu from '@/components/nav/MobileMenu';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { useLanguage } from '@/lib/LanguageContext';
+import { useBooking } from '@/hooks/useBooking';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,6 +14,7 @@ export default function Header() {
   const [mobile, setMobile] = useState(false);
   const { pathname } = useLocation();
   const { t, langPath, neutralPath } = useLanguage();
+  const { handleBook } = useBooking();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -68,8 +70,9 @@ export default function Header() {
 
           <div className="flex items-center gap-5">
             <LanguageSwitcher />
-            <Link
-              to={langPath('/kontakt-termin')}
+            <button
+              onClick={handleBook}
+              data-booking-cta="true"
               className={`hidden px-6 py-3 eyebrow border transition-colors duration-500 lg:inline-block ${
               solid ?
               'border-neutral-300 text-neutral-800 hover:border-[#C9AF80] hover:bg-[#C9AF80] hover:text-white' :
@@ -77,7 +80,7 @@ export default function Header() {
               }>
               
               {t('nav.beratungAnfragen')}
-            </Link>
+            </button>
             <button
               onClick={() => setMobile(true)}
               aria-label={t('nav.menuOpen')}

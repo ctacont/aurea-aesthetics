@@ -5,10 +5,12 @@ import { NAV } from '@/components/nav/NavLinks';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { useTreatments } from '@/lib/useSite';
 import { useLanguage, loc } from '@/lib/LanguageContext';
+import { useBooking } from '@/hooks/useBooking';
 
 export default function MobileMenu({ open, onClose }) {
   const { data: treatments = [] } = useTreatments();
   const { t, lang, langPath, neutralPath } = useLanguage();
+  const { handleBook } = useBooking();
 
   const isActive = (path) => {
     const current = neutralPath(window.location.pathname);
@@ -36,15 +38,27 @@ export default function MobileMenu({ open, onClose }) {
           <ul className="space-y-1">
             {NAV.map((n) => (
               <li key={n.path} className="border-b border-white/10">
-                <Link
-                  to={langPath(n.path)}
-                  onClick={onClose}
-                  className={`block py-5 font-heading text-3xl font-light ${
-                    isActive(n.path) ? 'text-[#E7D3AA]' : 'text-white'
-                  }`}
-                >
-                  {t(n.labelKey)}
-                </Link>
+                {n.path === '/kontakt-termin' ? (
+                  <button
+                    onClick={() => { onClose(); handleBook(); }}
+                    data-booking-cta="true"
+                    className={`block w-full py-5 text-left font-heading text-3xl font-light ${
+                      isActive(n.path) ? 'text-[#E7D3AA]' : 'text-white'
+                    }`}
+                  >
+                    {t(n.labelKey)}
+                  </button>
+                ) : (
+                  <Link
+                    to={langPath(n.path)}
+                    onClick={onClose}
+                    className={`block py-5 font-heading text-3xl font-light ${
+                      isActive(n.path) ? 'text-[#E7D3AA]' : 'text-white'
+                    }`}
+                  >
+                    {t(n.labelKey)}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

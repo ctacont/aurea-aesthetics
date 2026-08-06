@@ -3,9 +3,11 @@ import { Image } from '@/components/ui/image';
 import Reveal from '@/components/Reveal';
 import GoldButton from '@/components/GoldButton';
 import { useLanguage, loc } from '@/lib/LanguageContext';
+import { useBooking } from '@/hooks/useBooking';
 
 export default function DoctorProfile({ doctor, quote, reversed = false }) {
   const { t, lang, langPath } = useLanguage();
+  const { handleBook } = useBooking();
   const bio = loc(doctor, 'bio', lang);
 
   return (
@@ -45,7 +47,7 @@ export default function DoctorProfile({ doctor, quote, reversed = false }) {
             </blockquote>
           )}
 
-          <GoldButton to={langPath('/kontakt-termin')} tone="primary" className="mt-9 px-9">
+          <GoldButton onClick={handleBook} data-booking-cta="true" tone="primary" className="mt-9 px-9">
             {t('aerztinnen.cta')}
           </GoldButton>
         </Reveal>

@@ -4,12 +4,14 @@ import Eyebrow from '@/components/Eyebrow';
 import GoldButton from '@/components/GoldButton';
 import { IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
+import { useBooking } from '@/hooks/useBooking';
 
 const SLIDE_INTERVAL = 5000;
 const FADE_DURATION = 5000;
 
 export default function Hero({ settings }) {
   const { t, langPath } = useLanguage();
+  const { handleBook } = useBooking();
   const bgRef = useRef(null);
   const [mounted, setMounted] = useState(false);
   const [parallax, setParallax] = useState(0);
@@ -153,7 +155,7 @@ export default function Hero({ settings }) {
           </p>
 
           <div className={`mt-10 flex flex-col items-start gap-5 sm:flex-row sm:items-center ${stagger()}`} style={delayStyle(420)}>
-            <GoldButton to={langPath('/kontakt-termin')} tone="primary" className="w-full sm:w-auto">{t('hero.beratungAnfragen')}</GoldButton>
+            <GoldButton onClick={handleBook} data-booking-cta="true" tone="primary" className="w-full sm:w-auto">{t('hero.beratungAnfragen')}</GoldButton>
             <GoldButton to={langPath('/praxis')} tone="outline" className="w-full border-[#C9AF80] text-[#F5F3EE] hover:bg-[#C9AF80] hover:text-[#0A0A0A] sm:w-auto">{t('hero.behandlungenEntdecken')}</GoldButton>
           </div>
 

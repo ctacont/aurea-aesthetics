@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '@/components/Reveal';
 import { useLanguage, loc } from '@/lib/LanguageContext';
+import { useBooking } from '@/hooks/useBooking';
 
 export default function CategorySection({ section, categoryPath }) {
   const { t, lang, langPath } = useLanguage();
+  const { handleBook } = useBooking();
   const title = loc(section, 'title', lang);
   const lead = loc(section, 'lead', lang);
   const goals = lang === 'en' ? section.goals_en : section.goals_de;
@@ -49,9 +51,9 @@ export default function CategorySection({ section, categoryPath }) {
                 {t('categoryPage.moreLink')}
               </Link>
             )}
-            <Link to={langPath('/kontakt-termin')} className="eyebrow link-underline">
+            <button onClick={handleBook} data-booking-cta="true" className="eyebrow link-underline">
               {t('categoryPage.ctaRequest')}
-            </Link>
+            </button>
           </div>
         </Reveal>
       </div>

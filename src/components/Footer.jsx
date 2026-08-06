@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { useSettings, useTreatments } from '@/lib/useSite';
 import { LOGO, GEO_AREAS } from '@/lib/site';
 import { useLanguage, loc } from '@/lib/LanguageContext';
+import { useBooking } from '@/hooks/useBooking';
 
 export default function Footer() {
   const { settings } = useSettings();
   const { data: treatments = [] } = useTreatments();
   const { t, lang, langPath } = useLanguage();
+  const { handleBook } = useBooking();
 
   return (
     <footer className="bg-[#0A0A0A] text-white">
@@ -53,7 +55,7 @@ export default function Footer() {
             <li><Link to={langPath('/experience')} className="link-underline">{t('footer.experience')}</Link></li>
             <li><Link to={langPath('/standort-zuerich-enge')} className="link-underline">{t('footer.location')}</Link></li>
             <li><Link to={langPath('/faq')} className="link-underline">{t('footer.faq')}</Link></li>
-            <li><Link to={langPath('/kontakt-termin')} className="link-underline">{t('footer.contact')}</Link></li>
+            <li><button onClick={handleBook} data-booking-cta="true" className="link-underline">{t('footer.contact')}</button></li>
             <li><Link to={langPath('/impressum')} className="link-underline">{t('footer.impressum')}</Link></li>
             <li><Link to={langPath('/datenschutz')} className="link-underline">{t('footer.datenschutz')}</Link></li>
           </ul>

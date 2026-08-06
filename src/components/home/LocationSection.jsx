@@ -4,9 +4,11 @@ import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
 import { IMAGES, GEO_AREAS } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
+import { useBooking } from '@/hooks/useBooking';
 
 export default function LocationSection({ settings }) {
   const { t, langPath } = useLanguage();
+  const { handleBook } = useBooking();
 
   return (
     <section
@@ -50,12 +52,13 @@ export default function LocationSection({ settings }) {
               <p className="mt-3 text-sm leading-relaxed text-white/75">
                 {settings.opening_hours || t('locationSection.appointmentsFallback')}
               </p>
-              <Link
-                to={langPath('/kontakt-termin')}
+              <button
+                onClick={handleBook}
+                data-booking-cta="true"
                 className="mt-3 inline-block text-sm text-white link-underline"
               >
                 {t('locationSection.appointmentsLink')}
-              </Link>
+              </button>
             </div>
           </div>
         </Reveal>

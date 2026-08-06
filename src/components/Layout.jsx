@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ComingSoonGate from '@/components/ComingSoonGate';
+import StickyBookingButton from '@/components/StickyBookingButton';
 
 export default function Layout() {
   return (
@@ -12,6 +13,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <StickyBookingButton />
     </ComingSoonGate>
   );
 }
