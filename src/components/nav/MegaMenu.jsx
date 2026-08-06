@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTreatments } from '@/lib/useSite';
 import { TREATMENT_GROUPS } from '@/lib/site';
+import { CATEGORIES } from '@/lib/categoryContent';
 import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function MegaMenu({ onNavigate }) {
   const { data: treatments = [] } = useTreatments();
   const { t, lang } = useLanguage();
   const groups = TREATMENT_GROUPS[lang];
+  const categories = Object.values(CATEGORIES);
 
   return (
     <div className="grid gap-10 border-t border-white/15 bg-black/25 px-8 py-12 text-white backdrop-blur-2xl backdrop-saturate-150 md:grid-cols-4 md:px-16">
@@ -43,6 +45,19 @@ export default function MegaMenu({ onNavigate }) {
         <p className="mt-5 text-sm leading-relaxed text-white/60">
           {t('megaMenu.overviewText')}
         </p>
+        <ul className="mt-6 space-y-2 border-t border-white/15 pt-6">
+          {categories.map((c) => (
+            <li key={c.slug}>
+              <Link
+                to={lang === 'en' ? `/en/behandlungen/${c.slug}` : `/behandlungen/${c.slug}`}
+                onClick={onNavigate}
+                className="text-sm text-white/70 link-underline hover:text-[#E7D3AA]"
+              >
+                {loc(c, 'title', lang)}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

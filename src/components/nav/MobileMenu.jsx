@@ -10,7 +10,10 @@ export default function MobileMenu({ open, onClose }) {
   const { data: treatments = [] } = useTreatments();
   const { t, lang, langPath, neutralPath } = useLanguage();
 
-  const isActive = (path) => neutralPath(window.location.pathname) === path;
+  const isActive = (path) => {
+    const current = neutralPath(window.location.pathname);
+    return current === path || current.startsWith(path + '/');
+  };
 
   return (
     <div

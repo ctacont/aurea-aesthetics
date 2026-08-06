@@ -13,6 +13,11 @@ import TreatmentCard from '@/components/TreatmentCard';
 import { useSettings, useTreatments } from '@/lib/useSite';
 import { treatmentSchema, breadcrumbSchema, medicalBusinessSchema } from '@/lib/schema';
 import { useLanguage, loc } from '@/lib/LanguageContext';
+import { CATEGORIES } from '@/lib/categoryContent';
+
+const CATEGORY_LINK_BY_SLUG = Object.fromEntries(
+  Object.values(CATEGORIES).map((c) => [c.canonicalSlug, c])
+);
 
 export default function TreatmentDetail() {
   const { slug } = useParams();
@@ -40,6 +45,7 @@ export default function TreatmentDetail() {
   const aftercare = loc(tr, 'aftercare', lang) || tr?.aftercare_de;
   const risks = loc(tr, 'risks', lang) || tr?.risks_de;
   const contraindications = loc(tr, 'contraindications', lang) || tr?.contraindications_de;
+  const linkedCategory = tr ? CATEGORY_LINK_BY_SLUG[tr.slug] : undefined;
 
   if (!tr) {
     return (
@@ -79,6 +85,14 @@ export default function TreatmentDetail() {
       />
 
       <FactGrid treatment={tr} />
+
+      {linkedCategory && (
+        <div className="border-b border-[#E8E2D9] px-6 py-6 text-center lg:px-12">
+          <Link to={langPath(`/behandlungen/${linkedCategory.slug}`)} className="eyebrow text-[#8A7550] link-underline">
+            {t('treatmentDetail.categoryLinkPrefix')} {loc(linkedCategory, 'title', lang)}
+          </Link>
+        </div>
+      )}
 
       {tr.indications?.length > 0 && (
         <section className="bg-[#F4F1EE] px-6 py-20 lg:px-12 lg:py-28">

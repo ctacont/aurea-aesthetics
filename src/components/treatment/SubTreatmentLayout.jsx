@@ -29,6 +29,14 @@ export default function SubTreatmentLayout({ data }) {
     a: lang === 'en' ? (f.a_en || f.a_de) : f.a_de,
   }));
 
+  const factData = {
+    duration: lang === 'en' ? (data.duration_en || data.duration) : data.duration,
+    downtime: lang === 'en' ? (data.downtime_en || data.downtime) : data.downtime,
+    results_onset: lang === 'en' ? (data.results_onset_en || data.results_onset) : data.results_onset,
+    results_duration: lang === 'en' ? (data.results_duration_en || data.results_duration) : data.results_duration,
+    price_from: lang === 'en' ? (data.price_from_en || data.price_from) : data.price_from,
+  };
+
   const category = CATEGORIES[data.category];
   const crumbs = [
     { name: t('subTreatment.crumbHome'), path: '/' },
@@ -50,7 +58,7 @@ export default function SubTreatmentLayout({ data }) {
 
       <PageHero eyebrow={t('categoryPage.crumbTreatments')} title={title} lead={lead} image={data.image_url} breadcrumbs={crumbs} />
 
-      <FactGrid treatment={data} />
+      <FactGrid treatment={factData} />
 
       {data.indications?.length > 0 && (
         <section className="bg-[#F4F1EE] px-6 py-20 lg:px-12 lg:py-28">
