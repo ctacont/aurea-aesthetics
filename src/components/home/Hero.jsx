@@ -15,6 +15,7 @@ export default function Hero({ settings }) {
   const bgRef = useRef(null);
   const [mounted, setMounted] = useState(false);
   const [parallax, setParallax] = useState(0);
+  const [scrollFx, setScrollFx] = useState({ scale: 1, textShift: 0, textFade: 1 });
 
   const customSlides = Array.isArray(settings.hero_slides) ?
   settings.hero_slides.
@@ -71,6 +72,14 @@ export default function Hero({ settings }) {
       if (raf) return;
       raf = requestAnimationFrame(() => {
         setParallax(window.scrollY * 0.25);
+        // Subtle depth cues tied to the same scroll, clamped to one viewport
+        // of travel so the effect settles once the hero has scrolled past.
+        const progress = Math.min(window.scrollY / window.innerHeight, 1);
+        setScrollFx({
+          scale: 1 + progress * 0.04,
+          textShift: progress * -10,
+          textFade: 1 - progress * 0.15
+        });
         raf = null;
       });
     };
@@ -91,7 +100,7 @@ export default function Hero({ settings }) {
       onMouseEnter={stopAuto}
       onMouseLeave={startAuto}>
       
-      <div ref={bgRef} className="absolute inset-0 overflow-hidden" style={{ transform: `translateY(${parallax}px)`, willChange: 'transform' }}>
+      <div ref={bgRef} className="absolute inset-0 overflow-hidden" style={{ transform: `translateY(${parallax}px) scale(${scrollFx.scale})`, willChange: 'transform' }}>
         {hasVideo ?
         <>
             <video
@@ -140,7 +149,9 @@ export default function Hero({ settings }) {
       </div>
 
       <div className="relative flex w-full items-end px-6 pb-20 pt-44 lg:px-16 lg:pb-28 lg:pt-52">
-        <div className="relative z-30 max-w-[720px] text-left text-white">
+        <div
+          className="relative z-30 max-w-[720px] text-left text-white"
+          style={{ transform: `translateY(${scrollFx.textShift}px)`, opacity: scrollFx.textFade, willChange: 'transform' }}>
           <div className={stagger()} style={delayStyle(0)}>
             <Eyebrow tone="light">{t('hero.tagEyebrow')}</Eyebrow>
           </div>
