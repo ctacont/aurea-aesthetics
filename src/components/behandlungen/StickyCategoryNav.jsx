@@ -29,6 +29,18 @@ export default function StickyCategoryNav({ categories }) {
   };
 
 
+  useEffect(() => {
+    const onScroll = () => {
+      if (!navRef.current) return;
+      setIsSticky(navRef.current.getBoundingClientRect().top <= 86);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <nav
       ref={navRef}
