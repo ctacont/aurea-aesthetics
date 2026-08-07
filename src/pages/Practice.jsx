@@ -99,17 +99,17 @@ export default function Practice() {
     <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
       {values.map((v, i) => {
         const directions = [
-          '-translate-y-[50%]',
-          'translate-x-[50%]',
-          'translate-y-[50%]',
-          'translate-x-[50%]'
+          { className: '-translate-y-[50%]', delay: 0, duration: 'duration-[1800ms]' },
+          { className: 'translate-x-[50%]', delay: 300, duration: 'duration-[1800ms]' },
+          { className: 'translate-y-[50%]', delay: 600, duration: 'duration-[1800ms]' },
+          { className: 'translate-x-[50%]', delay: 900, duration: 'duration-[1800ms]' },
         ];
 
         return (
           <Reveal
             key={v.title}
-            delay={i * 300}
-            className={`${directions[i]} duration-[1800ms]`}
+            delay={directions[i].delay}
+            className={`${directions[i].className} ${directions[i].duration}`}
           >
             <div className="flex min-h-[220px] flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 text-center sm:px-10">
               <h3 className="font-heading text-2xl font-light">{v.title}</h3>
