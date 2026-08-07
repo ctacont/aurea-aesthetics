@@ -7,7 +7,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
 import { subscribeScroll } from '@/lib/scrollManager';
 
-const SLIDE_INTERVAL = 1000;
+const SLIDE_INTERVAL = 5000;
 const FADE_DURATION = 5000;
 
 export default function Hero({ settings }) {
