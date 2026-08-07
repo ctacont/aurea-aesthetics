@@ -96,24 +96,27 @@ export default function Practice() {
       <Eyebrow>{t('practice.valuesEyebrow')}</Eyebrow>
     </Reveal>
 
-<div className="mt-14 grid overflow-hidden border-t border-l border-[#E8E2D9] sm:grid-cols-2">
-  {values.map((v, i) => { 
+<div className="mt-14 grid sm:grid-cols-2">
+  {values.map((v, i) => {
     const directions = [
-      { className: '-translate-y-[100%]', delay: 600, duration: 'duration-[2200ms]' },
-      { className: 'translate-x-[100%]', delay: 500, duration: 'duration-[1800ms]' },
-      { className: 'translate-y-[100%]', delay: 700, duration: 'duration-[2200ms]' },
-      { className: 'translate-x-[100%]', delay: 900, duration: 'duration-[1800ms]' },
+      { className: '-translate-y-[50%]', delay: 600, duration: 'duration-[2200ms]' },
+      { className: 'translate-x-[50%]', delay: 500, duration: 'duration-[1800ms]' },
+      { className: 'translate-y-[50%]', delay: 700, duration: 'duration-[2200ms]' },
+      { className: 'translate-x-[50%]', delay: 900, duration: 'duration-[1800ms]' },
     ];
 
     return (
-      <Reveal
-        key={v.title}
-        delay={directions[i].delay}
-        className={`flex min-h-[220px] flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 text-center sm:px-10 ${directions[i].className} ${directions[i].duration}`}
-      >
-        <h3 className="font-heading text-2xl font-light">{v.title}</h3>
-        <p className="mt-4 text-sm leading-relaxed text-neutral-600">{v.text}</p>
-      </Reveal>
+      <div key={v.title} className="overflow-hidden">
+        <Reveal
+          delay={directions[i].delay}
+          className={`h-full ${directions[i].className} ${directions[i].duration}`}
+        >
+          <div className="flex min-h-[220px] h-full flex-col justify-center border border-[#E8E2D9] px-8 py-12 text-center sm:px-10">
+            <h3 className="font-heading text-2xl font-light">{v.title}</h3>
+            <p className="mt-4 text-sm leading-relaxed text-neutral-600">{v.text}</p>
+          </div>
+        </Reveal>
+      </div>
     );
   })}
 </div>
