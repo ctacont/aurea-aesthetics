@@ -50,11 +50,11 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
         {/*
         <div className="max-w-[974px] w-full  pr-8 pl-0 lg:py-12 lg:pr-12 lg:pl-0">
         */}
-          <Reveal delay={5} className="-translate-x-full">
+          <Reveal delay={60} className="-translate-x-full">
             {eyebrow && <Eyebrow tone="light">{eyebrow}</Eyebrow>}
           </Reveal>
 
-          <Reveal delay={160} className="-translate-x-full">
+          <Reveal delay={60} className="-translate-x-full">
             <h1 className="mt-7 font-heading text-[2.4rem] font-light leading-[1.1] md:text-6xl">
               {title}
               {accent && <span className="block text-[#C9AF80] text-shadow">{accent}</span>}
@@ -62,7 +62,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
           </Reveal>
 
           {lead &&
-          <Reveal delay={260} className="-translate-x-full">
+          <Reveal delay={160} className="-translate-x-full">
               <p className="mt-8 max-w-xl text-[0.98rem] leading-relaxed text-white/75">{lead}</p>
             </Reveal>
           }
