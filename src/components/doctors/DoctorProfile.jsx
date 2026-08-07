@@ -19,7 +19,7 @@ export default function DoctorProfile({ doctor, quote, reversed = false }) {
         <Reveal clip className={`lg:col-span-5 ${reversed ? 'lg:order-2' : ''}`}>
           <div ref={portraitRef} className="group relative aspect-[3/4] w-full overflow-hidden">
             <div style={{ transform: `translateY(${offset}px) scale(1.08)` }} className="h-full w-full transition-transform duration-700 group-hover:scale-[1.12]">
-              <Image src={doctor.photo_url || IMAGES.interior} alt={`${doctor.title || ''} ${doctor.name}`.trim()} className="h-full w-full" fittingType="fill" />
+              <Image src={doctor.photo_url || IMAGES.interior} alt={`${doctor.title || ''} ${doctor.name}`.trim()} className="h-full w-full object-cover" fittingType="fill" />
             </div>
           </div>
         </Reveal>
@@ -32,31 +32,31 @@ export default function DoctorProfile({ doctor, quote, reversed = false }) {
 
           <p className="eyebrow mt-8 text-neutral-500">{t('aerztinnen.languagesLabel')}: {t('aerztinnen.languages')}</p>
 
-          {doctor.qualifications?.length > 0 && (
-            <>
+          {doctor.qualifications?.length > 0 &&
+          <>
               <p className="eyebrow mt-8 text-neutral-500">{t('aerztinnen.qualificationsLabel')}</p>
               <ul className="mt-4 space-y-2">
-                {doctor.qualifications.map((q) => (
-                  <li key={q} className="flex gap-3 text-[0.95rem] leading-relaxed text-neutral-700">
+                {doctor.qualifications.map((q) =>
+              <li key={q} className="flex gap-3 text-[0.95rem] leading-relaxed text-neutral-700">
                     <span className="text-[#C9AF80]" aria-hidden="true">—</span>
                     {q}
                   </li>
-                ))}
+              )}
               </ul>
             </>
-          )}
+          }
 
-          {quote && (
-            <blockquote className="mt-8 border-l-2 border-[#C9AF80] py-2 pl-6 font-heading text-xl italic leading-relaxed text-neutral-800">
+          {quote &&
+          <blockquote className="mt-8 border-l-2 border-[#C9AF80] py-2 pl-6 font-heading text-xl italic leading-relaxed text-neutral-800">
               {quote}
             </blockquote>
-          )}
+          }
 
           <GoldButton onClick={handleBook} data-booking-cta="true" tone="primary" className="mt-9 px-9">
             {t('aerztinnen.cta')}
           </GoldButton>
         </Reveal>
       </div>
-    </section>
-  );
+    </section>);
+
 }
