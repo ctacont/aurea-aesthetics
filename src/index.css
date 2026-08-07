@@ -56,6 +56,12 @@
   }
 }
 
+.mega-menu {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 @layer base {
   * {
     @apply border-border;
