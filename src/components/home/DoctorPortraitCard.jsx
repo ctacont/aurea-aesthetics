@@ -12,7 +12,7 @@ export default function DoctorPortraitCard({ doctor, delay = 0 }) {
 
   return (
     <div>
-      <Reveal delay={delay} clip>
+      <Reveal delay={delay} >
         <div ref={ref} className="group relative aspect-[4/5] w-full overflow-hidden">
           <div
             style={{ transform: `translateY(${offset}px) scale(1.08)` }}
