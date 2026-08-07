@@ -91,11 +91,13 @@ export default function Header() {
           </div>
         </div>
 
+{/*
         <div
           className={`hidden overflow-hidden transition-all duration-500 lg:block ${
           mega ? 'max-h-[520px] opacity-100' : 'max-h-0 opacity-0'}`
           }>
-          
+        */}
+        <div className={`mega-menu hidden overflow-hidden transition-all duration-500 lg:block ${mega ? 'max-h-[520px] opacity-100' : 'max-h-0 opacity-0'}`}>
           <MegaMenu onNavigate={() => setMega(false)} />
         </div>
       </header>
