@@ -16,11 +16,25 @@ export default function Hero({ settings }) {
   const [mounted, setMounted] = useState(false);
   const [parallax, setParallax] = useState(0);
   const [scrollFx, setScrollFx] = useState({ scale: 1, textShift: 0, textFade: 1 });
+  const [reduceMotion] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth < 768
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const onChange = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
 
   const customSlides = Array.isArray(settings.hero_slides) ?
   settings.hero_slides.
   filter((s) => s && s.active && s.src).
   sort((a, b) => (a.order || 0) - (b.order || 0)).
+  slice(0, 3).
   map((s) => ({ src: s.src, focalPointX: 0.5, focalPointY: 0.5 })) :
   [];
 
@@ -40,7 +54,7 @@ export default function Hero({ settings }) {
   const goNext = () => setCurrentIndex((i) => (i + 1) % slides.length);
 
   const startAuto = () => {
-    if (hasVideo) return;
+    if (hasVideo || reduceMotion) return;
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(goNext, SLIDE_INTERVAL);
   };
@@ -50,7 +64,7 @@ export default function Hero({ settings }) {
   };
 
   useEffect(() => {
-    if (hasVideo) return;
+    if (hasVideo || reduceMotion) return;
     startAuto();
     return () => stopAuto();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -103,15 +117,18 @@ export default function Hero({ settings }) {
       <div ref={bgRef} className="absolute inset-0 overflow-hidden" style={{ transform: `translateY(${parallax}px) scale(${scrollFx.scale})`, willChange: 'transform' }}>
         {hasVideo ?
         <>
-            <video
+            {!isMobile &&
+          <video
             src={settings.hero_video_url}
-            autoPlay
+            autoPlay={!reduceMotion}
             muted
-            loop
+            loop={!reduceMotion}
             playsInline
-            className="absolute inset-0 hidden h-full w-full object-cover md:block" />
-          
-            <div className="absolute inset-0 block md:hidden">
+            className="absolute inset-0 h-full w-full object-cover" />
+          }
+
+            {isMobile &&
+          <div className="absolute inset-0">
               <Image
               src={mobileFallback}
               alt={t('hero.alt')}
@@ -119,6 +136,7 @@ export default function Hero({ settings }) {
               fittingType="fill" />
             
             </div>
+          }
           </> :
 
         <div className="absolute inset-0">
