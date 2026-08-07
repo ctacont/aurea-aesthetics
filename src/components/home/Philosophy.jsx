@@ -13,7 +13,7 @@ export default function Philosophy() {
   return (
     <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-40">
       <div className="mx-auto max-w-6xl">
-        <Reveal>
+        <Reveal  className="-translate-y-12">
           <Eyebrow>{t('philosophy.eyebrow')}</Eyebrow>
         </Reveal>
 
@@ -25,7 +25,7 @@ export default function Philosophy() {
         </Reveal>
 
         <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-16">
-          <Reveal delay={140} className="lg:col-span-5">
+          <Reveal delay={140} className="lg:col-span-5  -translate-x-12">
             <div ref={parallaxRef} className="group relative aspect-[4/5] w-full overflow-hidden">
               <div style={{ transform: `translateY(${offset}px) scale(1.15)` }} className="h-full w-full hasan1">
                 <Image
