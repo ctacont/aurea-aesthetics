@@ -38,7 +38,7 @@ export default function Philosophy() {
           </Reveal>
 
           <div className="lg:col-span-7 lg:pt-6">
-            <Reveal delay={200}>
+            <Reveal delay={400} className="lg:col-span-7 lg:pt-6 translate-x-12">
               <p className="text-lg leading-[1.75] text-neutral-700">
                 {t('philosophy.body')}
               </p>
