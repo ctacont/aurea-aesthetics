@@ -13,14 +13,16 @@ export default function useParallax(factor = 0.15) {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || window.innerWidth < 1024) return;
+    // Mobile: no parallax at all. Tablet: reduced strength. Desktop: full effect.
+    if (reduce || window.innerWidth < 768) return;
+    const effectiveFactor = window.innerWidth < 1024 ? factor * 0.45 : factor;
 
     const update = () => {
       const el = ref.current;
       if (el) {
         const rect = el.getBoundingClientRect();
         const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-        setOffset(-center * factor);
+        setOffset(-center * effectiveFactor);
       }
     };
     const unsubscribe = subscribeScroll(update);

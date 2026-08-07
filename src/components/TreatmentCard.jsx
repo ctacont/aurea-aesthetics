@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { Image } from '@/components/ui/image';
+import Reveal from '@/components/Reveal';
 import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function TreatmentCard({ treatment }) {
@@ -10,9 +11,10 @@ export default function TreatmentCard({ treatment }) {
   const lead = loc(treatment, 'lead', lang) || treatment.lead_de;
 
   return (
+    <Reveal clip className="block h-full">
     <Link
       to={langPath(`/behandlungen/${treatment.slug}`)}
-      className="group block focus-visible:outline-2"
+      className="group block h-full focus-visible:outline-2"
     >
       <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-200">
         <Image
@@ -45,5 +47,6 @@ export default function TreatmentCard({ treatment }) {
         </p>
       )}
     </Link>
+    </Reveal>
   );
 }

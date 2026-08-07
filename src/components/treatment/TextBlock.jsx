@@ -10,7 +10,7 @@ export default function TextBlock({ eyebrow, title, body, tone = 'light', childr
       }`}
     >
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">
           <Reveal>
             <p className="eyebrow text-[#8A7550]">{eyebrow}</p>
             <h2

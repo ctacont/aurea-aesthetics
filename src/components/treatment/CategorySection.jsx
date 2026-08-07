@@ -20,7 +20,7 @@ export default function CategorySection({ section, categoryPath, index = 0 }) {
   return (
     <div id={section.id} className="scroll-mt-28 border-t border-[#E8E2D9] px-6 py-16 lg:px-12 lg:py-20">
       <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
           <Reveal>
             <span className="font-heading text-4xl font-light text-[#8A7550]">{String(index + 1).padStart(2, '0')}</span>
           </Reveal>
