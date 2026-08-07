@@ -45,7 +45,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
           </Reveal>
         }
 
-        <div className="max-w-[974px] py-8 lg:py-12 pr-8 lg:pr-12 pl-0 w-full ml-0 mr-auto">
+        <div className="max-w-[974px] w-full py-8 pr-8 pl-0 lg:py-12 lg:pr-12 lg:pl-0">
           <Reveal delay={80} className="-translate-x-full">
             {eyebrow && <Eyebrow tone="light">{eyebrow}</Eyebrow>}
           </Reveal>
