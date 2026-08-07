@@ -3,6 +3,7 @@ import { Image } from '@/components/ui/image';
 import Reveal from '@/components/Reveal';
 import GoldButton from '@/components/GoldButton';
 import useParallax from '@/hooks/useParallax';
+import { IMAGES } from '@/lib/site';
 import { useLanguage, loc } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
 
@@ -18,7 +19,7 @@ export default function DoctorProfile({ doctor, quote, reversed = false }) {
         <Reveal clip className={`lg:col-span-5 ${reversed ? 'lg:order-2' : ''}`}>
           <div ref={portraitRef} className="group relative aspect-[3/4] w-full overflow-hidden">
             <div style={{ transform: `translateY(${offset}px) scale(1.08)` }} className="h-full w-full transition-transform duration-700 group-hover:scale-[1.12]">
-              <Image src={doctor.photo_url} alt={`${doctor.title || ''} ${doctor.name}`.trim()} className="h-full w-full" fittingType="fill" />
+              <Image src={doctor.photo_url || IMAGES.interior} alt={`${doctor.title || ''} ${doctor.name}`.trim()} className="h-full w-full" fittingType="fill" />
             </div>
           </div>
         </Reveal>

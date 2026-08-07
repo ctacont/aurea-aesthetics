@@ -17,7 +17,15 @@ export default function Reveal({ children, delay = 0, className = '', clip = fal
       { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
     );
     io.observe(el);
-    return () => io.disconnect();
+    // Safety net: if the observer never fires (e.g. a zero-height box during
+    // layout/image load, or it never scrolls into the configured margin),
+    // content must not stay permanently hidden behind opacity/clip-path —
+    // visibility always wins over the entrance animation.
+    const fallback = setTimeout(() => setVisible(true), 1200);
+    return () => {
+      io.disconnect();
+      clearTimeout(fallback);
+    };
   }, []);
 
   return (
