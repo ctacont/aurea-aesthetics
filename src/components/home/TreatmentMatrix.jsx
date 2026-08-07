@@ -16,22 +16,17 @@ const ORDER = [
 const EASE = [0.16, 1, 0.3, 1];
 
 function useIsDesktop() {
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches
+  );
 
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 1024px)');
-
-    setIsDesktop(mq.matches);
-
-    const handler = (e) => {
-      setIsDesktop(e.matches);
-    };
+    const handler = (e) => setIsDesktop(e.matches);
 
     mq.addEventListener('change', handler);
 
-    return () => {
-      mq.removeEventListener('change', handler);
-    };
+    return () => mq.removeEventListener('change', handler);
   }, []);
 
   return isDesktop;
