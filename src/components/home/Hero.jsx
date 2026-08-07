@@ -110,7 +110,7 @@ export default function Hero({ settings }) {
   }, []);
 
   const stagger = (base) =>
-  `transition-all duration-[1300ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+  `transition-all duration-[7300ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
   mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`
   + '';
 
