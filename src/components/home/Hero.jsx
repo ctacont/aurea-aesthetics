@@ -5,6 +5,7 @@ import GoldButton from '@/components/GoldButton';
 import { IMAGES } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
+import { subscribeScroll } from '@/lib/scrollManager';
 
 const SLIDE_INTERVAL = 5000;
 const FADE_DURATION = 5000;
@@ -82,34 +83,30 @@ export default function Hero({ settings }) {
 
     const isTabletFx = window.innerWidth < 1024;
 
-    let raf = null;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        const progress = Math.min(window.scrollY / window.innerHeight, 1);
-        if (isTabletFx) {
-          // Reduced variant: roughly half of the desktop movement, capped.
-          setParallax(Math.min(window.scrollY * 0.125, 16));
-          setScrollFx({
-            scale: 1 + progress * 0.02,
-            textShift: progress * -6,
-            textFade: 1 - progress * 0.08
-          });
-        } else {
-          setParallax(window.scrollY * 0.25);
-          // Subtle depth cues tied to the same scroll, clamped to one viewport
-          // of travel so the effect settles once the hero has scrolled past.
-          setScrollFx({
-            scale: 1 + progress * 0.04,
-            textShift: progress * -10,
-            textFade: 1 - progress * 0.15
-          });
-        }
-        raf = null;
-      });
+    const update = () => {
+      const progress = Math.min(window.scrollY / window.innerHeight, 1);
+      if (isTabletFx) {
+        // Reduced variant: roughly half of the desktop movement, capped.
+        setParallax(Math.min(window.scrollY * 0.125, 16));
+        setScrollFx({
+          scale: 1 + progress * 0.02,
+          textShift: progress * -6,
+          textFade: 1 - progress * 0.08
+        });
+      } else {
+        setParallax(window.scrollY * 0.25);
+        // Subtle depth cues tied to the same scroll, clamped to one viewport
+        // of travel so the effect settles once the hero has scrolled past.
+        setScrollFx({
+          scale: 1 + progress * 0.04,
+          textShift: progress * -10,
+          textFade: 1 - progress * 0.15
+        });
+      }
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const unsubscribe = subscribeScroll(update);
+    update();
+    return unsubscribe;
   }, []);
 
   const stagger = (base) =>
