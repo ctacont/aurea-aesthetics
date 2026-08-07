@@ -17,14 +17,14 @@ export default function DoctorSection({ doctors = [] }) {
       <div className="mx-auto max-w-6xl">
 
         <Reveal
-          delay={200}
+          delay={20}
           className="-translate-x-[50%] duration-[1800ms]"
         >
           <Eyebrow>{t('doctor.eyebrow')}</Eyebrow>
         </Reveal>
 
         <Reveal
-          delay={350}
+          delay={150}
           className="-translate-x-[50%] duration-[1800ms]"
         >
           <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
@@ -37,7 +37,7 @@ export default function DoctorSection({ doctors = [] }) {
             {sorted.map((doc, i) => (
               <Reveal
                 key={doc.id}
-                delay={250 + i * 350}
+                delay={150 + i * 350}
                 className={`duration-[2400ms] ${
                   i % 2 === 0
                     ? 'scale-[0.92]'
@@ -53,7 +53,7 @@ export default function DoctorSection({ doctors = [] }) {
           </div>
         ) : (
           <Reveal
-            delay={500}
+            delay={200}
             className="scale-[0.92] duration-[2200ms]"
           >
             <div className="mt-16 max-w-xl border-l border-[#C9AF80] pl-7">
@@ -69,7 +69,7 @@ export default function DoctorSection({ doctors = [] }) {
         )}
 
         <Reveal
-          delay={900}
+          delay={300}
           className="translate-y-[30%] duration-[2000ms]"
         >
           <Link
