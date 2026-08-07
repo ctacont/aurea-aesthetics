@@ -45,8 +45,8 @@ export default function Hero({ settings }) {
   const hasSlider = !hasVideo && slides.length > 0;
   const singleImageSrc = settings.hero_image_url || IMAGES.hero;
   const mobileFallback = hasVideo ?
-  (settings.hero_video_mobile_image_url || settings.hero_image_url || IMAGES.hero) :
-  (settings.hero_image_url || (hasSlider ? slides[0].src : IMAGES.hero));
+  settings.hero_video_mobile_image_url || settings.hero_image_url || IMAGES.hero :
+  settings.hero_image_url || (hasSlider ? slides[0].src : IMAGES.hero);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
@@ -111,8 +111,8 @@ export default function Hero({ settings }) {
 
   const stagger = (base) =>
   `transition-all duration-[2300ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-  mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`
-  + '';
+  mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}` +
+  '';
 
   const delayStyle = (ms) => ({ transitionDelay: `${ms}ms` });
 
@@ -198,7 +198,7 @@ export default function Hero({ settings }) {
             <Eyebrow tone="light">{t('hero.tagEyebrow')}</Eyebrow>
           </div>
 
-          <h1 className={`mt-7 font-heading text-[2.4rem] font-light leading-[1.1] [text-shadow:0_4px_30px_rgba(0,0,0,0.45)] md:text-[3.4rem] ${stagger()}`} style={delayStyle(140)}>
+          <h1 className={` mt-7 font-heading text-[2.4rem] font-light leading-[1.1] [text-shadow:0_4px_30px_rgba(0,0,0,0.45)] md:text-[3.4rem] transition-all duration-[2300ms] ease-[cubic-bezier(0.16,1,0.3,1)] opacity-100 translate-x-0 ${stagger()}`} style={delayStyle(140)}>
             {t('hero.title')}
             <span className="mt-2 block text-[#C9AF80]">{t('hero.accent')}</span>
           </h1>
