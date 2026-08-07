@@ -50,7 +50,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
             {eyebrow && <Eyebrow tone="light">{eyebrow}</Eyebrow>}
           </Reveal>
 
-          <Reveal delay={160} clip>
+          <Reveal delay={160} className="translate-x-64">
             <h1 className="mt-7 font-heading text-[2.4rem] font-light leading-[1.1] md:text-6xl">
               {title}
               {accent && <span className="block text-[#C9AF80] text-shadow">{accent}</span>}
