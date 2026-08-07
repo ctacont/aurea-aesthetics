@@ -1,7 +1,6 @@
 import React from 'react';
-import CategoryPageLayout from '@/components/treatment/CategoryPageLayout';
-import { CATEGORIES } from '@/lib/categoryContent';
+import TreatmentRedirect from '@/components/treatment/TreatmentRedirect';
 
 export default function Botulinumtoxin() {
-  return <CategoryPageLayout category={CATEGORIES.botulinumtoxin} />;
+  return <TreatmentRedirect anchor="botulinumtoxin" />;
 }

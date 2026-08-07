@@ -7,7 +7,7 @@ import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function MegaMenu({ onNavigate }) {
   const { data: treatments = [] } = useTreatments();
-  const { t, lang } = useLanguage();
+  const { t, lang, langPath } = useLanguage();
   const groups = TREATMENT_GROUPS[lang];
   const categories = Object.values(CATEGORIES);
 
@@ -49,7 +49,7 @@ export default function MegaMenu({ onNavigate }) {
           {categories.map((c) => (
             <li key={c.slug}>
               <Link
-                to={lang === 'en' ? `/en/behandlungen/${c.slug}` : `/behandlungen/${c.slug}`}
+                to={langPath(`/behandlungen#${c.slug}`)}
                 onClick={onNavigate}
                 className="text-sm text-white/70 link-underline hover:text-[#E7D3AA]"
               >

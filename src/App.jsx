@@ -9,7 +9,7 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import Layout from '@/components/Layout';
 import Home from '@/pages/Home';
-import Treatments from '@/pages/Treatments';
+import Behandlungen from '@/pages/Behandlungen';
 import TreatmentDetail from '@/pages/TreatmentDetail';
 import Practice from '@/pages/Practice';
 import Experience from '@/pages/Experience';
@@ -59,7 +59,7 @@ const AuthenticatedApp = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/behandlungen" element={<Treatments />} />
+          <Route path="/behandlungen" element={<Behandlungen />} />
           <Route path="/behandlungen/botulinumtoxin" element={<Botulinumtoxin />} />
           <Route path="/behandlungen/hyaluron-konturierung" element={<HyaluronKonturierung />} />
           <Route path="/behandlungen/hautqualitaet-regeneration" element={<HautqualitaetRegeneration />} />
@@ -83,7 +83,7 @@ const AuthenticatedApp = () => {
           <Route path="/datenschutz" element={<Datenschutz />} />
           {/* English mirrors */}
           <Route path="/en" element={<Home />} />
-          <Route path="/en/behandlungen" element={<Treatments />} />
+          <Route path="/en/behandlungen" element={<Behandlungen />} />
           <Route path="/en/behandlungen/botulinumtoxin" element={<Botulinumtoxin />} />
           <Route path="/en/behandlungen/hyaluron-konturierung" element={<HyaluronKonturierung />} />
           <Route path="/en/behandlungen/hautqualitaet-regeneration" element={<HautqualitaetRegeneration />} />

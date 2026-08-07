@@ -11,11 +11,6 @@ export default function CategorySection({ section, categoryPath, index = 0 }) {
   const lead = loc(section, 'lead', lang);
   const goals = lang === 'en' ? section.goals_en : section.goals_de;
   const duration = lang === 'en' ? section.duration_en : section.duration_de;
-  const link = section.subSlug
-    ? `/behandlungen/${section.subSlug}`
-    : section.canonical
-      ? `/behandlungen/${section.canonical}`
-      : '/kontakt-termin';
 
   return (
     <div id={section.id} className="scroll-mt-28 border-t border-[#E8E2D9] px-6 py-16 lg:px-12 lg:py-20">
@@ -52,11 +47,6 @@ export default function CategorySection({ section, categoryPath, index = 0 }) {
 
           <Reveal delay={210}>
             <div className="mt-7 flex flex-wrap gap-x-8 gap-y-2">
-              {(section.subSlug || section.canonical) && (
-                <Link to={langPath(link)} className="eyebrow text-[#8A7550] link-underline">
-                  {t('categoryPage.moreLink')}
-                </Link>
-              )}
               <button onClick={handleBook} data-booking-cta="true" className="eyebrow link-underline">
                 {t('categoryPage.ctaRequest')}
               </button>

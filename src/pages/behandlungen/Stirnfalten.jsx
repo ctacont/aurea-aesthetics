@@ -1,7 +1,6 @@
 import React from 'react';
-import SubTreatmentLayout from '@/components/treatment/SubTreatmentLayout';
-import { SUB_TREATMENTS } from '@/lib/subTreatments';
+import TreatmentRedirect from '@/components/treatment/TreatmentRedirect';
 
 export default function Stirnfalten() {
-  return <SubTreatmentLayout data={SUB_TREATMENTS.stirnfalten} />;
+  return <TreatmentRedirect anchor="stirnfalten" />;
 }
