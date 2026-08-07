@@ -38,15 +38,14 @@ export default function Hero({ settings }) {
   map((s) => ({ src: s.src, focalPointX: 0.5, focalPointY: 0.5 })) :
   [];
 
-  const slides = customSlides.length > 0 ?
-  customSlides :
-  [
-  { src: IMAGES.zurich, focalPointX: 0.5, focalPointY: 0.5 },
-  { src: IMAGES.interior, focalPointX: 0.5, focalPointY: 0.5 },
-  { src: IMAGES.hero, focalPointX: 0.88, focalPointY: 0.42 }];
+  const slides = customSlides;
 
   const hasVideo = !!settings.hero_video_url;
-  const mobileFallback = settings.hero_video_mobile_image_url || slides[0].src;
+  const hasSlider = !hasVideo && slides.length > 0;
+  const singleImageSrc = settings.hero_image_url || IMAGES.hero;
+  const mobileFallback = hasVideo ?
+  (settings.hero_video_mobile_image_url || settings.hero_image_url || IMAGES.hero) :
+  (settings.hero_image_url || (hasSlider ? slides[0].src : IMAGES.hero));
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
@@ -54,7 +53,7 @@ export default function Hero({ settings }) {
   const goNext = () => setCurrentIndex((i) => (i + 1) % slides.length);
 
   const startAuto = () => {
-    if (hasVideo || reduceMotion) return;
+    if (hasVideo || !hasSlider || reduceMotion || isMobile) return;
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(goNext, SLIDE_INTERVAL);
   };
@@ -64,11 +63,11 @@ export default function Hero({ settings }) {
   };
 
   useEffect(() => {
-    if (hasVideo || reduceMotion) return;
+    if (hasVideo || !hasSlider || reduceMotion || isMobile) return;
     startAuto();
     return () => stopAuto();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hasVideo]);
+  }, [hasVideo, hasSlider, isMobile]);
 
   // Entry stagger.
   useEffect(() => {
@@ -76,24 +75,36 @@ export default function Hero({ settings }) {
     return () => clearTimeout(id);
   }, []);
 
-  // Scroll parallax on the background layer (desktop only).
+  // Scroll parallax on the background layer (desktop + reduced variant on tablet).
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || window.innerWidth < 1024) return;
+    if (reduce || window.innerWidth < 768) return;
+
+    const isTabletFx = window.innerWidth < 1024;
 
     let raf = null;
     const onScroll = () => {
       if (raf) return;
       raf = requestAnimationFrame(() => {
-        setParallax(window.scrollY * 0.25);
-        // Subtle depth cues tied to the same scroll, clamped to one viewport
-        // of travel so the effect settles once the hero has scrolled past.
         const progress = Math.min(window.scrollY / window.innerHeight, 1);
-        setScrollFx({
-          scale: 1 + progress * 0.04,
-          textShift: progress * -10,
-          textFade: 1 - progress * 0.15
-        });
+        if (isTabletFx) {
+          // Reduced variant: roughly half of the desktop movement, capped.
+          setParallax(Math.min(window.scrollY * 0.125, 16));
+          setScrollFx({
+            scale: 1 + progress * 0.02,
+            textShift: progress * -6,
+            textFade: 1 - progress * 0.08
+          });
+        } else {
+          setParallax(window.scrollY * 0.25);
+          // Subtle depth cues tied to the same scroll, clamped to one viewport
+          // of travel so the effect settles once the hero has scrolled past.
+          setScrollFx({
+            scale: 1 + progress * 0.04,
+            textShift: progress * -10,
+            textFade: 1 - progress * 0.15
+          });
+        }
         raf = null;
       });
     };
@@ -138,9 +149,16 @@ export default function Hero({ settings }) {
             </div>
           }
           </> :
-
+        hasSlider ?
         <div className="absolute inset-0">
-            {slides.map((slide, i) =>
+            {isMobile ?
+          <Image
+            src={mobileFallback}
+            alt={t('hero.alt')}
+            className="h-full w-full object-cover"
+            fittingType="fill" /> :
+
+          slides.map((slide, i) =>
           <div
             key={i}
             className="absolute inset-0 transition-opacity ease-in-out"
@@ -161,6 +179,15 @@ export default function Hero({ settings }) {
             
             </div>
           )}
+          </div> :
+
+        <div className="absolute inset-0">
+            <Image
+            src={isMobile ? mobileFallback : singleImageSrc}
+            alt={t('hero.alt')}
+            className="h-full w-full object-cover"
+            fittingType="fill" />
+          
           </div>
         }
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/60 via-[#0A0A0A]/20 to-transparent" />
