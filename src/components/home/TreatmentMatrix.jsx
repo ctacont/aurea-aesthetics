@@ -52,14 +52,18 @@ export default function TreatmentMatrix() {
             <div className="sticky" style={{ top: 'calc(50vh - 220px)' }}>
               <div className="relative aspect-[4/5] w-full overflow-hidden">
                 {categories.map((cat, i) => (
-                  <Image
+                  <div
                     key={cat.slug}
-                    src={cat.image_url}
-                    alt={loc(cat, 'title', lang)}
-                    className="absolute inset-0 h-full w-full transition-opacity duration-[600ms] ease-in-out"
+                    className="absolute inset-0 transition-opacity duration-[600ms] ease-in-out"
                     style={{ opacity: activeIndex === i ? 1 : 0 }}
-                    fittingType="fill"
-                  />
+                  >
+                    <Image
+                      src={cat.image_url}
+                      alt={loc(cat, 'title', lang)}
+                      className="h-full w-full"
+                      fittingType="fill"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
