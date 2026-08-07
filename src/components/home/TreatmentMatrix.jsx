@@ -45,25 +45,25 @@ export default function TreatmentMatrix() {
         <div className="mx-auto max-w-6xl">
           {categories.map((cat, i) => {
             const imageFromLeft = i % 2 === 0;
-            const imageX = isDesktop ? (imageFromLeft ? -70 : 70) : 0;
-            const textX = isDesktop ? (imageFromLeft ? 70 : -70) : 0;
+            const imageX = isDesktop ? imageFromLeft ? -70 : 70 : 0;
+            const textX = isDesktop ? imageFromLeft ? 70 : -70 : 0;
             const imageY = isDesktop ? 0 : 40;
             const textY = isDesktop ? 0 : 40;
             return (
               <div
                 key={cat.slug}
-                className="grid grid-cols-1 gap-10 border-t border-[#E8E2D9] py-20 first:border-t-0 first:pt-0 lg:grid-cols-2 lg:gap-20 lg:py-32"
-              >
+                className="grid grid-cols-1 gap-10 border-t border-[#E8E2D9] py-20 first:border-t-0 first:pt-0 lg:grid-cols-2 lg:gap-20 lg:py-32">
+                
                 <motion.div
                   initial={{ opacity: 0, x: imageX, y: imageY }}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-10%' }}
                   transition={{ duration: 1.2, ease: EASE }}
                   className={`relative aspect-[4/3] w-full overflow-hidden lg:aspect-[4/5] ${
-                    imageFromLeft ? '' : 'lg:order-2'
-                  }`}
-                >
-                  <img src={cat.image_url} alt={loc(cat, 'title', lang)} className="absolute inset-0 h-full w-full object-cover" />
+                  imageFromLeft ? '' : 'lg:order-2'}`
+                  }>
+                  
+                  <img src={cat.image_url} alt={loc(cat, 'title', lang)} className="absolute inset-0 h-full w-full object-cover transition-all duration-[2000ms] ease-[cubic-bezier(0.16,1,0.3,1)] -translate-x-12 opacity-100" />
                 </motion.div>
 
                 <motion.div
@@ -71,8 +71,8 @@ export default function TreatmentMatrix() {
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-10%' }}
                   transition={{ duration: 1, delay: 0.1, ease: EASE }}
-                  className={`flex flex-col justify-center ${imageFromLeft ? '' : 'lg:order-1'}`}
-                >
+                  className={`flex flex-col justify-center ${imageFromLeft ? '' : 'lg:order-1'}`}>
+                  
                   <span className="font-heading text-6xl font-light text-[#8A7550] lg:text-7xl">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="mt-6 font-heading text-2xl font-light lg:text-3xl">{loc(cat, 'title', lang)}</h3>
                   <p className="mt-4 max-w-md text-neutral-600 leading-relaxed lg:mt-5">{loc(cat, 'lead', lang)}</p>
@@ -81,8 +81,8 @@ export default function TreatmentMatrix() {
                     <ArrowRight className="h-4 w-4 text-[#C9AF80]" strokeWidth={1} />
                   </Link>
                 </motion.div>
-              </div>
-            );
+              </div>);
+
           })}
         </div>
       </div>
@@ -95,6 +95,6 @@ export default function TreatmentMatrix() {
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
