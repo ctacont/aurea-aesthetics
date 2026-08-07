@@ -7,7 +7,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
 import { subscribeScroll } from '@/lib/scrollManager';
 
-const SLIDE_INTERVAL = 5000;
+const SLIDE_INTERVAL = 1000;
 const FADE_DURATION = 5000;
 
 export default function Hero({ settings }) {
@@ -110,7 +110,7 @@ export default function Hero({ settings }) {
   }, []);
 
   const stagger = (base) =>
-  `transition-all duration-[2000ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+  `transition-all duration-[2300ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
   mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`
   + '';
 
