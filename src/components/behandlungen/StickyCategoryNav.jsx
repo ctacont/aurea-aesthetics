@@ -30,7 +30,7 @@ export default function StickyCategoryNav({ categories }) {
 
   return (
     <nav
-      className={`sticky z-30 hidden justify-center gap-10 border-b border-[#E8E2D9]/70 bg-background/75 px-6 py-5 backdrop-blur-xl backdrop-saturate-150 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] lg:flex top-[86px] ${
+      className={`sticky z-30 hidden justify-center gap-10 border-b px-6 py-5 backdrop-blur-xl backdrop-saturate-150 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] lg:flex top-[86px] border-[#E8E2D9]/0 bg-background/10 ${
       visible ? 'translate-y-0' : '-translate-y-full'}`
       }>
       
