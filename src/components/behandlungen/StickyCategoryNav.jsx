@@ -19,7 +19,12 @@ export default function StickyCategoryNav({ categories }) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-         if (entry.isIntersecting) setActive(entry.target.id);
+         if (
+            entry.isIntersecting &&
+            navRef.current?.getBoundingClientRect().top <= 86
+          ) {
+            setActive(entry.target.id);
+          }
         });
       },
       { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
@@ -32,20 +37,24 @@ export default function StickyCategoryNav({ categories }) {
     };
   }, [categories]);
 
-  useEffect(() => {
-    const onScroll = () => {
-      if (!navRef.current) return;
+useEffect(() => {
+  const onScroll = () => {
+    if (!navRef.current) return;
 
-      setIsSticky(
-        navRef.current.getBoundingClientRect().top <= 86
-      );
-    };
+    const stuck = navRef.current.getBoundingClientRect().top <= 86;
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    setIsSticky(stuck);
 
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    if (!stuck) {
+      setActive(null);
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  return () => window.removeEventListener('scroll', onScroll);
+}, []);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({
