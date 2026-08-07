@@ -38,13 +38,13 @@ export default function Philosophy() {
           </Reveal>
 
           <div className="lg:col-span-7 lg:pt-6">
-            <Reveal delay={400} className="lg:col-span-7 lg:pt-6 translate-x-12">
+            <Reveal delay={200} className="lg:col-span-7 lg:pt-6 translate-x-12">
               <p className="text-lg leading-[1.75] text-neutral-700">
                 {t('philosophy.body')}
               </p>
             </Reveal>
 
-            <Reveal delay={260}>
+            <Reveal delay={400} className="translate-x-12">
               <div className="mt-12 border-l border-[#C9AF80] pl-8">
                 <p className="font-heading text-2xl font-light leading-snug text-neutral-800 md:text-3xl">
                   {t('philosophy.quote')}
@@ -52,7 +52,7 @@ export default function Philosophy() {
               </div>
             </Reveal>
 
-            <Reveal delay={320}>
+            <Reveal delay={600} className="translate-x-12">
               <div className="mt-12 grid gap-10 sm:grid-cols-2">
                 <div>
                   <p className="eyebrow text-[#8A7550]">{t('philosophy.restraint')}</p>
