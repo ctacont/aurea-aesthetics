@@ -37,7 +37,7 @@ export default function DoctorSection({ doctors = [] }) {
             {sorted.map((doc, i) => (
               <Reveal
                 key={doc.id}
-                delay={450 + i * 350}
+                delay={250 + i * 350}
                 className={`duration-[2400ms] ${
                   i % 2 === 0
                     ? 'scale-[0.92]'
