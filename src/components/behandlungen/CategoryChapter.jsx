@@ -17,19 +17,19 @@ export default function CategoryChapter({ category, index }) {
   return (
     <section
       id={category.slug}
-      className="relative scroll-mt-24 overflow-hidden bg-[#0A0A0A] px-6 py-28 text-white lg:px-12 lg:py-40"
-    >
+      className="relative scroll-mt-24 overflow-hidden bg-[#0A0A0A] px-6 py-28 text-white lg:px-12 lg:py-40">
+      
       <div ref={imgRef} className="absolute inset-0 opacity-55" style={{ transform: `translateY(${imgOffset}px) scale(1.15)` }}>
         <Image src={category.image_url} alt="" className="h-full w-full" fittingType="fill" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/40 via-[#0A0A0A]/75 to-[#0A0A0A]" />
+        <div className="absolute inset-0" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
         <div
           ref={numRef}
           style={{ transform: `translateY(${numOffset}px)` }}
-          className="select-none font-heading text-[7rem] font-light leading-none text-white/10 lg:text-[11rem]"
-        >
+          className="select-none font-heading text-[7rem] font-light leading-none text-white/10 lg:text-[11rem]">
+          
           {String(index + 1).padStart(2, '0')}
         </div>
 
@@ -37,8 +37,8 @@ export default function CategoryChapter({ category, index }) {
           initial={{ clipPath: 'inset(100% 0 0 0)' }}
           whileInView={{ clipPath: 'inset(0% 0 0 0)' }}
           viewport={{ once: true, margin: '-10%' }}
-          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-        >
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}>
+          
           <Eyebrow tone="light">{t('categoryPage.crumbTreatments')}</Eyebrow>
           <h2 className="mt-6 max-w-3xl font-heading text-4xl font-light leading-[1.05] md:text-6xl lg:text-7xl">
             {title}
@@ -51,11 +51,11 @@ export default function CategoryChapter({ category, index }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-white/70"
-        >
+          className="mt-8 max-w-xl text-lg leading-relaxed text-white/70">
+          
           {lead}
         </motion.p>
       </div>
-    </section>
-  );
+    </section>);
+
 }
