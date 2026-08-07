@@ -28,6 +28,13 @@ export default function StickyCategoryNav({ categories }) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+{/*
+<nav
+  className={`sticky z-30 hidden justify-center gap-10 border-b py-5 backdrop-blur-xl backdrop-saturate-150 transition-transform duration-700 ${
+    visible ? '' : '-translate-y-full'
+  }`}
+>
+*/}
   return (
    <nav className={`sticky z-30 hidden justify-center gap-10 border-b backdrop-blur-xl backdrop-saturate-150 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] lg:flex top-[86px] border-[#E8E2D9]/0 px-6 bg-white ${visible ? 'py-0 opacity-100 translate-y-0' : 'py-0 opacity-0 -translate-y-full pointer-events-none'}`}>
       
