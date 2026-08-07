@@ -1,7 +1,6 @@
-import { Toaster } from "@/components/ui/toaster"
-import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClientInstance } from '@/lib/query-client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Toaster } from "@/components/ui/toaster";
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClientInstance } from '@/lib/query-client';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import { LanguageProvider } from '@/lib/LanguageContext';
@@ -34,6 +33,7 @@ import AdminRoute from '@/components/AdminRoute';
 import { Impressum, Datenschutz } from '@/pages/Legal';
 import SeoReport from '@/pages/SeoReport';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -76,6 +76,7 @@ const AuthenticatedApp = () => {
           <Route path="/behandlungen/:slug" element={<TreatmentDetail />} />
           <Route path="/praxis" element={<Practice />} />
           <Route path="/team" element={<Aerztinnen />} />
+          <Route path="/aerztinnen" element={<Navigate to="/team" replace />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/standort-zuerich-enge" element={<Location />} />
           <Route path="/faq" element={<Faq />} />
@@ -106,7 +107,6 @@ const AuthenticatedApp = () => {
           <Route path="/en/kontakt-termin" element={<Contact />} />
           <Route path="/en/impressum" element={<Impressum />} />
           <Route path="/en/datenschutz" element={<Datenschutz />} />
-          <Route path="/aerztinnen" element={<Navigate to="/team" replace />} />
           <Route path="/en/aerztinnen" element={<Navigate to="/en/team" replace />} />
         </Route>
         <Route path="/seo-bericht" element={<SeoReport />} />
