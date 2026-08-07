@@ -30,11 +30,11 @@ export default function StickyCategoryNav({ categories }) {
 
 
   return (
-   <nav
-  className={`sticky z-30 hidden justify-center gap-10 border-b py-5 backdrop-blur-xl backdrop-saturate-150 transition-transform duration-700 ${
-    visible ? '' : '-translate-y-full'
-  }`}
-> 
+    <nav
+      ref={navRef}
+      className={`sticky top-[86px] z-30 hidden justify-center gap-10 border-b py-5 backdrop-blur-xl backdrop-saturate-150 transition-all duration-700 lg:flex
+      ${isSticky ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}
+    >
       {categories.map((c, i) =>
       <button
         key={c.slug}
