@@ -28,27 +28,23 @@ export default function DoctorSection({ doctors = [] }) {
             {sorted.map((doc, i) => (
               <Reveal
                 key={doc.id}
-                delay={400 + i * 350}
+                delay={400 + i * 300}
                 className={`duration-[2400ms] ${
                   i % 2 === 0
-                    ? '-translate-y-[50%]'
-                    : 'translate-y-[50%]'
+                    ? '-translate-x-[50%]'
+                    : 'translate-x-[50%]'
                 }`}
               >
-                <DoctorPortraitCard
-                  doctor={doc}
-                  delay={0}
-                />
+                <DoctorPortraitCard doctor={doc} delay={0} />
               </Reveal>
             ))}
           </div>
         ) : (
-          <Reveal delay={500} className="translate-y-[50%] duration-[2200ms]">
+          <Reveal delay={500} className="-translate-x-[50%] duration-[2200ms]">
             <div className="mt-16 max-w-xl border-l border-[#C9AF80] pl-7">
               <p className="text-lg leading-[1.75] text-neutral-700">
                 {t('doctor.placeholder')}
               </p>
-
               <p className="mt-5 eyebrow text-neutral-400">
                 {t('doctor.placeholderLabel')}
               </p>
@@ -56,7 +52,7 @@ export default function DoctorSection({ doctors = [] }) {
           </Reveal>
         )}
 
-        <Reveal delay={900} className="translate-y-[50%] duration-[2200ms]">
+        <Reveal delay={900} className="translate-x-[50%] duration-[2200ms]">
           <Link
             to={langPath('/team')}
             className="mt-14 inline-block eyebrow link-underline"
