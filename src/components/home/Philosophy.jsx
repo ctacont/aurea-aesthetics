@@ -13,11 +13,11 @@ export default function Philosophy() {
   return (
     <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-40">
       <div className="mx-auto max-w-6xl">
-        <Reveal  className="-translate-x-[70%] duration-[3800ms]">
+        <Reveal delay={180}  className="-translate-x-[70%] duration-[1800ms]">
           <Eyebrow>{t('philosophy.eyebrow')}</Eyebrow>
         </Reveal>
 
-        <Reveal delay={280} className="-translate-x-[50%] duration-[2800ms]">
+        <Reveal delay={280} className="-translate-x-[100%] duration-[2800ms]">
           <h2 className="mt-8 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl max-w-6xl">
             {t('philosophy.title')}
             <span className="text-[#8A7550]">{t('philosophy.accent')}</span>
