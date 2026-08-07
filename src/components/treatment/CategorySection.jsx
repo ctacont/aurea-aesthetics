@@ -13,7 +13,7 @@ export default function CategorySection({ section, categoryPath, index = 0 }) {
   const duration = lang === 'en' ? section.duration_en : section.duration_de;
 
   return (
-    <div id={section.id} className="scroll-mt-28 border-t border-[#E8E2D9] px-6 py-16 lg:px-12 lg:py-20">
+    <div id={section.id} className="scroll-mt-28 px-6 py-16 lg:px-12 lg:py-20 border-t">
       <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
           <Reveal>
@@ -27,16 +27,16 @@ export default function CategorySection({ section, categoryPath, index = 0 }) {
           <Reveal delay={140}>
             <p className="text-lg leading-[1.75] text-neutral-700">{lead}</p>
 
-            {goals?.length > 0 && (
-              <ul className="mt-6 space-y-2.5">
-                {goals.map((g) => (
-                  <li key={g} className="flex gap-3 text-[0.95rem] leading-relaxed text-neutral-700">
+            {goals?.length > 0 &&
+            <ul className="mt-6 space-y-2.5">
+                {goals.map((g) =>
+              <li key={g} className="flex gap-3 text-[0.95rem] leading-relaxed text-neutral-700">
                     <span className="mt-2 h-px w-4 shrink-0 bg-[#C9AF80]" aria-hidden="true" />
                     {g}
                   </li>
-                ))}
+              )}
               </ul>
-            )}
+            }
 
             {duration && <p className="eyebrow mt-7 text-[#8A7550]">{t('categoryPage.durationLabel')}: {duration}</p>}
 
@@ -54,6 +54,6 @@ export default function CategorySection({ section, categoryPath, index = 0 }) {
           </Reveal>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
