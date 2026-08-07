@@ -62,7 +62,7 @@ export default function StickyCategoryNav({ categories }) {
           onClick={() => scrollTo(c.slug)}
           className={`eyebrow transition-colors duration-500 ${
             active === c.slug
-              ? 'text-[#8A7550] click:link-underline is-active'
+              ? 'text-[#8A7550] active:link-underline is-active'
               : 'text-neutral-500 hover:text-neutral-800 link-underline is-active'
           }`}
         >
