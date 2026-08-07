@@ -42,7 +42,7 @@ export default function Experience() {
 
       <section className="px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-16">
-          <Reveal delay={100} className="lg:col-span-5 translate-x-full">
+          <Reveal delay={100} className="lg:col-span-5 -translate-x-full">
             <div ref={imgRef} className="relative aspect-[3/4] w-full overflow-hidden">
               <div style={{ transform: `translateY(${offset}px) scale(1.12)` }} className="h-full w-full">
                 <Image src={IMAGES.bio} alt={t('experience.envAlt')} className="h-full w-full" fittingType="fill" />
