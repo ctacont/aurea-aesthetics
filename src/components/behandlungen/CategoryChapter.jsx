@@ -17,7 +17,7 @@ export default function CategoryChapter({ category, index }) {
   return (
     <section
       id={category.slug}
-      className="relative scroll-mt-full overflow-hidden bg-[#0A0A0A] px-6 py-28 text-white lg:px-12 lg:py-40 mt-[100px]">
+      className="relative scroll-mt-full overflow-hidden bg-[#0A0A0A] px-6 py-28 text-white lg:px-12 lg:py-40">
       
       <div ref={imgRef} className="absolute inset-0 opacity-55" style={{ transform: `translateY(${imgOffset}px) scale(1.15)` }}>
         <Image src={category.image_url} alt="" className="h-full w-full" fittingType="fill" />
