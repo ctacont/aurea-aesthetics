@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
 import { useLanguage, loc } from '@/lib/LanguageContext';
@@ -52,19 +51,12 @@ export default function TreatmentMatrix() {
             <div className="sticky" style={{ top: 'calc(50vh - 220px)' }}>
               <div className="relative aspect-[4/5] w-full overflow-hidden">
                 {categories.map((cat, i) => (
-                  <Image
+                  <img
                     key={cat.slug}
                     src={cat.image_url}
                     alt={loc(cat, 'title', lang)}
-                    className="transition-opacity duration-[600ms] ease-in-out"
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      width: '100%',
-                      height: '100%',
-                      opacity: activeIndex === i ? 1 : 0,
-                    }}
-                    fittingType="fill"
+                    className="absolute inset-0 h-full w-full object-cover transition-opacity duration-[600ms] ease-in-out"
+                    style={{ opacity: activeIndex === i ? 1 : 0 }}
                   />
                 ))}
               </div>
@@ -102,8 +94,8 @@ export default function TreatmentMatrix() {
         <div className="mx-auto max-w-xl space-y-16">
           {categories.map((cat, i) => (
             <Reveal key={cat.slug}>
-              <div className="relative aspect-[4/3] w-full">
-                <Image src={cat.image_url} alt={loc(cat, 'title', lang)} className="h-full w-full" fittingType="fill" />
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <img src={cat.image_url} alt={loc(cat, 'title', lang)} className="absolute inset-0 h-full w-full object-cover" />
               </div>
               <span className="mt-6 block font-heading text-6xl font-light text-[#8A7550]">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="mt-4 font-heading text-2xl font-light">{loc(cat, 'title', lang)}</h3>
