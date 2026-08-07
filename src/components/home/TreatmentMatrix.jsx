@@ -63,7 +63,7 @@ export default function TreatmentMatrix() {
                   imageFromLeft ? '' : 'lg:order-2'}`
                   }>
                   
-                  <img src={cat.image_url} alt={loc(cat, 'title', lang)} className="absolute inset-0 h-full w-full object-cover transition-all duration-[2000ms] ease-[cubic-bezier(0.16,1,0.3,1)] -translate-x-12 opacity-100" />
+                  <img src={cat.image_url} alt={loc(cat, 'title', lang)} className="absolute inset-0 h-full w-full object-cover" />
                 </motion.div>
 
                 <motion.div
