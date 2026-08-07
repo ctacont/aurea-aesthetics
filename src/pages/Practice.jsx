@@ -47,14 +47,14 @@ export default function Practice() {
       <section className="px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <Reveal><Eyebrow>{t('practice.selfEyebrow')}</Eyebrow></Reveal>
-            <Reveal delay={80}>
+            <Reveal delay={400} className=" translate-x-12"><Eyebrow>{t('practice.selfEyebrow')}</Eyebrow></Reveal>
+            <Reveal delay={580} className=" translate-x-12">
               <h2 className="mt-7 font-heading text-[2rem] font-light leading-[1.18] md:text-4xl">
                 {t('practice.selfTitle')}
                 <span className="text-[#8A7550]">{t('practice.selfAccent')}</span>
               </h2>
             </Reveal>
-            <Reveal delay={140}>
+            <Reveal delay={640} className=" translate-x-12">
               <div className="mt-10 space-y-6 text-lg leading-[1.75] text-neutral-700">
                 <p>{t('practice.selfP1')}</p>
                 <p>{t('practice.selfP2')}</p>
@@ -63,7 +63,7 @@ export default function Practice() {
             </Reveal>
           </div>
 
-          <Reveal delay={200} className="lg:col-span-5">
+          <Reveal delay={700} className="lg:col-span-5 translate-x-12">
             <div ref={imgRef} className="relative aspect-[4/5] w-full overflow-hidden">
               <div style={{ transform: `translateY(${offset}px) scale(1.12)` }} className="h-full w-full">
                 <Image src={IMAGES.praxis2} alt={t('practice.selfAlt')} className="h-full w-full" fittingType="fill" />
@@ -75,7 +75,7 @@ export default function Practice() {
 
       <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-6xl">
-          <Reveal><Eyebrow>{t('practice.valuesEyebrow')}</Eyebrow></Reveal>
+          <Reveal delay={600} className=" translate-x-12"><Eyebrow>{t('practice.valuesEyebrow')}</Eyebrow></Reveal>
           <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
             {values.map((v, i) =>
             <Reveal key={v.title} delay={i * 80}>
@@ -91,13 +91,13 @@ export default function Practice() {
 
       <section className="bg-[#F4F1EE] px-6 py-20 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-6xl text-center">
-          <Reveal>
+          <Reveal  delay={700} className=" translate-x-12">
             <Eyebrow className="justify-center">{t('doctor.eyebrow')}</Eyebrow>
             <h2 className="mt-6 font-heading text-[2rem] font-light leading-tight md:text-4xl">
               {t('doctor.sectionTitle')}
             </h2>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal delay={800} className=" translate-x-12">
             <Link to={langPath('/aerztinnen')} className="mt-8 inline-block eyebrow text-[#8A7550] link-underline">
               {t('doctor.moreLink')}
             </Link>
