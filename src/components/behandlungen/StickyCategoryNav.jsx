@@ -20,11 +20,11 @@ export default function StickyCategoryNav({ categories }) {
       (entries) => {
         entries.forEach((entry) => {
          if (
-            entry.isIntersecting &&
-            navRef.current?.getBoundingClientRect().top <= 86
-          ) {
-            setActive(entry.target.id);
-          }
+          entry.isIntersecting &&
+          navRef.current?.getBoundingClientRect().top <= 86
+        ) {
+          setActive(entry.target.id);
+        }
         });
       },
       { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
@@ -37,24 +37,41 @@ export default function StickyCategoryNav({ categories }) {
     };
   }, [categories]);
 
+
 useEffect(() => {
   const onScroll = () => {
     if (!navRef.current) return;
 
-    const stuck = navRef.current.getBoundingClientRect().top <= 86;
+    const sticky = navRef.current.getBoundingClientRect().top <= 86;
+    setIsSticky(sticky);
 
-    setIsSticky(stuck);
-
-    if (!stuck) {
+    if (!sticky) {
       setActive(null);
+      return;
     }
+
+    const offset = 160;
+
+    const current = categories
+      .map((c) => ({
+        slug: c.slug,
+        element: document.getElementById(c.slug)
+      }))
+      .filter((item) => item.element)
+      .reverse()
+      .find((item) => item.element.getBoundingClientRect().top <= offset);
+
+    setActive(current?.slug || null);
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   return () => window.removeEventListener('scroll', onScroll);
-}, []);
+}, [categories]);
+
+
+
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({
