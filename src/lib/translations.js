@@ -96,6 +96,9 @@ export const translations = {
     footer: {
       tagline: 'Praxis für ästhetische Medizin in {district}. Individuell, präzise und natürlich.',
       treatments: 'Behandlungen',
+
+      derStandort: 'Unser Standort',
+
       praxis: 'Praxis',
       aboutAurea: 'Über Aurea',
       experience: 'Aurea Experience',
@@ -441,6 +444,9 @@ export const translations = {
     footer: {
       tagline: 'A practice for aesthetic medicine in {district}. Individual, precise, and natural.',
       treatments: 'Treatments',
+
+      derStandort: 'Our Location',
+
       praxis: 'Practice',
       aboutAurea: 'About Aurea',
       experience: 'Aurea Experience',
