@@ -15,7 +15,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
     const timer = setTimeout(() => setRevealed(true), 60);
     return () => clearTimeout(timer);
   }, []);
-
+ 
   return (
     <section className="relative flex min-h-[70svh] flex-col justify-end overflow-hidden bg-[#0A0A0A] pt-36 pb-20 text-white lg:min-h-[78svh] lg:pt-48 lg:pb-28">
       {image &&
