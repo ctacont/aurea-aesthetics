@@ -99,7 +99,7 @@ export default function Practice() {
     <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
       {values.map((v, i) => {
         const directions = [
-          { className: '-translate-y-[50%]', delay: 300, duration: 'duration-[2200ms]' },
+          { className: '-translate-y-[50%]', delay: 600, duration: 'duration-[2200ms]' },
           { className: 'translate-x-[50%]', delay: 500, duration: 'duration-[1800ms]' },
           { className: 'translate-y-[50%]', delay: 700, duration: 'duration-[2200ms]' },
           { className: 'translate-x-[50%]', delay: 900, duration: 'duration-[1800ms]' },
