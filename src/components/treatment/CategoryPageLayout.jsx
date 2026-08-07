@@ -64,8 +64,8 @@ export default function CategoryPageLayout({ category }) {
         </div>
       </section>
 
-      {category.sections.map((s) => (
-        <CategorySection key={s.id} section={s} categoryPath={path} />
+      {category.sections.map((s, i) => (
+        <CategorySection key={s.id} section={s} categoryPath={path} index={i} />
       ))}
 
       <CtaBand settings={settings} />

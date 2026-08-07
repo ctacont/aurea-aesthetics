@@ -6,6 +6,7 @@ import Reveal from '@/components/Reveal';
 import Eyebrow from '@/components/Eyebrow';
 import CtaBand from '@/components/CtaBand';
 import { Image } from '@/components/ui/image';
+import useParallax from '@/hooks/useParallax';
 import { useSettings, useDoctors } from '@/lib/useSite';
 import { breadcrumbSchema, medicalBusinessSchema } from '@/lib/schema';
 import { IMAGES, VALUES } from '@/lib/site';
@@ -15,6 +16,7 @@ export default function Practice() {
   const { settings } = useSettings();
   const { data: doctors = [] } = useDoctors();
   const { t, lang, langPath, neutralPath } = useLanguage();
+  const { ref: imgRef, offset } = useParallax(0.10);
   const values = VALUES[lang];
 
   const crumbs = [
@@ -62,8 +64,10 @@ export default function Practice() {
           </div>
 
           <Reveal delay={200} className="lg:col-span-5">
-            <div className="relative aspect-[4/5] w-full">
-              <Image src={IMAGES.praxis2} alt={t('practice.selfAlt')} className="h-full w-full" fittingType="fill" />
+            <div ref={imgRef} className="relative aspect-[4/5] w-full overflow-hidden">
+              <div style={{ transform: `translateY(${offset}px) scale(1.12)` }} className="h-full w-full">
+                <Image src={IMAGES.praxis2} alt={t('practice.selfAlt')} className="h-full w-full" fittingType="fill" />
+              </div>
             </div>
           </Reveal>
         </div>

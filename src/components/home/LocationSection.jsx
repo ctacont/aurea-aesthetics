@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
+import useParallax from '@/hooks/useParallax';
 import { IMAGES, GEO_AREAS } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
@@ -9,11 +11,13 @@ import { useBooking } from '@/hooks/useBooking';
 export default function LocationSection({ settings }) {
   const { t, langPath } = useLanguage();
   const { handleBook } = useBooking();
+  const { ref: bgRef, offset } = useParallax(0.12);
 
   return (
-    <section
-      className="relative w-full overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: `url(${IMAGES.zurich2})` }}>
+    <section className="relative w-full overflow-hidden">
+      <div ref={bgRef} className="absolute inset-0" style={{ transform: `translateY(${offset}px) scale(1.15)` }}>
+        <Image src={IMAGES.zurich2} alt="" className="h-full w-full" fittingType="fill" />
+      </div>
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/75 via-[#0A0A0A]/35 to-transparent" />
 

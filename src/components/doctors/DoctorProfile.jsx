@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from '@/components/ui/image';
 import Reveal from '@/components/Reveal';
 import GoldButton from '@/components/GoldButton';
+import useParallax from '@/hooks/useParallax';
 import { useLanguage, loc } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
 
@@ -9,13 +10,16 @@ export default function DoctorProfile({ doctor, quote, reversed = false }) {
   const { t, lang, langPath } = useLanguage();
   const { handleBook } = useBooking();
   const bio = loc(doctor, 'bio', lang);
+  const { ref: portraitRef, offset } = useParallax(0.08);
 
   return (
     <section className="border-t border-[#E8E2D9] px-6 py-16 lg:px-12 lg:py-24">
       <div className={`mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:gap-14`}>
-        <Reveal className={`lg:col-span-5 ${reversed ? 'lg:order-2' : ''}`}>
-          <div className="relative aspect-[3/4] w-full">
-            <Image src={doctor.photo_url} alt={`${doctor.title || ''} ${doctor.name}`.trim()} className="h-full w-full" fittingType="fill" />
+        <Reveal clip className={`lg:col-span-5 ${reversed ? 'lg:order-2' : ''}`}>
+          <div ref={portraitRef} className="group relative aspect-[3/4] w-full overflow-hidden">
+            <div style={{ transform: `translateY(${offset}px) scale(1.08)` }} className="h-full w-full transition-transform duration-700 group-hover:scale-[1.12]">
+              <Image src={doctor.photo_url} alt={`${doctor.title || ''} ${doctor.name}`.trim()} className="h-full w-full" fittingType="fill" />
+            </div>
           </div>
         </Reveal>
 

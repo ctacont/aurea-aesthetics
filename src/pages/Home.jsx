@@ -32,7 +32,7 @@ export default function Home() {
       />
       <Hero settings={settings} />
       <Philosophy />
-      {treatments.length > 0 && <TreatmentMatrix treatments={treatments} />}
+      <TreatmentMatrix />
       <DoctorSection doctors={doctors} />
       <Pillars />
       <LocationSection settings={settings} />

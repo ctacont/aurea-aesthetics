@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function Reveal({ children, delay = 0, className = '' }) {
+export default function Reveal({ children, delay = 0, className = '', clip = false }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
@@ -23,7 +23,7 @@ export default function Reveal({ children, delay = 0, className = '' }) {
   return (
     <div
       ref={ref}
-      className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
+      className={`reveal ${clip ? 'reveal-clip' : ''} ${visible ? 'is-visible' : ''} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}>
       
       {children}

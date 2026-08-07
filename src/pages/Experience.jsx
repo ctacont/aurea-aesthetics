@@ -7,6 +7,7 @@ import CtaBand from '@/components/CtaBand';
 import Reveal from '@/components/Reveal';
 import Eyebrow from '@/components/Eyebrow';
 import { Image } from '@/components/ui/image';
+import useParallax from '@/hooks/useParallax';
 import { useSettings } from '@/lib/useSite';
 import { breadcrumbSchema } from '@/lib/schema';
 import { IMAGES } from '@/lib/site';
@@ -15,6 +16,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 export default function Experience() {
   const { settings } = useSettings();
   const { t, lang, neutralPath } = useLanguage();
+  const { ref: imgRef, offset } = useParallax(0.10);
   const crumbs = [
     { name: t('experience.crumbHome'), path: '/' },
     { name: t('experience.crumbExperience'), path: '/experience' },
@@ -41,8 +43,10 @@ export default function Experience() {
       <section className="px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <div className="relative aspect-[3/4] w-full">
-              <Image src={IMAGES.bio} alt={t('experience.envAlt')} className="h-full w-full" fittingType="fill" />
+            <div ref={imgRef} className="relative aspect-[3/4] w-full overflow-hidden">
+              <div style={{ transform: `translateY(${offset}px) scale(1.12)` }} className="h-full w-full">
+                <Image src={IMAGES.bio} alt={t('experience.envAlt')} className="h-full w-full" fittingType="fill" />
+              </div>
             </div>
           </Reveal>
           <div className="lg:col-span-7 lg:pt-8">

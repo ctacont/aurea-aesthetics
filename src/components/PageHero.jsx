@@ -2,15 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
+import useParallax from '@/hooks/useParallax';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function PageHero({ eyebrow, title, accent, lead, image, breadcrumbs = [] }) {
   const { t, langPath } = useLanguage();
+  const { ref: bgRef, offset } = useParallax(0.15);
 
   return (
-    <section className="relative flex min-h-[70svh] flex-col justify-end bg-[#0A0A0A] pt-36 pb-20 text-white lg:min-h-[78svh] lg:pt-48 lg:pb-28">
+    <section className="relative flex min-h-[70svh] flex-col justify-end overflow-hidden bg-[#0A0A0A] pt-36 pb-20 text-white lg:min-h-[78svh] lg:pt-48 lg:pb-28">
       {image &&
-      <div className="absolute inset-0">
+      <div ref={bgRef} className="absolute inset-0" style={{ transform: `translateY(${offset}px) scale(1.18)` }}>
           <Image src={image} alt="" className="h-full w-full" fittingType="fill" />
           <div className="absolute inset-0 bg-[#0A0A0A]/25" />
         </div>
