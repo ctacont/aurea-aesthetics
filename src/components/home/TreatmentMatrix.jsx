@@ -59,7 +59,7 @@ export default function TreatmentMatrix() {
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-10%' }}
                   transition={{ duration: 1.2, ease: EASE }}
-                  className={`relative aspect-[4/3] w-full overflow-hidden lg:aspect-[4/5] ${
+                  className={`translate-x-12 relative aspect-[4/3] w-full overflow-hidden lg:aspect-[4/5] ${
                   imageFromLeft ? '' : 'lg:order-2'}`
                   }>
                   
@@ -71,7 +71,7 @@ export default function TreatmentMatrix() {
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-10%' }}
                   transition={{ duration: 1, delay: 0.1, ease: EASE }}
-                  className={`flex flex-col justify-center ${imageFromLeft ? '' : 'lg:order-1'}`}>
+                  className={`translate-x-12 flex flex-col justify-center ${imageFromLeft ? '' : 'lg:order-1'}`}>
                   
                   <span className="font-heading text-6xl font-light text-[#8A7550] lg:text-7xl">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="mt-6 font-heading text-2xl font-light lg:text-3xl">{loc(cat, 'title', lang)}</h3>
