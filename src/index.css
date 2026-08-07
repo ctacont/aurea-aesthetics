@@ -140,10 +140,17 @@
   /* Entferne hier das transform: translateY(28px); */
 }
 
-  .reveal.is-visible {
+/*
+.reveal.is-visible {
     opacity: 1;
     transform: none;
   }
+*/
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0); /* Das erzwingt das Ende der Animation an der Position 0/0 */
+}
+
 
   @media (max-width: 767px) {
     .reveal {
