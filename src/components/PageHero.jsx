@@ -53,7 +53,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
           <Reveal delay={160} clip>
             <h1 className="mt-7 font-heading text-[2.4rem] font-light leading-[1.1] md:text-6xl">
               {title}
-              {accent && <span className="block text-[#C9AF80]">{accent}</span>}
+              {accent && <span className="block text-[#C9AF80] text-shadow">{accent}</span>}
             </h1>
           </Reveal>
 
