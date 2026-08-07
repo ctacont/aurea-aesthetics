@@ -75,11 +75,6 @@ const AuthenticatedApp = () => {
           <Route path="/behandlungen/:slug" element={<TreatmentDetail />} />
           <Route path="/praxis" element={<Practice />} />
           <Route path="/team" element={<Aerztinnen />} />
-          
-            <Route path="/aerztinnen" element={<Navigate to="/team" replace />} />
-            <Route path="/en/aerztinnen" element={<Navigate to="/en/team" replace />} />
-
-
           <Route path="/experience" element={<Experience />} />
           <Route path="/standort-zuerich-enge" element={<Location />} />
           <Route path="/faq" element={<Faq />} />
