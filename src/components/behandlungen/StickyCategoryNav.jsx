@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function StickyCategoryNav({ categories }) {
   const { lang } = useLanguage();
   const [active, setActive] = useState(categories[0]?.slug);
-  const [visible, setVisible] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const navRef = useRef(null);
 
   useEffect(() => {
-    const sections = categories.map((c) => document.getElementById(c.slug)).filter(Boolean);
+    const sections = categories
+      .map((c) => document.getElementById(c.slug))
+      .filter(Boolean);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -16,23 +20,21 @@ export default function StickyCategoryNav({ categories }) {
       },
       { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
     );
+
     sections.forEach((s) => observer.observe(s));
-    const timer = setTimeout(() => setVisible(true), 150);
+
     return () => {
       observer.disconnect();
-      clearTimeout(timer);
     };
   }, [categories]);
-
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
 
   useEffect(() => {
     const onScroll = () => {
       if (!navRef.current) return;
-      setIsSticky(navRef.current.getBoundingClientRect().top <= 86);
+
+      setIsSticky(
+        navRef.current.getBoundingClientRect().top <= 86
+      );
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -41,23 +43,32 @@ export default function StickyCategoryNav({ categories }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
   return (
     <nav
       ref={navRef}
       className={`sticky top-[86px] z-30 hidden justify-center gap-10 border-b py-5 backdrop-blur-xl backdrop-saturate-150 transition-all duration-700 lg:flex
       ${isSticky ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}
     >
-      {categories.map((c, i) =>
-      <button
-        key={c.slug}
-        onClick={() => scrollTo(c.slug)}
-        className={`eyebrow transition-colors duration-500 ${
-        active === c.slug ? 'text-[#C9AF80]' : 'text-neutral-500 hover:text-neutral-800'}`
-        }>
-        
+      {categories.map((c, i) => (
+        <button
+          key={c.slug}
+          onClick={() => scrollTo(c.slug)}
+          className={`eyebrow transition-colors duration-500 ${
+            active === c.slug
+              ? 'text-[#C9AF80]'
+              : 'text-neutral-500 hover:text-neutral-800'
+          }`}
+        >
           {String(i + 1).padStart(2, '0')} — {loc(c, 'title', lang)?.replace(/\.$/, '')}
         </button>
-      )}
-    </nav>);
-
+      ))}
+    </nav>
+  );
 }
