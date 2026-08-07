@@ -97,7 +97,7 @@ export default function Practice() {
     </Reveal>
 
 <div className="mt-14 grid overflow-hidden border-t border-l border-[#E8E2D9] sm:grid-cols-2">
-  {values.map((v, i) => {
+  {values.map((v, i) => { 
     const directions = [
       { className: '-translate-y-[100%]', delay: 600, duration: 'duration-[2200ms]' },
       { className: 'translate-x-[100%]', delay: 500, duration: 'duration-[1800ms]' },
