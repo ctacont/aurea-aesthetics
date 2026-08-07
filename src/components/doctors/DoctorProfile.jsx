@@ -16,7 +16,7 @@ export default function DoctorProfile({ doctor, quote, reversed = false }) {
   return (
     <section className="border-t border-[#E8E2D9] px-6 py-16 lg:px-12 lg:py-24">
       <div className={`mx-auto grid max-w-6xl gap-10 lg:grid-cols-12 lg:gap-14`}>
-        <Reveal clip className={`lg:col-span-5 ${reversed ? 'lg:order-2' : ''}`}>
+        <Reveal  className={`lg:col-span-5 ${reversed ? 'lg:order-2' : ''}`}>
           <div ref={portraitRef} className="group relative aspect-[3/4] w-full overflow-hidden">
             <div style={{ transform: `translateY(${offset}px) scale(1.08)` }} className="h-full w-full transition-transform duration-700 group-hover:scale-[1.12]">
               <Image src={doctor.photo_url || IMAGES.interior} alt={`${doctor.title || ''} ${doctor.name}`.trim()} className="h-full w-full object-cover" fittingType="fill" />
