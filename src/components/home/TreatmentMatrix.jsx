@@ -31,8 +31,8 @@ export default function TreatmentMatrix() {
     <section className="bg-background py-24 lg:py-40">
       <div className="px-6 lg:px-12">
         <div className="mx-auto max-w-6xl">
-          <Reveal  delay={480} className="translate-x-12"><Eyebrow>{t('treatmentMatrix.eyebrow')}</Eyebrow></Reveal>
-          <Reveal delay={680}  className="translate-x-12">
+          <Reveal  delay={480} className="-translate-x-[25%]"><Eyebrow>{t('treatmentMatrix.eyebrow')}</Eyebrow></Reveal>
+          <Reveal delay={680}  className="translate-x-[15%]">
             <h2 className="font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl mt-7 max-w-6xl">
               {t('treatmentMatrix.title')}
               <span className="text-[#8A7550]">{t('treatmentMatrix.accent')}</span>
