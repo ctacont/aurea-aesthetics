@@ -104,6 +104,13 @@
   }
 }
 
+
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: 1s;
+}
+
 @layer utilities {
   .eyebrow {
     font-family: var(--font-body);
