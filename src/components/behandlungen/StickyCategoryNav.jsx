@@ -3,7 +3,11 @@ import { useLanguage, loc } from '@/lib/LanguageContext';
 
 export default function StickyCategoryNav({ categories }) {
   const { lang } = useLanguage();
+  {/*}
   const [active, setActive] = useState(categories[0]?.slug);
+  */}
+  const [active, setActive] = useState(null);
+
   const [isSticky, setIsSticky] = useState(false);
   const navRef = useRef(null);
 
@@ -15,7 +19,7 @@ export default function StickyCategoryNav({ categories }) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
+         {/* if (entry.isIntersecting) setActive(entry.target.id); */}
         });
       },
       { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
