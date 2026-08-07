@@ -33,6 +33,7 @@ import Admin from '@/pages/Admin';
 import AdminRoute from '@/components/AdminRoute';
 import { Impressum, Datenschutz } from '@/pages/Legal';
 import SeoReport from '@/pages/SeoReport';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
