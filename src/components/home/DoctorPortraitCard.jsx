@@ -21,7 +21,7 @@ export default function DoctorPortraitCard({ doctor, delay = 0 }) {
             <Image
               src={doctor.photo_url || IMAGES.interior}
               alt={`${doctor.title || ''} ${doctor.name}`.trim()}
-              className="h-full w-full objekt-cover"
+              className="h-full w-full object-cover"
               fittingType="fill" />
             
           </div>
