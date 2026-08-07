@@ -26,7 +26,7 @@ export default function Philosophy() {
 
         <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-16">
           <Reveal delay={140} className="lg:col-span-5  -translate-x-12">
-            <div ref={parallaxRef} className="group relative aspect-[4/5] w-full overflow-hidden">
+            <div ref={parallaxRef} className="group relative aspect-[4/5] w-full overflow-hidden hasan10">
               <div style={{ transform: `translateY(${offset}px) scale(1.15)` }} className="h-full w-full hasan1">
                 <Image
                   src={IMAGES.texture}
