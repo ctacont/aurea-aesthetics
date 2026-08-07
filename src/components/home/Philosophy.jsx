@@ -17,7 +17,7 @@ export default function Philosophy() {
           <Eyebrow>{t('philosophy.eyebrow')}</Eyebrow>
         </Reveal>
 
-        <Reveal delay={280} className="transition-all ease-[cubic-bezier(0.16,1,0.3,1)] opacity-100 translate-x-0 duration-[3300ms] hasan1">
+        <Reveal delay={280} className="translate-x-12">
           <h2 className="mt-8 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl max-w-6xl">
             {t('philosophy.title')}
             <span className="text-[#8A7550]">{t('philosophy.accent')}</span>
