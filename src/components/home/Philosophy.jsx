@@ -18,7 +18,7 @@ export default function Philosophy() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="mt-8 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl max-w-6xl transition-all ease-[cubic-bezier(0.16,1,0.3,1)] opacity-100 translate-x-0 duration-[3300ms]">
+          <h2 className="mt-8 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl max-w-6xl transition-all ease-[cubic-bezier(0.16,1,0.3,1)] opacity-100 translate-x-0 duration-[3300ms] -translate-y-12">
             {t('philosophy.title')}
             <span className="text-[#8A7550]">{t('philosophy.accent')}</span>
           </h2>
