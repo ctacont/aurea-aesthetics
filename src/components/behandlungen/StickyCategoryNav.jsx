@@ -53,7 +53,7 @@ export default function StickyCategoryNav({ categories }) {
   return (
     <nav
       ref={navRef}
-      className={`sticky top-[86px] z-30 hidden justify-center gap-10 border-b py-5 backdrop-blur-xl backdrop-saturate-150 transition-all duration-700 lg:flex
+      className={`sticky top-[86px] z-30 hidden justify-center gap-10 border-b py-5 bg-white transition-all duration-700 lg:flex
       ${isSticky ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'}`}
     >
       {categories.map((c, i) => (
