@@ -20,8 +20,8 @@ export default function Footer() {
           </p>
 
           {/*
-            <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png" alt="Aurea Aesthetics AG" className="h-12 w-auto brightness-0 invert" />
-            */}
+             <img src="https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png" alt="Aurea Aesthetics AG" className="h-12 w-auto brightness-0 invert" />
+             */}
           <p className="mt-7 max-w-xs text-sm leading-relaxed text-white/50">
             {t('footer.tagline', { district: settings.district })}
           </p>
@@ -117,7 +117,7 @@ export default function Footer() {
         <p className="text-[hsl(var(--background))]">{t('footer.copyright', { year: new Date().getFullYear(), name: settings.practice_name })}</p>
         <p className="text-[hsl(var(--card))]">
           {t('footer.designBy')}{' '}
-          <a href="https://brandtiger.de/" target="_blank" rel="noopener noreferrer" className="link-underline text-[hsl(var(--card))]">Brandtiger.de</a>
+          <a href="https://brandtiger.de/" target="_blank" rel="noopener noreferrer" className="link-underline text-[hsl(var(--card))] font-bold">Brandtiger.de</a>
         </p>
       </div>
     </footer>);
