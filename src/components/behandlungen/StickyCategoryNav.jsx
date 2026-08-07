@@ -54,7 +54,7 @@ export default function StickyCategoryNav({ categories }) {
     <nav
       ref={navRef}
       className={`sticky top-[86px] z-30 hidden justify-center gap-10 border-b py-5 bg-white transition-all duration-700 lg:flex
-      ${isSticky ? 'opacity-100 translate-y-0 bg-white' : 'opacity-100 -translate-y-full pointer-events-none'}`}
+      ${isSticky ? 'opacity-100 translate-y-0 bg-white' : 'opacity-100  pointer-events-none'}`}
     >
       {categories.map((c, i) => (
         <button
