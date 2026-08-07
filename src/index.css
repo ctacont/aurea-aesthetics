@@ -105,7 +105,7 @@
 }
 
 
-.transition-all {
+.transition-all2 {
     transition-property: all;
     transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     transition-duration: 1s;
