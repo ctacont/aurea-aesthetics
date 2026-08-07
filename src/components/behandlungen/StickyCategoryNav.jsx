@@ -30,21 +30,21 @@ export default function StickyCategoryNav({ categories }) {
 
   return (
     <nav
-      className={`sticky top-[68px] z-30 hidden justify-center gap-10 border-b border-[#E8E2D9]/70 bg-background/75 px-6 py-5 backdrop-blur-xl backdrop-saturate-150 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] lg:flex ${
-        visible ? 'translate-y-0' : '-translate-y-full'
-      }`}
-    >
-      {categories.map((c, i) => (
-        <button
-          key={c.slug}
-          onClick={() => scrollTo(c.slug)}
-          className={`eyebrow transition-colors duration-500 ${
-            active === c.slug ? 'text-[#C9AF80]' : 'text-neutral-500 hover:text-neutral-800'
-          }`}
-        >
+      className={`sticky z-30 hidden justify-center gap-10 border-b border-[#E8E2D9]/70 bg-background/75 px-6 py-5 backdrop-blur-xl backdrop-saturate-150 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] lg:flex top-[78px] ${
+      visible ? 'translate-y-0' : '-translate-y-full'}`
+      }>
+      
+      {categories.map((c, i) =>
+      <button
+        key={c.slug}
+        onClick={() => scrollTo(c.slug)}
+        className={`eyebrow transition-colors duration-500 ${
+        active === c.slug ? 'text-[#C9AF80]' : 'text-neutral-500 hover:text-neutral-800'}`
+        }>
+        
           {String(i + 1).padStart(2, '0')} — {loc(c, 'title', lang)?.replace(/\.$/, '')}
         </button>
-      ))}
-    </nav>
-  );
+      )}
+    </nav>);
+
 }
