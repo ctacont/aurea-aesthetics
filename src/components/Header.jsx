@@ -28,7 +28,12 @@ export default function Header() {
     setMobile(false);
   }, [pathname]);
 
+{/* 
   const solid = scrolled || mega;
+*/}
+
+const solid = scrolled || mega;
+
 
   const isActive = (path) => neutralPath(pathname) === path || neutralPath(pathname).startsWith(path + '/');
 
