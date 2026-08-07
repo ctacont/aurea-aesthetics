@@ -32,7 +32,7 @@ export default function Header() {
   const solid = scrolled || mega;
 */}
 
-const solid = scrolled || mega;
+const solid = scrolled;
 
 
   const isActive = (path) => neutralPath(pathname) === path || neutralPath(pathname).startsWith(path + '/');
