@@ -31,7 +31,7 @@ export default function LocationSection({ settings }) {
           style={{ transform: `translateY(${offset}px) scale(1.15)` }}
         >
           <Image
-            src={IMAGES.location}
+            src={IMAGES.zurich2}
             alt={t('locationSection.alt')}
             className="h-full w-full"
             fittingType="fill"
