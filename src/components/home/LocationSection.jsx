@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
@@ -22,37 +21,23 @@ export default function LocationSection({ settings }) {
         <Image src={IMAGES.zurich2} alt="" className="h-full w-full" fittingType="fill" />
       </div>
        */}
-      <motion.div
-        ref={bgRef}
-        initial={{
-          opacity: 0,
-          x: 60
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0
-        }}
-        viewport={{
-          once: true,
-          amount: 0.15
-        }}
-        transition={{
-          duration: 2.8,
-          ease: [0.16, 1, 0.3, 1]
-        }}
-        className="absolute inset-0"
-        style={{
-          y: offset,
-          scale: 1.15
-        }}
+      <Reveal
+        delay={100}
+        className="absolute inset-0 translate-x-[8%] duration-[2800ms]"
       >
-        <Image
-          src={IMAGES.location}
-          alt={t('locationSection.alt')}
-          className="h-full w-full"
-          fittingType="fill"
-        />
-      </motion.div>
+        <div
+          ref={bgRef}
+          className="absolute inset-0"
+          style={{ transform: `translateY(${offset}px) scale(1.15)` }}
+        >
+          <Image
+            src={IMAGES.location}
+            alt={t('locationSection.alt')}
+            className="h-full w-full"
+            fittingType="fill"
+          />
+        </div>
+      </Reveal>
 
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/75 via-[#0A0A0A]/35 to-transparent" />
