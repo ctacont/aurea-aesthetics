@@ -33,9 +33,11 @@ export default function Reveal({
     // Sicherheits-Fallback:
     // Falls der Observer bei Bildern oder Layout-Änderungen nicht feuert,
     // wird der Inhalt trotzdem sichtbar.
+    /*
     const fallback = setTimeout(() => {
       setVisible(true);
     }, 1800);
+    */
 
     return () => {
       io.disconnect();
