@@ -12,21 +12,23 @@ export default function DoctorPortraitCard({ doctor, delay = 0 }) {
 
   return (
     <div>
-      <Reveal delay={delay} clip>
-        <div ref={ref} className="group relative aspect-[4/5] w-full overflow-hidden">
-          <div
-            style={{ transform: `translateY(${offset}px) scale(1.08)` }}
-            className="h-full w-full transition-transform duration-700 group-hover:scale-[1.1]">
-            
-            <Image
-              src={doctor.photo_url || IMAGES.interior}
-              alt={`${doctor.title || ''} ${doctor.name}`.trim()}
-              className="h-full w-full object-cover"
-              fittingType="fill" />
-            
-          </div>
-        </div>
-      </Reveal>
+      <Reveal
+  delay={140 + i * 120}
+  className={`duration-[2200ms] ${
+    i % 2 === 0
+      ? '-translate-x-[50%]'
+      : 'translate-x-[50%]'
+  }`}
+>
+  <div className="overflow-hidden">
+    <Image
+      src={doctor.photo_url || IMAGES.interior}
+      alt={`${doctor.title || ''} ${doctor.name}`.trim()}
+      className="h-full w-full object-cover"
+      fittingType="fill"
+    />
+  </div>
+</Reveal>
 
       {doctor.specialty &&
       <Reveal delay={delay + 100}>
