@@ -23,7 +23,7 @@ export default function DoctorSection({ doctors = [] }) {
           <Eyebrow>
             {t('doctor.eyebrow')}
           </Eyebrow>
-        </Reveal>
+        </Reveal> 
 
         <Reveal
           delay={220}
