@@ -200,12 +200,20 @@ const stagger = () =>
             <Eyebrow tone="light">{t('hero.tagEyebrow')}</Eyebrow>
           </div>
 
-          <h1 className={` mt-7 font-heading text-[2.4rem] font-light leading-[1.1] [text-shadow:0_4px_30px_rgba(0,0,0,0.45)] md:text-[3.4rem] translate-x-0  ${
+<h1
+  className={`mt-7 font-heading text-[2.4rem] font-light leading-[1.1] [text-shadow:0_4px_30px_rgba(0,0,0,0.45)] md:text-[3.4rem] ${
+    mounted
+      ? 'opacity-100 translate-x-0 scale-100'
+      : 'opacity-0 -translate-x-[50%] scale-[0.98]'
+  } transition-all duration-[2400ms] ease-[cubic-bezier(0.16,1,0.3,1)]`}
+  style={delayStyle(140)}
+>
+  {t('hero.title')}
 
-          stagger()}`} style={delayStyle(140)}>
-            {t('hero.title')}
-            <span className="mt-2 block text-[#C9AF80]">{t('hero.accent')}</span>
-          </h1>
+  <span className="mt-2 block text-[#C9AF80]">
+    {t('hero.accent')}
+  </span>
+</h1>
 
           <p className={`mt-8 max-w-md text-[0.98rem] leading-relaxed text-white/85 [text-shadow:0_2px_16px_rgba(0,0,0,0.4)] ${stagger()}`} style={delayStyle(280)}>
             {t('hero.lead', { street: settings.street })}
