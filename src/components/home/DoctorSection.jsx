@@ -18,8 +18,7 @@ export default function DoctorSection({ doctors = [] }) {
 
         <Reveal
           delay={100}
-          direction="left"
-          className="duration-[1800ms]"
+          className="-translate-x-[50%] duration-[1800ms]"
         >
           <Eyebrow>
             {t('doctor.eyebrow')}
@@ -28,8 +27,7 @@ export default function DoctorSection({ doctors = [] }) {
 
         <Reveal
           delay={220}
-          direction="right"
-          className="duration-[2000ms]"
+          className="translate-x-[50%] duration-[2000ms]"
         >
           <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {t('doctor.sectionTitle')}
@@ -42,8 +40,11 @@ export default function DoctorSection({ doctors = [] }) {
               <Reveal
                 key={doc.id}
                 delay={360 + i * 180}
-                direction={i % 2 === 0 ? 'left' : 'right'}
-                className="duration-[2200ms]"
+                className={`duration-[2200ms] ${
+                  i % 2 === 0
+                    ? '-translate-x-[50%]'
+                    : 'translate-x-[50%]'
+                }`}
               >
                 <DoctorPortraitCard
                   doctor={doc}
@@ -55,8 +56,7 @@ export default function DoctorSection({ doctors = [] }) {
         ) : (
           <Reveal
             delay={420}
-            direction="left"
-            className="duration-[2200ms]"
+            className="-translate-x-[50%] duration-[2200ms]"
           >
             <div className="mt-16 max-w-xl border-l border-[#C9AF80] pl-7">
               <p className="text-lg leading-[1.75] text-neutral-700">
@@ -72,8 +72,7 @@ export default function DoctorSection({ doctors = [] }) {
 
         <Reveal
           delay={700}
-          direction="left"
-          className="duration-[2000ms]"
+          className="-translate-x-[50%] duration-[2000ms]"
         >
           <Link
             to={langPath('/aerztinnen')}
