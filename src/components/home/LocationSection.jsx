@@ -31,14 +31,11 @@ export default function LocationSection({ settings }) {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/75 via-[#0A0A0A]/35 to-transparent" />
 
       <div className="relative z-10 max-w-2xl px-6 py-24 text-white lg:px-16 lg:py-40">
-
-        <Reveal delay={100} className="-translate-x-[50%] duration-[1800ms]">
-          <Eyebrow tone="light">
-            {t('locationSection.eyebrow')}
-          </Eyebrow>
+        <Reveal>
+          <Eyebrow tone="light">{t('locationSection.eyebrow')}</Eyebrow>
         </Reveal>
 
-        <Reveal delay={200} className="translate-x-[50%] duration-[2000ms]">
+        <Reveal delay={80}>
           <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {t('locationSection.headline')}
             <span className="text-[#C9AF80]">
@@ -47,7 +44,7 @@ export default function LocationSection({ settings }) {
           </h2>
         </Reveal>
 
-        <Reveal delay={300} className="-translate-x-[50%] duration-[2000ms]">
+        <Reveal delay={140}>
           <p className="mt-8 max-w-lg text-[0.98rem] leading-relaxed text-white/80">
             {t('locationSection.lead', {
               street: settings.street,
@@ -57,7 +54,7 @@ export default function LocationSection({ settings }) {
           </p>
         </Reveal>
 
-        <Reveal delay={400} className="translate-x-[50%] duration-[2200ms]">
+        <Reveal delay={200}>
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
             <div>
               <p className="eyebrow text-[#C9AF80]">
@@ -98,7 +95,7 @@ export default function LocationSection({ settings }) {
           </div>
         </Reveal>
 
-        <Reveal delay={500} className="-translate-x-[50%] duration-[2200ms]">
+        <Reveal delay={260}>
           <div className="mt-12 border-t border-white/20 pt-8">
             <p className="eyebrow text-white/50">
               {t('locationSection.geoArea')}
@@ -110,7 +107,7 @@ export default function LocationSection({ settings }) {
           </div>
         </Reveal>
 
-        <Reveal delay={600} className="translate-x-[50%] duration-[2000ms]">
+        <Reveal delay={320}>
           <Link
             to={langPath('/standort-zuerich-enge')}
             className="mt-10 inline-block eyebrow link-underline"
@@ -118,7 +115,6 @@ export default function LocationSection({ settings }) {
             {t('locationSection.link')}
           </Link>
         </Reveal>
-
       </div>
     </section>
   );
