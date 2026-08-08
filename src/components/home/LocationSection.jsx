@@ -23,7 +23,7 @@ export default function LocationSection({ settings }) {
        */}
       <Reveal
         delay={100}
-        className="absolute inset-0 translate-x-[8%] duration-[2800ms]"
+        className="absolute inset-0 translate-x-[28%] duration-[4800ms]"
       >
         <div
           ref={bgRef}
