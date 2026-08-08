@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
