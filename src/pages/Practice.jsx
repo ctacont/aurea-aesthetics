@@ -80,8 +80,8 @@ export default function Practice() {
   <div className="mx-auto max-w-6xl">
 
     <Reveal
-      delay={180}
-      className="-translate-x-[35%] duration-[1800ms]"
+      delay={80}
+      className="-translate-x-[30%] duration-[1400ms]"
     >
       <Eyebrow>
         {t('practice.valuesEyebrow')}
@@ -91,22 +91,23 @@ export default function Practice() {
     <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
       {values.map((v, i) => {
         const effects = [
-          '-translate-x-[40%] -translate-y-[12%] scale-[0.94]',
-          'translate-x-[40%] translate-y-[10%] scale-[0.96]',
-          '-translate-x-[30%] translate-y-[20%] scale-[0.95]',
-          'translate-x-[30%] -translate-y-[18%] scale-[0.94]'
+          '-translate-x-[35%] -translate-y-[10%] scale-[0.96]',
+          'translate-x-[35%] translate-y-[8%] scale-[0.97]',
+          '-translate-x-[30%] translate-y-[15%] scale-[0.96]',
+          'translate-x-[30%] -translate-y-[12%] scale-[0.96]'
         ];
 
         return (
           <Reveal
             key={v.title}
-            delay={350 + i * 220}
-            className={`${effects[i % effects.length]} duration-[2400ms]`}
+            delay={160 + i * 100}
+            className={`${effects[i % effects.length]} duration-[1600ms]`}
           >
             <div className="flex min-h-[220px] h-full flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 text-center sm:px-10">
+
               <Reveal
-                delay={500 + i * 220}
-                className="translate-y-[18%] duration-[1700ms]"
+                delay={220 + i * 100}
+                className="translate-y-[12%] duration-[1300ms]"
               >
                 <h3 className="font-heading text-2xl font-light">
                   {v.title}
@@ -114,13 +115,14 @@ export default function Practice() {
               </Reveal>
 
               <Reveal
-                delay={620 + i * 220}
-                className="translate-y-[22%] duration-[1900ms]"
+                delay={280 + i * 100}
+                className="translate-y-[15%] duration-[1400ms]"
               >
                 <p className="mt-4 text-sm leading-relaxed text-neutral-600">
                   {v.text}
                 </p>
               </Reveal>
+
             </div>
           </Reveal>
         );
