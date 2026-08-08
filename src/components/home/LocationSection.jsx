@@ -35,6 +35,7 @@ export default function LocationSection({ settings }) {
         <Reveal
           delay={220}
           direction="left"
+          className="-translate-x-[30%] duration-[1800ms]"
         >
           <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {t('locationSection.headline')}
