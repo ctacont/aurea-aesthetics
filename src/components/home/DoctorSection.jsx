@@ -47,8 +47,10 @@ export default function DoctorSection({ doctors = [] }) {
                 }`}
               >
                 <DoctorPortraitCard
+                  key={doc.id}
                   doctor={doc}
-                  delay={0}
+                  delay={140 + i * 120}
+                  direction={i % 2 === 0 ? 'left' : 'right'}
                 />
               </Reveal>
             ))}
