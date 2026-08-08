@@ -12,6 +12,7 @@ export default function Reveal({
 
   useEffect(() => {
     const el = ref.current;
+
     if (!el) return;
 
     const io = new IntersectionObserver(
@@ -22,15 +23,23 @@ export default function Reveal({
         }
       },
       {
-        threshold: 0.12,
-        rootMargin: '0px 0px -60px 0px'
+        threshold: 0.08,
+        rootMargin: '0px 0px -30px 0px'
       }
     );
 
     io.observe(el);
 
+    // Sicherheits-Fallback:
+    // Falls der Observer bei Bildern oder Layout-Änderungen nicht feuert,
+    // wird der Inhalt trotzdem sichtbar.
+    const fallback = setTimeout(() => {
+      setVisible(true);
+    }, 1800);
+
     return () => {
       io.disconnect();
+      clearTimeout(fallback);
     };
   }, []);
 
