@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
 import Reveal from '@/components/Reveal';
 import useParallax from '@/hooks/useParallax';
@@ -14,30 +13,39 @@ export default function LocationSection({ settings }) {
   const { ref: bgRef, offset } = useParallax(0.12);
 
   return (
-    <section>
+    <section className="relative min-h-[700px] overflow-hidden bg-[#0A0A0A]">
+
+      {/* Hintergrundbild */}
       <div
         ref={bgRef}
-        className="absolute inset-0"
-        style={{ transform: `translateY(${offset}px) scale(1.15)` }}
+        className="absolute inset-0 z-0"
+        style={{
+          transform: `translateY(${offset}px) scale(1.15)`
+        }}
       >
-        <Image
+        <img
           src={IMAGES.location}
           alt={t('locationSection.alt')}
-          className="h-full w-full"
-          fittingType="fill"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/75 via-[#0A0A0A]/35 to-transparent" />
+      {/* Dunkler Verlauf */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0A0A0A]/80 via-[#0A0A0A]/50 to-[#0A0A0A]/10" />
 
+      {/* Inhalt */}
       <div className="relative z-10 max-w-2xl px-6 py-24 text-white lg:px-16 lg:py-40">
+
         <Reveal>
-          <Eyebrow tone="light">{t('locationSection.eyebrow')}</Eyebrow>
+          <Eyebrow tone="light">
+            {t('locationSection.eyebrow')}
+          </Eyebrow>
         </Reveal>
 
         <Reveal delay={80}>
           <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {t('locationSection.headline')}
+
             <span className="text-[#C9AF80]">
               {t('locationSection.headlineAccent')}
             </span>
@@ -47,15 +55,16 @@ export default function LocationSection({ settings }) {
         <Reveal delay={140}>
           <p className="mt-8 max-w-lg text-[0.98rem] leading-relaxed text-white/80">
             {t('locationSection.lead', {
-              street: settings.street,
-              plz: settings.postal_code,
-              city: settings.city
+              street: settings?.street,
+              plz: settings?.postal_code,
+              city: settings?.city
             })}
           </p>
         </Reveal>
 
         <Reveal delay={200}>
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
+
             <div>
               <p className="eyebrow text-[#C9AF80]">
                 {t('locationSection.arrival')}
@@ -81,10 +90,12 @@ export default function LocationSection({ settings }) {
               </p>
 
               <p className="mt-3 text-sm leading-relaxed text-white/75">
-                {settings.opening_hours || t('locationSection.appointmentsFallback')}
+                {settings?.opening_hours ||
+                  t('locationSection.appointmentsFallback')}
               </p>
 
               <button
+                type="button"
                 onClick={handleBook}
                 data-booking-cta="true"
                 className="mt-3 inline-block text-sm text-white link-underline"
@@ -92,6 +103,7 @@ export default function LocationSection({ settings }) {
                 {t('locationSection.appointmentsLink')}
               </button>
             </div>
+
           </div>
         </Reveal>
 
@@ -115,6 +127,7 @@ export default function LocationSection({ settings }) {
             {t('locationSection.link')}
           </Link>
         </Reveal>
+
       </div>
     </section>
   );
