@@ -15,10 +15,17 @@ export default function DoctorPortraitCard({
 
   const bio = loc(doctor, 'bio', lang) || doctor.bio_de;
 
-  const slideClass =
+  // Stärkerer Effekt für das Bild
+  const imageSlideClass =
     direction === 'left'
-      ? '-translate-x-[50%]'
-      : 'translate-x-[50%]';
+      ? '-translate-x-[50%] translate-y-[6%] scale-[0.94]'
+      : 'translate-x-[50%] -translate-y-[6%] scale-[0.94]';
+
+  // Dezenter Effekt für Texte
+  const textSlideClass =
+    direction === 'left'
+      ? '-translate-x-[12%]'
+      : 'translate-x-[12%]';
 
   return (
     <div>
@@ -26,7 +33,7 @@ export default function DoctorPortraitCard({
       {/* BILD */}
       <Reveal
         delay={delay}
-        className={`${slideClass} duration-[2200ms]`}
+        className={`${imageSlideClass} duration-[2400ms]`}
       >
         <div
           ref={ref}
@@ -36,7 +43,7 @@ export default function DoctorPortraitCard({
             style={{
               transform: `translateY(${offset}px) scale(1.08)`
             }}
-            className="h-full w-full"
+            className="h-full w-full transition-transform duration-700 group-hover:scale-[1.1]"
           >
             <Image
               src={doctor.photo_url || IMAGES.interior}
@@ -51,8 +58,8 @@ export default function DoctorPortraitCard({
       {/* FACHGEBIET */}
       {doctor.specialty && (
         <Reveal
-          delay={delay + 120}
-          className={`${slideClass} duration-[1800ms]`}
+          delay={delay + 140}
+          className={`${textSlideClass} duration-[1800ms]`}
         >
           <p className="mt-6 eyebrow text-[#8A7550]">
             {doctor.specialty}
@@ -62,8 +69,8 @@ export default function DoctorPortraitCard({
 
       {/* NAME */}
       <Reveal
-        delay={delay + 220}
-        className={`${slideClass} duration-[1900ms]`}
+        delay={delay + 240}
+        className={`${textSlideClass} duration-[1900ms]`}
       >
         <h3 className="mt-2 font-heading text-2xl font-light leading-snug md:text-3xl">
           {`${doctor.title || ''} ${doctor.name}`.trim()}
@@ -73,8 +80,8 @@ export default function DoctorPortraitCard({
       {/* BIO */}
       {bio && (
         <Reveal
-          delay={delay + 320}
-          className={`${slideClass} duration-[2000ms]`}
+          delay={delay + 340}
+          className={`${textSlideClass} duration-[2000ms]`}
         >
           <p className="mt-5 text-[0.98rem] leading-[1.75] text-neutral-700">
             {bio}
@@ -85,8 +92,8 @@ export default function DoctorPortraitCard({
       {/* QUALIFIKATIONEN */}
       {doctor.qualifications?.length > 0 && (
         <Reveal
-          delay={delay + 420}
-          className={`${slideClass} duration-[2100ms]`}
+          delay={delay + 440}
+          className={`${textSlideClass} duration-[2100ms]`}
         >
           <ul className="mt-6 space-y-2.5">
             {doctor.qualifications.map((q) => (
