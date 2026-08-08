@@ -32,7 +32,7 @@ export default function ConsultationSection() {
   const copy = COPY[lang] || COPY.de;
 
   return (
-    <section className="relative overflow-hidden bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32">
+    <section className="relative overflow-hidden bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32 hasan202">
       <div
         ref={ref}
         className="pointer-events-none absolute -right-24 top-0 hidden h-full w-1/2 opacity-40 lg:block"
