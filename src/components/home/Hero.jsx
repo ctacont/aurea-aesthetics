@@ -109,10 +109,12 @@ export default function Hero({ settings }) {
     return unsubscribe;
   }, []);
 
-  const stagger = (base) =>
-  `transition-all duration-[2300ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-  mounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}` +
-  '';
+const stagger = () =>
+  `transition-all duration-[2400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+    mounted
+      ? 'opacity-100 translate-x-0 scale-100'
+      : 'opacity-0 -translate-x-[50%] scale-[0.98]'
+  }`;
 
   const delayStyle = (ms) => ({ transitionDelay: `${ms}ms` });
 
