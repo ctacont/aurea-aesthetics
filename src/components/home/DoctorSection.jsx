@@ -48,7 +48,7 @@ export default function DoctorSection({ doctors = [] }) {
             delay: 0.15,
             ease: EASE
           }}
-        >
+        > 
           <h2 className="mt-7 max-w-4xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {t('doctor.sectionTitle')}
           </h2>
