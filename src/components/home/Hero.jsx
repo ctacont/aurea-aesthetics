@@ -198,7 +198,7 @@ export default function Hero({ settings }) {
             <Eyebrow tone="light">{t('hero.tagEyebrow')}</Eyebrow>
           </div>
 
-          <h1 className={` mt-7 font-heading text-[2.4rem] font-light leading-[1.1] [text-shadow:0_4px_30px_rgba(0,0,0,0.45)] md:text-[3.4rem]  ${
+          <h1 className={` mt-7 font-heading text-[2.4rem] font-light leading-[1.1] [text-shadow:0_4px_30px_rgba(0,0,0,0.45)] md:text-[3.4rem] translate-x-0  ${
 
           stagger()}`} style={delayStyle(140)}>
             {t('hero.title')}
