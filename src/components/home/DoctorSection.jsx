@@ -29,7 +29,7 @@ export default function DoctorSection({ doctors = [] }) {
         <Reveal
           delay={220}
           direction="right"
-          className="scale-[0.97] duration-[2200ms]"
+          className="duration-[2000ms]"
         >
           <h2 className="mt-7 font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {t('doctor.sectionTitle')}
@@ -43,11 +43,7 @@ export default function DoctorSection({ doctors = [] }) {
                 key={doc.id}
                 delay={360 + i * 180}
                 direction={i % 2 === 0 ? 'left' : 'right'}
-                className={`duration-[2400ms] ${
-                  i % 2 === 0
-                    ? 'scale-[0.94]'
-                    : 'scale-[1.04]'
-                }`}
+                className="duration-[2200ms]"
               >
                 <DoctorPortraitCard
                   doctor={doc}
@@ -60,7 +56,7 @@ export default function DoctorSection({ doctors = [] }) {
           <Reveal
             delay={420}
             direction="left"
-            className="scale-[0.97] duration-[2200ms]"
+            className="duration-[2200ms]"
           >
             <div className="mt-16 max-w-xl border-l border-[#C9AF80] pl-7">
               <p className="text-lg leading-[1.75] text-neutral-700">
@@ -76,7 +72,7 @@ export default function DoctorSection({ doctors = [] }) {
 
         <Reveal
           delay={700}
-          direction="up"
+          direction="left"
           className="duration-[2000ms]"
         >
           <Link
