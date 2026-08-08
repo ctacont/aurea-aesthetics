@@ -36,24 +36,16 @@ export default function DoctorSection({ doctors = [] }) {
 
         {sorted.length > 0 ? (
           <div className="mt-16 grid gap-16 lg:grid-cols-2 lg:gap-14">
+
             {sorted.map((doc, i) => (
-              <Reveal
+              <DoctorPortraitCard
                 key={doc.id}
+                doctor={doc}
                 delay={360 + i * 180}
-                className={`duration-[2200ms] ${
-                  i % 2 === 0
-                    ? '-translate-x-[50%]'
-                    : 'translate-x-[50%]'
-                }`}
-              >
-                <DoctorPortraitCard
-                  key={doc.id}
-                  doctor={doc}
-                  delay={140 + i * 120}
-                  direction={i % 2 === 0 ? 'left' : 'right'}
-                />
-              </Reveal>
+                direction={i % 2 === 0 ? 'left' : 'right'}
+              />
             ))}
+
           </div>
         ) : (
           <Reveal
