@@ -182,7 +182,7 @@ export default function Pillars() {
                     }}
                     transition={{
                       duration: 1.6,
-                      delay: 0.44 + i * 0.18,
+                      delay: 0.24 + i * 0.18,
                       ease: EASE
                     }}
                     className="max-w-lg text-[0.95rem] leading-relaxed text-neutral-600 md:col-span-6"
