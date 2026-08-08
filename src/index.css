@@ -131,33 +131,23 @@
     background: linear-gradient(to bottom, transparent, rgb(var(--champagne) / 0.5), transparent);
   }
 
-/*
-  .reveal {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-*/
-
 .reveal {
   opacity: 0;
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-  /* Entferne hier das transform: translateY(28px); */
-}
-.reveal-slow {
-  transition-duration: 2.3s !important;
+
+  transition-property: opacity, transform;
+  transition-duration: 1.5s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+
+  will-change: opacity, transform;
 }
 
-/*
-.reveal.is-visible {
-    opacity: 1;
-    transform: none;
-  }
-*/
 .reveal.is-visible {
   opacity: 1;
-  transform: translate(0, 0); /* Das erzwingt das Ende der Animation an der Position 0/0 */
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal-slow {
+  transition-duration: 2.3s !important;
 }
 
 
