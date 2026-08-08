@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Eyebrow from '@/components/Eyebrow';
-import Reveal from '@/components/Reveal';
 import { PILLARS } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -15,38 +14,33 @@ export default function Pillars() {
     <section className="overflow-hidden px-6 py-24 lg:px-12 lg:py-32">
       <div className="mx-auto max-w-6xl">
 
-        <Reveal
-          delay={120}
-          className="-translate-x-[50%] duration-[1800ms]"
+        <motion.div
+          initial={{ opacity: 0, x: -25, y: 10 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{
+            duration: 1.5,
+            ease: EASE
+          }}
         >
           <Eyebrow>
             {t('pillars.eyebrow')}
           </Eyebrow>
-        </Reveal>
+        </motion.div>
 
         <motion.div
-          initial={{
-            opacity: 0,
-            x: '35%',
-            scale: 0.96
-          }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            scale: 1
-          }}
-          viewport={{
-            once: true,
-            amount: 0.4
-          }}
+          initial={{ opacity: 0, x: 30, y: 15 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
           transition={{
-            duration: 1.9,
+            duration: 1.7,
             delay: 0.15,
             ease: EASE
           }}
         >
           <h2 className="mt-7 max-w-5xl font-heading text-[2.1rem] font-light leading-[1.15] md:text-5xl">
             {t('pillars.title')}
+
             <span className="text-[#8A7550]">
               {t('pillars.accent')}
             </span>
@@ -54,21 +48,12 @@ export default function Pillars() {
         </motion.div>
 
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 70
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-          viewport={{
-            once: true,
-            amount: 0.4
-          }}
+          initial={{ opacity: 0, x: -25, y: 15 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
           transition={{
-            duration: 1.6,
-            delay: 0.25,
+            duration: 1.8,
+            delay: 0.3,
             ease: EASE
           }}
         >
@@ -86,13 +71,13 @@ export default function Pillars() {
                 key={p.title}
                 initial={{
                   opacity: 0,
-                  x: fromLeft ? '-45%' : '45%',
-                  scale: 0.97
+                  x: fromLeft ? -35 : 35,
+                  y: 20
                 }}
                 whileInView={{
                   opacity: 1,
                   x: 0,
-                  scale: 1
+                  y: 0
                 }}
                 viewport={{
                   once: true,
@@ -100,8 +85,8 @@ export default function Pillars() {
                   margin: '0px 0px -8% 0px'
                 }}
                 transition={{
-                  duration: 1.9,
-                  delay: Math.min(i * 0.12, 0.4),
+                  duration: 1.8,
+                  delay: i * 0.18,
                   ease: EASE
                 }}
                 className="relative py-10 md:py-14"
@@ -109,9 +94,11 @@ export default function Pillars() {
 
                 <motion.div
                   initial={{
-                    scaleX: 0
+                    opacity: 0,
+                    scaleX: 0.9
                   }}
                   whileInView={{
+                    opacity: 1,
                     scaleX: 1
                   }}
                   viewport={{
@@ -119,12 +106,14 @@ export default function Pillars() {
                     amount: 0.5
                   }}
                   transition={{
-                    duration: 1.6,
-                    delay: 0.15 + i * 0.08,
+                    duration: 1.4,
+                    delay: 0.1 + i * 0.18,
                     ease: EASE
                   }}
                   style={{
-                    transformOrigin: fromLeft ? 'left center' : 'right center'
+                    transformOrigin: fromLeft
+                      ? 'left center'
+                      : 'right center'
                   }}
                   className="absolute left-0 top-0 w-full border-t border-[#E8E2D9]"
                   aria-hidden="true"
@@ -135,21 +124,19 @@ export default function Pillars() {
                   <motion.span
                     initial={{
                       opacity: 0,
-                      y: 40,
-                      scale: 0.9
+                      x: fromLeft ? -20 : 20
                     }}
                     whileInView={{
                       opacity: 1,
-                      y: 0,
-                      scale: 1
+                      x: 0
                     }}
                     viewport={{
                       once: true,
-                      amount: 0.6
+                      amount: 0.5
                     }}
                     transition={{
-                      duration: 1.2,
-                      delay: 0.3 + i * 0.08,
+                      duration: 1.4,
+                      delay: 0.2 + i * 0.18,
                       ease: EASE
                     }}
                     className="font-heading text-4xl font-light leading-none text-[#C9AF80] md:col-span-2 md:text-5xl"
@@ -160,19 +147,19 @@ export default function Pillars() {
                   <motion.h3
                     initial={{
                       opacity: 0,
-                      y: 35
+                      x: fromLeft ? -20 : 20
                     }}
                     whileInView={{
                       opacity: 1,
-                      y: 0
+                      x: 0
                     }}
                     viewport={{
                       once: true,
-                      amount: 0.6
+                      amount: 0.5
                     }}
                     transition={{
-                      duration: 1.2,
-                      delay: 0.42 + i * 0.08,
+                      duration: 1.5,
+                      delay: 0.32 + i * 0.18,
                       ease: EASE
                     }}
                     className="font-heading text-2xl font-light md:col-span-4 md:text-3xl"
@@ -183,19 +170,19 @@ export default function Pillars() {
                   <motion.p
                     initial={{
                       opacity: 0,
-                      y: 30
+                      x: fromLeft ? -20 : 20
                     }}
                     whileInView={{
                       opacity: 1,
-                      y: 0
+                      x: 0
                     }}
                     viewport={{
                       once: true,
-                      amount: 0.6
+                      amount: 0.5
                     }}
                     transition={{
-                      duration: 1.2,
-                      delay: 0.54 + i * 0.08,
+                      duration: 1.6,
+                      delay: 0.44 + i * 0.18,
                       ease: EASE
                     }}
                     className="max-w-lg text-[0.95rem] leading-relaxed text-neutral-600 md:col-span-6"
@@ -210,22 +197,12 @@ export default function Pillars() {
         </ol>
 
         <motion.div
-          initial={{
-            scaleX: 0
-          }}
-          whileInView={{
-            scaleX: 1
-          }}
-          viewport={{
-            once: true,
-            amount: 0.8
-          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{
             duration: 1.5,
             ease: EASE
-          }}
-          style={{
-            transformOrigin: 'left center'
           }}
           className="border-t border-[#E8E2D9]"
         />
