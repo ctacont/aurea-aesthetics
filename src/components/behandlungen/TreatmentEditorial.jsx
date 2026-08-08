@@ -35,7 +35,7 @@ export default function TreatmentEditorial({ data, index = 0 }) {
   };
 
   return (
-    <div id={data.slug} className="scroll-mt-28 transition-all duration-500">
+    <div id={data.slug} className="scroll-mt-28 transition-all duration-500 hasan200">
       <div className={`flex flex-col lg:flex-row ${reversed ? 'lg:flex-row-reverse' : ''}`}>
         <div className="relative h-[55vh] w-full overflow-hidden lg:h-auto lg:w-1/2">
           <div className="lg:sticky lg:top-0 lg:h-screen">
