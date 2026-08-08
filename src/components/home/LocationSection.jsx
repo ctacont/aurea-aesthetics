@@ -6,7 +6,7 @@ import useParallax from '@/hooks/useParallax';
 import { IMAGES, GEO_AREAS } from '@/lib/site';
 import { useLanguage } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
-
+ 
 export default function LocationSection({ settings }) {
   const { t, langPath } = useLanguage();
   const { handleBook } = useBooking();
