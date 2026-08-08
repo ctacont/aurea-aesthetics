@@ -73,21 +73,65 @@ export default function Practice() {
         </div>
       </section>
 
-      <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32">
-        <div className="mx-auto max-w-6xl">
-          <Reveal delay={600} className=" translate-x-12"><Eyebrow>{t('practice.valuesEyebrow')}</Eyebrow></Reveal>
-          <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
-            {values.map((v, i) =>
-            <Reveal key={v.title} delay={i * 80}>
-                <div className="flex min-h-[220px] flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 sm:px-10 text-center">
-                  <h3 className="font-heading text-2xl font-light">{v.title}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-neutral-600">{v.text}</p>
-                </div>
+
+
+
+<section className="overflow-hidden bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32">
+  <div className="mx-auto max-w-6xl">
+
+    <Reveal
+      delay={180}
+      className="-translate-x-[35%] duration-[1800ms]"
+    >
+      <Eyebrow>
+        {t('practice.valuesEyebrow')}
+      </Eyebrow>
+    </Reveal>
+
+    <div className="mt-14 grid border-t border-l border-[#E8E2D9] sm:grid-cols-2">
+      {values.map((v, i) => {
+        const effects = [
+          '-translate-x-[40%] -translate-y-[12%] scale-[0.94]',
+          'translate-x-[40%] translate-y-[10%] scale-[0.96]',
+          '-translate-x-[30%] translate-y-[20%] scale-[0.95]',
+          'translate-x-[30%] -translate-y-[18%] scale-[0.94]'
+        ];
+
+        return (
+          <Reveal
+            key={v.title}
+            delay={350 + i * 220}
+            className={`${effects[i % effects.length]} duration-[2400ms]`}
+          >
+            <div className="flex min-h-[220px] h-full flex-col justify-center border-b border-r border-[#E8E2D9] px-8 py-12 text-center sm:px-10">
+              <Reveal
+                delay={500 + i * 220}
+                className="translate-y-[18%] duration-[1700ms]"
+              >
+                <h3 className="font-heading text-2xl font-light">
+                  {v.title}
+                </h3>
               </Reveal>
-            )}
-          </div>
-        </div>
-      </section>
+
+              <Reveal
+                delay={620 + i * 220}
+                className="translate-y-[22%] duration-[1900ms]"
+              >
+                <p className="mt-4 text-sm leading-relaxed text-neutral-600">
+                  {v.text}
+                </p>
+              </Reveal>
+            </div>
+          </Reveal>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
+
+
+
 
       <section className="bg-[#F4F1EE] px-6 py-20 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-6xl text-center">
