@@ -73,7 +73,6 @@ export default function Practice() {
         </div>
       </section>
 
-      {/*
       <section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-6xl">
           <Reveal delay={600} className=" translate-x-12"><Eyebrow>{t('practice.valuesEyebrow')}</Eyebrow></Reveal>
@@ -89,41 +88,6 @@ export default function Practice() {
           </div>
         </div>
       </section>
-      */}
-<section className="bg-[#F4F1EE] px-6 py-24 lg:px-12 lg:py-32">
-  <div className="mx-auto max-w-6xl">
-    <Reveal delay={600} className="-translate-x-[50%]">
-      <Eyebrow>{t('practice.valuesEyebrow')}</Eyebrow>
-    </Reveal>
-
-<div className="mt-14 grid sm:grid-cols-2">
-  {values.map((v, i) => {
-    const directions = [
-      { className: '-translate-y-[50%]', delay: 600, duration: 'duration-[2200ms]' },
-      { className: 'translate-x-[50%]', delay: 500, duration: 'duration-[1800ms]' },
-      { className: 'translate-y-[50%]', delay: 700, duration: 'duration-[2200ms]' },
-      { className: 'translate-x-[50%]', delay: 900, duration: 'duration-[1800ms]' },
-    ];
-
-    return (
-      <div key={v.title} className="overflow-hidden">
-        <Reveal
-          delay={directions[i].delay}
-          className={`h-full ${directions[i].className} ${directions[i].duration}`}
-        >
-          <div className="flex min-h-[220px] h-full flex-col justify-center border border-[#E8E2D9] px-8 py-12 text-center sm:px-10">
-            <h3 className="font-heading text-2xl font-light">{v.title}</h3>
-            <p className="mt-4 text-sm leading-relaxed text-neutral-600">{v.text}</p>
-          </div>
-        </Reveal>
-      </div>
-    );
-  })}
-</div>
-
-
-  </div>
-</section>
 
       <section className="bg-[#F4F1EE] px-6 py-20 lg:px-12 lg:py-28">
         <div className="mx-auto max-w-6xl text-center">

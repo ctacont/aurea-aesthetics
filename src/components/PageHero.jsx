@@ -29,7 +29,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
 
       <div className="relative w-full px-6 lg:px-16">
         {breadcrumbs.length > 0 &&
-        <Reveal delay={80} className="-translate-x-[50%] duration-[500ms]">
+        <Reveal delay={80} className="-translate-x-64">
             <nav aria-label={t('breadcrumb')} className="mb-10 eyebrow text-white/60 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] max-w-[974px]">
               {breadcrumbs.map((b, i) =>
             <span key={b.path}>
@@ -46,12 +46,12 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
         }
 
         
-        <div className="max-w-[974px] py-8 lg:py-12 pr-8 lg:pr-12 pl-0 w-full ml-0 mr-center mt-7 font-heading text-[2.4rem] font-light leading-[1.1] [text-shadow:0_4px_30px_rgba(0,0,0,0.45)] md:text-[3.4rem] transition-all">
-          <Reveal delay={160} className="-translate-x-[50%] duration-[700ms]">
+        <div className="max-w-[974px] py-8 lg:py-12 pr-8 lg:pr-12 pl-0 w-full ml-0 mr-center mt-7 font-heading text-[2.4rem] font-light leading-[1.1] [text-shadow:0_4px_30px_rgba(0,0,0,0.45)] md:text-[3.4rem] transition-all duration-[2300ms] ease-[cubic-bezier(0.16,1,0.3,1)] opacity-100 translate-x-0">
+          <Reveal delay={60} className="-translate-x-full">
             {eyebrow && <Eyebrow tone="light">{eyebrow}</Eyebrow>}
           </Reveal>
 
-          <Reveal delay={250}  className="-translate-x-[50%] duration-[900ms]">
+          <Reveal delay={60} className="-translate-x-full">
             <h1 className="mt-7 font-heading text-[2.4rem] font-light leading-[1.1] md:text-6xl">
               {title}
               {accent && <span className="block text-[#C9AF80] text-shadow">{accent}</span>}
@@ -59,7 +59,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
           </Reveal>
 
           {lead &&
-          <Reveal delay={360} className="-translate-x-[50%] duration-[900ms]">
+          <Reveal delay={60} className="-translate-x-full">
               <p className="mt-8 max-w-xl text-[0.98rem] leading-relaxed text-white/75">{lead}</p>
             </Reveal>
           }
