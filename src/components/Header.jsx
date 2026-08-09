@@ -74,7 +74,7 @@ const solid = scrolled;
           </nav>
 
           <div className="flex items-center gap-5">
-            <LanguageSwitcher />
+            <LanguageSwitcher dark={solid} />
             <button
               onClick={handleBook}
               data-booking-cta="true"

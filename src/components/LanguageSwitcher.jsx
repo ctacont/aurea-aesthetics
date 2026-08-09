@@ -7,7 +7,7 @@ import { useLanguage } from '@/lib/LanguageContext';
  * a small menu listing both languages with the active one highlighted.
  * `variant="mobile"` renders a full-width row for the mobile drawer.
  */
-export default function LanguageSwitcher({ variant = 'header' }) {
+export default function LanguageSwitcher({ variant = 'header', dark = false }) {
   const { lang, otherLangPath } = useLanguage();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -27,8 +27,9 @@ export default function LanguageSwitcher({ variant = 'header' }) {
     { code: 'EN', active: isEn, href: isEn ? null : otherLangPath() },
   ];
 
-  const triggerClasses =
-    'flex items-center gap-2 eyebrow text-white/70 hover:text-white transition-colors duration-300';
+  const triggerClasses = `flex items-center gap-2 eyebrow transition-colors duration-500 ${
+    dark ? 'text-neutral-700 hover:text-[#8A7550]' : 'text-white/70 hover:text-white'
+  }`;
   const optionClasses = (active) =>
     `block w-full px-4 py-2.5 text-left text-sm tracking-[0.18em] uppercase transition-colors duration-200 ${
       active ? 'text-[#C9AF80]' : 'text-neutral-600 hover:text-neutral-900'
