@@ -19,4 +19,4 @@ export default function ComingSoonGate({ children }) {
   if (settings.coming_soon_mode && !preview) return <ComingSoon settings={settings} />;
 
   return children;
-}
+} 
