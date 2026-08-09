@@ -21,7 +21,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image, breadcru
       {image &&
       <div className={`hero-image-mask absolute inset-0 ${revealed ? 'is-revealed' : ''}`}>
           <div ref={bgRef} className="absolute inset-0" style={{ transform: `translateY(${offset}px) scale(1.18)` }}>
-            <Image src={image} alt="" className="h-full w-full" fittingType="fill" />
+            <Image src={image} alt="" className="h-full w-full object-cover" fittingType="fill" />
             <div className="absolute inset-0 bg-[#0A0A0A]/50" />
           </div>
         </div>

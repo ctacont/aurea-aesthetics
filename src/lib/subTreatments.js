@@ -5,6 +5,9 @@
 // and risks/contraindications have explicit _en variants so the English
 // version never falls back to German medical/safety text.
 
+import stirnfaltenEditorial from '@/assets/treatments/stirnfalten-editorial.jpg';
+import zornesfalteEditorial from '@/assets/treatments/zornesfalte-editorial.jpg';
+
 export const SUB_TREATMENTS = {
   stirnfalten: {
     slug: 'stirnfalten', category: 'botulinumtoxin', categoryPath: '/behandlungen/botulinumtoxin',
@@ -15,7 +18,7 @@ export const SUB_TREATMENTS = {
     meta_description_en: 'Treatment of horizontal forehead lines with botulinum toxin in Zurich — physician-led, individually dosed, natural expression preserved.',
     lead_de: 'Horizontale Fältchen auf der Stirn entstehen durch wiederholte Anspannung des Stirnmuskels. Eine präzise dosierte Behandlung glättet die Linien, ohne die Mimik zu erstarren.',
     lead_en: 'Horizontal forehead lines form through repeated tension of the frontalis muscle. A precisely dosed treatment smooths the lines without freezing expression.',
-    image_url: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9147ba321_generated_image.png',
+    image_url: stirnfaltenEditorial,
     indications: ['Horizontale Stirnfalten in Ruhe oder bei Bewegung', 'Beginnende, noch dynamische Faltenbildung', 'Wunsch nach präventiver Behandlung'],
     mechanism_de: 'Botulinumtoxin blockiert vorübergehend die Signalübertragung zwischen Nerv und Muskel im Bereich des Musculus frontalis. Die überaktive Muskelanspannung, die die Falten erzeugt, wird reduziert, während die Haut sich glättet.',
     mechanism_en: 'Botulinum toxin temporarily blocks signal transmission between nerve and muscle in the frontalis area. The overactive muscle tension that creates the lines is reduced, allowing the skin to smooth.',
@@ -47,7 +50,7 @@ export const SUB_TREATMENTS = {
     meta_description_en: 'Treatment of the glabellar frown line between the brows with botulinum toxin in Zurich — for a more relaxed, open expression.',
     lead_de: 'Die senkrechte Falte zwischen den Augenbrauen kann einen unbeabsichtigt ernsten oder erschöpften Ausdruck erzeugen. Eine gezielte Behandlung löst die Spannung und öffnet den Blick.',
     lead_en: 'The vertical line between the brows can create an unintentionally stern or tired expression. Targeted treatment releases the tension and opens the gaze.',
-    image_url: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9147ba321_generated_image.png',
+    image_url: zornesfalteEditorial,
     indications: ['Ausgeprägte senkrechte Falte zwischen den Augenbrauen', 'Strenger oder erschöpft wirkender Ausdruck', 'Wunsch nach präventiver Behandlung'],
     mechanism_de: 'Die Substanz wirkt auf die Musculi corrugator supercilii und procerus, die für das Zusammenziehen der Augenbrauen verantwortlich sind. Ihre Aktivität wird reduziert, wodurch sich die Falte glättet.',
     mechanism_en: 'The substance acts on the corrugator supercilii and procerus muscles, which are responsible for pulling the brows together. Their activity is reduced, smoothing the line.',

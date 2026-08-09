@@ -4,11 +4,13 @@
 // Durations/costs are medically plausible placeholders pending client approval
 // (see AGENTS.md "Content Approval Status").
 
+import botulinumtoxinCategoryEditorial from '@/assets/treatments/botulinumtoxin-category-editorial.jpg';
+
 export const CATEGORIES = {
   botulinumtoxin: {
     slug: 'botulinumtoxin',
     canonicalSlug: 'behandlung-mimischer-falten',
-    image_url: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9147ba321_generated_image.png',
+    image_url: botulinumtoxinCategoryEditorial,
     title_de: 'Botulinumtoxin.',
     title_en: 'Botulinum toxin.',
     accent_de: 'Mimik im Gleichgewicht.',

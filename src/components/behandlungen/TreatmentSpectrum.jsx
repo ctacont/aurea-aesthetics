@@ -1,6 +1,7 @@
-import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { HeartHandshake, Leaf, Stethoscope } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { useLanguage } from '@/lib/LanguageContext';
 
 import botulinumPhoto from '@/assets/treatments/01-botulinumtoxin-photo.jpg';
@@ -133,6 +134,148 @@ const TRUST_POINTS = [
 
 const EASE = [0.16, 1, 0.3, 1];
 
+function TreatmentStory({ treatment, index, suffix, copy, shouldReduceMotion }) {
+  const storyRef = useRef(null);
+  const isMobile = useIsMobile();
+  const title = treatment[`title_${suffix}`];
+  const description = treatment[`description_${suffix}`];
+  const { scrollYProgress } = useScroll({
+    target: storyRef,
+    offset: ['start end', 'end start'],
+  });
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 82,
+    damping: 28,
+    mass: 0.42,
+  });
+
+  const imageY = useTransform(
+    progress,
+    [0, 1],
+    isMobile ? ['2%', '-2%'] : ['8%', '-8%'],
+  );
+  const imageScale = useTransform(
+    progress,
+    [0, 0.5, 1],
+    isMobile ? [1.04, 1, 1.04] : [1.14, 1.025, 1.1],
+  );
+  const imageClip = useTransform(
+    progress,
+    [0, 0.22, 0.78, 1],
+    isMobile
+      ? ['inset(4% 3%)', 'inset(0%)', 'inset(0%)', 'inset(3% 2%)']
+      : ['inset(10% 8%)', 'inset(0%)', 'inset(0%)', 'inset(7% 5%)'],
+  );
+  const lineArtY = useTransform(
+    progress,
+    [0, 1],
+    isMobile ? [10, -10] : [38, -32],
+  );
+  const lineArtRotate = useTransform(progress, [0, 0.5, 1], [-2.2, 0, 2.2]);
+  const numberX = useTransform(
+    progress,
+    [0, 1],
+    [-42, 24],
+  );
+
+  return (
+    <motion.article
+      ref={storyRef}
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 90 }}
+      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.12, margin: '0px 0px -5% 0px' }}
+      transition={{ duration: 1.05, ease: EASE }}
+      className="relative"
+    >
+      <div className="grid items-stretch md:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.9fr)]">
+        <motion.div
+          style={{ clipPath: shouldReduceMotion ? 'inset(0%)' : imageClip }}
+          className="relative z-0 overflow-hidden bg-[#E8E1D8] shadow-[0_28px_70px_rgba(38,29,19,0.12)]"
+        >
+          <div className="relative aspect-[5/4] overflow-hidden md:h-full md:min-h-[30rem] md:aspect-auto">
+            <motion.img
+              src={treatment.photo}
+              alt={copy.photoAlt(title)}
+              loading={index < 2 ? 'eager' : 'lazy'}
+              decoding="async"
+              style={{
+                y: shouldReduceMotion ? 0 : imageY,
+                scale: shouldReduceMotion ? 1 : imageScale,
+              }}
+              className="absolute -inset-y-[10%] inset-x-0 h-[120%] w-full object-cover will-change-transform"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-[#17120C]/30 via-transparent to-white/5"
+            />
+          </div>
+
+          <motion.span
+            aria-hidden="true"
+            style={{ x: shouldReduceMotion ? 0 : numberX }}
+            className="pointer-events-none absolute bottom-[-0.18em] left-5 font-heading text-[7.5rem] font-light leading-none text-white/25 sm:text-[10rem]"
+          >
+            {String(index + 1).padStart(2, '0')}
+          </motion.span>
+        </motion.div>
+
+        <motion.div
+          initial={
+            shouldReduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  x: 110,
+                  filter: 'blur(12px)',
+                }
+          }
+          whileInView={
+            shouldReduceMotion
+              ? undefined
+              : { opacity: 1, x: 0, filter: 'blur(0px)' }
+          }
+          viewport={{ once: false, amount: 0.34 }}
+          transition={{ duration: 1.2, delay: 0.08, ease: EASE }}
+          className="relative z-10 mx-4 -mt-10 flex flex-col justify-center bg-[#FBF9F6]/95 p-7 shadow-[0_24px_65px_rgba(38,29,19,0.11)] backdrop-blur-sm sm:mx-10 sm:p-10 md:mx-0 md:mt-0 md:p-8 xl:p-11"
+        >
+          <div className="flex items-center gap-4">
+            <span className="text-[0.68rem] font-medium tracking-[0.22em] text-[#8A7550]">
+              {String(index + 1).padStart(2, '0')} / {String(TREATMENTS.length).padStart(2, '0')}
+            </span>
+            <span aria-hidden="true" className="h-px flex-1 bg-[#C9AF80]/55" />
+          </div>
+
+          <h3
+            lang={suffix}
+            className="mt-7 max-w-full break-words font-heading text-[clamp(1.75rem,2.8vw,2.6rem)] font-light leading-[1.08] text-[#171512] [hyphens:auto] [overflow-wrap:anywhere]"
+          >
+            {title}
+          </h3>
+          <p className="mt-5 max-w-md text-[0.94rem] leading-[1.75] text-neutral-600">
+            {description}
+          </p>
+
+          <motion.figure
+            style={{
+              y: shouldReduceMotion ? 0 : lineArtY,
+              rotate: shouldReduceMotion ? 0 : lineArtRotate,
+            }}
+            className="ml-auto mt-8 aspect-square w-[8.5rem] overflow-hidden rounded-full bg-[#F1ECE5] p-3 ring-1 ring-[#D8CCBC]/65 sm:w-[10rem]"
+          >
+            <img
+              src={treatment.lineArt}
+              alt={copy.lineArtAlt(title)}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-contain"
+            />
+          </motion.figure>
+        </motion.div>
+      </div>
+    </motion.article>
+  );
+}
+
 export default function TreatmentSpectrum() {
   const { lang } = useLanguage();
   const shouldReduceMotion = useReducedMotion();
@@ -155,17 +298,11 @@ export default function TreatmentSpectrum() {
         lineArtAlt: (title) => `${title} – schematische Behandlungsareale`,
       };
 
-  const reveal = (index) => shouldReduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 72, x: index % 2 === 0 ? -28 : 28, scale: 0.975 },
-        whileInView: { opacity: 1, y: 0, x: 0, scale: 1 },
-        viewport: { once: false, amount: 0.18 },
-        transition: { duration: 0.95, delay: (index % 6) * 0.045, ease: EASE },
-      };
-
   return (
-    <section aria-labelledby="treatment-spectrum-title" className="relative overflow-hidden bg-[#F7F4F0] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <section
+      aria-labelledby="treatment-spectrum-title"
+      className="relative overflow-hidden bg-[#F5F1EB] px-5 py-24 sm:px-8 lg:px-12 lg:py-36"
+    >
       <motion.div
         aria-hidden="true"
         initial={shouldReduceMotion ? false : { scaleX: 0 }}
@@ -177,94 +314,59 @@ export default function TreatmentSpectrum() {
 
       <div className="mx-auto max-w-[100rem]">
         <motion.header
-          initial={shouldReduceMotion ? false : { opacity: 0, x: -72 }}
-          whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.45 }}
-          transition={{ duration: 1, ease: EASE }}
-          className="mb-14 grid gap-7 lg:grid-cols-12 lg:items-end lg:gap-12"
+          initial={shouldReduceMotion ? false : { opacity: 0, x: -110, filter: 'blur(12px)' }}
+          whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0, filter: 'blur(0px)' }}
+          viewport={{ once: false, amount: 0.4 }}
+          transition={{ duration: 1.25, ease: EASE }}
         >
-          <div className="lg:col-span-7">
-            <p className="eyebrow text-[#8A7550]">{copy.eyebrow}</p>
-            <h2 id="treatment-spectrum-title" className="mt-5 font-heading text-4xl font-light leading-[1.05] sm:text-5xl lg:text-6xl">
-              {copy.title}
-              <span className="block text-[#9B8052]">{copy.accent}</span>
-            </h2>
+          <div className="flex items-center gap-5">
+            <p className="eyebrow shrink-0 text-[#8A7550]">{copy.eyebrow}</p>
+            <span aria-hidden="true" className="h-px flex-1 bg-[#C9AF80]/55" />
           </div>
-          <p className="max-w-xl text-base leading-relaxed text-neutral-600 lg:col-span-4 lg:col-start-9 lg:text-lg">
+          <h2
+            id="treatment-spectrum-title"
+            className="mt-7 font-heading text-[clamp(2.45rem,4.5vw,4.6rem)] font-light leading-[1.02] lg:whitespace-nowrap"
+          >
+            {copy.title}{' '}
+            <span className="text-[#9B8052]">{copy.accent}</span>
+          </h2>
+          <p className="mt-7 max-w-3xl text-base leading-[1.8] text-neutral-600 lg:text-lg">
             {copy.lead}
           </p>
         </motion.header>
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden border border-[#DDD6CC] bg-[#DDD6CC] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {TREATMENTS.map((treatment, index) => {
-            const title = treatment[`title_${suffix}`];
-            const description = treatment[`description_${suffix}`];
+        <div className="mt-12 grid gap-8 border-y border-[#D8CCBC] py-10 md:grid-cols-3 lg:gap-12">
+          {TRUST_POINTS.map(({ icon: Icon, ...point }, index) => (
+            <motion.div
+              key={point.title_de}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 44 }}
+              whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.55 }}
+              transition={{ duration: 0.85, delay: index * 0.08, ease: EASE }}
+              className="grid grid-cols-[2.5rem_1fr] gap-4"
+            >
+              <Icon className="mt-0.5 h-6 w-6 stroke-[1.15] text-[#8A7550]" aria-hidden="true" />
+              <div>
+                <h3 className="eyebrow text-[#28231D]">{point[`title_${suffix}`]}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                  {point[`text_${suffix}`]}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-            return (
-              <motion.article
-                key={treatment.title_de}
-                {...reveal(index)}
-                className="group flex min-w-0 flex-col bg-[#FBFAF8]"
-              >
-                <div className="relative aspect-square overflow-hidden bg-[#EDE8E1]">
-                  <img
-                    src={treatment.photo}
-                    alt={copy.photoAlt(title)}
-                    loading={index < 3 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.035]"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5" aria-hidden="true" />
-                  <span className="absolute left-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-white/55 bg-black/15 text-[0.65rem] font-medium tracking-[0.16em] text-white backdrop-blur-sm">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                </div>
-
-                <div className="flex flex-1 flex-col px-5 pb-0 pt-6">
-                  <h3 className="font-heading text-[1.65rem] font-light leading-tight text-[#171512]">{title}</h3>
-                  <p className="mt-3 text-[0.88rem] leading-[1.65] text-neutral-600">{description}</p>
-
-                  <motion.div
-                    initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.88, y: 24 }}
-                    whileInView={shouldReduceMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.45 }}
-                    transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
-                    className="mt-auto aspect-square w-full"
-                  >
-                    <img
-                      src={treatment.lineArt}
-                      alt={copy.lineArtAlt(title)}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-contain"
-                    />
-                  </motion.div>
-                </div>
-              </motion.article>
-            );
-          })}
-
-          <motion.aside
-            {...reveal(10)}
-            className="flex flex-col justify-center gap-9 bg-[#F2EEE8] px-7 py-12 sm:col-span-2 lg:col-span-2 lg:px-9 xl:col-span-2"
-          >
-            {TRUST_POINTS.map(({ icon: Icon, ...point }, index) => (
-              <motion.div
-                key={point.title_de}
-                initial={shouldReduceMotion ? false : { opacity: 0, x: 42 }}
-                whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.55 }}
-                transition={{ duration: 0.8, delay: index * 0.1, ease: EASE }}
-                className="grid grid-cols-[2.75rem_1fr] gap-4"
-              >
-                <Icon className="mt-1 h-7 w-7 stroke-[1.15] text-[#8A7550]" aria-hidden="true" />
-                <div>
-                  <h3 className="eyebrow text-[#28231D]">{point[`title_${suffix}`]}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">{point[`text_${suffix}`]}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.aside>
+        <div className="mx-auto mt-24 max-w-[86rem] space-y-28 sm:space-y-36 lg:mt-32 lg:space-y-44">
+          {TREATMENTS.map((treatment, index) => (
+            <TreatmentStory
+              key={treatment.title_de}
+              treatment={treatment}
+              index={index}
+              suffix={suffix}
+              copy={copy}
+              shouldReduceMotion={shouldReduceMotion}
+            />
+          ))}
         </div>
       </div>
     </section>
