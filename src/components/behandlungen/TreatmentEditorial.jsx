@@ -1,18 +1,26 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Image } from '@/components/ui/image';
 import Eyebrow from '@/components/Eyebrow';
 import FactGrid from '@/components/treatment/FactGrid';
 import TextBlock from '@/components/treatment/TextBlock';
 import PrecisionAccordion from '@/components/PrecisionAccordion';
-import useParallax from '@/hooks/useParallax';
 import { useLanguage, loc } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
 
 export default function TreatmentEditorial({ data, index = 0 }) {
   const { t, lang } = useLanguage();
   const { handleBook } = useBooking();
-  const { ref: imgRef, offset } = useParallax(0.16);
+  const editorialRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: editorialRef,
+    offset: ['start end', 'end start'],
+  });
+  const progress = useSpring(scrollYProgress, { stiffness: 90, damping: 30, mass: 0.4 });
+  const imageY = useTransform(progress, [0, 1], ['-6%', '6%']);
+  const imageScale = useTransform(progress, [0, 1], [1.18, 1.03]);
+  const imageClip = useTransform(progress, [0, 0.3, 0.78, 1], ['inset(9% 7%)', 'inset(0% 0%)', 'inset(0% 0%)', 'inset(5% 3%)']);
   const reversed = index % 2 === 1;
 
   const title = loc(data, 'title', lang);
@@ -35,22 +43,26 @@ export default function TreatmentEditorial({ data, index = 0 }) {
   };
 
   return (
-    <div id={data.slug} className="scroll-mt-28 transition-all duration-500 hasan56">
+    <div ref={editorialRef} id={data.slug} className="scroll-mt-28 transition-all duration-500 hasan56">
       <div className={`flex flex-col lg:flex-row ${reversed ? 'lg:flex-row-reverse' : ''}`}>
         <div className="relative h-[55vh] w-full overflow-hidden lg:h-auto lg:w-1/2">
-          <div className="lg:sticky lg:top-0 lg:h-screen">
-            <div ref={imgRef} className="absolute inset-0" style={{ transform: `translateY(${offset}px) scale(1.12)` }}>
+          <motion.div
+            className="h-full lg:sticky lg:top-0 lg:h-screen"
+            style={{ clipPath: shouldReduceMotion ? 'inset(0%)' : imageClip }}>
+            <motion.div
+              className="absolute -inset-y-[8%] inset-x-0 will-change-transform"
+              style={{ y: shouldReduceMotion ? 0 : imageY, scale: shouldReduceMotion ? 1.06 : imageScale }}>
               <Image src={data.image_url} alt={title} className="h-full w-full" fittingType="fill" />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         <div className="flex w-full items-center px-6 py-16 lg:w-1/2 lg:px-16 lg:py-28">
           <div>
             <motion.div
-              initial={{ opacity: 0, x: reversed ? -44 : 44 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-15%' }}
+              initial={shouldReduceMotion ? false : { opacity: 0, x: reversed ? -56 : 56 }}
+              whileInView={shouldReduceMotion ? undefined : { opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.38, margin: '0px 0px -8% 0px' }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
               
               <Eyebrow>{t('categoryPage.crumbTreatments')}</Eyebrow>
@@ -59,9 +71,9 @@ export default function TreatmentEditorial({ data, index = 0 }) {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 36 }}
+              whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.5 }}
               transition={{ duration: 0.8, delay: 0.15 }}
               className="mt-10">
               
@@ -90,9 +102,9 @@ export default function TreatmentEditorial({ data, index = 0 }) {
         </section>
       }
 
-      {mechanism && <TextBlock eyebrow={t('treatmentDetail.mechanismEyebrow')} title={t('treatmentDetail.mechanismTitle')} body={mechanism} tone="dark" />}
-      {procedure && <TextBlock eyebrow={t('treatmentDetail.procedureEyebrow')} title={t('treatmentDetail.procedureTitle')} body={procedure} />}
-      {aftercare && <TextBlock eyebrow={t('treatmentDetail.aftercareEyebrow')} title={t('treatmentDetail.aftercareTitle')} body={aftercare} tone="dark" />}
+      {mechanism && <TextBlock eyebrow={t('treatmentDetail.mechanismEyebrow')} title={t('treatmentDetail.mechanismTitle')} body={mechanism} tone="dark" direction="left" />}
+      {procedure && <TextBlock eyebrow={t('treatmentDetail.procedureEyebrow')} title={t('treatmentDetail.procedureTitle')} body={procedure} direction="right" />}
+      {aftercare && <TextBlock eyebrow={t('treatmentDetail.aftercareEyebrow')} title={t('treatmentDetail.aftercareTitle')} body={aftercare} tone="dark" direction="left" />}
 
       {(risks || contraindications) &&
       <section className="bg-background px-6 py-16 lg:px-12 lg:py-20">
