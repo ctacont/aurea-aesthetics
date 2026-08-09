@@ -3,26 +3,26 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { HeartHandshake, Leaf, Stethoscope } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
-import botulinumPhoto from '@/assets/treatments/web/01-botulinumtoxin-photo.jpg';
-import botulinumLineArt from '@/assets/treatments/web/01-botulinumtoxin-lineart.png';
-import hyaluronPhoto from '@/assets/treatments/web/02-hyaluron-filler-photo.jpg';
-import hyaluronLineArt from '@/assets/treatments/web/02-hyaluron-filler-lineart.png';
-import skinboosterPhoto from '@/assets/treatments/web/03-skinbooster-photo.jpg';
-import skinboosterLineArt from '@/assets/treatments/web/03-skinbooster-lineart.png';
-import microneedlingPhoto from '@/assets/treatments/web/04-microneedling-photo.jpg';
-import microneedlingLineArt from '@/assets/treatments/web/04-microneedling-lineart.png';
-import profhiloPhoto from '@/assets/treatments/web/05-profhilo-photo.jpg';
-import profhiloLineArt from '@/assets/treatments/web/05-profhilo-lineart.png';
-import harmonycaPhoto from '@/assets/treatments/web/06-harmonyca-photo.jpg';
-import harmonycaLineArt from '@/assets/treatments/web/06-harmonyca-lineart.png';
-import sculptraPhoto from '@/assets/treatments/web/07-sculptra-photo.jpg';
-import sculptraLineArt from '@/assets/treatments/web/07-sculptra-lineart.png';
-import lipsPhoto from '@/assets/treatments/web/08-lippenbehandlung-photo.jpg';
-import lipsLineArt from '@/assets/treatments/web/08-lippenbehandlung-lineart.png';
-import prpPhoto from '@/assets/treatments/web/09-prp-exosome-photo.jpg';
-import prpLineArt from '@/assets/treatments/web/09-prp-exosome-lineart.png';
-import polynucleotidesPhoto from '@/assets/treatments/web/10-polynukleotide-photo.jpg';
-import polynucleotidesLineArt from '@/assets/treatments/web/10-polynukleotide-lineart.png';
+import botulinumPhoto from '@/assets/treatments/01-botulinumtoxin-photo.jpg';
+import botulinumLineArt from '@/assets/treatments/01-botulinumtoxin-lineart.png';
+import hyaluronPhoto from '@/assets/treatments/02-hyaluron-filler-photo.jpg';
+import hyaluronLineArt from '@/assets/treatments/02-hyaluron-filler-lineart.png';
+import skinboosterPhoto from '@/assets/treatments/03-skinbooster-photo.jpg';
+import skinboosterLineArt from '@/assets/treatments/03-skinbooster-lineart.png';
+import microneedlingPhoto from '@/assets/treatments/04-microneedling-photo.jpg';
+import microneedlingLineArt from '@/assets/treatments/04-microneedling-lineart.png';
+import profhiloPhoto from '@/assets/treatments/05-profhilo-photo.jpg';
+import profhiloLineArt from '@/assets/treatments/05-profhilo-lineart.png';
+import harmonycaPhoto from '@/assets/treatments/06-harmonyca-photo.jpg';
+import harmonycaLineArt from '@/assets/treatments/06-harmonyca-lineart.png';
+import sculptraPhoto from '@/assets/treatments/07-sculptra-photo.jpg';
+import sculptraLineArt from '@/assets/treatments/07-sculptra-lineart.png';
+import lipsPhoto from '@/assets/treatments/08-lippenbehandlung-photo.jpg';
+import lipsLineArt from '@/assets/treatments/08-lippenbehandlung-lineart.png';
+import prpPhoto from '@/assets/treatments/09-prp-exosome-photo.jpg';
+import prpLineArt from '@/assets/treatments/09-prp-exosome-lineart.png';
+import polynucleotidesPhoto from '@/assets/treatments/10-polynukleotide-photo.jpg';
+import polynucleotidesLineArt from '@/assets/treatments/10-polynukleotide-lineart.png';
 
 const TREATMENTS = [
   {

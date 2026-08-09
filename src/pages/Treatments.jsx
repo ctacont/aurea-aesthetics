@@ -27,7 +27,7 @@ export default function Treatments() {
         description={t('treatmentsPage.seoDesc')}
         path={neutralPath(window.location.pathname)}
         lang={lang}
-        ogImage={IMAGES.texture}
+        ogImage={IMAGES.editorialPortrait}
         jsonLd={[medicalBusinessSchema(settings), breadcrumbSchema(crumbs)]}
       />
       
@@ -36,7 +36,7 @@ export default function Treatments() {
         title={t('treatmentsPage.title')}
         accent={t('treatmentsPage.accent')}
         lead={t('treatmentsPage.lead')}
-        image={IMAGES.texture}
+        image={IMAGES.editorialPortrait}
         breadcrumbs={crumbs}
       />
 

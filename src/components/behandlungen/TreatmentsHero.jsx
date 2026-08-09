@@ -17,7 +17,7 @@ export default function TreatmentsHero({ eyebrow, title, accent, lead }) {
   return (
     <section className="relative flex min-h-[7svh] flex-col justify-end overflow-hidden bg-[#0A0A0A] px-6 pb-24 pt-40 text-white lg:px-16 lg:pb-32 hasan201">
       <div ref={ref} className="absolute inset-0" style={{ transform: `translateY(${offset}px) scale(1.2)` }}>
-        <Image src={IMAGES.texture} alt="" className="h-full w-full" fittingType="fill" />
+        <Image src={IMAGES.editorialPortrait} alt="" className="h-full w-full" fittingType="fill" />
         <div className="absolute inset-0 bg-[#0A0A0A]/45" />
       </div>
 

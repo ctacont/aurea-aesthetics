@@ -35,7 +35,7 @@ export const translations = {
       restraintText: 'Weniger ist häufig medizinisch richtiger. Wir empfehlen konsequent das geringste wirksame Verfahren — und sagen auch ab, wenn eine Behandlung nicht sinnvoll ist.',
       precision: 'Präzision',
       precisionText: 'Anatomische Analyse, millimetergenaue Applikation und dokumentierte Verläufe bilden die Grundlage jeder Behandlung.',
-      alt: 'Warme Steinoberfläche mit Wasserfilm — Sinnbild für Präzision und Fluidität',
+      alt: 'Natürliche Hautdetailaufnahme mit sichtbarer Textur',
     },
     treatmentMatrix: {
       eyebrow: 'Behandlungen',
@@ -402,7 +402,7 @@ export const translations = {
       restraintText: 'Less is often medically more appropriate. We consistently recommend the least effective procedure — and decline treatments that are not sensible.',
       precision: 'Precision',
       precisionText: 'Anatomical analysis, millimetre-precise application, and documented outcomes form the foundation of every treatment.',
-      alt: 'Warm stone surface with a film of water — a symbol of precision and fluidity',
+      alt: 'Natural skin detail with visible texture',
     },
     treatmentMatrix: {
       eyebrow: 'Treatments',

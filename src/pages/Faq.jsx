@@ -25,7 +25,7 @@ export default function Faq() {
         description={t('faq.seoDesc')}
         path={neutralPath(window.location.pathname)}
         lang={lang}
-        ogImage={IMAGES.texture}
+        ogImage={IMAGES.editorialPortrait}
         jsonLd={[faqSchema(faqs), breadcrumbSchema(crumbs), medicalBusinessSchema(settings)]}
       />
       <PageHero
@@ -33,7 +33,7 @@ export default function Faq() {
         title={t('faq.title')}
         accent={t('faq.accent')}
         lead={t('faq.lead')}
-        image={IMAGES.texture}
+        image={IMAGES.editorialPortrait}
         breadcrumbs={crumbs}
       />
 
