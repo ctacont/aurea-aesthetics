@@ -2,6 +2,7 @@ import React from 'react';
 import Seo from '@/components/Seo';
 import PageHero from '@/components/PageHero';
 import StickyCategoryNav from '@/components/behandlungen/StickyCategoryNav';
+import TreatmentSpectrum from '@/components/behandlungen/TreatmentSpectrum';
 import CategoryChapter from '@/components/behandlungen/CategoryChapter';
 import TreatmentEditorial from '@/components/behandlungen/TreatmentEditorial';
 import CategorySection from '@/components/treatment/CategorySection';
@@ -45,6 +46,8 @@ export default function Behandlungen() {
       />
 
       <StickyCategoryNav categories={CATEGORY_LIST} />
+
+      <TreatmentSpectrum />
 
       {CATEGORY_LIST.map((category, ci) => (
         <React.Fragment key={category.slug}>
