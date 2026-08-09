@@ -198,8 +198,8 @@ export const CATEGORIES = {
     accent_en: 'Renewal from within.',
     lead_de: 'Diese Verfahren regen körpereigene Regenerationsprozesse an und verbessern Feuchtigkeit, Elastizität und Textur der Haut.',
     lead_en: 'These procedures stimulate the body\'s own regeneration processes and improve skin hydration, elasticity, and texture.',
-    seoDesc_de: 'Hautqualität und Regeneration in Zürich: Skinbooster, Biostimulation, PRP und Microneedling — für Feuchtigkeit, Elastizität und Ausstrahlung.',
-    seoDesc_en: 'Skin quality and regeneration in Zurich: skin boosters, biostimulation, PRP, and microneedling — for hydration, elasticity, and radiance.',
+    seoDesc_de: 'Hautqualität und Regeneration in Zürich: Skinbooster, Profhilo, HArmonyCa, Sculptra, PRP und Microneedling — für Feuchtigkeit, Elastizität und Ausstrahlung.',
+    seoDesc_en: 'Skin quality and regeneration in Zurich: skin boosters, Profhilo, HArmonyCa, Sculptra, PRP, and microneedling — for hydration, elasticity, and radiance.',
     sections: [
       {
         id: 'skinbooster', subSlug: null, canonical: 'skinbooster',
@@ -236,6 +236,24 @@ export const CATEGORIES = {
         goals_de: ['Feinere Hautstruktur und Poren', 'Verbesserte Aufnahme von Wirkstoffen', 'Milderung feiner Linien und Närbchen'],
         goals_en: ['A finer skin texture and reduced pore visibility', 'Improved absorption of active ingredients', 'Softening of fine lines and minor scarring'],
         duration_de: '30–45 Minuten', duration_en: '30–45 minutes',
+      },
+      {
+        id: 'profhilo', subSlug: null,
+        title_de: 'Profhilo®', title_en: 'Profhilo®',
+        lead_de: 'Flächendeckende Hautverjüngung und Bioremodellierung für mehr Feuchtigkeit, Elastizität und Strahlkraft.',
+        lead_en: 'Comprehensive skin rejuvenation and bioremodelling for improved hydration, elasticity, and radiance.',
+      },
+      {
+        id: 'harmonyca', subSlug: null,
+        title_de: 'HArmonyCa®', title_en: 'HArmonyCa®',
+        lead_de: 'Biostimulator für mehr Volumen und Straffung. Für eine langanhaltende, natürliche Hautverjüngung.',
+        lead_en: 'A biostimulator for enhanced volume and firmness, supporting long-lasting, natural-looking skin rejuvenation.',
+      },
+      {
+        id: 'sculptra', subSlug: null,
+        title_de: 'Sculptra®', title_en: 'Sculptra®',
+        lead_de: 'Stimuliert die körpereigene Kollagenproduktion und verbessert Volumen, Struktur und Spannkraft langfristig.',
+        lead_en: 'Stimulates the body\'s own collagen production and supports long-term improvements in volume, structure, and firmness.',
       },
     ],
   },
