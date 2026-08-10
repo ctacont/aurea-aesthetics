@@ -1,13 +1,19 @@
 import editorialPortrait from '@/assets/aurea-editorial-portrait.jpg';
 import naturalSkinDetail from '@/assets/aurea-natural-skin-detail.jpg';
+import heroPortrait from '@/assets/hero-portrait.jpg';
+import praxisPortrait from '@/assets/praxis-portrait.png';
+import weissesSchlossRestored from '@/assets/Weisses_Schloss_1893_Restored.png';
+import weissesSchlossHaupt169 from '@/assets/Weisses_Schloss_Haupt_16_9.png';
+import doctorBarbaraPhoto from '@/assets/doctor-barbara.png';
+import doctorNadinePhoto from '@/assets/doctor-nadine.png';
 
 export const IMAGES = {
-  hero: 'https://media.base44.com/public/6a6b131f6cc49b3ee60e929e/9554c0ea5_startseite_hero_bild_v2_comp.jpg',
+  hero: heroPortrait,
   editorialPortrait,
   naturalSkinDetail,
-  praxis2: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/f1e1c6999_9554c0ea5_startseite_hero_bild_v2_comp.webp',
-  zurich: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/1644d560f_hero-aurea-standort_comp.jpg',
-  zurich2: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/80f0c09b2_hero_bild_02_darker.jpg',
+  praxis2: praxisPortrait,
+  zurich: weissesSchlossHaupt169,
+  zurich2: weissesSchlossRestored,
   interior: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/8ccbab271_hero_bild_03_darker.jpg',
   mimic: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9147ba321_generated_image.png',
   filler: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/aa2efde7c_generated_image.png',
@@ -17,6 +23,39 @@ export const IMAGES = {
   experience: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/c271a0b69_generated_image.png',
   contact: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9db4a66c8_generated_image.png',
 };
+
+export const DEFAULT_DOCTORS = [
+  {
+    id: 'doc-barbara-matziris',
+    name: 'Barbara Matziris',
+    title: '',
+    specialty: 'Fachärztin für Ästhetische Medizin / FMH',
+    bio_de: 'Spezialisiert auf schonende Injektionsverfahren, Gesichtsharmonisierung und natürliche Hautverjüngung. Mit langjähriger klinischer Expertise steht für sie die individuelle Gesichtsanatomie und ein natürlicher, ausgeruhter Ausdruck im Mittelpunkt.',
+    bio_en: 'Specialised in gentle injection techniques, facial harmonisation, and natural skin rejuvenation. With years of clinical experience, her focus is on individual facial anatomy and natural, rested results.',
+    qualifications: [
+      'Fachärztin FMH für Ästhetische Medizin',
+      'Mitglied der Schweizerischen Gesellschaft für Ästhetische Medizin',
+      'Experte für Ultraschall-gestützte Injektionstechniken',
+    ],
+    photo_url: doctorBarbaraPhoto,
+    order: 1,
+  },
+  {
+    id: 'doc-nadine-dovi-akue',
+    name: 'Nadine Dovi-Akue',
+    title: '',
+    specialty: 'Fachärztin für Ästhetische Medizin / FMH',
+    bio_de: 'Fokus auf Biostimulation, Hautqualität und regenerative Ästhetik. Ihr Ansatz verbindet präzise medizinische Planung mit feinstem Gespür für Proportionen und nachhaltige Geweberegeneration.',
+    bio_en: 'Focused on biostimulation, skin quality, and regenerative aesthetics. Her approach combines precise medical planning with a refined sense of proportion and long-term tissue renewal.',
+    qualifications: [
+      'Fachärztin FMH für Ästhetische Medizin',
+      'Spezialisierung auf Kollagenstimulation & Biostimulatoren',
+      'Zertifizierte Anwenderin für minimalinvasive Gesichtsbehandlungen',
+    ],
+    photo_url: doctorNadinePhoto,
+    order: 2,
+  },
+];
 
 export const LOGO = '/aurea_logo_transparent_2.png';
 export const LOGO_ABSOLUTE = 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/ab0e6c25c_aurea_logo_transparent_2.png';
@@ -54,13 +93,13 @@ export const PILLARS = {
   de: [
     { title: 'Diskretion', text: 'Ruhige Räume in Zürich. Eine Umgebung, in der Ruhe und persönliche Betreuung den Takt vorgeben.' },
     { title: 'Individuelle Planung', text: 'Jedes Gesicht ist einmalig. Wir arbeiten nicht mit Standardprotokollen.' },
-    { title: 'Begrenzte Terminanzahl', text: 'Wir nehmen bewusst wenige Patientinnen und Patienten auf, um Zeit zu haben.' },
-    { title: 'Persönliche Kontinuität', text: 'Dieselbe Ärztin, derselbe Arzt — von der Beratung bis zur Nachkontrolle.' },
+    { title: 'Persönliche Betreuung', text: 'Wir nehmen uns für jeden Patienten ausreichend Zeit, um Ruhe und höchste medizinische Sorgfalt zu gewährleisten.' },
+    { title: 'Persönliche Kontinuität', text: 'Dieselbe Ärztin — von der ersten Beratung bis zur Nachkontrolle.' },
   ],
   en: [
     { title: 'Discretion', text: 'Calm rooms in Zurich. An environment where calm and personal care set the pace.' },
     { title: 'Individual planning', text: 'Every face is unique. We do not work with standard protocols.' },
-    { title: 'Limited appointments', text: 'We deliberately accept few patients to have time.' },
+    { title: 'Personal Care', text: 'We dedicate ample time to every patient to ensure calm and the highest medical standard.' },
     { title: 'Personal continuity', text: 'The same physician — from consultation to follow-up.' },
   ],
 };
@@ -71,7 +110,7 @@ export const GENERAL_FAQS = {
     { q: 'Sind die Behandlungen schmerzhaft?', a: 'Die meisten minimalinvasiven Behandlungen werden als gut erträglich beschrieben. Wir verwenden je nach Verfahren betäubende Cremes oder Lokalanästhesie und arbeiten mit feinsten Instrumenten.' },
     { q: 'Wann sehe ich Ergebnisse?', a: 'Das hängt vom Verfahren ab. Hyaluron-Filler zeigen sofort ein Ergebnis, die Behandlung mimischer Falten nach drei bis zehn Tagen, Biostimulatoren nach mehreren Wochen. Auf jeder Behandlungsseite finden Sie konkrete Angaben.' },
     { q: 'Werden Kosten von der Krankenkasse übernommen?', a: 'Ästhetisch-medizinische Behandlungen sind in der Schweiz grundsätzlich Selbstzahlerleistungen und werden nicht von der Grundversicherung übernommen. Bei medizinischer Indikation prüfen wir die Situation individuell.' },
-    { q: 'Wie diskret ist die Praxis?', a: 'Diskretion ist ein Grundpfeiler unserer Arbeit. Wir arbeiten ausschliesslich mit Terminvereinbarung und bewusst begrenzter Auslastung, sodass Sie sich nie in einem vollen Wartebereich befinden.' },
+    { q: 'Wie diskret ist die Praxis?', a: 'Diskretion ist ein Grundpfeiler unserer Arbeit. Wir arbeiten ausschliesslich mit Terminvereinbarung, sodass Sie sich nie in einem vollen Wartebereich befinden.' },
     { q: 'Was unterscheidet Aurea Aesthetics von anderen Anbietern?', a: 'Wir behandeln ästhetische Medizin als Medizin — nicht als Kosmetikdienstleistung. Individuelle Anatomie, sorgfältige Aufklärung, natürliche Ergebnisse und persönliche Kontinuität stehen über schnellen Terminen und Aktionspreisen.' },
   ],
   en: [
@@ -79,7 +118,7 @@ export const GENERAL_FAQS = {
     { q: 'Are the treatments painful?', a: 'Most minimally invasive treatments are described as well tolerated. Depending on the procedure, we use numbing creams or local anaesthesia and work with the finest instruments.' },
     { q: 'When will I see results?', a: 'This depends on the procedure. Hyaluronic fillers show an immediate result, treatment of mimic wrinkles after three to ten days, biostimulators after several weeks. You will find specific details on each treatment page.' },
     { q: 'Are costs covered by health insurance?', a: 'Aesthetic-medical treatments are self-pay services in Switzerland and are not covered by basic insurance. If there is a medical indication, we review the situation individually.' },
-    { q: 'How discreet is the practice?', a: 'Discretion is a cornerstone of our work. We work exclusively by appointment and with intentionally limited capacity, so you never find yourself in a crowded waiting area.' },
+    { q: 'How discreet is the practice?', a: 'Discretion is a cornerstone of our work. We work exclusively by appointment so you never find yourself in a crowded waiting area.' },
     { q: 'What sets Aurea Aesthetics apart from other providers?', a: 'We treat aesthetic medicine as medicine — not as a cosmetic service. Individual anatomy, careful explanation, natural results, and personal continuity take priority over quick appointments and promotional prices.' },
   ],
 };

@@ -47,7 +47,7 @@ export default function DoctorPortraitCard({
           >
             <Image
               src={doctor.photo_url || IMAGES.interior}
-              alt={`${doctor.title || ''} ${doctor.name}`.trim()}
+              alt={doctor.name}
               className="h-full w-full object-cover"
               fittingType="fill"
             />
@@ -73,7 +73,7 @@ export default function DoctorPortraitCard({
         className={`${textSlideClass} duration-[1900ms]`}
       >
         <h3 className="mt-2 font-heading text-2xl font-light leading-snug md:text-3xl">
-          {`${doctor.title || ''} ${doctor.name}`.trim()}
+          {doctor.name}
         </h3>
       </Reveal>
 

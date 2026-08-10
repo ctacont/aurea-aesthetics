@@ -211,9 +211,16 @@ const Image = React.forwardRef(
 
     if (!parsed) {
       const isErrorUrl = imgSrc === FALLBACK_IMAGE_URL;
+      const fitClass = fittingType === "fit" ? "object-contain" : "object-cover";
       return (
-        <img ref={ref} src={imgSrc} {...imageProps} data-error-image={isErrorUrl || undefined} />);
-
+        <img
+          ref={ref}
+          src={imgSrc}
+          {...imageProps}
+          className={cn("w-full h-full", fitClass, props.className)}
+          data-error-image={isErrorUrl || undefined}
+        />
+      );
     }
 
     const focalPoint =

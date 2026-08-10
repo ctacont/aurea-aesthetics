@@ -42,7 +42,7 @@ export default function DoctorProfile({
             >
               <Image
                 src={doctor.photo_url || IMAGES.interior}
-                alt={`${doctor.title || ''} ${doctor.name}`.trim()}
+                alt={doctor.name}
                 className="h-full w-full object-cover"
                 fittingType="fill"
               />
@@ -61,7 +61,7 @@ export default function DoctorProfile({
         >
           {doctor.specialty && (
             <p className="eyebrow text-[#8A7550]">
-              {`${doctor.title || ''} ${doctor.name}`.trim()} — {doctor.specialty}
+              {doctor.name} — {doctor.specialty}
             </p>
           )}
 

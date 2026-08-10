@@ -1,6 +1,9 @@
 // Standalone SEO subpages — Paket 3. Static content, medically plausible,
 // pending final client approval (see AGENTS.md "Content Approval Status").
 // Shape mirrors the Treatment entity; faqs use q_de/a_de + q_en/a_en pairs.
+// Standalone SEO subpages — Paket 3. Static content, medically plausible,
+// pending final client approval (see AGENTS.md "Content Approval Status").
+// Shape mirrors the Treatment entity; faqs use q_de/a_de + q_en/a_en pairs.
 // Fact-grid fields (duration/downtime/results_onset/results_duration/price_from)
 // and risks/contraindications have explicit _en variants so the English
 // version never falls back to German medical/safety text.
@@ -19,19 +22,6 @@ export const SUB_TREATMENTS = {
     lead_de: 'Horizontale Fältchen auf der Stirn entstehen durch wiederholte Anspannung des Stirnmuskels. Eine präzise dosierte Behandlung glättet die Linien, ohne die Mimik zu erstarren.',
     lead_en: 'Horizontal forehead lines form through repeated tension of the frontalis muscle. A precisely dosed treatment smooths the lines without freezing expression.',
     image_url: stirnfaltenEditorial,
-    indications: ['Horizontale Stirnfalten in Ruhe oder bei Bewegung', 'Beginnende, noch dynamische Faltenbildung', 'Wunsch nach präventiver Behandlung'],
-    mechanism_de: 'Botulinumtoxin blockiert vorübergehend die Signalübertragung zwischen Nerv und Muskel im Bereich des Musculus frontalis. Die überaktive Muskelanspannung, die die Falten erzeugt, wird reduziert, während die Haut sich glättet.',
-    mechanism_en: 'Botulinum toxin temporarily blocks signal transmission between nerve and muscle in the frontalis area. The overactive muscle tension that creates the lines is reduced, allowing the skin to smooth.',
-    procedure_de: 'Nach einer ausführlichen Anamnese und Analyse Ihrer Mimik wird die Substanz mit einer feinen Nadel in mehreren kleinen Mengen in den Stirnmuskel injiziert. Die Behandlung dauert 15 bis 20 Minuten und erfordert keine Betäubung.',
-    procedure_en: 'Following a thorough history and analysis of your facial expression, the substance is injected in several small amounts into the frontalis muscle using a fine needle. The treatment takes 15 to 20 minutes and requires no anaesthesia.',
-    duration: '15–20 Minuten', duration_en: '15–20 minutes',
-    downtime: 'Keine', downtime_en: 'None',
-    results_onset: '3–10 Tage', results_onset_en: '3–10 days',
-    results_duration: '4–6 Monate', results_duration_en: '4–6 months',
-    price_from: 'Auf Anfrage', price_from_en: 'On request',
-    aftercare_de: 'Nach der Behandlung sollten Sie für einige Stunden aufrechte Körperhaltung bewahren und die behandelte Region nicht reiben oder massieren. Sport und Sauna sollten am Behandlungstag vermieden werden.',
-    aftercare_en: 'After treatment, remain upright for several hours and avoid rubbing or massaging the treated area. Exercise and sauna should be avoided on the day of treatment.',
-    risks_de: 'Mögliche vorübergehende Nebenwirkungen umfassen leichte Rötung, Schwellung oder kleine Blutergüsse an den Einstichstellen. Selten kann es zu einem vorübergehenden Hängen des Augenlids kommen.',
     risks_en: 'Possible temporary side effects include mild redness, swelling, or small bruises at the injection sites. Rarely, temporary eyelid drooping can occur.',
     contraindications_de: 'Nicht geeignet bei bestimmten neuromuskulären Erkrankungen, in der Schwangerschaft und Stillzeit sowie bei Infektionen im Behandlungsbereich.',
     contraindications_en: 'Not suitable for certain neuromuscular disorders, during pregnancy and breastfeeding, or in the presence of infections in the treatment area.',
@@ -39,7 +29,7 @@ export const SUB_TREATMENTS = {
       { q_de: 'Wie schnell wirkt die Behandlung?', a_de: 'Erste Effekte zeigen sich meist nach 3 bis 5 Tagen, das volle Ergebnis nach etwa zwei Wochen.', q_en: 'How quickly does the treatment work?', a_en: 'Initial effects usually appear after 3 to 5 days, with the full result visible after about two weeks.' },
       { q_de: 'Sieht man, dass ich behandelt wurde?', a_de: 'Bei fachgerechter, individuell dosierter Anwendung bleibt die Mimik natürlich beweglich — ein "eingefrorener" Ausdruck ist nicht das Ziel.', q_en: 'Will it be visible that I was treated?', a_en: 'With expert, individually dosed application, expression remains naturally mobile — a "frozen" look is not the goal.' },
     ],
-    medical_reviewer: 'Dr. med. Barbara Matziris',
+    medical_reviewer: 'Barbara Matziris',
   },
   zornesfalte: {
     slug: 'zornesfalte', category: 'botulinumtoxin', categoryPath: '/behandlungen/botulinumtoxin',
@@ -70,7 +60,7 @@ export const SUB_TREATMENTS = {
     faqs: [
       { q_de: 'Kann die Zornesfalte ganz verschwinden?', a_de: 'Die dynamische Faltenbildung wird deutlich reduziert. Bereits sehr tief eingegrabene Falten in Ruhe können in Kombination mit weiteren Verfahren behandelt werden.', q_en: 'Can the frown line disappear completely?', a_en: 'Dynamic line formation is significantly reduced. Very deeply etched static lines may be addressed in combination with other procedures.' },
     ],
-    medical_reviewer: 'Dr. med. Barbara Matziris',
+    medical_reviewer: 'Barbara Matziris',
   },
   kraehenfuesse: {
     slug: 'kraehenfuesse', category: 'botulinumtoxin', categoryPath: '/behandlungen/botulinumtoxin',
@@ -101,7 +91,7 @@ export const SUB_TREATMENTS = {
     faqs: [
       { q_de: 'Beeinträchtigt die Behandlung mein Lachen?', a_de: 'Bei sorgfältiger, niedriger Dosierung bleibt das natürliche Lachen erhalten — Ziel ist die Reduktion der Fältchen, nicht die Einschränkung der Mimik.', q_en: 'Will the treatment affect my smile?', a_en: 'With careful, low dosing, natural smiling is preserved — the goal is reducing the lines, not restricting expression.' },
     ],
-    medical_reviewer: 'Dr. med. Barbara Matziris',
+    medical_reviewer: 'Barbara Matziris',
   },
   'masseter-zaehneknirschen': {
     slug: 'masseter-zaehneknirschen', category: 'botulinumtoxin', categoryPath: '/behandlungen/botulinumtoxin',
@@ -133,7 +123,7 @@ export const SUB_TREATMENTS = {
       { q_de: 'Wie lange dauert es, bis sich der Kiefer schlanker zeigt?', a_de: 'Die konturierende Wirkung zeigt sich meist nach 4 bis 8 Wochen, da sich der Muskel über diese Zeit zurückbildet.', q_en: 'How long until the jaw appears slimmer?', a_en: 'The contouring effect usually becomes visible after 4 to 8 weeks, as the muscle gradually reduces in size.' },
       { q_de: 'Hilft die Behandlung wirklich gegen Knirschen?', a_de: 'Viele Patientinnen und Patienten berichten von deutlich weniger nächtlichem Knirschen und Verspannung. Bei ausgeprägtem Bruxismus empfehlen wir zusätzlich eine zahnärztliche Abklärung.', q_en: 'Does the treatment really help with grinding?', a_en: 'Many patients report significantly less nighttime grinding and tension. For pronounced bruxism, we also recommend a dental evaluation.' },
     ],
-    medical_reviewer: 'Dr. med. Nadine Dovi-Akue',
+    medical_reviewer: 'Nadine Dovi-Akue',
   },
   schwitzen: {
     slug: 'schwitzen', category: 'botulinumtoxin', categoryPath: '/behandlungen/botulinumtoxin',
@@ -164,7 +154,7 @@ export const SUB_TREATMENTS = {
     faqs: [
       { q_de: 'Wie lange hält die Wirkung an?', a_de: 'Die Wirkung hält je nach Körperregion in der Regel 6 bis 9 Monate an, an den Achseln oft am längsten.', q_en: 'How long does the effect last?', a_en: 'Depending on the body region, the effect typically lasts 6 to 9 months, often longest in the underarms.' },
     ],
-    medical_reviewer: 'Dr. med. Nadine Dovi-Akue',
+    medical_reviewer: 'Nadine Dovi-Akue',
   },
   lippenbehandlung: {
     slug: 'lippenbehandlung', category: 'hyaluron-konturierung', categoryPath: '/behandlungen/hyaluron-konturierung',
@@ -195,7 +185,7 @@ export const SUB_TREATMENTS = {
     faqs: [
       { q_de: 'Wirken die Lippen danach künstlich?', a_de: 'Ziel ist ein ausgewogenes, der eigenen Anatomie entsprechendes Ergebnis. Wir arbeiten mit zurückhaltender Dosierung und bauen Volumen bei Bedarf über mehrere Sitzungen auf.', q_en: 'Will the lips look artificial afterwards?', a_en: 'The goal is a balanced result that suits your own anatomy. We work with restrained dosing and build volume gradually over multiple sessions if needed.' },
     ],
-    medical_reviewer: 'Dr. med. Barbara Matziris',
+    medical_reviewer: 'Barbara Matziris',
   },
   jawline: {
     slug: 'jawline', category: 'hyaluron-konturierung', categoryPath: '/behandlungen/hyaluron-konturierung',
@@ -226,7 +216,7 @@ export const SUB_TREATMENTS = {
     faqs: [
       { q_de: 'Wird das Gesicht dadurch breiter?', a_de: 'Bei fachgerechter Platzierung entlang des Knochens wirkt die Kieferlinie definierter, nicht breiter — die Konturierung folgt der individuellen Anatomie.', q_en: 'Will this make the face wider?', a_en: 'With expert placement along the bone, the jawline appears more defined, not wider — contouring follows individual anatomy.' },
     ],
-    medical_reviewer: 'Dr. med. Nadine Dovi-Akue',
+    medical_reviewer: 'Nadine Dovi-Akue',
   },
   prp: {
     slug: 'prp', category: 'hautqualitaet-regeneration', categoryPath: '/behandlungen/hautqualitaet-regeneration',
@@ -257,7 +247,7 @@ export const SUB_TREATMENTS = {
     faqs: [
       { q_de: 'Ist PRP ein rein natürliches Verfahren?', a_de: 'Ja, es wird ausschliesslich körpereigenes Material verwendet — es kommen keine Fremdsubstanzen zum Einsatz.', q_en: 'Is PRP a fully natural procedure?', a_en: 'Yes, only your own body\'s material is used — no foreign substances are involved.' },
     ],
-    medical_reviewer: 'Dr. med. Barbara Matziris',
+    medical_reviewer: 'Barbara Matziris',
   },
   microneedling: {
     slug: 'microneedling', category: 'hautqualitaet-regeneration', categoryPath: '/behandlungen/hautqualitaet-regeneration',
@@ -288,6 +278,6 @@ export const SUB_TREATMENTS = {
     faqs: [
       { q_de: 'Wie viele Sitzungen sind empfehlenswert?', a_de: 'Für ein sichtbares Ergebnis empfehlen wir in der Regel eine Serie von 3 bis 4 Sitzungen im Abstand von 4 bis 6 Wochen.', q_en: 'How many sessions are recommended?', a_en: 'For a visible result, we generally recommend a series of 3 to 4 sessions spaced 4 to 6 weeks apart.' },
     ],
-    medical_reviewer: 'Dr. med. Nadine Dovi-Akue',
+    medical_reviewer: 'Nadine Dovi-Akue',
   },
 };

@@ -163,8 +163,8 @@ function TreatmentStory({ treatment, index, suffix, copy, shouldReduceMotion }) 
     progress,
     [0, 0.22, 0.78, 1],
     isMobile
-      ? ['inset(4% 3%)', 'inset(0%)', 'inset(0%)', 'inset(3% 2%)']
-      : ['inset(10% 8%)', 'inset(0%)', 'inset(0%)', 'inset(7% 5%)'],
+      ? ['inset(0%)', 'inset(0%)', 'inset(0%)', 'inset(0%)']
+      : ['inset(8% 6%)', 'inset(0%)', 'inset(0%)', 'inset(6% 4%)'],
   );
   const lineArtY = useTransform(
     progress,
@@ -192,7 +192,7 @@ function TreatmentStory({ treatment, index, suffix, copy, shouldReduceMotion }) 
           style={{ clipPath: shouldReduceMotion ? 'inset(0%)' : imageClip }}
           className="relative z-0 overflow-hidden bg-[#E8E1D8] shadow-[0_28px_70px_rgba(38,29,19,0.12)]"
         >
-          <div className="relative aspect-[5/4] overflow-hidden md:h-full md:min-h-[30rem] md:aspect-auto">
+          <div className="relative aspect-[4/3] sm:aspect-[5/4] overflow-hidden md:h-full md:min-h-[30rem] md:aspect-auto">
             <motion.img
               src={treatment.photo}
               alt={copy.photoAlt(title)}
@@ -202,7 +202,7 @@ function TreatmentStory({ treatment, index, suffix, copy, shouldReduceMotion }) 
                 y: shouldReduceMotion ? 0 : imageY,
                 scale: shouldReduceMotion ? 1 : imageScale,
               }}
-              className="absolute -inset-y-[10%] inset-x-0 h-[120%] w-full object-cover will-change-transform"
+              className="h-full w-full object-cover object-center will-change-transform"
             />
             <div
               aria-hidden="true"

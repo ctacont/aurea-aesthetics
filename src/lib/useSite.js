@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { base44 } from '@/api/base44Client';
-import { DEFAULTS } from '@/lib/site';
+import { DEFAULTS, DEFAULT_DOCTORS } from '@/lib/site';
 
 export function useSettings() {
   const { data, isLoading } = useQuery({
@@ -25,7 +25,23 @@ export function useTreatments() {
 export function useDoctors() {
   return useQuery({
     queryKey: ['doctors'],
-    queryFn: () => base44.entities.Doctor.list('order'),
+    queryFn: async () => {
+      try {
+        const rows = await base44.entities.Doctor.list('order');
+        const list = rows && rows.length > 0 ? rows : DEFAULT_DOCTORS;
+        return list.map((doc) => ({
+          ...doc,
+          title: '',
+          name: (doc.name || '').replace(/Dr\.\s*med\.\s*/gi, '').replace(/Dr\.\s*/gi, '').trim(),
+        }));
+      } catch (e) {
+        return DEFAULT_DOCTORS.map((doc) => ({
+          ...doc,
+          title: '',
+          name: (doc.name || '').replace(/Dr\.\s*med\.\s*/gi, '').replace(/Dr\.\s*/gi, '').trim(),
+        }));
+      }
+    },
     staleTime: 60_000,
   });
 }

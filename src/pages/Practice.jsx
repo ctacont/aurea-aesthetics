@@ -66,7 +66,7 @@ export default function Practice() {
           <Reveal delay={700} className="lg:col-span-5 translate-x-12">
             <div ref={imgRef} className="relative aspect-[4/5] w-full overflow-hidden">
               <div style={{ transform: `translateY(${offset}px) scale(1.12)` }} className="h-full w-full">
-                <Image src={IMAGES.praxis2} alt={t('practice.selfAlt')} className="h-full w-full" fittingType="fill" />
+                <Image src={IMAGES.praxis2} alt={t('practice.selfAlt')} className="h-full w-full object-cover object-center" fittingType="cover" />
               </div>
             </div>
           </Reveal>

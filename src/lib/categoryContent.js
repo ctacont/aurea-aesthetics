@@ -1,5 +1,7 @@
 // Hybrid treatment structure — Paket 3.
 // Each category page lists anchor-linkable sections; some sections point to a
+// Hybrid treatment structure — Paket 3.
+// Each category page lists anchor-linkable sections; some sections point to a
 // standalone SEO subpage (subSlug), others exist only as an anchor section.
 // Durations/costs are medically plausible placeholders pending client approval
 // (see AGENTS.md "Content Approval Status").
@@ -15,8 +17,8 @@ export const CATEGORIES = {
     title_en: 'Botulinum toxin.',
     accent_de: 'Mimik im Gleichgewicht.',
     accent_en: 'Expression, balanced.',
-    lead_de: 'Die Behandlung mimischer Falten wirkt gezielt auf überaktive Muskulatur und glättet Ausdrucksfalten, ohne die natürliche Mimik zu verändern.',
-    lead_en: 'Treatment of mimic wrinkles works precisely on overactive muscles and smooths expression lines without altering natural facial movement.',
+    lead_de: 'Die Behandlung mimischer Falten wirkt gezielt auf die mimische Muskulatur und glättet Ausdrucksfalten sanft, während eine natürliche Mimik beibehalten wird.',
+    lead_en: 'Treatment of mimic wrinkles targets facial muscles and gently smooths expression lines while maintaining natural facial expression.',
     seoDesc_de: 'Botulinumtoxin-Behandlungen in Zürich: Stirnfalten, Zornesfalte, Krähenfüsse, Brow Lift, Masseter und mehr — ärztlich durchgeführt, individuell dosiert.',
     seoDesc_en: 'Botulinum toxin treatments in Zurich: frown lines, forehead lines, crow\'s feet, brow lift, masseter and more — physician-led, individually dosed.',
     sections: [
@@ -233,10 +235,10 @@ export const CATEGORIES = {
       {
         id: 'microneedling', subSlug: 'microneedling',
         title_de: 'Microneedling', title_en: 'Microneedling',
-        lead_de: 'Feinste Nadeln setzen gezielte Mikroverletzungen, die die Kollagen- und Elastinbildung der Haut anregen.',
-        lead_en: 'Fine needles create controlled micro-injuries that stimulate the skin\'s collagen and elastin production.',
-        goals_de: ['Feinere Hautstruktur und Poren', 'Verbesserte Aufnahme von Wirkstoffen', 'Milderung feiner Linien und Närbchen'],
-        goals_en: ['A finer skin texture and reduced pore visibility', 'Improved absorption of active ingredients', 'Softening of fine lines and minor scarring'],
+        lead_de: 'Feinste Nadeln setzen gezielte Mikroverletzungen, die die Kollagen- und Elastinbildung der Haut anregen und Pigmentflecken sowie Hautunebenheiten sichtbar verbessern.',
+        lead_en: 'Fine needles create controlled micro-injuries that stimulate the skin\'s collagen and elastin production, noticeably improving pigment spots and skin texture.',
+        goals_de: ['Feinere Hautstruktur und Poren', 'Verbesserung von Pigmentflecken', 'Verbesserte Aufnahme von Wirkstoffen', 'Milderung feiner Linien und Närbchen'],
+        goals_en: ['A finer skin texture and reduced pore visibility', 'Improvement of pigment spots', 'Improved absorption of active ingredients', 'Softening of fine lines and minor scarring'],
         duration_de: '30–45 Minuten', duration_en: '30–45 minutes',
       },
       {
@@ -248,8 +250,8 @@ export const CATEGORIES = {
       {
         id: 'harmonyca', subSlug: null,
         title_de: 'HArmonyCa®', title_en: 'HArmonyCa®',
-        lead_de: 'Biostimulator für mehr Volumen und Straffung. Für eine langanhaltende, natürliche Hautverjüngung.',
-        lead_en: 'A biostimulator for enhanced volume and firmness, supporting long-lasting, natural-looking skin rejuvenation.',
+        lead_de: 'Liquid Facelift und Biostimulator für mehr Volumen und Straffung. Für eine langanhaltende, natürliche Hautverjüngung.',
+        lead_en: 'Liquid facelift and biostimulator for enhanced volume and firmness, supporting long-lasting, natural-looking skin rejuvenation.',
       },
       {
         id: 'sculptra', subSlug: null,

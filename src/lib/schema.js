@@ -75,7 +75,7 @@ export function physicianSchema(doc) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Physician',
-    name: `${doc.title || ''} ${doc.name}`.trim(),
+    name: (doc.name || '').replace(/Dr\.\s*med\.\s*/gi, '').replace(/Dr\.\s*/gi, '').trim(),
     medicalSpecialty: doc.specialty,
     ...(doc.photo_url ? { image: doc.photo_url } : {}),
     worksFor: { '@id': BUSINESS_ID },
