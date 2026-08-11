@@ -13,7 +13,10 @@ export default function DoctorPortraitCard({
   const { lang } = useLanguage();
   const { ref, offset } = useParallax(0.08);
 
-  const bio = loc(doctor, 'bio', lang) || doctor.bio_de;
+  const specialtyText = loc(doctor, 'specialty', lang) || doctor.specialty || doctor.title;
+  const bioRaw = loc(doctor, 'bio', lang) || doctor.bio_de;
+  const bio = bioRaw ? bioRaw.split('\n\n')[0] : '';
+  const qualifications = (lang === 'en' && doctor.qualifications_en) ? doctor.qualifications_en : doctor.qualifications;
 
   // Stärkerer Effekt für das Bild
   const imageSlideClass =
@@ -56,13 +59,13 @@ export default function DoctorPortraitCard({
       </Reveal>
 
       {/* FACHGEBIET */}
-      {doctor.specialty && (
+      {specialtyText && (
         <Reveal
           delay={delay + 140}
           className={`${textSlideClass} duration-[1800ms]`}
         >
           <p className="mt-6 eyebrow text-[#8A7550]">
-            {doctor.specialty}
+            {specialtyText}
           </p>
         </Reveal>
       )}
@@ -77,7 +80,7 @@ export default function DoctorPortraitCard({
         </h3>
       </Reveal>
 
-      {/* BIO */}
+      {/* BIO TEASER */}
       {bio && (
         <Reveal
           delay={delay + 340}
@@ -90,13 +93,13 @@ export default function DoctorPortraitCard({
       )}
 
       {/* QUALIFIKATIONEN */}
-      {doctor.qualifications?.length > 0 && (
+      {qualifications?.length > 0 && (
         <Reveal
           delay={delay + 440}
           className={`${textSlideClass} duration-[2100ms]`}
         >
           <ul className="mt-6 space-y-2.5">
-            {doctor.qualifications.map((q) => (
+            {qualifications.slice(0, 4).map((q) => (
               <li
                 key={q}
                 className="flex gap-3 text-sm leading-relaxed text-neutral-600"

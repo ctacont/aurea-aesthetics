@@ -28,30 +28,132 @@ export const DEFAULT_DOCTORS = [
   {
     id: 'doc-barbara-matziris',
     name: 'Barbara Matziris',
-    title: '',
-    specialty: 'Fachärztin für Ästhetische Medizin / FMH',
-    bio_de: 'Spezialisiert auf schonende Injektionsverfahren, Gesichtsharmonisierung und natürliche Hautverjüngung. Mit langjähriger klinischer Expertise steht für sie die individuelle Gesichtsanatomie und ein natürlicher, ausgeruhter Ausdruck im Mittelpunkt.',
-    bio_en: 'Specialised in gentle injection techniques, facial harmonisation, and natural skin rejuvenation. With years of clinical experience, her focus is on individual facial anatomy and natural, rested results.',
+    title: 'Ärztliche Leitung · Fachärztin · Ästhetische Medizin',
+    specialty: 'Ärztliche Leitung · Fachärztin · Ästhetische Medizin',
+    specialty_en: 'Medical Director · Specialist Physician · Aesthetic Medicine',
+    bio_de: `Barbara Matziris verfügt über mehr als zehn Jahre Erfahrung in der minimalinvasiven ästhetischen Medizin. Bereits seit 2010 ist sie ärztlich im Bereich ästhetischer Behandlungen tätig. Ihre berufliche Laufbahn führte sie durch Deutschland, die Schweiz und Togo – von der dermatologischen Praxis über eine eigene Praxis für ästhetische Medizin bis hin zur leitenden ärztlichen Tätigkeit in einer ästhetischen Klinik in Winterthur.
+
+Im Mittelpunkt ihres Behandlungsansatzes steht eine sorgfältige Analyse von Gesichtsanatomie, Proportionen und Mimik. Ihr Ziel ist nicht die Veränderung eines Gesichts, sondern eine individuell abgestimmte Behandlung, die Frische und Harmonie unterstützt und gleichzeitig die persönliche Ausdruckskraft bewahrt.
+
+Ihre Expertise in der ästhetischen Medizin vertiefte Barbara Matziris unter anderem durch zertifizierte Fortbildungen der Deutschen Gesellschaft für Ästhetische Botulinum- und Fillertherapie (DGBT) in den Bereichen Botulinumtoxin und Filler.
+
+Mit ihrer offenen und persönlichen Art legt sie besonderen Wert auf verständliche Beratung, realistische Erwartungen und Behandlungskonzepte, die medizinisch sinnvoll und ästhetisch zurückhaltend sind. Als ärztliche Leitung von Aurea Aesthetics verantwortet sie die medizinischen Standards der Klinik und begleitet Patientinnen und Patienten von der ersten Beratung bis zur Nachkontrolle.`,
+    bio_en: `Barbara Matziris brings over ten years of experience in minimally invasive aesthetic medicine. Active as a physician in aesthetic treatments since 2010, her career path has taken her through Germany, Switzerland, and Togo — from dermatological practice to running her own aesthetic medicine clinic and serving as lead physician at an aesthetic clinic in Winterthur.
+
+At the core of her treatment philosophy is a precise analysis of facial anatomy, proportions, and expression. Her goal is not to change a face, but to provide individually tailored treatments that enhance freshness and harmony while preserving natural expressiveness.
+
+She deepened her expertise in aesthetic medicine through certified training with the German Society for Aesthetic Botulinum and Filler Therapy (DGBT) in botulinum toxin and fillers.
+
+With her open and personal approach, she places great importance on clear consultation, realistic expectations, and treatment concepts that are medically sound and aesthetically restrained. As Medical Director of Aurea Aesthetics, she oversees the clinic's medical standards and guides patients from initial consultation to follow-up.`,
     qualifications: [
-      'Fachärztin FMH für Ästhetische Medizin',
-      'Mitglied der Schweizerischen Gesellschaft für Ästhetische Medizin',
-      'Experte für Ultraschall-gestützte Injektionstechniken',
+      'Fachärztin für Allgemeinmedizin, Deutschland',
+      'Praktische Ärztin, Schweiz',
+      'Studium der Humanmedizin · Universität zu Köln',
+      'Ärztliche Approbation · Deutschland',
+      'Mehr als zehn Jahre Erfahrung in der ästhetischen Medizin',
+      'Eigene Praxis für ästhetische Medizin · 2018–2026',
+      'Leitende Ärztin einer ästhetischen Klinik in Winterthur · 2025–2026',
+      'Zertifizierte DGBT-Fortbildungen · Botulinumtoxin & Filler',
     ],
+    qualifications_en: [
+      'Specialist in General Medicine, Germany',
+      'Practicing Physician, Switzerland',
+      'Medical Studies · University of Cologne',
+      'Medical Licensure · Germany',
+      'Over ten years of experience in aesthetic medicine',
+      'Private Practice for Aesthetic Medicine · 2018–2026',
+      'Lead Physician at an Aesthetic Clinic in Winterthur · 2025–2026',
+      'Certified DGBT Training · Botulinum Toxin & Fillers',
+    ],
+    focus: [
+      'Botulinumtoxin',
+      'Hyaluronsäure',
+      'Biostimulation',
+      'Skin Quality',
+      'Individuelle Behandlungskonzepte',
+    ],
+    focus_en: [
+      'Botulinum Toxin',
+      'Hyaluronic Acid',
+      'Biostimulation',
+      'Skin Quality',
+      'Individual Treatment Concepts',
+    ],
+    languages: 'Deutsch · Englisch · Französisch · Griechisch',
+    languages_en: 'German · English · French · Greek',
+    quote: '„Eine gute ästhetische Behandlung verändert nicht den Menschen. Sie unterstützt das, was bereits zu ihm gehört.“',
+    quote_en: '"A good aesthetic treatment does not change a person. It supports what already belongs to them."',
     photo_url: doctorBarbaraPhoto,
     order: 1,
   },
   {
     id: 'doc-nadine-dovi-akue',
-    name: 'Nadine Dovi-Akue',
-    title: '',
-    specialty: 'Fachärztin für Ästhetische Medizin / FMH',
-    bio_de: 'Fokus auf Biostimulation, Hautqualität und regenerative Ästhetik. Ihr Ansatz verbindet präzise medizinische Planung mit feinstem Gespür für Proportionen und nachhaltige Geweberegeneration.',
-    bio_en: 'Focused on biostimulation, skin quality, and regenerative aesthetics. Her approach combines precise medical planning with a refined sense of proportion and long-term tissue renewal.',
+    name: 'Nadine Dovi-Akué',
+    title: 'Fachärztin für Augenheilkunde, FEBO · Ästhetische Medizin',
+    specialty: 'Fachärztin für Augenheilkunde, FEBO · Ästhetische Medizin',
+    specialty_en: 'Specialist in Ophthalmology, FEBO · Aesthetic Medicine',
+    bio_de: `Nadine Dovi-Akué verbindet ihre langjährige fachärztliche Erfahrung in der Augenheilkunde mit einer spezialisierten Ausbildung und praktischen Tätigkeit in der ästhetischen Medizin.
+
+Als Fachärztin für Augenheilkunde und FEBO verfügt sie über ein besonders präzises Verständnis der komplexen anatomischen Strukturen des Gesichts und insbesondere der sensiblen Augenregion. Sie absolvierte sowohl die deutsche als auch die europäische Facharztprüfung für Augenheilkunde.
+
+Ihre Expertise in der ästhetischen Medizin vertiefte sie durch ein Europäisches Hochschuldiplom für ästhetische und rekonstruktive Injektionen des Gesichts an der Université Paris Cité, ergänzt durch eine Weiterbildung in Mesotherapie.
+
+Neben ihrer langjährigen Tätigkeit als Augenärztin ist Nadine Dovi-Akué auch praktisch in der ästhetischen Medizin tätig. Seit 2025 sammelt sie weitere Behandlungserfahrung als Ärztin in einer auf ästhetische Medizin spezialisierten Klinik in Deutschland.
+
+Ihr Behandlungsansatz ist von medizinischer Präzision und ästhetischer Zurückhaltung geprägt. Sie betrachtet jedes Gesicht individuell und legt besonderen Wert auf natürliche Proportionen, feine Veränderungen und den Erhalt der persönlichen Mimik.
+
+Ihre fachärztliche Erfahrung in der Augenheilkunde ermöglicht ihr dabei eine besonders differenzierte Betrachtung der sensiblen Augenregion und der umliegenden anatomischen Strukturen.
+
+Ihr Ziel sind harmonische Ergebnisse, die präzise geplant sind und dennoch selbstverständlich wirken.`,
+    bio_en: `Nadine Dovi-Akué combines her extensive specialist experience in ophthalmology with specialized training and practical practice in aesthetic medicine.
+
+As a specialist in ophthalmology and FEBO, she possesses an exceptionally precise understanding of the complex anatomical structures of the face, particularly the delicate eye area. She completed both the German and European specialist board examinations in ophthalmology.
+
+She deepened her expertise in aesthetic medicine through a European University Diploma in Aesthetic and Reconstructive Facial Injections from Université Paris Cité, supplemented by advanced training in mesotherapy.
+
+Alongside her long-standing work as an ophthalmologist, Nadine Dovi-Akué is actively practicing aesthetic medicine. Since 2025, she has gained further clinical experience at a clinic specialized in aesthetic medicine in Germany.
+
+Her treatment philosophy is characterized by medical precision and aesthetic restraint. She views each face individually, placing particular emphasis on natural proportions, subtle enhancements, and preserving personal expressions.
+
+Her specialist background in ophthalmology allows for a highly nuanced assessment of the eye region and surrounding facial structures.
+
+Her goal is harmonious, naturally elegant results that are meticulously planned and feel effortless.`,
     qualifications: [
-      'Fachärztin FMH für Ästhetische Medizin',
-      'Spezialisierung auf Kollagenstimulation & Biostimulatoren',
-      'Zertifizierte Anwenderin für minimalinvasive Gesichtsbehandlungen',
+      'Fachärztin für Augenheilkunde',
+      'FEBO · Europäische Facharztprüfung für Augenheilkunde',
+      'Deutsche Facharztprüfung für Augenheilkunde',
+      'Studium der Humanmedizin · Universität des Saarlandes / Universität Greifswald',
+      'Europäisches Hochschuldiplom für ästhetische und rekonstruktive Injektionen des Gesichts · Université Paris Cité',
+      'Zusatzqualifikation Mesotherapie',
+      'Praktische ärztliche Erfahrung in der ästhetischen Medizin · Deutschland',
     ],
+    qualifications_en: [
+      'Specialist in Ophthalmology',
+      'FEBO · European Board Examination in Ophthalmology',
+      'German Specialist Examination in Ophthalmology',
+      'Medical Studies · Saarland University / University of Greifswald',
+      'European University Diploma for Aesthetic & Reconstructive Facial Injections · Université Paris Cité',
+      'Additional Qualification in Mesotherapy',
+      'Practical Clinical Experience in Aesthetic Medicine · Germany',
+    ],
+    focus: [
+      'Botulinumtoxin',
+      'Hyaluronsäure',
+      'Ästhetik der Augenregion',
+      'Mesotherapie',
+      'Individuelle Gesichtsanalyse',
+    ],
+    focus_en: [
+      'Botulinum Toxin',
+      'Hyaluronic Acid',
+      'Aesthetic Eye Region',
+      'Mesotherapy',
+      'Individual Facial Analysis',
+    ],
+    languages: 'Deutsch · Französisch · Englisch · Griechisch',
+    languages_en: 'German · French · English · Greek',
+    quote: '„Präzision bedeutet für mich, genau zu erkennen, was ein Gesicht braucht – und ebenso, was nicht.“',
+    quote_en: '"Precision for me means recognizing exactly what a face needs — and equally what it does not."',
     photo_url: doctorNadinePhoto,
     order: 2,
   },

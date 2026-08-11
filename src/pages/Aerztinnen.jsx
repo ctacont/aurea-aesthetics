@@ -16,6 +16,7 @@ export default function Aerztinnen() {
   const sorted = [...doctors].sort((a, b) => (a.order || 0) - (b.order || 0));
   const quotes = {
     'Barbara Matziris': t('aerztinnen.quoteBarbara'),
+    'Nadine Dovi-Akué': t('aerztinnen.quoteNadine'),
     'Nadine Dovi-Akue': t('aerztinnen.quoteNadine'),
   };
 
