@@ -36,16 +36,16 @@ export function useDoctors() {
             ...merged,
             title: '',
             name: (merged.name || '').replace(/Dr\.\s*med\.\s*/gi, '').replace(/Dr\.\s*/gi, '').trim(),
-            focus: (merged.focus || fallback.focus || ['Faltenbehandlung', 'Hyaluronsäure', 'Biostimulation', 'Skin Quality']).map((f) =>
+            focus: (fallback.focus || merged.focus || ['Faltenbehandlung', 'Hyaluronsäure', 'Biostimulation', 'Skin Quality']).map((f) =>
               f.replace(/Botulinumtoxin/gi, 'Faltenbehandlung')
             ),
-            focus_en: (merged.focus_en || fallback.focus_en || ['Wrinkle Treatment', 'Hyaluronic Acid', 'Biostimulation', 'Skin Quality']).map((f) =>
+            focus_en: (fallback.focus_en || merged.focus_en || ['Wrinkle Treatment', 'Hyaluronic Acid', 'Biostimulation', 'Skin Quality']).map((f) =>
               f.replace(/Botulinum\s*Toxin/gi, 'Wrinkle Treatment')
             ),
-            qualifications: (merged.qualifications || fallback.qualifications || []).map((q) =>
+            qualifications: (fallback.qualifications || merged.qualifications || []).map((q) =>
               q.replace(/Botulinumtoxin/gi, 'Faltenbehandlung')
             ),
-            qualifications_en: (merged.qualifications_en || fallback.qualifications_en || []).map((q) =>
+            qualifications_en: (fallback.qualifications_en || merged.qualifications_en || []).map((q) =>
               q.replace(/Botulinum\s*Toxin/gi, 'Wrinkle Treatment')
             ),
           };
