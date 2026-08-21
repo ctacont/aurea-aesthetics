@@ -190,6 +190,15 @@ export const CATEGORIES = {
         goals_en: ['A cohesive relationship between facial areas', 'An individual treatment plan spanning multiple zones', 'A restrained, natural-looking result'],
         duration_de: '45–60 Minuten', duration_en: '45–60 minutes',
       },
+      {
+        id: 'hyaluron-aufloesen-hylase', subSlug: 'hyaluron-aufloesen-hylase',
+        title_de: 'Hyaluron auflösen mit Hylase', title_en: 'Dissolving Hyaluronic Acid with Hylase',
+        lead_de: 'Präzises Auflösen und Korrigieren von Hyaluron-Fillern mit dem Enzym Hyaluronidase — bei Knötchen, Asymmetrien oder zur Vorbereitung auf einen Lippen-Neuaufbau.',
+        lead_en: 'Targeted correction and dissolving of hyaluronic acid fillers with hyaluronidase — for nodules, asymmetries, or preparing for fresh lip reconstruction.',
+        goals_de: ['Gezielte Auflösung von Fremdmaterial & Knötchen', 'Korrektur von Überkorrekturen oder Filler-Migration', 'Optimale Vorbereitung auf einen neuen Lippenaufbau'],
+        goals_en: ['Targeted breakdown of unwanted filler & lumps', 'Correction of overfilling or migration', 'Optimal preparation for fresh lip enhancement'],
+        duration_de: '20–30 Minuten', duration_en: '20–30 minutes',
+      },
     ],
   },
   'hautqualitaet-regeneration': {

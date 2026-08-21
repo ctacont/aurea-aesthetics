@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSettings, useTreatments } from '@/lib/useSite';
-import { LOGO, GEO_AREAS } from '@/lib/site';
+import { GEO_AREAS } from '@/lib/site';
 import { useLanguage, loc } from '@/lib/LanguageContext';
 import { useBooking } from '@/hooks/useBooking';
 

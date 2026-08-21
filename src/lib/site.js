@@ -193,77 +193,77 @@ export const PROCESS = {
 
 export const PILLARS = {
   de: [
-    { title: 'Diskretion', text: 'Ruhige Räume in Zürich. Eine Umgebung, in der Ruhe und persönliche Betreuung den Takt vorgeben.' },
-    { title: 'Individuelle Planung', text: 'Jedes Gesicht ist einmalig. Wir arbeiten nicht mit Standardprotokollen.' },
-    { title: 'Persönliche Betreuung', text: 'Wir nehmen uns für jeden Patienten ausreichend Zeit, um Ruhe und höchste medizinische Sorgfalt zu gewährleisten.' },
-    { title: 'Persönliche Kontinuität', text: 'Dieselbe Ärztin — von der ersten Beratung bis zur Nachkontrolle.' },
+    { title: 'Privatsphäre & Diskretion', text: 'Ein diskretes Refugium im Weissen Schloss direkt am Zürichsee. Keine Wartezimmer, sondern private Suiten für vollkommene Ruhe.' },
+    { title: 'Bespoke Longevity', text: 'Jedes Gesicht ist einzigartig. Wir kuratieren individuelle Behandlungspläne und moderne Biostimulations-Konzepte.' },
+    { title: '1:1 VIP-Betreuung', text: 'Grosszügige Zeitkontingente für jeden Patienten — höchste ärztliche Sorgfalt und entspanntes Spa-Ambiente ohne Hektik.' },
+    { title: 'Ärztliche Kontinuität', text: 'Ihre persönliche Fachärztin begleitet Sie durchgehend — von der ersten Analyse bis zur massgeschneiderten Nachsorge.' },
   ],
   en: [
-    { title: 'Discretion', text: 'Calm rooms in Zurich. An environment where calm and personal care set the pace.' },
-    { title: 'Individual planning', text: 'Every face is unique. We do not work with standard protocols.' },
-    { title: 'Personal Care', text: 'We dedicate ample time to every patient to ensure calm and the highest medical standard.' },
-    { title: 'Personal continuity', text: 'The same physician — from consultation to follow-up.' },
+    { title: 'Privacy & Discretion', text: 'A private sanctuary at the historic Weisses Schloss on Lake Zurich. Private suites ensuring complete peace and confidentiality.' },
+    { title: 'Bespoke Longevity', text: 'Every face is unique. We curate tailored treatment rituals and cutting-edge biostimulation and skin longevity concepts.' },
+    { title: '1:1 Concierge Care', text: 'Generous, unhurried appointments for each patient — combining top-tier medical precision with serene luxury.' },
+    { title: 'Physician Continuity', text: 'Your personal specialist physician accompanies you exclusively from initial analysis to refined follow-up care.' },
   ],
 };
 
 export const GENERAL_FAQS = {
   de: [
-    { q: 'Wie läuft die erste Beratung ab?', a: 'Die Erstberatung dauert in der Regel 45 bis 60 Minuten. Wir analysieren Ihre Gesichtsanatomie, hören Ihre Wünsche und erklären offen, was medizinisch sinnvoll ist — und was nicht. Sie erhalten eine schriftliche Übersicht mit Empfehlung und Kosten.' },
-    { q: 'Sind die Behandlungen schmerzhaft?', a: 'Die meisten minimalinvasiven Behandlungen werden als gut erträglich beschrieben. Wir verwenden je nach Verfahren betäubende Cremes oder Lokalanästhesie und arbeiten mit feinsten Instrumenten.' },
-    { q: 'Wann sehe ich Ergebnisse?', a: 'Das hängt vom Verfahren ab. Hyaluron-Filler zeigen sofort ein Ergebnis, die Behandlung mimischer Falten nach drei bis zehn Tagen, Biostimulatoren nach mehreren Wochen. Auf jeder Behandlungsseite finden Sie konkrete Angaben.' },
-    { q: 'Werden Kosten von der Krankenkasse übernommen?', a: 'Ästhetisch-medizinische Behandlungen sind in der Schweiz grundsätzlich Selbstzahlerleistungen und werden nicht von der Grundversicherung übernommen. Bei medizinischer Indikation prüfen wir die Situation individuell.' },
-    { q: 'Wie diskret ist die Praxis?', a: 'Diskretion ist ein Grundpfeiler unserer Arbeit. Wir arbeiten ausschliesslich mit Terminvereinbarung, sodass Sie sich nie in einem vollen Wartebereich befinden.' },
-    { q: 'Was unterscheidet Aurea Aesthetics von anderen Anbietern?', a: 'Wir behandeln ästhetische Medizin als Medizin — nicht als Kosmetikdienstleistung. Individuelle Anatomie, sorgfältige Aufklärung, natürliche Ergebnisse und persönliche Kontinuität stehen über schnellen Terminen und Aktionspreisen.' },
+    { q: 'Wie läuft die erste Beratung ab?', a: 'Die Erstberatung dauert in der Regel 45 bis 60 Minuten in privater Suite-Atmosphäre. Wir analysieren Ihre Gesichtsanatomie, hören Ihre Wünsche und entwickeln ein massgeschneidertes, natürliches Behandlungskonzept.' },
+    { q: 'Sind die Behandlungen schmerzhaft?', a: 'Minimalinvasive Verfahren werden dank feinsten Instrumenten, sanften Techniken und wirksamen lokalen Betäubungen als sehr schonend und angenehm empfunden.' },
+    { q: 'Wann sehe ich Ergebnisse?', a: 'Hyaluron-Filler zeigen sofortige Konturierung, mimische Entspannung setzt nach 3 bis 10 Tagen ein, und regenerative Biostimulatoren entfalten ihre Wirkung kontinuierlich über mehrere Wochen.' },
+    { q: 'Werden Kosten von der Krankenkasse übernommen?', a: 'Ästhetisch-medizinische Behandlungen sind in der Schweiz exklusive Selbstzahlerleistungen. Bei medizinischer Indikation prüfen wir die Situation individuell.' },
+    { q: 'Wie diskret ist die Praxis gestaltet?', a: 'Höchste Diskretion ist unser Leitprinzip. Wir empfangen Sie ausschliesslich nach vorheriger Terminvereinbarung in privaten Räumlichkeiten im Weissen Schloss — ohne Wartezeiten oder Begegnungen mit anderen Patienten.' },
+    { q: 'Was zeichnet Aurea Aesthetics als VIP-Praxis aus?', a: 'Die seltene Verbindung aus fundierter Facharzt-Expertise, modernster regenerativer Longevity-Medizin und einem privaten, luxuriösen Wohlfühlambiente direkt am Zürichsee.' },
   ],
   en: [
-    { q: 'How does the first consultation work?', a: 'The initial consultation usually lasts 45 to 60 minutes. We analyse your facial anatomy, listen to your wishes, and explain openly what is medically sensible — and what is not. You receive a written summary with recommendations and costs.' },
-    { q: 'Are the treatments painful?', a: 'Most minimally invasive treatments are described as well tolerated. Depending on the procedure, we use numbing creams or local anaesthesia and work with the finest instruments.' },
-    { q: 'When will I see results?', a: 'This depends on the procedure. Hyaluronic fillers show an immediate result, treatment of mimic wrinkles after three to ten days, biostimulators after several weeks. You will find specific details on each treatment page.' },
-    { q: 'Are costs covered by health insurance?', a: 'Aesthetic-medical treatments are self-pay services in Switzerland and are not covered by basic insurance. If there is a medical indication, we review the situation individually.' },
-    { q: 'How discreet is the practice?', a: 'Discretion is a cornerstone of our work. We work exclusively by appointment so you never find yourself in a crowded waiting area.' },
-    { q: 'What sets Aurea Aesthetics apart from other providers?', a: 'We treat aesthetic medicine as medicine — not as a cosmetic service. Individual anatomy, careful explanation, natural results, and personal continuity take priority over quick appointments and promotional prices.' },
+    { q: 'How does the first consultation work?', a: 'The initial consultation lasts 45 to 60 minutes in a private suite setting. We analyze your facial anatomy, discuss your personal goals, and curate a bespoke, natural aesthetic plan.' },
+    { q: 'Are the treatments painful?', a: 'With ultra-fine instruments, gentle techniques, and effective topical anesthesia, treatments are very gentle and comfortable.' },
+    { q: 'When will I see results?', a: 'Hyaluronic fillers show immediate refinement, expression softening develops within 3 to 10 days, and regenerative biostimulators unfold their rejuvenating effect over several weeks.' },
+    { q: 'Are costs covered by health insurance?', a: 'Aesthetic medicine treatments are private self-pay services in Switzerland. In cases of specific medical indication, we assess the situation individually.' },
+    { q: 'How discreet is the clinic setting?', a: 'Absolute privacy is paramount. We welcome guests exclusively by prior appointment in private suites at the Weisses Schloss — ensuring no waiting rooms or encounters with other clients.' },
+    { q: 'What defines Aurea Aesthetics as a premier aesthetic destination?', a: 'The harmonious union of specialist physician expertise, cutting-edge longevity and biostimulation medicine, and an exclusive, tranquil sanctuary overlooking Lake Zurich.' },
   ],
 };
 
 export const TREATMENT_GROUPS = {
   de: [
-    { key: 'injektion', label: 'Injektionsbehandlungen', text: 'Präzise Verfahren zur Harmonisierung von Mimik, Volumen und Kontur.' },
-    { key: 'biostimulation', label: 'Biostimulation', text: 'Verfahren, die körpereigene Regenerationsprozesse anregen — mit Wirkung über Monate.' },
-    { key: 'haut', label: 'Hautqualität', text: 'Behandlungen für Feuchtigkeit, Elastizität und Erscheinungsbild der Haut.' },
+    { key: 'haut', label: 'Hautqualität & Longevity', text: 'Innovative Skinbooster, Polynukleotide & Biostimulatoren für tiefenwirksame Zellregeneration und jugendliche Strahlkraft.' },
+    { key: 'injektion', label: 'Feine Konturierung & Hyaluron', text: 'Präzise Lippen-, Jawline- und Gesichtsharmonisierung mit natürlichen Hyaluron-Fillern & Hylase-Korrekturen.' },
+    { key: 'biostimulation', label: 'Mimik-Balance & Botulinum', text: 'Gezielte Entspannung mimischer Fältchen, Brow Lift und Masseter-Behandlung für einen ausgeruhten Ausdruck.' },
   ],
   en: [
-    { key: 'injektion', label: 'Injection treatments', text: 'Precise procedures to harmonise expression, volume, and contour.' },
-    { key: 'biostimulation', label: 'Biostimulation', text: 'Procedures that stimulate the body’s own regeneration — with effects over months.' },
-    { key: 'haut', label: 'Skin quality', text: 'Treatments for moisture, elasticity, and the appearance of the skin.' },
+    { key: 'haut', label: 'Skin Quality & Longevity', text: 'Advanced skin boosters, polynucleotides & biostimulators for cellular regeneration and luminous radiance.' },
+    { key: 'injektion', label: 'Refined Contouring & Hyaluron', text: 'Precise lip, jawline, and facial harmonisation with natural hyaluronic fillers & Hylase corrections.' },
+    { key: 'biostimulation', label: 'Mimic Balance & Botulinum', text: 'Targeted relaxation of expression lines, brow lift, and masseter treatment for a refreshed, rested look.' },
   ],
 };
 
 export const VALUES = {
   de: [
-    { title: 'Medizin zuerst', text: 'Anamnese, Indikationsstellung, Aufklärung und Nachkontrolle gehören für uns zu jeder ästhetischen Behandlung — ohne Ausnahme.' },
-    { title: 'Natürlichkeit', text: 'Ein gutes Ergebnis fällt nicht auf. Es wirkt ausgeruht, harmonisch und unverändert eigen.' },
-    { title: 'Aufrichtigkeit', text: 'Wir benennen Grenzen klar und lehnen Behandlungen ab, die keinen medizinischen oder ästhetischen Nutzen bringen.' },
-    { title: 'Diskretion', text: 'Terminvereinbarung, ruhige Räume und vertraulicher Umgang mit allen Informationen.' },
+    { title: 'Medizinische Exzellenz', text: 'Fundierte Facharzt-Expertise, präzise Anatomie-Kenntnisse und höchste Sicherheitsstandards bilden das Fundament jeder Behandlung.' },
+    { title: 'Natürliche Eleganz', text: 'Vollendete Ästhetik durch bewusste Zurückhaltung — Ihr Aussehen wirkt erholt, frisch und unverwechselbar authentisch.' },
+    { title: 'Diskretes Refugium', text: 'Exklusive Privatsphäre und private Suiten im Weissen Schloss direkt am Zürichsee ohne Wartezimmeratmosphäre.' },
+    { title: 'Bespoke Longevity', text: 'Ganzheitliche Hautverjüngung und Zellerneuerung mit modernen Biostimulatoren wie Polynukleotiden, HArmonyCa und Profhilo.' },
   ],
   en: [
-    { title: 'Medicine first', text: 'History, indication, informed consent, and follow-up are part of every aesthetic treatment for us — without exception.' },
-    { title: 'Naturalness', text: 'A good result does not draw attention. It appears rested, harmonious, and authentically your own.' },
-    { title: 'Sincerity', text: 'We state limits clearly and decline treatments that offer no medical or aesthetic benefit.' },
-    { title: 'Discretion', text: 'Appointments, calm rooms, and confidential handling of all information.' },
+    { title: 'Medical Excellence', text: 'Rigorous specialist physician expertise, in-depth anatomical mastery, and uncompromised safety standards at every step.' },
+    { title: 'Natural Elegance', text: 'Refined beauty through understated precision — results that appear rested, radiant, and unmistakably authentic.' },
+    { title: 'Discreet Sanctuary', text: 'Exclusive privacy and dedicated suites at the historic Weisses Schloss on Lake Zurich with zero waiting room exposure.' },
+    { title: 'Bespoke Longevity', text: 'Holistic skin rejuvenation and cellular renewal using cutting-edge biostimulators such as polynucleotides, HArmonyCa, and Profhilo.' },
   ],
 };
 
 export const ARRIVAL = {
   de: [
-    { label: 'S-Bahn', text: 'Bahnhof Zürich Enge — wenige Gehminuten zur Praxis. Anbindung an alle S-Bahn-Linien des Zürcher Verkehrsverbunds.' },
-    { label: 'Tram & Bus', text: 'Haltestellen an der Seestrasse und am Bahnhof Enge. Direkte Verbindungen aus der Innenstadt und vom linken Seeufer.' },
-    { label: 'Auto', text: 'Zufahrt über die Seestrasse oder die General-Wille-Strasse. Öffentliche Parkhäuser in unmittelbarer Umgebung.' },
-    { label: 'Vom Flughafen', text: 'Ab Zürich Flughafen rund 25 Minuten mit der S-Bahn über den Hauptbahnhof.' },
+    { label: 'S-Bahn & Zug', text: 'Bahnhof Zürich Enge (S2, S8, S24) in 3 Gehminuten. Schnelle Direktverbindungen zum Zürich Hauptbahnhof (HB) und Bahnhof Stadelhofen.' },
+    { label: 'Tram, Bus & Schiff', text: 'Haltestelle Rentenanstalt (Tram 5, Bus) in 2 Gehminuten. Bürkliplatz (Tram, Bus, Zürichsee-Schifffahrt) in ca. 5–7 Gehminuten. Haltestellen Seestrasse und Bahnhof Enge direkt vor Ort.' },
+    { label: 'Auto & Parken', text: 'Zufahrt über Seestrasse oder General-Wille-Strasse. Parkhaus Park Hyatt, Parkhaus Enge sowie öffentliche Parkplätze in unmittelbarer Umgebung.' },
+    { label: 'Vom Flughafen', text: 'Ab Zürich Flughafen rund 20–25 Minuten mit der S-Bahn über den Hauptbahnhof direkt zum Bahnhof Enge.' },
   ],
   en: [
-    { label: 'Train', text: 'Zurich Enge station — a few minutes’ walk to the practice. Connections to all S-Bahn lines of the Zurich transport network.' },
-    { label: 'Tram & bus', text: 'Stops along Seestrasse and at Enge station. Direct connections from the city centre and the left lakeshore.' },
-    { label: 'Car', text: 'Access via Seestrasse or General-Wille-Strasse. Public car parks in the immediate vicinity.' },
-    { label: 'From the airport', text: 'About 25 minutes from Zurich Airport by S-Bahn via the main station.' },
+    { label: 'Train & S-Bahn', text: 'Zurich Enge station (S2, S8, S24) within 3 minutes walk. Fast direct connections to Zurich Main Station (HB) and Stadelhofen station.' },
+    { label: 'Tram, Bus & Boat', text: 'Rentenanstalt stop (Tram 5, Bus) 2 minutes walk. Bürkliplatz (Tram, Bus, Lake Zurich ferry) 5–7 minutes walk. Stops along Seestrasse and at Enge station nearby.' },
+    { label: 'Car & Parking', text: 'Access via Seestrasse or General-Wille-Strasse. Park Hyatt parking, Enge car park, and public parking in the immediate vicinity.' },
+    { label: 'From the airport', text: 'About 20–25 minutes from Zurich Airport by S-Bahn via the main station directly to Enge station.' },
   ],
 };

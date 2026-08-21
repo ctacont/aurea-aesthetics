@@ -26,6 +26,7 @@ import MasseterZaehneknirschen from '@/pages/behandlungen/MasseterZaehneknirsche
 import Schwitzen from '@/pages/behandlungen/Schwitzen';
 import Lippenbehandlung from '@/pages/behandlungen/Lippenbehandlung';
 import Jawline from '@/pages/behandlungen/Jawline';
+import HyaluronAufloesenHylase from '@/pages/behandlungen/HyaluronAufloesenHylase';
 import Prp from '@/pages/behandlungen/Prp';
 import Microneedling from '@/pages/behandlungen/Microneedling';
 import Admin from '@/pages/Admin';
@@ -71,6 +72,7 @@ const AuthenticatedApp = () => {
           <Route path="/behandlungen/schwitzen" element={<Schwitzen />} />
           <Route path="/behandlungen/lippenbehandlung" element={<Lippenbehandlung />} />
           <Route path="/behandlungen/jawline" element={<Jawline />} />
+          <Route path="/behandlungen/hyaluron-aufloesen-hylase" element={<HyaluronAufloesenHylase />} />
           <Route path="/behandlungen/prp" element={<Prp />} />
           <Route path="/behandlungen/microneedling" element={<Microneedling />} />
           <Route path="/behandlungen/:slug" element={<TreatmentDetail />} />
@@ -96,6 +98,7 @@ const AuthenticatedApp = () => {
           <Route path="/en/behandlungen/schwitzen" element={<Schwitzen />} />
           <Route path="/en/behandlungen/lippenbehandlung" element={<Lippenbehandlung />} />
           <Route path="/en/behandlungen/jawline" element={<Jawline />} />
+          <Route path="/en/behandlungen/hyaluron-aufloesen-hylase" element={<HyaluronAufloesenHylase />} />
           <Route path="/en/behandlungen/prp" element={<Prp />} />
           <Route path="/en/behandlungen/microneedling" element={<Microneedling />} />
           <Route path="/en/behandlungen/:slug" element={<TreatmentDetail />} />

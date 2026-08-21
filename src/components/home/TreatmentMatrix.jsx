@@ -8,9 +8,9 @@ import { useLanguage, loc } from '@/lib/LanguageContext';
 import { CATEGORIES } from '@/lib/categoryContent';
 
 const ORDER = [
-  'botulinumtoxin',
+  'hautqualitaet-regeneration',
   'hyaluron-konturierung',
-  'hautqualitaet-regeneration'
+  'botulinumtoxin'
 ];
 
 const EASE = [0.16, 1, 0.3, 1];

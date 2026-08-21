@@ -1,15 +1,15 @@
 // Standalone SEO subpages — Paket 3. Static content, medically plausible,
 // pending final client approval (see AGENTS.md "Content Approval Status").
 // Shape mirrors the Treatment entity; faqs use q_de/a_de + q_en/a_en pairs.
-// Standalone SEO subpages — Paket 3. Static content, medically plausible,
-// pending final client approval (see AGENTS.md "Content Approval Status").
-// Shape mirrors the Treatment entity; faqs use q_de/a_de + q_en/a_en pairs.
 // Fact-grid fields (duration/downtime/results_onset/results_duration/price_from)
 // and risks/contraindications have explicit _en variants so the English
 // version never falls back to German medical/safety text.
 
 import stirnfaltenEditorial from '@/assets/treatments/stirnfalten-editorial.jpg';
 import zornesfalteEditorial from '@/assets/treatments/zornesfalte-editorial.jpg';
+import jawlineMaleEditorial from '@/assets/treatments/jawline-male-portrait.jpg';
+import schwitzenMaleEditorial from '@/assets/treatments/schwitzen-male-portrait.jpg';
+import kinnMaleEditorial from '@/assets/treatments/kinn-male-portrait.jpg';
 
 export const SUB_TREATMENTS = {
   stirnfalten: {
@@ -22,7 +22,20 @@ export const SUB_TREATMENTS = {
     lead_de: 'Horizontale Fältchen auf der Stirn entstehen durch wiederholte Anspannung des Stirnmuskels. Eine präzise dosierte Behandlung glättet die Linien, ohne die Mimik zu erstarren.',
     lead_en: 'Horizontal forehead lines form through repeated tension of the frontalis muscle. A precisely dosed treatment smooths the lines without freezing expression.',
     image_url: stirnfaltenEditorial,
-    risks_en: 'Possible temporary side effects include mild redness, swelling, or small bruises at the injection sites. Rarely, temporary eyelid drooping can occur.',
+    indications: ['Horizontale Stirnfalten in Ruhe oder Bewegung', 'Müder oder angespannter Gesichtsausdruck', 'Vorbeugung tieferer Linien'],
+    mechanism_de: 'Botulinumtoxin entspannt den Musculus frontalis gezielt. Durch die reduzierte Muskelaktivität glättet sich die Haut über der Stirn, während die Augenbrauenpartie natürlich beweglich bleibt.',
+    mechanism_en: 'Botulinum toxin selectively relaxes the frontalis muscle. Reduced muscle activity allows the skin over the forehead to smooth while natural brow mobility is preserved.',
+    procedure_de: 'Nach genauer Analyse Ihrer Mimik und Muskelzüge erfolgen minimale Injektionen an definierten Punkten. Die Behandlung dauert ca. 15 bis 20 Minuten.',
+    procedure_en: 'Following precise analysis of your expressions and muscle dynamics, minimal injections are placed at defined points. The procedure takes approximately 15 to 20 minutes.',
+    duration: '15–20 Minuten', duration_en: '15–20 minutes',
+    downtime: 'Keine', downtime_en: 'None',
+    results_onset: '3–10 Tage', results_onset_en: '3–10 days',
+    results_duration: '4–6 Monate', results_duration_en: '4–6 months',
+    price_from: 'Auf Anfrage', price_from_en: 'On request',
+    aftercare_de: 'Aufrechte Haltung für einige Stunden, keine Massage der Region, kein Sport oder Sauna am Behandlungstag.',
+    aftercare_en: 'Remain upright for a few hours, avoid massaging the area, no sports or sauna on the day of treatment.',
+    risks_de: 'Leichte Rötung, Schwellung oder kleine Blutergüsse an den Einstichstellen möglich. Selten vorübergehendes Absinken der Augenbraue.',
+    risks_en: 'Possible temporary side effects include mild redness, swelling, or small bruises at the injection sites. Rarely, temporary brow drooping can occur.',
     contraindications_de: 'Nicht geeignet bei bestimmten neuromuskulären Erkrankungen, in der Schwangerschaft und Stillzeit sowie bei Infektionen im Behandlungsbereich.',
     contraindications_en: 'Not suitable for certain neuromuscular disorders, during pregnancy and breastfeeding, or in the presence of infections in the treatment area.',
     faqs: [
@@ -58,38 +71,38 @@ export const SUB_TREATMENTS = {
     contraindications_de: 'Nicht geeignet bei bestimmten neuromuskulären Erkrankungen, in Schwangerschaft und Stillzeit sowie bei Infektionen im Behandlungsbereich.',
     contraindications_en: 'Not suitable for certain neuromuscular disorders, during pregnancy and breastfeeding, or in the presence of infections in the treatment area.',
     faqs: [
-      { q_de: 'Kann die Zornesfalte ganz verschwinden?', a_de: 'Die dynamische Faltenbildung wird deutlich reduziert. Bereits sehr tief eingegrabene Falten in Ruhe können in Kombination mit weiteren Verfahren behandelt werden.', q_en: 'Can the frown line disappear completely?', a_en: 'Dynamic line formation is significantly reduced. Very deeply etched static lines may be addressed in combination with other procedures.' },
+      { q_de: 'Verändert die Behandlung meinen Blick?', a_de: 'Richtig platziert wirkt der Blick entspannter und offener — die natürliche Augenbrauenform bleibt erhalten.', q_en: 'Will the treatment change my expression?', a_en: 'Properly placed, your gaze appears more relaxed and open — your natural brow shape is preserved.' },
     ],
     medical_reviewer: 'Barbara Matziris',
   },
   kraehenfuesse: {
     slug: 'kraehenfuesse', category: 'botulinumtoxin', categoryPath: '/behandlungen/botulinumtoxin',
-    title_de: 'Krähenfüsse', title_en: "Crow's Feet",
+    title_de: 'Krähenfüsse', title_en: 'Crow\'s Feet',
     meta_title_de: 'Krähenfüsse behandeln | Botulinumtoxin Zürich | Aurea Aesthetics',
-    meta_title_en: "Crow's Feet Treatment | Botulinum Toxin Zurich | Aurea Aesthetics",
-    meta_description_de: 'Behandlung feiner Fältchen am äusseren Augenwinkel mit Botulinumtoxin in Zürich — für einen wachen, natürlichen Blick.',
-    meta_description_en: "Treatment of fine lines at the outer eye corner with botulinum toxin in Zurich — for a bright, natural gaze.",
-    lead_de: 'Feine Fältchen am äusseren Augenwinkel entstehen vor allem beim Lachen. Eine behutsame Behandlung glättet die Linien, ohne das natürliche Lachen einzuschränken.',
-    lead_en: "Fine lines at the outer eye corner form mainly when smiling. Careful treatment smooths the lines without restricting natural smiling.",
+    meta_title_en: 'Crow\'s Feet Treatment | Botulinum Toxin Zurich | Aurea Aesthetics',
+    meta_description_de: 'Sanfte Glättung von Lachfältchen am äusseren Augenwinkel mit Botulinumtoxin in Zürich — wacher Blick, natürliches Lachen bleibt erhalten.',
+    meta_description_en: 'Gentle smoothing of laugh lines at the outer eye corner with botulinum toxin in Zurich — refreshed gaze, natural smile preserved.',
+    lead_de: 'Feine Fältchen am äusseren Augenwinkel entstehen durch wiederholtes Lachen und Blinzeln. Eine behutsame Behandlung öffnet den Blick, ohne dem Lachen seine Lebendigkeit zu nehmen.',
+    lead_en: 'Fine lines at the outer corners of the eyes result from smiling and squinting. Gentle treatment opens the gaze without diminishing the vitality of your smile.',
     image_url: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9147ba321_generated_image.png',
-    indications: ['Feine Linien am äusseren Augenwinkel beim Lachen', 'Wunsch nach einem wacheren Blick', 'Vorbeugende Behandlung bei beginnender Faltenbildung'],
-    mechanism_de: 'Die Behandlung reduziert gezielt die Aktivität des äusseren Anteils des Musculus orbicularis oculi, wodurch die strahlenförmigen Fältchen sichtbar geglättet werden.',
-    mechanism_en: 'The treatment specifically reduces activity in the outer portion of the orbicularis oculi muscle, visibly smoothing the radiating lines.',
-    procedure_de: 'Feine Injektionen erfolgen oberflächennah an mehreren Punkten seitlich des Auges. Die Behandlung dauert 15 bis 20 Minuten und ist gut verträglich.',
-    procedure_en: 'Fine, superficial injections are placed at several points beside the eye. The treatment takes 15 to 20 minutes and is well tolerated.',
-    duration: '15–20 Minuten', duration_en: '15–20 minutes',
+    indications: ['Strahlende Lachfalten am Augenwinkel in Ruhe', 'Müde wirkende Augenpartie', 'Prävention tieferer Linien'],
+    mechanism_de: 'Der äussere Teil des Musculus orbicularis oculi wird gezielt entspannt, wodurch sich die Haut beim Lachen weniger stark in Falten legt.',
+    mechanism_en: 'The lateral part of the orbicularis oculi muscle is selectively relaxed, reducing crease formation when smiling.',
+    procedure_de: 'Sehr feine Injektionen an wenigen Punkten lateral des Auges. Die Behandlung dauert etwa 15 Minuten.',
+    procedure_en: 'Very fine injections at a few points lateral to the eye. The treatment takes about 15 minutes.',
+    duration: '15 Minuten', duration_en: '15 minutes',
     downtime: 'Keine', downtime_en: 'None',
-    results_onset: '3–10 Tage', results_onset_en: '3–10 days',
+    results_onset: '3–7 Tage', results_onset_en: '3–7 days',
     results_duration: '3–5 Monate', results_duration_en: '3–5 months',
     price_from: 'Auf Anfrage', price_from_en: 'On request',
-    aftercare_de: 'Aufrechte Haltung für einige Stunden, kein Reiben der Augenregion, kein Sport oder Sauna am Behandlungstag.',
-    aftercare_en: 'Remain upright for several hours, avoid rubbing the eye area, no exercise or sauna on the day of treatment.',
-    risks_de: 'Leichte Schwellung oder Bluterguss möglich. Selten vorübergehende Asymmetrie des Lidschlusses.',
-    risks_en: 'Mild swelling or bruising is possible. Rarely, temporary asymmetry of eyelid closure.',
+    aftercare_de: 'Kein Reiben der Augenpartie in den ersten Stunden, kein Sport oder Sauna am Behandlungstag.',
+    aftercare_en: 'Avoid rubbing the eye area for the first few hours, no exercise or sauna on the day of treatment.',
+    risks_de: 'Leichte Rötung oder kleine Blutergüsse möglich. Bei zu naher Injektion selten Schwellung des Unterlids.',
+    risks_en: 'Mild redness or small bruises are possible. Rarely, under-eye swelling if injected too closely.',
     contraindications_de: 'Nicht geeignet bei bestimmten neuromuskulären Erkrankungen, in Schwangerschaft und Stillzeit sowie bei Infektionen im Behandlungsbereich.',
     contraindications_en: 'Not suitable for certain neuromuscular disorders, during pregnancy and breastfeeding, or in the presence of infections in the treatment area.',
     faqs: [
-      { q_de: 'Beeinträchtigt die Behandlung mein Lachen?', a_de: 'Bei sorgfältiger, niedriger Dosierung bleibt das natürliche Lachen erhalten — Ziel ist die Reduktion der Fältchen, nicht die Einschränkung der Mimik.', q_en: 'Will the treatment affect my smile?', a_en: 'With careful, low dosing, natural smiling is preserved — the goal is reducing the lines, not restricting expression.' },
+      { q_de: 'Kann ich danach noch natürlich lachen?', a_de: 'Ja. Die Dosierung wird so gewählt, dass die Augenpartie beim Lachen lebendig bleibt und lediglich die Tiefe der Falten gemildert wird.', q_en: 'Will I still be able to smile naturally?', a_en: 'Yes. Dosing is chosen so that the eye area remains lively when smiling, merely softening the depth of lines.' },
     ],
     medical_reviewer: 'Barbara Matziris',
   },
@@ -134,7 +147,7 @@ export const SUB_TREATMENTS = {
     meta_description_en: 'Treatment of hyperhidrosis in the underarms, hands, or feet with botulinum toxin in Zurich — significant reduction in sweat production for months.',
     lead_de: 'Übermässiges Schwitzen (Hyperhidrose) kann den Alltag deutlich einschränken. Eine gezielte Behandlung reduziert die Aktivität der Schweissdrüsen spürbar und über Monate.',
     lead_en: 'Excessive sweating (hyperhidrosis) can significantly limit daily life. Targeted treatment noticeably reduces sweat gland activity for months.',
-    image_url: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/9147ba321_generated_image.png',
+    image_url: schwitzenMaleEditorial,
     indications: ['Übermässiges Schwitzen in den Achseln', 'Übermässiges Schwitzen an Händen oder Füssen', 'Alltägliche Einschränkung durch Hyperhidrose'],
     mechanism_de: 'Botulinumtoxin blockiert die Nervensignale, die die Schweissdrüsen zur Produktion anregen. Die Schweissproduktion in der behandelten Region wird dadurch deutlich reduziert.',
     mechanism_en: 'Botulinum toxin blocks the nerve signals that stimulate sweat gland activity. Sweat production in the treated area is thereby significantly reduced.',
@@ -196,7 +209,7 @@ export const SUB_TREATMENTS = {
     meta_description_en: 'A defined jawline through hyaluronic acid contouring in Zurich — individually planned for a clearer profile.',
     lead_de: 'Eine gezielte Konturierung entlang des Unterkiefers definiert die Gesichtslinie und schafft ein klareres, gestrafftes Profil.',
     lead_en: 'Targeted contouring along the lower jaw defines the facial line and creates a clearer, more sculpted profile.',
-    image_url: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/aa2efde7c_generated_image.png',
+    image_url: jawlineMaleEditorial,
     indications: ['Wunsch nach klarerer Kieferlinie', 'Ausgleich einer weichen Unterkieferkontur', 'Verbesserung des seitlichen Profils'],
     mechanism_de: 'Hyaluronsäure wird entlang des Unterkieferknochens platziert, um die Kontur zu stützen und zu definieren, ohne das Gesicht zu verbreitern.',
     mechanism_en: 'Hyaluronic acid is placed along the jawbone to support and define the contour without widening the face.',
@@ -279,5 +292,59 @@ export const SUB_TREATMENTS = {
       { q_de: 'Wie viele Sitzungen sind empfehlenswert?', a_de: 'Für ein sichtbares Ergebnis empfehlen wir in der Regel eine Serie von 3 bis 4 Sitzungen im Abstand von 4 bis 6 Wochen.', q_en: 'How many sessions are recommended?', a_en: 'For a visible result, we generally recommend a series of 3 to 4 sessions spaced 4 to 6 weeks apart.' },
     ],
     medical_reviewer: 'Nadine Dovi-Akue',
+  },
+  'hyaluron-aufloesen-hylase': {
+    slug: 'hyaluron-aufloesen-hylase', category: 'hyaluron-konturierung', categoryPath: '/behandlungen/hyaluron-konturierung',
+    title_de: 'Hyaluron auflösen mit Hylase', title_en: 'Dissolving Hyaluronic Acid with Hylase',
+    meta_title_de: 'Hyaluron auflösen mit Hylase | Hyaluronidase Korrektur Zürich | Aurea Aesthetics',
+    meta_title_en: 'Dissolving Hyaluronic Acid with Hylase | Hyaluronidase Zurich | Aurea Aesthetics',
+    meta_description_de: 'Präzises Auflösen und Korrigieren von Hyaluron-Fillern mit Hylase (Hyaluronidase) in Zürich — bei Knötchen, Asymmetrien oder zur Vorbereitung auf einen Lippen-Neuaufbau.',
+    meta_description_en: 'Targeted correction and dissolving of hyaluronic acid fillers with Hylase (hyaluronidase) in Zurich — for nodules, asymmetries, or preparing for fresh lip reconstruction.',
+    lead_de: 'Nicht jedes Hyaluron-Ergebnis erfüllt die eigenen Vorstellungen. Mit dem Enzym Hyaluronidase (Hylase) können unerwünschte Depots, Asymmetrien oder Knötchen präzise und schonend aufgelöst werden — auch als optimale Basis für einen anschliessenden harmonischen Neuaufbau.',
+    lead_en: 'Not every hyaluronic acid treatment yields the desired outcome. With the enzyme hyaluronidase (Hylase), unwanted filler deposits, asymmetries, or nodules can be dissolved with precision — creating an ideal foundation for fresh, harmonious contouring.',
+    image_url: 'https://media.base44.com/images/public/6a6b131f6cc49b3ee60e929e/aa2efde7c_generated_image.png',
+    indications: [
+      'Unerwünschte Filler-Ergebnisse oder Überkorrekturen nach Vorbehandlungen',
+      'Tastbare Knötchen, Unebenheiten oder sichtbare Wülste',
+      'Verrutschtes Hyaluron (Migration, z. B. oberhalb des Lippenrands)',
+      'Tyndall-Effekt (bläulicher Schimmer durch oberflächlich platziertes Material)',
+      'Gezielte Vorbereitung auf einen neuen, anatomisch stimmigen Lippenaufbau'
+    ],
+    mechanism_de: 'Hyaluronidase ist ein hochwirksames Enzym, das die Quervernetzungen synthetischer Hyaluronsäure spaltet. Das eingebrachte Material wird innerhalb kurzer Zeit in natürliche Bestandteile zerlegt und vom Körper resorbiert, sodass das Gewebe in seinen entspannten Ausgangszustand zurückkehrt.',
+    mechanism_en: 'Hyaluronidase is an enzyme that selectively breaks down the cross-links of synthetic hyaluronic acid. The filler material is quickly metabolised and naturally cleared by the body, allowing the tissue to return to its original state.',
+    procedure_de: 'Nach eingehender Untersuchung, exakter Lokalisierung der Depots und individueller Dosierungsplanung wird Hylase mit mikrofeinen Nadeln punktgenau injiziert. Die Behandlung dauert ca. 20 bis 30 Minuten und kann auf Wunsch mit einer lokalen Anästhesiecreme kombiniert werden.',
+    procedure_en: 'Following detailed assessment, precise localization of filler deposits, and tailored dosage planning, Hylase is injected with micro-fine needles. The procedure takes 20 to 30 minutes and can be combined with a topical numbing cream.',
+    duration: '20–30 Minuten', duration_en: '20–30 minutes',
+    downtime: '1–2 Tage leichte Schwellung / Rötung', downtime_en: '1–2 days mild swelling / redness',
+    results_onset: 'Erste Wirkung nach wenigen Stunden, Endresultat nach 3–7 Tagen', results_onset_en: 'Initial effect within hours, full resolution after 3–7 days',
+    results_duration: 'Dauerhaft aufgelöst', results_duration_en: 'Permanently dissolved',
+    price_from: 'Auf Anfrage', price_from_en: 'On request',
+    aftercare_de: 'Leichte Schwellung oder Rötung in den ersten 24 Stunden sanft kühlen. Für 48 Stunden intensive Hitze, Sport und Sauna meiden. Ein neuer Hyaluron-Aufbau (z. B. der Lippen) sollte frühestens nach 10 bis 14 Tagen erfolgen.',
+    aftercare_en: 'Gently cool the area during the first 24 hours. Avoid intense heat, saunas, and strenuous exercise for 48 hours. Fresh hyaluronic acid enhancement (e.g. lip filling) should be scheduled at least 10–14 days later.',
+    risks_de: 'Vorübergehende Schwellung, Rötung oder kleine Einstich-Hämatome sind normal. Allergische Reaktionen sind selten, werden aber durch eine gründliche Anamnese und ggf. Vorab-Testung minimiert.',
+    risks_en: 'Temporary swelling, redness, or small bruises are typical and resolve quickly. Allergic reactions are rare and minimized through comprehensive medical screening.',
+    contraindications_de: 'Bekannte Allergie gegen Hyaluronidase oder Bienen-/Wespengift, Schwangerschaft und Stillzeit sowie akute Entzündungen oder Infektionen im Behandlungsareal.',
+    contraindications_en: 'Known allergy to hyaluronidase or bee/wasp venom, pregnancy and breastfeeding, or active infections in the treatment area.',
+    faqs: [
+      {
+        q_de: 'Wann kann nach Hylase wieder neues Hyaluron aufgebaut werden?',
+        a_de: 'Wir empfehlen ein Intervall von mindestens 10 bis 14 Tagen. Sobald das Gewebe vollständig abgeschwollen und das alte Material abgebaut ist, kann ein neuer, harmonischer und präzise dosierter Aufbau erfolgen.',
+        q_en: 'When can new filler be injected after Hylase?',
+        a_en: 'We recommend waiting at least 10 to 14 days. Once the tissue has completely settled and the old material is fully cleared, a fresh, natural contouring can be performed.'
+      },
+      {
+        q_de: 'Wie schnell wirkt die Behandlung mit Hylase?',
+        a_de: 'Das Enzym beginnt unmittelbar nach der Injektion zu arbeiten. Erste spürbare und sichtbare Veränderungen treten bereits nach wenigen Stunden ein, das endgültige Ergebnis ist nach etwa 3 bis 7 Tagen erreicht.',
+        q_en: 'How quickly does Hylase take effect?',
+        a_en: 'The enzyme begins working immediately upon injection. Noticeable changes occur within hours, with the final result visible after 3 to 7 days.'
+      },
+      {
+        q_de: 'Greift Hylase mein eigenes Gewebe an?',
+        a_de: 'Hylase spaltet vor allem das synthetisch vernetzte Hyaluron. Das körpereigene Hyaluron im Bindegewebe kann kurzzeitig minimal mitreagieren, wird vom Körper jedoch innerhalb weniger Tage vollständig selbstständig wieder aufgebaut.',
+        q_en: 'Does Hylase damage natural tissue?',
+        a_en: 'Hylase predominantly targets the cross-linked synthetic filler. While natural tissue hyaluronic acid may experience minor transient depletion, the body fully regenerates it within days.'
+      }
+    ],
+    medical_reviewer: 'Barbara Matziris',
   },
 };

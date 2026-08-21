@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
 import PageHero from '@/components/PageHero';
 import FactGrid from '@/components/treatment/FactGrid';
