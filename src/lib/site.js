@@ -35,14 +35,14 @@ export const DEFAULT_DOCTORS = [
 
 Im Mittelpunkt ihres Behandlungsansatzes steht eine sorgfältige Analyse von Gesichtsanatomie, Proportionen und Mimik. Ihr Ziel ist nicht die Veränderung eines Gesichts, sondern eine individuell abgestimmte Behandlung, die Frische und Harmonie unterstützt und gleichzeitig die persönliche Ausdruckskraft bewahrt.
 
-Ihre Expertise in der ästhetischen Medizin vertiefte Barbara Matziris unter anderem durch zertifizierte Fortbildungen der Deutschen Gesellschaft für Ästhetische Botulinum- und Fillertherapie (DGBT) in den Bereichen Botulinumtoxin und Filler.
+Ihre Expertise in der ästhetischen Medizin vertiefte Barbara Matziris unter anderem durch zertifizierte Fortbildungen der Deutschen Gesellschaft für Ästhetische Botulinum- und Fillertherapie (DGBT) in den Bereichen Faltenbehandlung und Fillertherapie.
 
 Mit ihrer offenen und persönlichen Art legt sie besonderen Wert auf verständliche Beratung, realistische Erwartungen und Behandlungskonzepte, die medizinisch sinnvoll und ästhetisch zurückhaltend sind. Als ärztliche Leitung von Aurea Aesthetics verantwortet sie die medizinischen Standards der Klinik und begleitet Patientinnen und Patienten von der ersten Beratung bis zur Nachkontrolle.`,
     bio_en: `Barbara Matziris brings over ten years of experience in minimally invasive aesthetic medicine. Active as a physician in aesthetic treatments since 2010, her career path has taken her through Germany, Switzerland, and Togo — from dermatological practice to running her own aesthetic medicine clinic and serving as lead physician at an aesthetic clinic in Winterthur.
 
 At the core of her treatment philosophy is a precise analysis of facial anatomy, proportions, and expression. Her goal is not to change a face, but to provide individually tailored treatments that enhance freshness and harmony while preserving natural expressiveness.
 
-She deepened her expertise in aesthetic medicine through certified training with the German Society for Aesthetic Botulinum and Filler Therapy (DGBT) in botulinum toxin and fillers.
+She deepened her expertise in aesthetic medicine through certified training with the German Society for Aesthetic Botulinum and Filler Therapy (DGBT) in wrinkle treatments and fillers.
 
 With her open and personal approach, she places great importance on clear consultation, realistic expectations, and treatment concepts that are medically sound and aesthetically restrained. As Medical Director of Aurea Aesthetics, she oversees the clinic's medical standards and guides patients from initial consultation to follow-up.`,
     qualifications: [
@@ -53,7 +53,7 @@ With her open and personal approach, she places great importance on clear consul
       'Mehr als zehn Jahre Erfahrung in der ästhetischen Medizin',
       'Eigene Praxis für ästhetische Medizin · 2018–2026',
       'Leitende Ärztin einer ästhetischen Klinik in Winterthur · 2025–2026',
-      'Zertifizierte DGBT-Fortbildungen · Botulinumtoxin & Filler',
+      'Zertifizierte DGBT-Fortbildungen · Faltenbehandlung & Filler',
     ],
     qualifications_en: [
       'Specialist in General Medicine, Germany',
@@ -63,7 +63,7 @@ With her open and personal approach, she places great importance on clear consul
       'Over ten years of experience in aesthetic medicine',
       'Private Practice for Aesthetic Medicine · 2018–2026',
       'Lead Physician at an Aesthetic Clinic in Winterthur · 2025–2026',
-      'Certified DGBT Training · Botulinum Toxin & Fillers',
+      'Certified DGBT Training · Wrinkle Treatment & Fillers',
     ],
     focus: [
       'Faltenbehandlung',
