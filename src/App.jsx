@@ -17,6 +17,7 @@ import Faq from '@/pages/Faq';
 import Contact from '@/pages/Contact';
 import Aerztinnen from '@/pages/Aerztinnen';
 import Botulinumtoxin from '@/pages/behandlungen/Botulinumtoxin';
+import Faltenbehandlung from '@/pages/behandlungen/Faltenbehandlung';
 import HyaluronKonturierung from '@/pages/behandlungen/HyaluronKonturierung';
 import HautqualitaetRegeneration from '@/pages/behandlungen/HautqualitaetRegeneration';
 import Stirnfalten from '@/pages/behandlungen/Stirnfalten';
@@ -62,6 +63,7 @@ const AuthenticatedApp = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/behandlungen" element={<Behandlungen />} />
+          <Route path="/behandlungen/faltenbehandlung" element={<Faltenbehandlung />} />
           <Route path="/behandlungen/botulinumtoxin" element={<Botulinumtoxin />} />
           <Route path="/behandlungen/hyaluron-konturierung" element={<HyaluronKonturierung />} />
           <Route path="/behandlungen/hautqualitaet-regeneration" element={<HautqualitaetRegeneration />} />
@@ -88,6 +90,8 @@ const AuthenticatedApp = () => {
           {/* English mirrors */}
           <Route path="/en" element={<Home />} />
           <Route path="/en/behandlungen" element={<Behandlungen />} />
+          <Route path="/en/behandlungen/faltenbehandlung" element={<Faltenbehandlung />} />
+          <Route path="/en/behandlungen/wrinkle-treatment" element={<Faltenbehandlung />} />
           <Route path="/en/behandlungen/botulinumtoxin" element={<Botulinumtoxin />} />
           <Route path="/en/behandlungen/hyaluron-konturierung" element={<HyaluronKonturierung />} />
           <Route path="/en/behandlungen/hautqualitaet-regeneration" element={<HautqualitaetRegeneration />} />

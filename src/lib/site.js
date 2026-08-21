@@ -66,14 +66,14 @@ With her open and personal approach, she places great importance on clear consul
       'Certified DGBT Training · Botulinum Toxin & Fillers',
     ],
     focus: [
-      'Botulinumtoxin',
+      'Faltenbehandlung',
       'Hyaluronsäure',
       'Biostimulation',
       'Skin Quality',
       'Individuelle Behandlungskonzepte',
     ],
     focus_en: [
-      'Botulinum Toxin',
+      'Wrinkle Treatment',
       'Hyaluronic Acid',
       'Biostimulation',
       'Skin Quality',
@@ -137,14 +137,14 @@ Her goal is harmonious, naturally elegant results that are meticulously planned 
       'Practical Clinical Experience in Aesthetic Medicine · Germany',
     ],
     focus: [
-      'Botulinumtoxin',
+      'Faltenbehandlung',
       'Hyaluronsäure',
       'Ästhetik der Augenregion',
       'Mesotherapie',
       'Individuelle Gesichtsanalyse',
     ],
     focus_en: [
-      'Botulinum Toxin',
+      'Wrinkle Treatment',
       'Hyaluronic Acid',
       'Aesthetic Eye Region',
       'Mesotherapy',
